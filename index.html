@@ -643,48 +643,33 @@
     <div class="carousel-eyebrow">Quick Start Guide</div>
     <h2 class="carousel-title">Orchestrating with Empathy — 15 slides</h2>
     <div id="carousel" role="region" aria-label="Quick Start Guide slides">
-      <div id="carousel-track">
-        <img src="slide-01.png" alt="Slide 1 of 15" loading="eager">
-        <img src="slide-02.png" alt="Slide 2 of 15" loading="eager">
-        <img src="slide-03.png" alt="Slide 3 of 15" loading="eager">
-        <img src="slide-04.png" alt="Slide 4 of 15" loading="eager">
-        <img src="slide-05.png" alt="Slide 5 of 15" loading="eager">
-        <img src="slide-06.png" alt="Slide 6 of 15" loading="eager">
-        <img src="slide-07.png" alt="Slide 7 of 15" loading="eager">
-        <img src="slide-08.png" alt="Slide 8 of 15" loading="eager">
-        <img src="slide-09.png" alt="Slide 9 of 15" loading="eager">
-        <img src="slide-10.png" alt="Slide 10 of 15" loading="eager">
-        <img src="slide-11.png" alt="Slide 11 of 15" loading="eager">
-        <img src="slide-12.png" alt="Slide 12 of 15" loading="eager">
-        <img src="slide-13.png" alt="Slide 13 of 15" loading="eager">
-        <img src="slide-14.png" alt="Slide 14 of 15" loading="eager">
-        <img src="slide-15.png" alt="Slide 15 of 15" loading="eager">
-      </div>
-      <button class="carousel-btn" id="carousel-prev" onclick="step(-1)" aria-label="Previous slide">&#8249;</button>
-      <button class="carousel-btn" id="carousel-next" onclick="step(1)" aria-label="Next slide">&#8250;</button>
+      <img id="carousel-img" src="slide-01.png" alt="Slide 1 of 15"
+           style="width:100%;height:100%;object-fit:contain;background:#fff;display:block;">
+      <button class="carousel-btn" id="carousel-prev" onclick="cPrev()" aria-label="Previous slide">&#8249;</button>
+      <button class="carousel-btn" id="carousel-next" onclick="cNext()" aria-label="Next slide">&#8250;</button>
       <div id="carousel-progress"><div id="carousel-progress-bar"></div></div>
     </div>
     <div id="carousel-footer">
       <div class="carousel-dots">
-      <button class="carousel-dot active" onclick="goTo(0)" aria-label="Slide 1"></button>
-      <button class="carousel-dot" onclick="goTo(1)" aria-label="Slide 2"></button>
-      <button class="carousel-dot" onclick="goTo(2)" aria-label="Slide 3"></button>
-      <button class="carousel-dot" onclick="goTo(3)" aria-label="Slide 4"></button>
-      <button class="carousel-dot" onclick="goTo(4)" aria-label="Slide 5"></button>
-      <button class="carousel-dot" onclick="goTo(5)" aria-label="Slide 6"></button>
-      <button class="carousel-dot" onclick="goTo(6)" aria-label="Slide 7"></button>
-      <button class="carousel-dot" onclick="goTo(7)" aria-label="Slide 8"></button>
-      <button class="carousel-dot" onclick="goTo(8)" aria-label="Slide 9"></button>
-      <button class="carousel-dot" onclick="goTo(9)" aria-label="Slide 10"></button>
-      <button class="carousel-dot" onclick="goTo(10)" aria-label="Slide 11"></button>
-      <button class="carousel-dot" onclick="goTo(11)" aria-label="Slide 12"></button>
-      <button class="carousel-dot" onclick="goTo(12)" aria-label="Slide 13"></button>
-      <button class="carousel-dot" onclick="goTo(13)" aria-label="Slide 14"></button>
-      <button class="carousel-dot" onclick="goTo(14)" aria-label="Slide 15"></button>
+        <button class="carousel-dot active" onclick="cGoto(0)"></button>
+        <button class="carousel-dot" onclick="cGoto(1)"></button>
+        <button class="carousel-dot" onclick="cGoto(2)"></button>
+        <button class="carousel-dot" onclick="cGoto(3)"></button>
+        <button class="carousel-dot" onclick="cGoto(4)"></button>
+        <button class="carousel-dot" onclick="cGoto(5)"></button>
+        <button class="carousel-dot" onclick="cGoto(6)"></button>
+        <button class="carousel-dot" onclick="cGoto(7)"></button>
+        <button class="carousel-dot" onclick="cGoto(8)"></button>
+        <button class="carousel-dot" onclick="cGoto(9)"></button>
+        <button class="carousel-dot" onclick="cGoto(10)"></button>
+        <button class="carousel-dot" onclick="cGoto(11)"></button>
+        <button class="carousel-dot" onclick="cGoto(12)"></button>
+        <button class="carousel-dot" onclick="cGoto(13)"></button>
+        <button class="carousel-dot" onclick="cGoto(14)"></button>
       </div>
     </div>
     <div id="carousel-counter">Slide 1 of 15</div>
-    <div id="carousel-hint">Auto-advances every 10 seconds · Pauses on hover · ← → keys or swipe</div>
+    <div id="carousel-hint">Auto-advances every 10 seconds &middot; Pauses on hover &middot; &larr; &rarr; keys or swipe</div>
   </div>
 
   <!-- INTRO -->
@@ -1128,72 +1113,64 @@
 </main>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
-  // ── CAROUSEL ──────────────────────────────
-  (function() {
-    var slides  = document.querySelectorAll('#carousel-track img');
-    var dots    = document.querySelectorAll('.carousel-dot');
-    var counter = document.getElementById('carousel-counter');
-    var bar     = document.getElementById('carousel-progress-bar');
-    var car     = document.getElementById('carousel');
-    var total   = slides.length;
-    var current = 0;
-    var timer   = null;
-    var paused  = false;
-    var DELAY   = 10000;
+  
 
-    function show(n) {
-      current = ((n % total) + total) % total;
-      slides.forEach(function(s, i) {
-        s.classList.toggle('active-slide', i === current);
-      });
-      dots.forEach(function(d, i) {
-        d.classList.toggle('active', i === current);
-      });
-      if (counter) counter.textContent = 'Slide ' + (current + 1) + ' of ' + total;
-      startBar();
-      clearTimeout(timer);
-      if (!paused) timer = setTimeout(function() { show(current + 1); }, DELAY);
-    }
 
-    function startBar() {
-      if (!bar) return;
+  // CAROUSEL
+  var cIdx = 0;
+  var cTotal = 15;
+  var cTimer = null;
+  var cDelay = 10000;
+
+  function cShow(n) {
+    cIdx = ((n % cTotal) + cTotal) % cTotal;
+    var img = document.getElementById('carousel-img');
+    var ctr = document.getElementById('carousel-counter');
+    var dots = document.querySelectorAll('.carousel-dot');
+    var bar = document.getElementById('carousel-progress-bar');
+    if (img) img.src = 'slide-' + (cIdx < 9 ? '0' : '') + (cIdx + 1) + '.png';
+    if (ctr) ctr.textContent = 'Slide ' + (cIdx + 1) + ' of 15';
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === cIdx); });
+    if (bar) {
       bar.style.transition = 'none';
       bar.style.width = '0%';
       setTimeout(function() {
-        bar.style.transition = 'width ' + DELAY + 'ms linear';
+        bar.style.transition = 'width ' + cDelay + 'ms linear';
         bar.style.width = '100%';
-      }, 30);
+      }, 50);
     }
+    clearTimeout(cTimer);
+    cTimer = setTimeout(function() { cShow(cIdx + 1); }, cDelay);
+  }
 
-    window.goTo = function(n) { paused = false; show(n); };
-    window.step = function(d) { paused = false; show(current + d); };
+  function cNext() { cShow(cIdx + 1); }
+  function cPrev() { cShow(cIdx - 1); }
+  function cGoto(n) { cShow(n); }
+  window.goTo = cGoto;
+  window.step = function(d) { cShow(cIdx + d); };
 
-    if (car) {
-      car.addEventListener('mouseenter', function() {
-        paused = true;
-        clearTimeout(timer);
-        if (bar) { bar.style.transition = 'none'; }
-      });
-      car.addEventListener('mouseleave', function() {
-        paused = false;
-        show(current);
-      });
-      var startX = 0;
-      car.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
-      car.addEventListener('touchend', function(e) {
-        var dx = e.changedTouches[0].clientX - startX;
-        if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
-      }, {passive:true});
-    }
+  // Pause on hover
+  var cEl = document.getElementById('carousel');
+  if (cEl) {
+    cEl.addEventListener('mouseenter', function() { clearTimeout(cTimer); });
+    cEl.addEventListener('mouseleave', function() { cShow(cIdx); });
+    cEl.addEventListener('touchstart', function(e) { cEl._tx = e.touches[0].clientX; }, {passive:true});
+    cEl.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - (cEl._tx || 0);
+      if (Math.abs(dx) > 40) cShow(cIdx + (dx < 0 ? 1 : -1));
+    }, {passive:true});
+  }
 
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'ArrowRight') show(current + 1);
-      if (e.key === 'ArrowLeft')  show(current - 1);
-    });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') cShow(cIdx + 1);
+    if (e.key === 'ArrowLeft') cShow(cIdx - 1);
+  });
 
-    // Init
-    if (slides.length > 0) show(0);
-  })();
+  // Start timer
+  cTimer = setTimeout(function() { cShow(1); }, cDelay);
+  // Start bar
+  var bar0 = document.getElementById('carousel-progress-bar');
+  if (bar0) { setTimeout(function() { bar0.style.transition = 'width ' + cDelay + 'ms linear'; bar0.style.width = '100%'; }, 100); }
 
 </script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
   

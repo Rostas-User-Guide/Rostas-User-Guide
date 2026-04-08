@@ -57,12 +57,21 @@
   }
 
   #sidebar-header {
-    padding: 1.4rem 1.2rem 1rem;
+    padding: 1.2rem 1.2rem 1rem;
     border-bottom: 1px solid #2e4a6a;
     position: sticky;
     top: 0;
     background: var(--navy);
     z-index: 1;
+  }
+
+  #sidebar-logo {
+    display: block;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    border-radius: 14px;
+    margin: 0 auto 0.7rem;
   }
 
   #sidebar-header .church {
@@ -72,6 +81,7 @@
     color: var(--gold);
     font-weight: 600;
     margin-bottom: 4px;
+    text-align: center;
   }
 
   #sidebar-header h2 {
@@ -80,6 +90,57 @@
     font-weight: 600;
     color: #fff;
     line-height: 1.3;
+    text-align: center;
+  }
+
+  /* Audio player */
+  #audio-intro {
+    background: linear-gradient(135deg, #1a2e4a 0%, #2b4570 100%);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    margin: 1.5rem 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    box-shadow: 0 2px 12px rgba(26,46,74,0.15);
+  }
+
+  #audio-intro .audio-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  #audio-intro .audio-text {
+    flex: 1;
+  }
+
+  #audio-intro .audio-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  #audio-intro .audio-title {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  #audio-intro audio {
+    width: 100%;
+    height: 36px;
+    border-radius: 20px;
+    accent-color: var(--gold);
+  }
+
+  #audio-intro audio::-webkit-media-controls-panel {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
   }
 
   #toc { padding: 0.8rem 0; }
@@ -352,6 +413,7 @@
 <!-- ════ SIDEBAR ════════════════════════════════════ -->
 <nav id="sidebar" aria-label="Table of contents">
   <div id="sidebar-header">
+    <img id="sidebar-logo" src="Logo.png" alt="Rostas App logo">
     <div class="church">Knox Church Waitara</div>
     <h2>Rostas Coordinator Guide</h2>
   </div>
@@ -397,7 +459,20 @@
     <div class="eyebrow">Knox Church Waitara · April 2026</div>
     <h1>Rostas Coordinator Guide</h1>
     <p class="subtitle">A complete guide to building rosters, managing replacements, and protecting your volunteers' energy.</p>
-    <p class="meta">newsletters@waitara.org.nz</p>
+    <p class="meta"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="036d6674706f6677776671704374626a776271622d6c71642d6d79">[email&#160;protected]</a></p>
+  </div>
+
+  <!-- AUDIO INTRO -->
+  <div id="audio-intro">
+    <div class="audio-icon">🎧</div>
+    <div class="audio-text">
+      <div class="audio-label">Listen First</div>
+      <div class="audio-title">Introduction to Rostas — 2 min overview</div>
+      <audio controls preload="none">
+        <source src="rostas-intro.m4a" type="audio/mp4">
+        Your browser does not support audio playback.
+      </audio>
+    </div>
   </div>
 
   <!-- INTRO -->
@@ -829,35 +904,20 @@
 
   <div class="contact-card">
     <div class="name">📞 Contact Guy — 021 149 4306</div>
-    <div class="detail">newsletters@waitara.org.nz</div>
+    <div class="detail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aac4cfddd9c6cfdedecfd8d9eaddcbc3decbd8cb84c5d8cd84c4d0">[email&#160;protected]</a></div>
     <div class="note">When contacting Tech Support about an error, include the error message from the Status Dashboard and a description of what you were doing when it occurred.</div>
   </div>
 
   <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">
-  <p style="font-size:12px;color:var(--text-muted);text-align:center;">Knox Church Waitara · Rostas Coordinator Guide · April 2026 · newsletters@waitara.org.nz</p>
+  <p style="font-size:12px;color:var(--text-muted);text-align:center;">Knox Church Waitara · Rostas Coordinator Guide · April 2026 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="157b706266797061617067665562747c617467743b7a67723b7b6f">[email&#160;protected]</a></p>
   <div style="text-align:center;margin-top:1rem;"><a href="#cover" id="back-top">↑ Back to top</a></div>
 
 </main>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Highlight active TOC item on scroll
   const anchors = Array.from(document.querySelectorAll('[id]'));
   const links   = Array.from(document.querySelectorAll('.toc-item'));
 
   function setActive() {
-    const scrollY = window.scrollY || document.documentElement.scrollTop;
-    let current = '';
-    anchors.forEach(el => {
-      if (scrollY >= el.offsetTop - 100) current = el.id;
-    });
-    links.forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-    });
-  }
-
-  window.addEventListener('scroll', setActive, { passive: true });
-  document.getElementById('main').addEventListener('scroll', setActive, { passive: true });
-  setActive();
-</script>
-</body>
-</html>
+    const s

@@ -457,18 +457,20 @@
 
   #carousel-track img {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background: #fff;
     display: block;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
   }
 
   #carousel-track img.active-slide {
     opacity: 1;
+    pointer-events: auto;
   }
 
   .carousel-btn {
@@ -488,12 +490,25 @@
     justify-content: center;
     transition: background 0.15s;
     z-index: 10;
-    backdrop-filter: blur(4px);
   }
 
   .carousel-btn:hover { background: rgba(184,147,42,0.85); }
   #carousel-prev { left: 12px; }
   #carousel-next { right: 12px; }
+
+  #carousel-progress {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: rgba(255,255,255,0.15);
+    z-index: 10;
+  }
+
+  #carousel-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--gold);
+  }
 
   #carousel-footer {
     display: flex;
@@ -506,7 +521,6 @@
   #carousel-counter {
     font-size: 12px;
     color: var(--text-muted);
-    min-width: 60px;
     text-align: center;
   }
 
@@ -519,14 +533,12 @@
   }
 
   .carousel-dot {
-    width: 7px;
-    height: 7px;
+    width: 7px; height: 7px;
     border-radius: 50%;
     background: var(--border);
     cursor: pointer;
+    border: none; padding: 0;
     transition: background 0.2s, transform 0.2s;
-    border: none;
-    padding: 0;
   }
 
   .carousel-dot.active {
@@ -534,22 +546,11 @@
     transform: scale(1.3);
   }
 
-
-  #carousel-progress {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: rgba(255,255,255,0.15);
-    z-index: 10;
-  }
-
-  #carousel-progress-bar {
-    height: 100%;
-    width: 0%;
-    background: var(--gold);
-    transition: width 10s linear;
+  #carousel-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.3rem;
   }
 
   /* Keyboard hint */
@@ -626,7 +627,7 @@
 
   <!-- AUDIO INTRO -->
   <div id="audio-intro">
-    <div class="audio-icon">🎧</div>
+    <div class="audio-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
     <div class="audio-text">
       <div class="audio-label">Listen First</div>
       <div class="audio-title">Introduction to Rostas — 2 min overview</div>
@@ -643,21 +644,21 @@
     <h2 class="carousel-title">Orchestrating with Empathy — 15 slides</h2>
     <div id="carousel" role="region" aria-label="Quick Start Guide slides">
       <div id="carousel-track">
-        <img src="slide-01.png" alt="Quick Start Guide slide 1" loading="eager">
-        <img src="slide-02.png" alt="Quick Start Guide slide 2" loading="eager">
-        <img src="slide-03.png" alt="Quick Start Guide slide 3" loading="eager">
-        <img src="slide-04.png" alt="Quick Start Guide slide 4" loading="eager">
-        <img src="slide-05.png" alt="Quick Start Guide slide 5" loading="eager">
-        <img src="slide-06.png" alt="Quick Start Guide slide 6" loading="eager">
-        <img src="slide-07.png" alt="Quick Start Guide slide 7" loading="eager">
-        <img src="slide-08.png" alt="Quick Start Guide slide 8" loading="eager">
-        <img src="slide-09.png" alt="Quick Start Guide slide 9" loading="eager">
-        <img src="slide-10.png" alt="Quick Start Guide slide 1"0 loading="eager">
-        <img src="slide-11.png" alt="Quick Start Guide slide 1"1 loading="eager">
-        <img src="slide-12.png" alt="Quick Start Guide slide 1"2 loading="eager">
-        <img src="slide-13.png" alt="Quick Start Guide slide 1"3 loading="eager">
-        <img src="slide-14.png" alt="Quick Start Guide slide 1"4 loading="eager">
-        <img src="slide-15.png" alt="Quick Start Guide slide 1"5 loading="eager">
+        <img src="slide-01.png" alt="Slide 1 of 15" loading="eager">
+        <img src="slide-02.png" alt="Slide 2 of 15" loading="eager">
+        <img src="slide-03.png" alt="Slide 3 of 15" loading="eager">
+        <img src="slide-04.png" alt="Slide 4 of 15" loading="eager">
+        <img src="slide-05.png" alt="Slide 5 of 15" loading="eager">
+        <img src="slide-06.png" alt="Slide 6 of 15" loading="eager">
+        <img src="slide-07.png" alt="Slide 7 of 15" loading="eager">
+        <img src="slide-08.png" alt="Slide 8 of 15" loading="eager">
+        <img src="slide-09.png" alt="Slide 9 of 15" loading="eager">
+        <img src="slide-10.png" alt="Slide 10 of 15" loading="eager">
+        <img src="slide-11.png" alt="Slide 11 of 15" loading="eager">
+        <img src="slide-12.png" alt="Slide 12 of 15" loading="eager">
+        <img src="slide-13.png" alt="Slide 13 of 15" loading="eager">
+        <img src="slide-14.png" alt="Slide 14 of 15" loading="eager">
+        <img src="slide-15.png" alt="Slide 15 of 15" loading="eager">
       </div>
       <button class="carousel-btn" id="carousel-prev" onclick="step(-1)" aria-label="Previous slide">&#8249;</button>
       <button class="carousel-btn" id="carousel-next" onclick="step(1)" aria-label="Next slide">&#8250;</button>
@@ -683,9 +684,8 @@
       </div>
     </div>
     <div id="carousel-counter">Slide 1 of 15</div>
-    <div id="carousel-hint">Auto-advances every 10 seconds · Pauses on hover · ← → keys or swipe to navigate</div>
+    <div id="carousel-hint">Auto-advances every 10 seconds · Pauses on hover · ← → keys or swipe</div>
   </div>
-
 
   <!-- INTRO -->
   <h2 class="section-title" id="intro">Introduction</h2>
@@ -1127,77 +1127,76 @@
 </div>
 </main>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
   // ── CAROUSEL ──────────────────────────────
   (function() {
-    const track   = document.getElementById('carousel-track');
-    const counter = document.getElementById('carousel-counter');
-    const dots    = document.querySelectorAll('.carousel-dot');
-    const bar     = document.getElementById('carousel-progress-bar');
-    const total   = 15;
-    const DELAY   = 10000; // 10 seconds per slide
-    let current   = 0;
-    let startX    = 0;
-    let timer     = null;
-    let paused    = false;
+    var slides  = document.querySelectorAll('#carousel-track img');
+    var dots    = document.querySelectorAll('.carousel-dot');
+    var counter = document.getElementById('carousel-counter');
+    var bar     = document.getElementById('carousel-progress-bar');
+    var car     = document.getElementById('carousel');
+    var total   = slides.length;
+    var current = 0;
+    var timer   = null;
+    var paused  = false;
+    var DELAY   = 10000;
 
-    function resetBar() {
+    function show(n) {
+      current = ((n % total) + total) % total;
+      slides.forEach(function(s, i) {
+        s.classList.toggle('active-slide', i === current);
+      });
+      dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
+      });
+      if (counter) counter.textContent = 'Slide ' + (current + 1) + ' of ' + total;
+      startBar();
+      clearTimeout(timer);
+      if (!paused) timer = setTimeout(function() { show(current + 1); }, DELAY);
+    }
+
+    function startBar() {
       if (!bar) return;
       bar.style.transition = 'none';
       bar.style.width = '0%';
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        bar.style.transition = `width ${DELAY}ms linear`;
+      setTimeout(function() {
+        bar.style.transition = 'width ' + DELAY + 'ms linear';
         bar.style.width = '100%';
-      }));
+      }, 30);
     }
 
-    function goTo(n, userAction) {
-      current = (n + total) % total;
-      // Fade between slides using opacity
-      const imgs = track.querySelectorAll('img');
-      imgs.forEach((img, i) => img.classList.toggle('active-slide', i === current));
-      counter.textContent = `Slide ${current + 1} of ${total}`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
-      if (userAction) { paused = false; }
-      scheduleNext();
-      resetBar();
+    window.goTo = function(n) { paused = false; show(n); };
+    window.step = function(d) { paused = false; show(current + d); };
+
+    if (car) {
+      car.addEventListener('mouseenter', function() {
+        paused = true;
+        clearTimeout(timer);
+        if (bar) { bar.style.transition = 'none'; }
+      });
+      car.addEventListener('mouseleave', function() {
+        paused = false;
+        show(current);
+      });
+      var startX = 0;
+      car.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
+      car.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+      }, {passive:true});
     }
 
-    function scheduleNext() {
-      clearTimeout(timer);
-      if (!paused) {
-        timer = setTimeout(() => goTo(current + 1), DELAY);
-      }
-    }
-
-    window.goTo = (n) => goTo(n, true);
-    window.step = (dir) => goTo(current + dir, true);
-
-    // Pause on hover
-    const car = document.getElementById('carousel');
-    car.addEventListener('mouseenter', () => { paused = true; clearTimeout(timer); if(bar){bar.style.transition='none';} });
-    car.addEventListener('mouseleave', () => { paused = false; scheduleNext(); resetBar(); });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight') goTo(current + 1, true);
-      if (e.key === 'ArrowLeft')  goTo(current - 1, true);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') show(current + 1);
+      if (e.key === 'ArrowLeft')  show(current - 1);
     });
 
-    // Touch/swipe support
-    car.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
-    car.addEventListener('touchend',   e => {
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1), true);
-    }, {passive:true});
-
-    // Init first slide
-    const imgs = track.querySelectorAll('img');
-    if (imgs.length > 0) imgs[0].classList.add('active-slide');
-    // Start
-    scheduleNext();
-    resetBar();
+    // Init
+    if (slides.length > 0) show(0);
   })();
+
+</script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+  
 
 
   // Force-preload all carousel images regardless of visibility

@@ -174,7 +174,16 @@
   #main {
     flex: 1;
     min-width: 0;
-    padding: 2.5rem 3rem 4rem;
+    padding: 2.5rem 0 4rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  #main-inner {
+    width: 60%;
+    min-width: 480px;
+    max-width: 900px;
+    padding: 0 1rem;
   }
 
   /* Cover */
@@ -395,7 +404,8 @@
   @media (max-width: 768px) {
     body { flex-direction: column; }
     #sidebar { width: 100%; height: auto; position: relative; }
-    #main { padding: 1.5rem 1.2rem 3rem; max-width: 100%; }
+    #main { padding: 0; }
+    #main-inner { width: 100%; min-width: unset; padding: 1.5rem 1.2rem 3rem; }
     #toc { display: none; }
     .tl-grid { grid-template-columns: 1fr; }
   }
@@ -585,11 +595,19 @@
     <a class="toc-item toc-h2" href="#s13-add">Adding a New Volunteer</a>
     <a class="toc-item toc-h1" href="#s14">14. Settings &amp; Configuration</a>
     <a class="toc-item toc-h1" href="#s15">15. When to Contact Tech Support</a>
+
+    <div style="padding: 1.2rem 1.2rem 0.5rem; margin-top: 0.5rem; border-top: 1px solid #2e4a6a;">
+      <a href="Rostas_User_Guide.pdf" download
+         style="display:flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;text-decoration:none;padding:0.55rem 0.9rem;border-radius:5px;font-size:12px;font-weight:600;letter-spacing:0.04em;">
+        <span>⬇</span> Download PDF Guide
+      </a>
+    </div>
   </div>
 </nav>
 
 <!-- ════ MAIN ════════════════════════════════════════ -->
 <main id="main">
+<div id="main-inner">
 
   <!-- COVER -->
   <div id="cover">
@@ -1099,6 +1117,7 @@
   <p style="font-size:12px;color:var(--text-muted);text-align:center;">Knox Church Waitara · Rostas Coordinator Guide · April 2026</p>
   <div style="text-align:center;margin-top:1rem;"><a href="#cover" id="back-top">↑ Back to top</a></div>
 
+</div>
 </main>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">

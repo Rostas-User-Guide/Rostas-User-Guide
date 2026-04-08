@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rostas Coordinator Guide — Knox Church Waitara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2e4a;
+    --navy-mid: #2b4570;
+    --gold: #b8932a;
+    --gold-light: #f5e9c8;
+    --gold-pale: #fdf8ee;
+    --teal: #2a7d7b;
+    --teal-light: #e0f2f1;
+    --red: #c0392b;
+    --red-light: #fdecea;
+    --amber: #d97706;
+    --amber-light: #fef3c7;
+    --green: #2d7a4f;
+    --green-light: #e8f5ee;
+    --text: #1e2d3d;
+    --text-muted: #5a6a7e;
+    --border: #dde4ed;
+    --bg: #f7f9fb;
+    --sidebar-w: 270px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR ─────────────────────────── */
+  #sidebar {
+    width: var(--sidebar-w);
+    min-width: var(--sidebar-w);
+    background: var(--navy);
+    color: #c8d6e8;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 0 0 2rem;
+    flex-shrink: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #3a5a80 transparent;
+  }
+
+  #sidebar-header {
+    padding: 1.2rem 1.2rem 1rem;
+    border-bottom: 1px solid #2e4a6a;
+    position: sticky;
+    top: 0;
+    background: var(--navy);
+    z-index: 1;
+  }
+
+  #sidebar-logo {
+    display: block;
+    width: 144px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+    margin: 0 auto 0.7rem;
+  }
+
+  #sidebar-header .church {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+
+  #sidebar-header h2 {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  /* Audio player */
+  #audio-intro {
+    background: linear-gradient(135deg, #1a2e4a 0%, #2b4570 100%);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    margin: 1.5rem 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    box-shadow: 0 2px 12px rgba(26,46,74,0.15);
+  }
+
+  #audio-intro .audio-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  #audio-intro .audio-text {
+    flex: 1;
+  }
+
+  #audio-intro .audio-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  #audio-intro .audio-title {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  #audio-intro audio {
+    width: 100%;
+    height: 36px;
+    border-radius: 20px;
+    accent-color: var(--gold);
+  }
+
+  #audio-intro audio::-webkit-media-controls-panel {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+  }
+
+  #toc { padding: 0.8rem 0; }
+
+  .toc-part {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    padding: 1rem 1.2rem 0.3rem;
+  }
+
+  .toc-item {
+    display: block;
+    padding: 0.3rem 1.2rem;
+    color: #a8bdd4;
+    text-decoration: none;
+    font-size: 12.5px;
+    line-height: 1.35;
+    transition: all 0.15s;
+    border-left: 2px solid transparent;
+  }
+
+  .toc-item:hover { color: #fff; background: rgba(255,255,255,0.06); border-left-color: var(--gold); }
+  .toc-item.toc-h1 { color: #c8d6e8; font-weight: 500; padding-top: 0.4rem; padding-bottom: 0.4rem; }
+  .toc-item.toc-h2 { padding-left: 1.9rem; font-size: 11.5px; color: #849ab4; }
+  .toc-item.active { color: #fff; border-left-color: var(--gold); background: rgba(184,147,42,0.1); }
+
+  /* ── MAIN CONTENT ─────────────────────── */
+  #main {
+    flex: 1;
+    min-width: 0;
+    padding: 2.5rem 0 4rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  #main-inner {
+    width: 60%;
+    min-width: 480px;
+    max-width: 900px;
+    padding: 0 1rem;
+  }
+
+  /* Cover */
+  #cover {
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  #cover .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  #cover h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  #cover .subtitle {
+    color: var(--text-muted);
+    font-size: 14.5px;
+    font-style: italic;
+    margin-bottom: 0.7rem;
+  }
+
+  #cover .meta { font-size: 12px; color: var(--text-muted); }
+
+  /* Part banners */
+  .part-banner {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 6px;
+    padding: 1rem 1.4rem;
+    margin: 2.5rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .part-banner .part-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .part-banner .part-title { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 600; }
+  .part-banner .part-sub { font-size: 12px; color: #a8bdd4; margin-top: 2px; }
+
+  /* Section headings */
+  h2.section-title {
+    font-family: 'Lora', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--navy);
+    border-bottom: 2px solid var(--gold-light);
+    padding-bottom: 0.4rem;
+    margin: 2.2rem 0 1rem;
+  }
+
+  h3.sub-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin: 1.4rem 0 0.5rem;
+  }
+
+  p { margin-bottom: 0.8rem; }
+  ul, ol { margin: 0.5rem 0 0.9rem 1.5rem; }
+  li { margin-bottom: 0.3rem; }
+  code {
+    font-family: 'Courier New', monospace;
+    font-size: 12.5px;
+    background: #eef1f6;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--navy-mid);
+  }
+
+  /* Step boxes */
+  .step-box {
+    background: var(--gold-pale);
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+    padding: 0.8rem 1.1rem;
+    margin: 1rem 0;
+  }
+
+  .step-box .step-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .step-box p { margin: 0; font-size: 14px; }
+
+  /* Callout boxes */
+  .callout {
+    border-radius: 5px;
+    padding: 0.75rem 1.1rem;
+    margin: 1rem 0;
+    font-size: 14px;
+    line-height: 1.55;
+    border-left: 4px solid;
+  }
+
+  .callout-warn  { background: var(--amber-light); border-color: var(--amber); color: #7c4a00; }
+  .callout-tip   { background: var(--teal-light);  border-color: var(--teal);  color: #1a4a49; }
+  .callout-info  { background: #e8f0fb;            border-color: #4a7cd4;      color: #1a3366; }
+  .callout-icon  { font-weight: 700; margin-right: 4px; }
+
+  /* Tables */
+  .tbl-wrap { overflow-x: auto; margin: 1rem 0; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+
+  thead tr { background: var(--navy); color: #fff; }
+  thead th { padding: 0.6rem 0.8rem; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.04em; }
+  tbody tr:nth-child(even) { background: #f4f7fb; }
+  tbody td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .tick { color: var(--green); font-weight: 700; }
+  .dash { color: var(--text-muted); }
+
+  /* Traffic light */
+  .tl-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; margin: 1rem 0; }
+
+  .tl-card { border-radius: 6px; padding: 0.8rem 1rem; font-size: 13px; line-height: 1.4; }
+  .tl-green { background: var(--green-light); border-top: 3px solid var(--green); }
+  .tl-amber { background: var(--amber-light); border-top: 3px solid var(--amber); }
+  .tl-red   { background: var(--red-light);   border-top: 3px solid var(--red); }
+  .tl-card .tl-label { font-weight: 700; margin-bottom: 3px; font-size: 13.5px; }
+
+  /* Screenshots */
+  .screenshot {
+    display: block;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+    margin: 1rem 0 0.4rem;
+  }
+
+  .screenshot-sm {
+    display: block;
+    max-width: 280px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin: 1rem 0 0.4rem;
+  }
+
+  .screenshot-mid {
+    display: block;
+    max-width: 480px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin: 1rem 0 0.4rem;
+  }
+
+  figcaption, .img-caption {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  /* Contact card */
+  .contact-card {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    padding: 1.1rem 1.4rem;
+    margin: 1rem 0;
+    font-size: 14px;
+  }
+
+  .contact-card .name { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; }
+  .contact-card .detail { color: #a8bdd4; margin-top: 2px; }
+  .contact-card .note { font-size: 12.5px; color: #849ab4; margin-top: 0.5rem; font-style: italic; }
+
+  #back-top {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.4rem 0.9rem;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    #sidebar { width: 100%; height: auto; position: relative; }
+    #main { padding: 0; }
+    #main-inner { width: 100%; min-width: unset; padding: 1.5rem 1.2rem 3rem; }
+    #toc { display: none; }
+    .tl-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    #sidebar { display: none; }
+    #main { max-width: 100%; padding: 1rem; }
+    .screenshot, .screenshot-mid, .screenshot-sm { box-shadow: none; }
+  }
+
+  /* ── SLIDE CAROUSEL ─────────────────────── */
+  #carousel-section {
+    margin: 0 0 2.5rem;
+  }
+
+  #carousel-section .carousel-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  #carousel-section h2.carousel-title {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.9rem;
+    border: none;
+    padding: 0;
+  }
+
+  #carousel {
+    position: relative;
+    background: var(--navy);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(26,46,74,0.18);
+    aspect-ratio: 16/9;
+  }
+
+  #carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  #carousel-track img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fff;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  #carousel-track img.active-slide {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(26,46,74,0.75);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    z-index: 10;
+  }
+
+  .carousel-btn:hover { background: rgba(184,147,42,0.85); }
+  #carousel-prev { left: 12px; }
+  #carousel-next { right: 12px; }
+
+  #carousel-progress {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: rgba(255,255,255,0.15);
+    z-index: 10;
+  }
+
+  #carousel-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--gold);
+  }
+
+  #carousel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 0.6rem;
+  }
+
+  #carousel-counter {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 300px;
+  }
+
+  .carousel-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    border: none; padding: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .carousel-dot.active {
+    background: var(--gold);
+    transform: scale(1.3);
+  }
+
+  #carousel-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.3rem;
+  }
+
+  /* Keyboard hint */
+  #carousel-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.3rem;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ════ SIDEBAR ════════════════════════════════════ -->
+<nav id="sidebar" aria-label="Table of contents">
+  <div id="sidebar-header">
+    <img id="sidebar-logo" src="Logo.png" alt="Rostas App logo">
+    <div class="church">Knox Church Waitara</div>
+    <h2>Rostas Coordinator Guide</h2>
+  </div>
+  <div id="toc">
+    <a class="toc-item toc-h1" href="#intro">Introduction</a>
+    <a class="toc-item toc-h1" href="#who-what">Who Can Do What</a>
+
+    <div class="toc-part">Part B — Roster Coordinator</div>
+    <a class="toc-item toc-h1" href="#s1">1. Getting Started</a>
+    <a class="toc-item toc-h2" href="#s1-views">The Rostas Views</a>
+    <a class="toc-item toc-h2" href="#s1-results">Reading Results</a>
+    <a class="toc-item toc-h1" href="#s2">2. The Roster Cycle</a>
+    <a class="toc-item toc-h1" href="#s3">3. Step 0 — Refresh Calendar</a>
+    <a class="toc-item toc-h1" href="#s4">4. Step 2 — Role Preferences</a>
+    <a class="toc-item toc-h2" href="#s4a">Option A — Volunteers Set Own</a>
+    <a class="toc-item toc-h2" href="#s4b">Option B — You Set on Their Behalf</a>
+    <a class="toc-item toc-h1" href="#s5">5. Volunteer Frequency Settings</a>
+    <a class="toc-item toc-h1" href="#s6">6. Step 3 — Availability Emails</a>
+    <a class="toc-item toc-h2" href="#s6-missed">Missed the email?</a>
+    <a class="toc-item toc-h1" href="#s7">7. Step 4 — Build the Roster</a>
+    <a class="toc-item toc-h2" href="#s7-tiers">Four Priority Tiers</a>
+    <a class="toc-item toc-h2" href="#s7-traffic">Traffic Light System</a>
+    <a class="toc-item toc-h2" href="#s7-edit">Editing Before Sending</a>
+    <a class="toc-item toc-h1" href="#s8">8. Step 6 — Preview</a>
+    <a class="toc-item toc-h1" href="#s9">9. Step 5 — Send Notifications</a>
+    <a class="toc-item toc-h1" href="#s10">10. Manual Replacement</a>
+    <a class="toc-item toc-h1" href="#s11">11. SMS Replacement Chain</a>
+    <a class="toc-item toc-h1" href="#s12">12. Status Dashboard</a>
+
+    <div class="toc-part">Part C — Overall Coordinator</div>
+    <a class="toc-item toc-h1" href="#s13">13. Step 1 — Volunteer Sync</a>
+    <a class="toc-item toc-h2" href="#s13-add">Adding a New Volunteer</a>
+    <a class="toc-item toc-h1" href="#s14">14. Settings &amp; Configuration</a>
+    <a class="toc-item toc-h1" href="#s15">15. When to Contact Tech Support</a>
+
+    <div style="padding: 1.2rem 1.2rem 0.5rem; margin-top: 0.5rem; border-top: 1px solid #2e4a6a;">
+      <a href="Rostas_User_Guide.pdf" download
+         style="display:flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;text-decoration:none;padding:0.55rem 0.9rem;border-radius:5px;font-size:12px;font-weight:600;letter-spacing:0.04em;">
+        <span>⬇</span> Download PDF Guide
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════ MAIN ════════════════════════════════════════ -->
+<main id="main">
+<div id="main-inner">
+
+  <!-- COVER -->
+  <div id="cover">
+    <div class="eyebrow">Knox Church Waitara · April 2026</div>
+    <h1>Rostas Coordinator Guide</h1>
+    <p class="subtitle">A complete guide to building rosters, managing replacements, and protecting your volunteers' energy.</p>
+    <p class="meta">Knox Church Waitara</p>
+  </div>
+
+  <!-- AUDIO INTRO -->
+  <div id="audio-intro">
+    <div class="audio-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
+    <div class="audio-text">
+      <div class="audio-label">Listen First</div>
+      <div class="audio-title">Introduction to Rostas — 2 min overview</div>
+      <audio controls preload="none">
+        <source src="rostas-intro.m4a" type="audio/mp4">
+        Your browser does not support audio playback.
+      </audio>
+    </div>
+  </div>
+
+  <!-- QUICK START CAROUSEL -->
+  <div id="carousel-section">
+    <div class="carousel-eyebrow">Quick Start Guide</div>
+    <h2 class="carousel-title">Orchestrating with Empathy — 15 slides</h2>
+    <div id="carousel" role="region" aria-label="Quick Start Guide slides">
+      <img id="carousel-img" src="slide-01.png" alt="Slide 1 of 15"
+           style="width:100%;height:100%;object-fit:contain;background:#fff;display:block;">
+      <button class="carousel-btn" id="carousel-prev" onclick="cPrev()" aria-label="Previous slide">&#8249;</button>
+      <button class="carousel-btn" id="carousel-next" onclick="cNext()" aria-label="Next slide">&#8250;</button>
+      <div id="carousel-progress"><div id="carousel-progress-bar"></div></div>
+    </div>
+    <div id="carousel-footer">
+      <div class="carousel-dots">
+        <button class="carousel-dot active" onclick="cGoto(0)"></button>
+        <button class="carousel-dot" onclick="cGoto(1)"></button>
+        <button class="carousel-dot" onclick="cGoto(2)"></button>
+        <button class="carousel-dot" onclick="cGoto(3)"></button>
+        <button class="carousel-dot" onclick="cGoto(4)"></button>
+        <button class="carousel-dot" onclick="cGoto(5)"></button>
+        <button class="carousel-dot" onclick="cGoto(6)"></button>
+        <button class="carousel-dot" onclick="cGoto(7)"></button>
+        <button class="carousel-dot" onclick="cGoto(8)"></button>
+        <button class="carousel-dot" onclick="cGoto(9)"></button>
+        <button class="carousel-dot" onclick="cGoto(10)"></button>
+        <button class="carousel-dot" onclick="cGoto(11)"></button>
+        <button class="carousel-dot" onclick="cGoto(12)"></button>
+        <button class="carousel-dot" onclick="cGoto(13)"></button>
+        <button class="carousel-dot" onclick="cGoto(14)"></button>
+      </div>
+    </div>
+    <div id="carousel-counter">Slide 1 of 15</div>
+    <div id="carousel-hint">Auto-advances every 10 seconds &middot; Pauses on hover &middot; &larr; &rarr; keys or swipe</div>
+  </div>
+
+  <!-- INTRO -->
+  <h2 class="section-title" id="intro">Introduction</h2>
+  <p>Rostas is the coordinator app for managing Knox Church Waitara's volunteer rosters. It builds rosters for Sunday services, Music team, and Nourish (fortnightly), connects to Infoodle for volunteer data, and handles notifications, reminders, and SMS replacements automatically.</p>
+  <p>This guide covers everything you need: from collecting availability through to handling replacements. <strong>Part B</strong> covers Roster Coordinator tasks. <strong>Part C</strong> covers additional Overall Coordinator tasks (Lisa &amp; Sharon).</p>
+
+  <!-- WHO CAN DO WHAT -->
+  <h2 class="section-title" id="who-what">Who Can Do What</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Roster Coordinator</th>
+          <th>Overall Coordinator</th>
+          <th>Technical Owner (Guy)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Send availability emails</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Role preference setup</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Volunteer frequency settings</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Build, preview &amp; send roster</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Season editing</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Manual volunteer replacement</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Volunteer sync from Infoodle</td><td class="dash">—</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Config &amp; settings</td><td class="dash">—</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Adding volunteers (via Infoodle)</td><td class="dash">—</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Adding a new roster type</td><td class="dash">—</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+        <tr><td>Apps Script / technical changes</td><td class="dash">—</td><td class="dash">—</td><td class="tick">✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px;color:var(--text-muted);">Part B covers all tasks marked ✓ for Roster Coordinators. Part C covers the additional tasks available to Overall Coordinators only.</p>
+
+  <!-- PART B -->
+  <div class="part-banner" id="part-b">
+    <span class="part-label">Part B</span>
+    <span class="part-title">Roster Coordinator</span>
+    <span class="part-sub">Sunday Coordinator · Music Coordinator · Nourish Coordinator</span>
+  </div>
+
+  <!-- S1 -->
+  <h2 class="section-title" id="s1">1. Getting Started with Rostas</h2>
+  <p>Rostas is built primarily for desktop access, though it can also be used on a tablet or mobile phone. Your coordinator will send you a link or invite when you are set up.</p>
+
+  <h3 class="sub-title" id="s1-views">The Rostas Views</h3>
+  <p>When you open Rostas you will see these views in the left-hand sidebar. Tap the relevant view to navigate to that area of the system.</p>
+
+  <figure>
+    <img src="nav-sidebar.png" alt="Rostas sidebar navigation showing all views" class="screenshot-sm">
+    <figcaption>The Rostas left-hand sidebar — tap any view to navigate to that area.</figcaption>
+  </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">📋</span>
+    <strong>The Run Commands view is your main working area.</strong> This is where you trigger all roster actions — sending emails, building the roster, and sending notifications. Each button runs a single action and shows you the result when it is done. After tapping a button, Rostas queues the action and runs it within a minute. A <em>Complete</em> message appears in the Result column when done — always check this before moving on.
+  </div>
+
+  <figure>
+    <img src="run-commands.png" alt="Run Commands view showing all roster action buttons" class="screenshot">
+    <figcaption>Run Commands — your main working area. Each button triggers one roster action. The Command history panel shows results.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="s1-results">Reading Results</h3>
+  <p>Every action writes a result message in the Command history panel. Common results:</p>
+  <ul>
+    <li><strong>Filled: 12, Pending: 3, Unfilled: 0</strong> — roster built successfully. Pending means a volunteer marked Unsure but has been provisionally assigned.</li>
+    <li><strong>Unfilled: 2</strong> — two slots could not be filled. Review the roster and handle manually.</li>
+    <li><strong>Sent to: 14 volunteers</strong> — notification emails dispatched.</li>
+    <li><strong>Error: …</strong> — something went wrong. Note the message and contact tech support if it repeats.</li>
+  </ul>
+
+  <!-- S2 -->
+  <h2 class="section-title" id="s2">2. The Roster Cycle</h2>
+  <p>Each roster follows the same sequence of steps. Run them in order — skipping a step or running them out of order can produce unexpected results.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Step</th><th>Action</th><th>What it does</th><th>Who</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>0</strong></td><td><strong>Refresh calendar</strong></td><td>Recalculates season dates, overlays NZ public and school holidays.</td><td>Roster Coordinator</td></tr>
+        <tr><td><strong>1</strong></td><td><strong>Sync volunteers</strong></td><td>Pulls latest volunteer data from Infoodle (auto 2am or manual).</td><td>Overall Coordinator</td></tr>
+        <tr><td><strong>2</strong></td><td><strong>Role preferences</strong></td><td>Send role picker emails so volunteers set their roles — or set them yourself.</td><td>Roster Coordinator</td></tr>
+        <tr><td><strong>3</strong></td><td><strong>Send availability emails</strong></td><td>Ask volunteers which dates they are available for.</td><td>Roster Coordinator</td></tr>
+        <tr><td><strong>3b</strong></td><td><strong>Check frequency settings</strong></td><td>Set a monthly cap per roster type per volunteer.</td><td>Roster Coordinator</td></tr>
+        <tr><td><strong>4</strong></td><td><strong>Build roster</strong></td><td>System assigns volunteers to roles based on availability &amp; preferences.</td><td>Roster Coordinator</td></tr>
+        <tr><td><strong>6</strong></td><td><strong>Preview communications</strong></td><td>Check email template formatting, names, dates before sending.</td><td>Roster Coordinator</td></tr>
+        <tr><td><strong>5</strong></td><td><strong>Send notifications</strong></td><td>Volunteers receive assignment email and SMS.</td><td>Roster Coordinator</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout callout-tip">
+    <span class="callout-icon">⏰</span>
+    <strong>Timing tip:</strong> Send availability emails at least 2–3 weeks before the first date of the new season. Allow volunteers 5–7 days to respond before building the roster.
+  </div>
+
+  <!-- S3 -->
+  <h2 class="section-title" id="s3">3. Step 0 — Refresh the Seasons Calendar</h2>
+  <p>Run this at the start of each roster build and any time you make changes to season dates. It recalculates all roster dates, overlays NZ public holidays and school holidays, and updates the calendar view.</p>
+  <div class="step-box">
+    <div class="step-label">Step 0 — Refresh calendar</div>
+    <p>In Rostas → Run Commands, tap <strong>0. Refresh calendar</strong>. Wait for the result message to confirm completion. Check the Seasons Calendar view to confirm dates look correct.</p>
+  </div>
+
+  <figure>
+    <img src="seasons-dashboard.png" alt="Seasons Dashboard calendar view showing roster dates and NZ public holidays" class="screenshot">
+    <figcaption>Seasons Dashboard — calendar view with season dates, public holidays, and school holidays overlaid. The right panel shows season details for editing.</figcaption>
+  </figure>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    Always run Step 0 after editing season start/end dates, adding a new season, or at the beginning of a new roster cycle.
+  </div>
+
+  <!-- S4 -->
+  <h2 class="section-title" id="s4">4. Step 2 — Role Preferences</h2>
+  <p>Role preferences tell the system which roles each volunteer is willing to do. The system needs this information before it can build the roster.</p>
+
+  <h3 class="sub-title" id="s4a">Option A — Volunteers Set Their Own Preferences</h3>
+  <p>Volunteers receive a personalised link and tap through each role, choosing <em>'Yes I do this'</em>, <em>'Happy to fill in'</em>, or <em>'Not for me'</em>.</p>
+  <div class="step-box">
+    <div class="step-label">Step 2 — Send role preference emails</div>
+    <p>In Rostas → Run Commands, tap <strong>2. Send role preference emails</strong>. Volunteers receive an email with a personalised link. Allow a few days for responses before building the roster. Check who has responded in the Volunteers Roles view.</p>
+  </div>
+
+  <h3 class="sub-title" id="s4b">Option B — You Set Preferences on Their Behalf</h3>
+  <p>If a volunteer is not comfortable using the link, or for new volunteers who have not yet set preferences, you can set their roles directly in Rostas.</p>
+  <p>Open the <strong>Volunteers Roles</strong> view. Select the volunteer on the left, then review and edit their role assignments on the right.</p>
+
+  <figure>
+    <img src="volunteers-roles.png" alt="Volunteers Roles view — volunteer list on left, role assignments on right" class="screenshot">
+    <figcaption>Volunteers Roles view — select a volunteer on the left to see and edit their role assignments on the right.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="roles-list.png" alt="Roles List view showing all active roles with min/max people and status" class="screenshot">
+    <figcaption>Roles List view — all active roles with minimum and maximum people required. Tap a role to view or edit its details.</figcaption>
+  </figure>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>When to use each option:</strong> The Roles List view shows all active roles and their settings. The Volunteers Roles view shows per-volunteer assignments. Send the email link at the start of a new season; set preferences directly in Rostas for day-to-day adjustments or less tech-confident volunteers.
+  </div>
+
+  <!-- S5 -->
+  <h2 class="section-title" id="s5">5. Volunteer Frequency Settings</h2>
+  <p>Frequency settings control how many times per month a volunteer can be rostered for a given roster type. The roster engine strictly enforces these caps.</p>
+
+  <h3 class="sub-title">To set or update frequency:</h3>
+  <ol>
+    <li>In Rostas, go to the <strong>Individual Details</strong> view. Select the volunteer from the left panel.</li>
+    <li>Use the arrow buttons (‹ ›) to switch between roster types if the volunteer serves in more than one.</li>
+    <li>In the <strong>Max Days Rostered</strong> panel (bottom centre), tap 1, 2, 3, or 4 to set the monthly maximum. The default is 4 for weekly rosters, 2 for fortnightly rosters.</li>
+    <li>Add a note if helpful (e.g. <em>'4th Monday only'</em> or <em>'family commitments'</em>).</li>
+    <li>Save. The change takes effect at the next roster build.</li>
+  </ol>
+
+  <figure>
+    <img src="volunteer-details.png" alt="Volunteer Details view showing current roster, max days rostered, and availability requests panels" class="screenshot">
+    <figcaption>Individual Details view — Current Roster (centre), Max Days Rostered (bottom centre), and Availability Requests (right).</figcaption>
+  </figure>
+
+  <figure>
+    <img src="max-days-rostered.png" alt="Max Days Rostered panel showing 1-2-3-4 monthly cap selector" class="screenshot-mid">
+    <figcaption>Max Days Rostered panel — tap a number to set the monthly cap for that roster type. Use the arrows to switch between roster types.</figcaption>
+  </figure>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Frequency caps are enforced automatically at roster build time.</strong> A volunteer who has already reached their monthly cap will not be assigned to any further dates in that month, even if they are marked Available.
+  </div>
+
+  <!-- S6 -->
+  <h2 class="section-title" id="s6">6. Step 3 — Send Availability Emails</h2>
+  <p>Availability emails go to all active volunteers for your roster type. Each volunteer receives a personalised link showing the upcoming dates. They tap each date to mark themselves Available, Unsure, or Can't make it, then tap Save.</p>
+  <div class="step-box">
+    <div class="step-label">Step 3 — Send availability emails</div>
+    <p>In Rostas → Run Commands, tap <strong>3. Send availability emails</strong>. The result confirms how many emails were sent. Allow 5–7 days for volunteers to respond. Volunteers who do not respond are treated as Unavailable at roster build time.</p>
+  </div>
+
+  <figure>
+    <img src="run-commands-avail.png" alt="Run Commands view scrolled to show availability email and build roster buttons" class="screenshot">
+    <figcaption>Run Commands — Step 3 (Send availability emails) and Step 4 (Build roster) buttons. The Command history panel on the right shows completed actions.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="availability-email.png" alt="The availability email volunteers receive with a personalised Update My Availability button" class="screenshot-mid">
+    <figcaption>The availability email volunteers receive — a personalised link takes them straight to the form.</figcaption>
+  </figure>
+
+  <div class="callout callout-info" style="display:grid;gap:0.4rem;">
+    <strong>The Three Availability States</strong>
+    <div>✅ <strong>Available</strong> — The default starting state for all dates.</div>
+    <div>❓ <strong>Unsure</strong> — Signals caution. The volunteer may be provisionally assigned.</div>
+    <div>❌ <strong>Can't make it</strong> — Immediately removes them from the scheduling pool for that date.</div>
+    <div style="font-size:13px;margin-top:4px;color:#2a4a7a;">Everything starts as Available — volunteers only spend time changing the dates they cannot make.</div>
+  </div>
+
+  <figure>
+    <img src="availability-form.png" alt="Availability form showing date cards with Available and Can't make it states" class="screenshot">
+    <figcaption>The availability form — volunteers tap each date card to cycle through Available, Unsure, and Can't make it, then tap Save.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="s6-missed">What if someone missed the email?</h3>
+  <p>You can update a volunteer's availability directly in Rostas via the <strong>Individual Details</strong> view. Select the volunteer from the left panel, then use the Availability Requests panel (bottom right) to find the date and update their status.</p>
+
+  <!-- S7 -->
+  <h2 class="section-title" id="s7">7. Step 4 — Build the Roster</h2>
+  <p>The roster engine assigns volunteers to roles based on their availability and role preferences. It works through four priority tiers and within each tier selects the volunteer who has been rostered least recently.</p>
+
+  <h3 class="sub-title" id="s7-tiers">The Four Priority Tiers</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Tier</th><th>Availability</th><th>Role Match</th><th>Sort within tier</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td>✅ Available</td><td>Primary role (Yes, I do this)</td><td>Fewest assignments in lookback window, then longest since this specific role</td></tr>
+        <tr><td><strong>2</strong></td><td>✅ Available</td><td>Fillable role (Happy to fill in)</td><td>Same as Tier 1</td></tr>
+        <tr><td><strong>3</strong></td><td>❓ Unsure</td><td>Primary role</td><td>Same as Tier 1</td></tr>
+        <tr><td><strong>4</strong></td><td>❓ Unsure</td><td>Fillable role</td><td>Same as Tier 1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step 4 — Build roster</div>
+    <p>In Rostas → Run Commands, tap <strong>4. Build roster</strong>. The Music roster can take up to 10 minutes — this is normal. The system builds the next 8 weeks of dates by default (configurable per roster type in Settings — <code>ROSTER_BUILD_WEEKS_{Type}</code>). Check the result message: Filled, Pending, and Unfilled counts. Review the roster in the Global Roster view before sending.</p>
+  </div>
+
+  <h3 class="sub-title" id="s7-traffic">Reviewing the Result — The Traffic Light System</h3>
+  <div class="tl-grid">
+    <div class="tl-card tl-green">
+      <div class="tl-label">🟢 Filled</div>
+      Volunteer confirmed and ready. No action needed.
+    </div>
+    <div class="tl-card tl-amber">
+      <div class="tl-label">🟡 Pending</div>
+      Provisionally assigned (volunteer marked Unsure). Monitor.
+    </div>
+    <div class="tl-card tl-red">
+      <div class="tl-label">🔴 Unfilled</div>
+      No suitable volunteer was found. Attempt to fill before sending.
+    </div>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Do not send notifications until you have reviewed the roster.</strong> Check for Unfilled slots and any obvious problems first. Once notifications are sent, volunteers receive their assignments immediately.
+  </div>
+
+  <h3 class="sub-title" id="s7-edit">Editing the Roster Before Sending</h3>
+  <p>In the Global Roster view, tap or click any assignment to open the edit panel on the right. You will see three options:</p>
+  <ul>
+    <li><strong>Replace Volunteer</strong> — a dropdown offers a list of suitable replacement volunteers.</li>
+    <li><strong>Save as Filled</strong> — manually confirm a Pending (Unsure) assignment.</li>
+    <li><strong>Save as Declined</strong> — this automatically starts the SMS replacement chain to find a substitute.</li>
+  </ul>
+
+  <figure>
+    <img src="global-roster.png" alt="Global Roster day view with assignment edit panel showing Save As Filled, Save As Declined and Swap Volunteer buttons" class="screenshot">
+    <figcaption>Global Roster Day view — tap any assignment to open the edit panel on the right. Use Save as Declined to start the automated SMS replacement chain.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="replace-buttons.png" alt="Assignment edit panel showing Save As Filled, Save As Declined and Replace Volunteer buttons with a Pending status" class="screenshot-mid">
+    <figcaption>The assignment edit panel — Save As Filled confirms a Pending assignment; Save As Declined starts the SMS replacement chain; Swap Volunteer lets you manually select a replacement.</figcaption>
+  </figure>
+
+  <!-- S8 -->
+  <h2 class="section-title" id="s8">8. Step 6 — Preview Communications</h2>
+  <p>Before sending notifications, use the Preview button to see exactly what the notification email and SMS will look like. This is the same view volunteers will see.</p>
+  <div class="step-box">
+    <div class="step-label">Step 6 — Preview communications</div>
+    <p>In Rostas → Run Commands, tap <strong>6. Preview communications</strong>. A browser page opens showing the notification email template. Check volunteer names, roles, dates, and links all look correct. You can also adjust the wording of SMS messages here. Close the preview and proceed to Step 5 when satisfied.</p>
+  </div>
+
+  <figure>
+    <img src="preview-comms.png" alt="Preview Communication view showing roster list on left and web preview panel on right with Open PWA button" class="screenshot">
+    <figcaption>Preview Communication view — select a roster on the left, then tap Open PWA to see the full email template. Check names, roles, dates, and the Can't make it button.</figcaption>
+  </figure>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    Keep any wording changes generic and appropriate for all roster types, or revert changes afterwards so the next coordinator does not encounter problems.
+  </div>
+
+  <!-- S9 -->
+  <h2 class="section-title" id="s9">9. Step 5 — Send Notifications</h2>
+  <p>Notifications go to every volunteer with a Filled or Pending assignment. Each volunteer receives an email with their role and date, and a link to confirm (for pending) or decline. An SMS is also sent.</p>
+  <div class="step-box">
+    <div class="step-label">Step 5 — Send notifications</div>
+    <p>In Rostas → Run Commands, tap <strong>5. Send notifications</strong>. The result confirms how many volunteers were notified. Volunteers receive their email and SMS within a few minutes.</p>
+  </div>
+  <div class="callout callout-info">
+    <span class="callout-icon">📬</span>
+    <strong>What volunteers receive:</strong> Each volunteer gets an email showing their name, role, and dates rostered. The email includes a <em>Can't make it</em> link. If they tap it, the SMS replacement chain runs automatically — coordinators do not need to do anything when this happens. There is also a link to a simplified printable roster. For Pending (Unsure) assignments, volunteers are shown <em>Yes, I can make it</em> and <em>Can't make it</em> buttons so they can confirm or decline.
+  </div>
+
+  <!-- S10 -->
+  <h2 class="section-title" id="s10">10. Manual Replacement</h2>
+  <p>Use manual replacement when a volunteer contacts you directly — for example, they phone to say they cannot make it and suggest someone else, or you need to make a swap yourself without waiting for the SMS chain.</p>
+  <div class="step-box">
+    <div class="step-label">Manual replace</div>
+    <p>Go to Rostas → Global Roster or Individual Details view. Select the assignment you want to change. Tap <strong>Swap Volunteer</strong>, then select the replacement from the dropdown. Save. The system processes the swap within 1 minute. Check the Status column — it changes from Pending to Done when complete.</p>
+  </div>
+  <div class="callout callout-info">
+    <span class="callout-icon">📬</span>
+    The replacement volunteer receives an automatic notification after a manual swap, with the usual links to the "I can't make it" button, roster view, and print roster.
+  </div>
+
+  <!-- S11 -->
+  <h2 class="section-title" id="s11">11. The SMS Replacement Chain</h2>
+  <p>When a volunteer taps 'Can't make it' in their notification email, the system automatically begins contacting other available volunteers by SMS. You do not need to do anything.</p>
+  <h3 class="sub-title">What happens automatically:</h3>
+  <ul>
+    <li>The system finds the next suitable available volunteer for that role and date.</li>
+    <li>It sends them an SMS with a link to accept or decline.</li>
+    <li>If they <strong>accept</strong> → they are added to the roster and the chain stops.</li>
+    <li>If they <strong>decline or do not respond</strong> within 2 hours (standard) or 15 minutes (urgent/imminent events) → the next volunteer is contacted.</li>
+    <li>If no one accepts → the coordinator receives an email letting you know the slot is still unfilled.</li>
+  </ul>
+  <div class="callout callout-tip">
+    <span class="callout-icon">🌙</span>
+    <strong>Quiet Hours:</strong> SMS messages are not sent between 9:00 PM and 7:00 AM NZ time. If the chain is running overnight, it pauses and resumes in the morning. Quiet hours can be adjusted in Settings — search for 'Quiet'.
+  </div>
+
+  <!-- S12 -->
+  <h2 class="section-title" id="s12">12. Checking the Status Dashboard</h2>
+  <p>The Status Dashboard shows the status of all notifications sent from Rostas — emails, SMS reminders, and replacement requests. Check it after running any notification step to confirm delivery. If an error appears, use the <strong>Email Tech Support</strong> button to send an error report to Guy automatically.</p>
+  <p>Note: the full Audit Log is accessible to Technical Support only. If something does not look right, contact Tech Support and quote the error message.</p>
+  <h3 class="sub-title">Common things to look for:</h3>
+  <ul>
+    <li><strong>SMS FAILED</strong> — a text message did not deliver. Usually a Twilio issue. Note the error and contact Tech Support if it persists.</li>
+    <li><strong>Chain exhausted</strong> — no volunteer accepted the replacement. The slot is still unfilled.</li>
+    <li><strong>Assignment not found</strong> — a Manual Replace request used an incorrect assignment. Check and resubmit.</li>
+  </ul>
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>If you see repeated errors, do not keep retrying.</strong> Note what you were doing and the error message, and contact tech support. Retrying a failed action can sometimes create duplicate assignments.
+  </div>
+
+  <!-- PART C -->
+  <div class="part-banner" id="part-c">
+    <span class="part-label">Part C</span>
+    <span class="part-title">Overall Coordinator Tasks</span>
+    <span class="part-sub">All rosters · Volunteer management · System settings</span>
+  </div>
+
+  <!-- S13 -->
+  <h2 class="section-title" id="s13">13. Step 1 — Volunteer Sync from Infoodle</h2>
+  <p>Infoodle is the church's main membership database. Rostas syncs volunteer data from Infoodle every morning at 2am automatically. You can also run a manual sync at any time.</p>
+  <h3 class="sub-title">Run a manual sync when:</h3>
+  <ul>
+    <li>A new volunteer has been added to Infoodle and needs to appear in Rostas immediately.</li>
+    <li>A volunteer's contact details (email or mobile) have changed in Infoodle.</li>
+    <li>You are about to build a roster and want to make sure you have the latest data.</li>
+  </ul>
+  <div class="step-box">
+    <div class="step-label">Step 1 — Sync volunteers from Infoodle</div>
+    <p>In Rostas → Run Commands, tap <strong>1. Sync volunteers from Infoodle</strong>. The sync runs in two steps and takes about 1–2 minutes. The result confirms how many volunteers were updated. Check the Volunteers view to confirm new or updated records appear.</p>
+  </div>
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Important:</strong> Volunteer name changes and Group/Roster membership are made in Infoodle, not in Rostas. Any changes made directly to the Volunteers tab in the spreadsheet will be overwritten by the next sync. Always update volunteer details in Infoodle first, then run a sync.
+  </div>
+
+  <h3 class="sub-title" id="s13-add">Adding a New Volunteer</h3>
+  <p>New volunteers must be added to Infoodle first and assigned to the correct Infoodle group for their roster type. Once in Infoodle, run a manual sync and they will appear in Rostas. You will then need to set their role preferences before they can be included in a roster build.</p>
+
+  <!-- S14 -->
+  <h2 class="section-title" id="s14">14. Settings and Configuration</h2>
+  <p>System settings control how Rostas behaves — coordinator email addresses, reminder timing, and which features are active. Managed through the <strong>Settings Dashboard</strong> view in Rostas.</p>
+
+  <figure>
+    <img src="settings-dashboard.png" alt="Settings Dashboard view showing config keys grouped by category with an Edit panel on the right" class="screenshot">
+    <figcaption>Settings Dashboard — settings are grouped by category. Tap a row to view details and use Edit to change a value. Use Add New Roster to add a new roster type.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>✅ Safe to Change</th>
+          <th>🔒 Leave to Tech Support</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <ul style="margin:0;padding-left:1.1rem;">
+              <li>Coordinator name and email for each roster type</li>
+              <li>Coordinator mobile number (for SMS test mode)</li>
+              <li>Reminder timing — minutes between SMS replacement messages</li>
+              <li>Email and SMS message wording templates</li>
+            </ul>
+          </td>
+          <td>
+            <ul style="margin:0;padding-left:1.1rem;">
+              <li><code>SMS_ENABLED</code> and <code>SMS_TEST_MODE</code> — control live SMS delivery. Contact Guy before changing.</li>
+              <li><code>WEBAPP_URL</code> — volunteer web app address. Only changes on redeployment.</li>
+              <li><code>INFOODLE_GROUP_MAP</code> and Infoodle credentials — technical settings for sync.</li>
+              <li><code>ROSTER_FREEZE_WEEKS</code> — controls which dates are protected from rebuild.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    If you are not sure whether a setting is safe to change, contact Guy first. Some settings affect the whole system across all roster types. An incorrect value can prevent roster builds or stop emails and SMS from sending.
+  </div>
+
+  <!-- S15 -->
+  <h2 class="section-title" id="s15">15. When to Contact Tech Support</h2>
+  <p>Most day-to-day operations are fully self-contained in Rostas. The situations below require more technical involvement:</p>
+  <ul>
+    <li>The volunteer web app URL has changed and needs updating (after a system redeployment).</li>
+    <li>Repeated errors appear in the Status Dashboard that do not resolve on their own.</li>
+    <li>SMS messages stop delivering to volunteers.</li>
+    <li>The system triggers need to be reinstalled (e.g. after a technical issue).</li>
+    <li>Any change to Infoodle connection settings or API credentials.</li>
+    <li>Anything that requires opening the Apps Script editor.</li>
+  </ul>
+
+  <div class="contact-card">
+    <div class="name">📞 Contact Tech Support — Guy</div>
+    <div class="detail">newsletters&#64;waitara&#46;org&#46;nz</div>
+    <div class="note">When contacting Tech Support about an error, include the error message from the Status Dashboard and a description of what you were doing when it occurred.</div>
+  </div>
+
+  <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">
+  <p style="font-size:12px;color:var(--text-muted);text-align:center;">Knox Church Waitara &middot; Rostas Coordinator Guide &middot; April 2026</p>
+  <div style="text-align:center;margin-top:1rem;"><a href="#cover" id="back-top">↑ Back to top</a></div>
+
+</div>
+</main>
+
+<script>
+  // ── TOC ACTIVE HIGHLIGHT ──
+  var tocAnchors = Array.from(document.querySelectorAll('[id]'));
+  var tocLinks   = Array.from(document.querySelectorAll('.toc-item'));
+  function setActive() {
+    var sy = window.scrollY || document.documentElement.scrollTop;
+    var current = '';
+    tocAnchors.forEach(function(el) { if (sy >= el.offsetTop - 100) current = el.id; });
+    tocLinks.forEach(function(a) { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  }
+  window.addEventListener('scroll', setActive, {passive:true});
+  setActive();
+
+  // ── CAROUSEL ──
+  var cIdx   = 0;
+  var cTotal = 15;
+  var cTimer = null;
+  var cDelay = 10000;
+
+  function cShow(n) {
+    cIdx = ((n % cTotal) + cTotal) % cTotal;
+    var img  = document.getElementById('carousel-img');
+    var ctr  = document.getElementById('carousel-counter');
+    var dots = document.querySelectorAll('.carousel-dot');
+    var bar  = document.getElementById('carousel-progress-bar');
+    var num  = cIdx + 1;
+    var pad  = num < 10 ? '0' : '';
+    if (img) img.src = 'slide-' + pad + num + '.png';
+    if (ctr) ctr.textContent = 'Slide ' + num + ' of 15';
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === cIdx); });
+    if (bar) {
+      bar.style.transition = 'none';
+      bar.style.width = '0%';
+      setTimeout(function() {
+        bar.style.transition = 'width ' + cDelay + 'ms linear';
+        bar.style.width = '100%';
+      }, 50);
+    }
+    clearTimeout(cTimer);
+    cTimer = setTimeout(function() { cShow(cIdx + 1); }, cDelay);
+  }
+
+  function cNext()   { cShow(cIdx + 1); }
+  function cPrev()   { cShow(cIdx - 1); }
+  function cGoto(n)  { cShow(n); }
+  window.goTo = cGoto;
+  window.step = function(d) { cShow(cIdx + d); };
+
+  var cEl = document.getElementById('carousel');
+  if (cEl) {
+    cEl.addEventListener('mouseenter', function() { clearTimeout(cTimer); });
+    cEl.addEventListener('mouseleave', function() { cShow(cIdx); });
+    var tx = 0;
+    cEl.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, {passive:true});
+    cEl.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) cShow(cIdx + (dx < 0 ? 1 : -1));
+    }, {passive:true});
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') cShow(cIdx + 1);
+    if (e.key === 'ArrowLeft')  cShow(cIdx - 1);
+  });
+
+  // Kick off the bar on slide 1
+  window.addEventListener('load', function() {
+    var b = document.getElementById('carousel-progress-bar');
+    if (b) {
+      b.style.transition = 'none';
+      b.style.width = '0%';
+      setTimeout(function() {
+        b.style.transition = 'width ' + cDelay + 'ms linear';
+        b.style.width = '100%';
+      }, 100);
+    }
+    cTimer = setTimeout(function() { cShow(1); }, cDelay);
+  });
+</script>
+</body>
+</html>

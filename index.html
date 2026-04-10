@@ -93,25 +93,13 @@
     text-align: center;
   }
 
-  /* Audio player */
+  /* Video intro */
   #audio-intro {
     background: linear-gradient(135deg, #1a2e4a 0%, #2b4570 100%);
     border-radius: 10px;
     padding: 1.1rem 1.4rem;
     margin: 1.5rem 0 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
     box-shadow: 0 2px 12px rgba(26,46,74,0.15);
-  }
-
-  #audio-intro .audio-icon {
-    font-size: 2rem;
-    flex-shrink: 0;
-  }
-
-  #audio-intro .audio-text {
-    flex: 1;
   }
 
   #audio-intro .audio-label {
@@ -120,7 +108,7 @@
     text-transform: uppercase;
     color: var(--gold);
     font-weight: 600;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
   }
 
   #audio-intro .audio-title {
@@ -128,21 +116,18 @@
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
-  #audio-intro audio {
+  #audio-intro video {
     width: 100%;
-    height: 36px;
-    border-radius: 20px;
-    accent-color: var(--gold);
+    border-radius: 8px;
+    display: block;
+    background: #000;
+    max-height: 400px;
   }
 
-  #audio-intro audio::-webkit-media-controls-panel {
-    background: rgba(255,255,255,0.08);
-    border-radius: 20px;
-  }
-
+  /* ── TOC ─────────────────────────── */
   #toc { padding: 0.8rem 0; }
 
   .toc-part {
@@ -154,6 +139,67 @@
     padding: 1rem 1.2rem 0.3rem;
   }
 
+  /* Parent row — link + toggle button side by side */
+  .toc-parent {
+    display: flex;
+    align-items: stretch;
+    border-left: 2px solid transparent;
+    transition: border-color 0.15s;
+  }
+
+  .toc-parent:hover        { border-left-color: var(--gold); }
+  .toc-parent.active       { border-left-color: var(--gold); }
+
+  .toc-parent-link {
+    flex: 1;
+    display: block;
+    padding: 0.4rem 0.4rem 0.4rem 1.2rem;
+    color: #c8d6e8;
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 500;
+    line-height: 1.35;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .toc-parent-link:hover         { color: #fff; background: rgba(255,255,255,0.06); }
+  .toc-parent.active .toc-parent-link { color: #fff; background: rgba(184,147,42,0.1); }
+
+  .toc-toggle {
+    flex-shrink: 0;
+    width: 28px;
+    background: none;
+    border: none;
+    color: #5a7a9a;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s;
+    padding: 0;
+  }
+
+  .toc-toggle:hover { color: #fff; }
+
+  .toc-toggle .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    line-height: 1;
+  }
+
+  .toc-toggle.open .arrow { transform: rotate(90deg); }
+
+  /* Collapsible children */
+  .toc-children {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.25s ease;
+  }
+
+  .toc-children.open { max-height: 400px; }
+
+  /* All anchor links in the TOC */
   .toc-item {
     display: block;
     padding: 0.3rem 1.2rem;
@@ -166,8 +212,20 @@
   }
 
   .toc-item:hover { color: #fff; background: rgba(255,255,255,0.06); border-left-color: var(--gold); }
-  .toc-item.toc-h1 { color: #c8d6e8; font-weight: 500; padding-top: 0.4rem; padding-bottom: 0.4rem; }
-  .toc-item.toc-h2 { padding-left: 1.9rem; font-size: 11.5px; color: #849ab4; }
+
+  .toc-item.toc-h1 {
+    color: #c8d6e8;
+    font-weight: 500;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .toc-item.toc-h2 {
+    padding-left: 1.9rem;
+    font-size: 11.5px;
+    color: #849ab4;
+  }
+
   .toc-item.active { color: #fff; border-left-color: var(--gold); background: rgba(184,147,42,0.1); }
 
   /* ── MAIN CONTENT ─────────────────────── */
@@ -186,7 +244,6 @@
     padding: 0 1rem;
   }
 
-  /* Cover */
   #cover {
     border-bottom: 3px solid var(--navy);
     padding-bottom: 2rem;
@@ -220,7 +277,6 @@
 
   #cover .meta { font-size: 12px; color: var(--text-muted); }
 
-  /* Part banners */
   .part-banner {
     background: var(--navy);
     color: #fff;
@@ -243,7 +299,6 @@
   .part-banner .part-title { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 600; }
   .part-banner .part-sub { font-size: 12px; color: #a8bdd4; margin-top: 2px; }
 
-  /* Section headings */
   h2.section-title {
     font-family: 'Lora', serif;
     font-size: 1.35rem;
@@ -274,7 +329,6 @@
     color: var(--navy-mid);
   }
 
-  /* Step boxes */
   .step-box {
     background: var(--gold-pale);
     border-left: 4px solid var(--gold);
@@ -294,7 +348,6 @@
 
   .step-box p { margin: 0; font-size: 14px; }
 
-  /* Callout boxes */
   .callout {
     border-radius: 5px;
     padding: 0.75rem 1.1rem;
@@ -309,7 +362,6 @@
   .callout-info  { background: #e8f0fb;            border-color: #4a7cd4;      color: #1a3366; }
   .callout-icon  { font-weight: 700; margin-right: 4px; }
 
-  /* Tables */
   .tbl-wrap { overflow-x: auto; margin: 1rem 0; }
 
   table {
@@ -331,7 +383,6 @@
   .tick { color: var(--green); font-weight: 700; }
   .dash { color: var(--text-muted); }
 
-  /* Traffic light */
   .tl-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; margin: 1rem 0; }
 
   .tl-card { border-radius: 6px; padding: 0.8rem 1rem; font-size: 13px; line-height: 1.4; }
@@ -340,7 +391,6 @@
   .tl-red   { background: var(--red-light);   border-top: 3px solid var(--red); }
   .tl-card .tl-label { font-weight: 700; margin-bottom: 3px; font-size: 13.5px; }
 
-  /* Screenshots */
   .screenshot {
     display: block;
     width: 100%;
@@ -375,7 +425,6 @@
     margin-bottom: 1rem;
   }
 
-  /* Contact card */
   .contact-card {
     background: var(--navy);
     color: #fff;
@@ -400,7 +449,6 @@
     font-size: 12px;
   }
 
-  /* Mobile */
   @media (max-width: 768px) {
     body { flex-direction: column; }
     #sidebar { width: 100%; height: auto; position: relative; }
@@ -416,10 +464,8 @@
     .screenshot, .screenshot-mid, .screenshot-sm { box-shadow: none; }
   }
 
-  /* ── SLIDE CAROUSEL ─────────────────────── */
-  #carousel-section {
-    margin: 0 0 2.5rem;
-  }
+  /* ── CAROUSEL ─────────────────────────── */
+  #carousel-section { margin: 0 0 2.5rem; }
 
   #carousel-section .carousel-eyebrow {
     font-size: 10px;
@@ -447,30 +493,6 @@
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(26,46,74,0.18);
     aspect-ratio: 16/9;
-  }
-
-  #carousel-track {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  #carousel-track img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: #fff;
-    display: block;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
-  }
-
-  #carousel-track img.active-slide {
-    opacity: 1;
-    pointer-events: auto;
   }
 
   .carousel-btn {
@@ -504,11 +526,7 @@
     z-index: 10;
   }
 
-  #carousel-progress-bar {
-    height: 100%;
-    width: 0%;
-    background: var(--gold);
-  }
+  #carousel-progress-bar { height: 100%; width: 0%; background: var(--gold); }
 
   #carousel-footer {
     display: flex;
@@ -518,11 +536,7 @@
     margin-top: 0.6rem;
   }
 
-  #carousel-counter {
-    font-size: 12px;
-    color: var(--text-muted);
-    text-align: center;
-  }
+  #carousel-counter { font-size: 12px; color: var(--text-muted); text-align: center; }
 
   .carousel-dots {
     display: flex;
@@ -541,10 +555,7 @@
     transition: background 0.2s, transform 0.2s;
   }
 
-  .carousel-dot.active {
-    background: var(--gold);
-    transform: scale(1.3);
-  }
+  .carousel-dot.active { background: var(--gold); transform: scale(1.3); }
 
   #carousel-hint {
     font-size: 11px;
@@ -552,15 +563,6 @@
     text-align: center;
     margin-top: 0.3rem;
   }
-
-  /* Keyboard hint */
-  #carousel-hint {
-    font-size: 11px;
-    color: var(--text-muted);
-    text-align: center;
-    margin-top: 0.3rem;
-  }
-
 </style>
 </head>
 <body>
@@ -572,26 +574,59 @@
     <div class="church">Knox Church Waitara</div>
     <h2>Rostas Coordinator Guide</h2>
   </div>
+
   <div id="toc">
+
     <a class="toc-item toc-h1" href="#intro">Introduction</a>
     <a class="toc-item toc-h1" href="#who-what">Who Can Do What</a>
 
     <div class="toc-part">Part B — Roster Coordinator</div>
-    <a class="toc-item toc-h1" href="#s1">1. Getting Started</a>
-    <a class="toc-item toc-h2" href="#s1-views">The Rostas Views</a>
-    <a class="toc-item toc-h2" href="#s1-results">Reading Results</a>
+
+    <!-- 1. Getting Started -->
+    <div class="toc-parent" id="parent-s1">
+      <a class="toc-parent-link" href="#s1">1. Getting Started</a>
+      <button class="toc-toggle" data-target="children-s1" aria-label="Toggle submenu"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-s1">
+      <a class="toc-item toc-h2" href="#s1-views">The Rostas Views</a>
+      <a class="toc-item toc-h2" href="#s1-results">Reading Results</a>
+    </div>
+
     <a class="toc-item toc-h1" href="#s2">2. The Roster Cycle</a>
     <a class="toc-item toc-h1" href="#s3">3. Step 0 — Refresh Calendar</a>
-    <a class="toc-item toc-h1" href="#s4">4. Step 2 — Role Preferences</a>
-    <a class="toc-item toc-h2" href="#s4a">Option A — Volunteers Set Own</a>
-    <a class="toc-item toc-h2" href="#s4b">Option B — You Set on Their Behalf</a>
+
+    <!-- 4. Role Preferences -->
+    <div class="toc-parent" id="parent-s4">
+      <a class="toc-parent-link" href="#s4">4. Step 2 — Role Preferences</a>
+      <button class="toc-toggle" data-target="children-s4" aria-label="Toggle submenu"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-s4">
+      <a class="toc-item toc-h2" href="#s4a">Option A — Volunteers Set Own</a>
+      <a class="toc-item toc-h2" href="#s4b">Option B — You Set on Their Behalf</a>
+    </div>
+
     <a class="toc-item toc-h1" href="#s5">5. Volunteer Frequency Settings</a>
-    <a class="toc-item toc-h1" href="#s6">6. Step 3 — Availability Emails</a>
-    <a class="toc-item toc-h2" href="#s6-missed">Missed the email?</a>
-    <a class="toc-item toc-h1" href="#s7">7. Step 4 — Build the Roster</a>
-    <a class="toc-item toc-h2" href="#s7-tiers">Four Priority Tiers</a>
-    <a class="toc-item toc-h2" href="#s7-traffic">Traffic Light System</a>
-    <a class="toc-item toc-h2" href="#s7-edit">Editing Before Sending</a>
+
+    <!-- 6. Availability Emails -->
+    <div class="toc-parent" id="parent-s6">
+      <a class="toc-parent-link" href="#s6">6. Step 3 — Availability Emails</a>
+      <button class="toc-toggle" data-target="children-s6" aria-label="Toggle submenu"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-s6">
+      <a class="toc-item toc-h2" href="#s6-missed">Missed the email?</a>
+    </div>
+
+    <!-- 7. Build the Roster -->
+    <div class="toc-parent" id="parent-s7">
+      <a class="toc-parent-link" href="#s7">7. Step 4 — Build the Roster</a>
+      <button class="toc-toggle" data-target="children-s7" aria-label="Toggle submenu"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-s7">
+      <a class="toc-item toc-h2" href="#s7-tiers">Four Priority Tiers</a>
+      <a class="toc-item toc-h2" href="#s7-traffic">Traffic Light System</a>
+      <a class="toc-item toc-h2" href="#s7-edit">Editing Before Sending</a>
+    </div>
+
     <a class="toc-item toc-h1" href="#s8">8. Step 6 — Preview</a>
     <a class="toc-item toc-h1" href="#s9">9. Step 5 — Send Notifications</a>
     <a class="toc-item toc-h1" href="#s10">10. Manual Replacement</a>
@@ -599,8 +634,16 @@
     <a class="toc-item toc-h1" href="#s12">12. Status Dashboard</a>
 
     <div class="toc-part">Part C — Overall Coordinator</div>
-    <a class="toc-item toc-h1" href="#s13">13. Step 1 — Volunteer Sync</a>
-    <a class="toc-item toc-h2" href="#s13-add">Adding a New Volunteer</a>
+
+    <!-- 13. Volunteer Sync -->
+    <div class="toc-parent" id="parent-s13">
+      <a class="toc-parent-link" href="#s13">13. Step 1 — Volunteer Sync</a>
+      <button class="toc-toggle" data-target="children-s13" aria-label="Toggle submenu"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-s13">
+      <a class="toc-item toc-h2" href="#s13-add">Adding a New Volunteer</a>
+    </div>
+
     <a class="toc-item toc-h1" href="#s14">14. Settings &amp; Configuration</a>
     <a class="toc-item toc-h1" href="#s15">15. When to Contact Tech Support</a>
 
@@ -625,17 +668,14 @@
     <p class="meta">Knox Church Waitara</p>
   </div>
 
-  <!-- AUDIO INTRO -->
+  <!-- VIDEO INTRO -->
   <div id="audio-intro">
-    <div class="audio-icon"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
-    <div class="audio-text">
-      <div class="audio-label">Listen First</div>
-      <div class="audio-title">Introduction to Rostas — 2 min overview</div>
-      <audio controls preload="none">
-        <source src="rostas-intro.mp3" type="audio/mpeg">
-        Your browser does not support audio playback.
-      </audio>
-    </div>
+    <div class="audio-label">Watch First</div>
+    <div class="audio-title">7 min Intro to Rostas</div>
+    <video controls preload="none">
+      <source src="Orchestrating_Empathy.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
   </div>
 
   <!-- QUICK START CAROUSEL -->
@@ -1113,19 +1153,60 @@
 </main>
 
 <script>
-  // ── TOC ACTIVE HIGHLIGHT ──
-  var tocAnchors = Array.from(document.querySelectorAll('[id]'));
-  var tocLinks   = Array.from(document.querySelectorAll('.toc-item'));
+  // ── COLLAPSIBLE TOC ──────────────────────────────────────────────────────
+  document.querySelectorAll('.toc-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var children = document.getElementById(btn.getAttribute('data-target'));
+      var opening  = !children.classList.contains('open');
+      children.classList.toggle('open', opening);
+      btn.classList.toggle('open', opening);
+    });
+  });
+
+  // ── TOC ACTIVE HIGHLIGHT + AUTO-OPEN ────────────────────────────────────
+  var allAnchors = Array.from(document.querySelectorAll('[id]'));
+
   function setActive() {
     var sy = window.scrollY || document.documentElement.scrollTop;
     var current = '';
-    tocAnchors.forEach(function(el) { if (sy >= el.offsetTop - 100) current = el.id; });
-    tocLinks.forEach(function(a) { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    allAnchors.forEach(function(el) {
+      if (sy >= el.offsetTop - 120) current = el.id;
+    });
+
+    // Plain toc-items (no-children h1s and all h2s)
+    document.querySelectorAll('.toc-item').forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+
+    // Parent rows
+    document.querySelectorAll('.toc-parent').forEach(function(row) {
+      var link     = row.querySelector('.toc-parent-link');
+      var toggle   = row.querySelector('.toc-toggle');
+      var children = toggle ? document.getElementById(toggle.getAttribute('data-target')) : null;
+
+      var parentActive = link && link.getAttribute('href') === '#' + current;
+
+      var childActive = false;
+      if (children) {
+        children.querySelectorAll('.toc-item').forEach(function(a) {
+          if (a.getAttribute('href') === '#' + current) childActive = true;
+        });
+      }
+
+      row.classList.toggle('active', parentActive || childActive);
+
+      // Auto-open submenu when scrolling into a child section
+      if (childActive && children && !children.classList.contains('open')) {
+        children.classList.add('open');
+        if (toggle) toggle.classList.add('open');
+      }
+    });
   }
-  window.addEventListener('scroll', setActive, {passive:true});
+
+  window.addEventListener('scroll', setActive, {passive: true});
   setActive();
 
-  // ── CAROUSEL ──
+  // ── CAROUSEL ─────────────────────────────────────────────────────────────
   var cIdx   = 0;
   var cTotal = 15;
   var cTimer = null;
@@ -1154,9 +1235,9 @@
     cTimer = setTimeout(function() { cShow(cIdx + 1); }, cDelay);
   }
 
-  function cNext()   { cShow(cIdx + 1); }
-  function cPrev()   { cShow(cIdx - 1); }
-  function cGoto(n)  { cShow(n); }
+  function cNext()  { cShow(cIdx + 1); }
+  function cPrev()  { cShow(cIdx - 1); }
+  function cGoto(n) { cShow(n); }
   window.goTo = cGoto;
   window.step = function(d) { cShow(cIdx + d); };
 
@@ -1177,7 +1258,6 @@
     if (e.key === 'ArrowLeft')  cShow(cIdx - 1);
   });
 
-  // Kick off the bar on slide 1
   window.addEventListener('load', function() {
     var b = document.getElementById('carousel-progress-bar');
     if (b) {

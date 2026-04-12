@@ -170,9 +170,10 @@
     width: 28px;
     background: none;
     border: none;
-    color: #5a7a9a;
+    color: var(--gold);
     cursor: pointer;
-    font-size: 13px;
+    font-size: 15px;
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,7 +181,7 @@
     padding: 0;
   }
 
-  .toc-toggle:hover { color: #fff; }
+  .toc-toggle:hover { color: #fff; background: rgba(184,147,42,0.15); border-radius: 4px; }
 
   .toc-toggle .arrow {
     display: inline-block;
@@ -563,6 +564,38 @@
     text-align: center;
     margin-top: 0.3rem;
   }
+
+  /* ── NAV PILLS ───────────────────────── */
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0.4rem 0 1.1rem;
+    align-items: center;
+  }
+
+  .pill-chip {
+    display: inline-block;
+    line-height: 0;
+  }
+
+  .nav-pill {
+    height: 34px;
+    width: auto;
+    display: block;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(26,46,74,0.12);
+  }
+
+  /* Getting Started 3-column pill grid */
+  .pill-grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 8px 10px;
+    margin: 0.5rem 0 1.3rem;
+    width: fit-content;
+  }
+
 </style>
 </head>
 <body>
@@ -584,7 +617,7 @@
 
     <!-- 1. Getting Started -->
     <div class="toc-parent" id="parent-s1">
-      <a class="toc-parent-link" href="#s1">1. Getting Started</a>
+      <a class="toc-parent-link" href="#s1">Getting Started</a>
       <button class="toc-toggle" data-target="children-s1" aria-label="Toggle submenu"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-s1">
@@ -592,12 +625,12 @@
       <a class="toc-item toc-h2" href="#s1-results">Reading Results</a>
     </div>
 
-    <a class="toc-item toc-h1" href="#s2">2. The Roster Cycle</a>
-    <a class="toc-item toc-h1" href="#s3">3. Step 0 — Refresh Calendar</a>
+    <a class="toc-item toc-h1" href="#s2">The Roster Cycle</a>
+    <a class="toc-item toc-h1" href="#s3">Step 0 — Refresh Calendar</a>
 
     <!-- 4. Role Preferences -->
     <div class="toc-parent" id="parent-s4">
-      <a class="toc-parent-link" href="#s4">4. Step 2 — Role Preferences</a>
+      <a class="toc-parent-link" href="#s4">Step 2 — Role Preferences</a>
       <button class="toc-toggle" data-target="children-s4" aria-label="Toggle submenu"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-s4">
@@ -605,11 +638,11 @@
       <a class="toc-item toc-h2" href="#s4b">Option B — You Set on Their Behalf</a>
     </div>
 
-    <a class="toc-item toc-h1" href="#s5">5. Volunteer Frequency Settings</a>
+    <a class="toc-item toc-h1" href="#s5">Volunteer Frequency Settings</a>
 
     <!-- 6. Availability Emails -->
     <div class="toc-parent" id="parent-s6">
-      <a class="toc-parent-link" href="#s6">6. Step 3 — Availability Emails</a>
+      <a class="toc-parent-link" href="#s6">Step 3 — Availability Emails</a>
       <button class="toc-toggle" data-target="children-s6" aria-label="Toggle submenu"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-s6">
@@ -618,7 +651,7 @@
 
     <!-- 7. Build the Roster -->
     <div class="toc-parent" id="parent-s7">
-      <a class="toc-parent-link" href="#s7">7. Step 4 — Build the Roster</a>
+      <a class="toc-parent-link" href="#s7">Step 4 — Build the Roster</a>
       <button class="toc-toggle" data-target="children-s7" aria-label="Toggle submenu"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-s7">
@@ -627,25 +660,73 @@
       <a class="toc-item toc-h2" href="#s7-edit">Editing Before Sending</a>
     </div>
 
-    <a class="toc-item toc-h1" href="#s8">8. Step 6 — Preview</a>
-    <a class="toc-item toc-h1" href="#s9">9. Step 5 — Send Notifications</a>
-    <a class="toc-item toc-h1" href="#s10">10. Manual Replacement</a>
-    <a class="toc-item toc-h1" href="#s11">11. SMS Replacement Chain</a>
-    <a class="toc-item toc-h1" href="#s12">12. Status Dashboard</a>
+    <a class="toc-item toc-h1" href="#s8">Step 5 — Preview Communications</a>
+    <a class="toc-item toc-h1" href="#s9">Step 6 — Send Notifications</a>
+    <a class="toc-item toc-h1" href="#s10">Manual Replacement</a>
+    <a class="toc-item toc-h1" href="#s11">The SMS Replacement Chain</a>
+    <a class="toc-item toc-h1" href="#s12">Checking the Status Dashboard</a>
 
     <div class="toc-part">Part C — Overall Coordinator</div>
 
     <!-- 13. Volunteer Sync -->
     <div class="toc-parent" id="parent-s13">
-      <a class="toc-parent-link" href="#s13">13. Step 1 — Volunteer Sync</a>
+      <a class="toc-parent-link" href="#s13">Step 1 — Volunteer Sync</a>
       <button class="toc-toggle" data-target="children-s13" aria-label="Toggle submenu"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-s13">
       <a class="toc-item toc-h2" href="#s13-add">Adding a New Volunteer</a>
     </div>
 
-    <a class="toc-item toc-h1" href="#s14">14. Settings &amp; Configuration</a>
-    <a class="toc-item toc-h1" href="#s15">15. When to Contact Tech Support</a>
+    <a class="toc-item toc-h1" href="#s14">Settings &amp; Configuration</a>
+    <a class="toc-item toc-h1" href="#s15">When to Contact Tech Support</a>
+
+    <!-- 16. Adding a New Roster Type -->
+    <div class="toc-parent" id="parent-s16">
+      <a class="toc-parent-link" href="#s16">Adding a New Roster Type</a>
+      <button class="toc-toggle" data-target="children-s16" aria-label="Toggle submenu"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-s16">
+      <a class="toc-item toc-h2" href="#s16-s1">Step 1 — Add in Rostas</a>
+      <a class="toc-item toc-h2" href="#s16-s2">Step 2 — Wait 1 Minute</a>
+      <a class="toc-item toc-h2" href="#s16-s3">Step 3 — Add Roles</a>
+      <a class="toc-item toc-h2" href="#s16-s4">Step 4 — Add a Season</a>
+      <a class="toc-item toc-h2" href="#s16-s5">Step 5 — Refresh Calendar</a>
+      <a class="toc-item toc-h2" href="#s16-s6">Step 6 — Import History</a>
+      <a class="toc-item toc-h2" href="#s16-s7">Step 7 — Set Preferences &amp; Run</a>
+    </div>
+
+    <!-- 17. Removing a Roster Type -->
+    <div class="toc-parent" id="parent-s17">
+      <a class="toc-parent-link" href="#s17">Removing a Roster Type</a>
+      <button class="toc-toggle" data-target="children-s17" aria-label="Toggle submenu"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-s17">
+      <a class="toc-item toc-h2" href="#s17a">Option A — Via Run Commands</a>
+      <a class="toc-item toc-h2" href="#s17b">Option B — Via Apps Script</a>
+    </div>
+
+    <a class="toc-item toc-h1" href="#s18">Coordinator-Triggered Decline &amp; Replace</a>
+
+    <div class="toc-part">Appendix A — Technical Owner</div>
+
+    <!-- A1 -->
+    <div class="toc-parent" id="parent-a1">
+      <a class="toc-parent-link" href="#a1">A1. Import Existing Roster Data</a>
+      <button class="toc-toggle" data-target="children-a1" aria-label="Toggle submenu"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-a1">
+      <a class="toc-item toc-h2" href="#a1-prereq">Prerequisites</a>
+      <a class="toc-item toc-h2" href="#a1-pivot">Pivot Format (Recommended)</a>
+      <a class="toc-item toc-h2" href="#a1-flat">Flat Format</a>
+      <a class="toc-item toc-h2" href="#a1-after">After the Import</a>
+      <a class="toc-item toc-h2" href="#a1-nicknames">Nickname Map</a>
+      <a class="toc-item toc-h2" href="#a1-trouble">Troubleshooting</a>
+    </div>
+
+    <a class="toc-item toc-h1" href="#a2">A2. Webapp Redeployment</a>
+    <a class="toc-item toc-h1" href="#a3">A3. Audit Log Pruning</a>
+    <a class="toc-item toc-h1" href="#a4">A4. Clean VolunteerRoles Tab</a>
+
 
     <div style="padding: 1.2rem 1.2rem 0.5rem; margin-top: 0.5rem; border-top: 1px solid #2e4a6a;">
       <a href="Rostas_User_Guide.pdf" download
@@ -759,6 +840,8 @@
 
   <h3 class="sub-title" id="s1-views">The Rostas Views</h3>
   <p>When you open Rostas you will see these views in the left-hand sidebar. Tap the relevant view to navigate to that area of the system.</p>
+  <div class="pill-grid"><span class="pill-chip"><img src="pill-run-commands.png" class="nav-pill" alt="Run Commands view"></span><span class="pill-chip"><img src="pill-seasons-dashboard.png" class="nav-pill" alt="Seasons Dashboard view"></span><span class="pill-chip"><img src="pill-global-roster.png" class="nav-pill" alt="Global Roster view"></span><span class="pill-chip"><img src="pill-volunteers-roles.png" class="nav-pill" alt="Volunteers Roles view"></span><span class="pill-chip"><img src="pill-individual-details.png" class="nav-pill" alt="Individual Details view"></span><span class="pill-chip"><img src="pill-communications.png" class="nav-pill" alt="Communications view"></span><span class="pill-chip"><img src="pill-roles-list.png" class="nav-pill" alt="Roles List view"></span><span class="pill-chip"><img src="pill-settings-dashboard.png" class="nav-pill" alt="Settings Dashboard view"></span><span class="pill-chip"><img src="pill-status-dashboard.png" class="nav-pill" alt="Status Dashboard view"></span></div>
+
 
   <figure>
     <img src="nav-sidebar.png" alt="Rostas sidebar navigation showing all views" class="screenshot-sm">
@@ -785,7 +868,7 @@
   </ul>
 
   <!-- S2 -->
-  <h2 class="section-title" id="s2">2. The Roster Cycle</h2>
+  <h2 class="section-title" id="s2">The Roster Cycle</h2>
   <p>Each roster follows the same sequence of steps. Run them in order — skipping a step or running them out of order can produce unexpected results.</p>
   <div class="tbl-wrap">
     <table>
@@ -799,8 +882,8 @@
         <tr><td><strong>3</strong></td><td><strong>Send availability emails</strong></td><td>Ask volunteers which dates they are available for.</td><td>Roster Coordinator</td></tr>
         <tr><td><strong>3b</strong></td><td><strong>Check frequency settings</strong></td><td>Set a monthly cap per roster type per volunteer.</td><td>Roster Coordinator</td></tr>
         <tr><td><strong>4</strong></td><td><strong>Build roster</strong></td><td>System assigns volunteers to roles based on availability &amp; preferences.</td><td>Roster Coordinator</td></tr>
-        <tr><td><strong>6</strong></td><td><strong>Preview communications</strong></td><td>Check email template formatting, names, dates before sending.</td><td>Roster Coordinator</td></tr>
-        <tr><td><strong>5</strong></td><td><strong>Send notifications</strong></td><td>Volunteers receive assignment email and SMS.</td><td>Roster Coordinator</td></tr>
+        <tr><td><strong>5</strong></td><td><strong>Preview communications</strong></td><td>Check email template formatting, names, dates before sending.</td><td>Roster Coordinator</td></tr>
+        <tr><td><strong>6</strong></td><td><strong>Send notifications</strong></td><td>Volunteers receive assignment email and SMS.</td><td>Roster Coordinator</td></tr>
       </tbody>
     </table>
   </div>
@@ -808,9 +891,15 @@
     <span class="callout-icon">⏰</span>
     <strong>Timing tip:</strong> Send availability emails at least 2–3 weeks before the first date of the new season. Allow volunteers 5–7 days to respond before building the roster.
   </div>
+  <div class="callout callout-info">
+    <span class="callout-icon">📋</span>
+    <strong>Normal weekly workflow:</strong> Step 1 (Sync) → Step 3 (Availability emails) → Step 4 (Build roster) → Step 5 (Preview — check before sending) → Step 6 (Send notifications). Steps 0 and 2 are run at the start of a new season, not every week.
+  </div>
 
   <!-- S3 -->
   <h2 class="section-title" id="s3">3. Step 0 — Refresh the Seasons Calendar</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-run-commands.png" class="nav-pill" alt="Run Commands view"></span><span class="pill-chip"><img src="pill-seasons-dashboard.png" class="nav-pill" alt="Seasons Dashboard view"></span></div>
+
   <p>Run this at the start of each roster build and any time you make changes to season dates. It recalculates all roster dates, overlays NZ public holidays and school holidays, and updates the calendar view.</p>
   <div class="step-box">
     <div class="step-label">Step 0 — Refresh calendar</div>
@@ -828,7 +917,9 @@
   </div>
 
   <!-- S4 -->
-  <h2 class="section-title" id="s4">4. Step 2 — Role Preferences</h2>
+  <h2 class="section-title" id="s4">Step 2 — Role Preferences</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-volunteers-roles.png" class="nav-pill" alt="Volunteers Roles view"></span><span class="pill-chip"><img src="pill-roles-list.png" class="nav-pill" alt="Roles List view"></span></div>
+
   <p>Role preferences tell the system which roles each volunteer is willing to do. The system needs this information before it can build the roster.</p>
 
   <h3 class="sub-title" id="s4a">Option A — Volunteers Set Their Own Preferences</h3>
@@ -858,7 +949,9 @@
   </div>
 
   <!-- S5 -->
-  <h2 class="section-title" id="s5">5. Volunteer Frequency Settings</h2>
+  <h2 class="section-title" id="s5">Volunteer Frequency Settings</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-individual-details.png" class="nav-pill" alt="Individual Details view"></span></div>
+
   <p>Frequency settings control how many times per month a volunteer can be rostered for a given roster type. The roster engine strictly enforces these caps.</p>
 
   <h3 class="sub-title">To set or update frequency:</h3>
@@ -887,6 +980,8 @@
 
   <!-- S6 -->
   <h2 class="section-title" id="s6">6. Step 3 — Send Availability Emails</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-run-commands.png" class="nav-pill" alt="Run Commands view"></span></div>
+
   <p>Availability emails go to all active volunteers for your roster type. Each volunteer receives a personalised link showing the upcoming dates. They tap each date to mark themselves Available, Unsure, or Can't make it, then tap Save.</p>
   <div class="step-box">
     <div class="step-label">Step 3 — Send availability emails</div>
@@ -920,7 +1015,9 @@
   <p>You can update a volunteer's availability directly in Rostas via the <strong>Individual Details</strong> view. Select the volunteer from the left panel, then use the Availability Requests panel (bottom right) to find the date and update their status.</p>
 
   <!-- S7 -->
-  <h2 class="section-title" id="s7">7. Step 4 — Build the Roster</h2>
+  <h2 class="section-title" id="s7">Step 4 — Build the Roster</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-run-commands.png" class="nav-pill" alt="Run Commands view"></span><span class="pill-chip"><img src="pill-global-roster.png" class="nav-pill" alt="Global Roster view"></span></div>
+
   <p>The roster engine assigns volunteers to roles based on their availability and role preferences. It works through four priority tiers and within each tier selects the volunteer who has been rostered least recently.</p>
 
   <h3 class="sub-title" id="s7-tiers">The Four Priority Tiers</h3>
@@ -983,11 +1080,13 @@
   </figure>
 
   <!-- S8 -->
-  <h2 class="section-title" id="s8">8. Step 6 — Preview Communications</h2>
+  <h2 class="section-title" id="s8">Step 5 — Preview Communications</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-communications.png" class="nav-pill" alt="Communications view"></span></div>
+
   <p>Before sending notifications, use the Preview button to see exactly what the notification email and SMS will look like. This is the same view volunteers will see.</p>
   <div class="step-box">
-    <div class="step-label">Step 6 — Preview communications</div>
-    <p>In Rostas → Run Commands, tap <strong>6. Preview communications</strong>. A browser page opens showing the notification email template. Check volunteer names, roles, dates, and links all look correct. You can also adjust the wording of SMS messages here. Close the preview and proceed to Step 5 when satisfied.</p>
+    <div class="step-label">Step 5 — Preview communications</div>
+    <p>In Rostas → Run Commands, tap <strong>5. Preview communications</strong>. A browser page opens showing the notification email template. Check volunteer names, roles, dates, and links all look correct. You can also adjust the wording of SMS messages here. Close the preview and proceed to Step 6 when satisfied.</p>
   </div>
 
   <figure>
@@ -1001,11 +1100,13 @@
   </div>
 
   <!-- S9 -->
-  <h2 class="section-title" id="s9">9. Step 5 — Send Notifications</h2>
+  <h2 class="section-title" id="s9">Step 6 — Send Notifications</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-run-commands.png" class="nav-pill" alt="Run Commands view"></span><span class="pill-chip"><img src="pill-communications.png" class="nav-pill" alt="Communications view"></span></div>
+
   <p>Notifications go to every volunteer with a Filled or Pending assignment. Each volunteer receives an email with their role and date, and a link to confirm (for pending) or decline. An SMS is also sent.</p>
   <div class="step-box">
-    <div class="step-label">Step 5 — Send notifications</div>
-    <p>In Rostas → Run Commands, tap <strong>5. Send notifications</strong>. The result confirms how many volunteers were notified. Volunteers receive their email and SMS within a few minutes.</p>
+    <div class="step-label">Step 6 — Send notifications</div>
+    <p>In Rostas → Run Commands, tap <strong>6. Send notifications</strong>. The result confirms how many volunteers were notified. Volunteers receive their email and SMS within a few minutes.</p>
   </div>
   <div class="callout callout-info">
     <span class="callout-icon">📬</span>
@@ -1013,7 +1114,9 @@
   </div>
 
   <!-- S10 -->
-  <h2 class="section-title" id="s10">10. Manual Replacement</h2>
+  <h2 class="section-title" id="s10">Manual Replacement</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-global-roster.png" class="nav-pill" alt="Global Roster view"></span><span class="pill-chip"><img src="pill-individual-details.png" class="nav-pill" alt="Individual Details view"></span></div>
+
   <p>Use manual replacement when a volunteer contacts you directly — for example, they phone to say they cannot make it and suggest someone else, or you need to make a swap yourself without waiting for the SMS chain.</p>
   <div class="step-box">
     <div class="step-label">Manual replace</div>
@@ -1046,8 +1149,16 @@
 
   <!-- S12 -->
   <h2 class="section-title" id="s12">12. Checking the Status Dashboard</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-status-dashboard.png" class="nav-pill" alt="Status Dashboard view"></span></div>
+
   <p>The Status Dashboard shows the status of all notifications sent from Rostas — emails, SMS reminders, and replacement requests. Check it after running any notification step to confirm delivery. If an error appears, use the <strong>Email Tech Support</strong> button to send an error report to Guy automatically.</p>
   <p>Note: the full Audit Log is accessible to Technical Support only. If something does not look right, contact Tech Support and quote the error message.</p>
+
+  <figure>
+    <img src="status-dashboard.png" alt="Status Dashboard showing notification events with success and error indicators" class="screenshot">
+    <figcaption>Status Dashboard — all notification events with timestamps. Green dot = Success, Red dot = Error. Tap any row to see full details in the right panel.</figcaption>
+  </figure>
+
   <h3 class="sub-title">Common things to look for:</h3>
   <ul>
     <li><strong>SMS FAILED</strong> — a text message did not deliver. Usually a Twilio issue. Note the error and contact Tech Support if it persists.</li>
@@ -1067,7 +1178,9 @@
   </div>
 
   <!-- S13 -->
-  <h2 class="section-title" id="s13">13. Step 1 — Volunteer Sync from Infoodle</h2>
+  <h2 class="section-title" id="s13">Step 1 — Volunteer Sync from Infoodle</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-run-commands.png" class="nav-pill" alt="Run Commands view"></span></div>
+
   <p>Infoodle is the church's main membership database. Rostas syncs volunteer data from Infoodle every morning at 2am automatically. You can also run a manual sync at any time.</p>
   <h3 class="sub-title">Run a manual sync when:</h3>
   <ul>
@@ -1088,7 +1201,9 @@
   <p>New volunteers must be added to Infoodle first and assigned to the correct Infoodle group for their roster type. Once in Infoodle, run a manual sync and they will appear in Rostas. You will then need to set their role preferences before they can be included in a roster build.</p>
 
   <!-- S14 -->
-  <h2 class="section-title" id="s14">14. Settings and Configuration</h2>
+  <h2 class="section-title" id="s14">Settings and Configuration</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-settings-dashboard.png" class="nav-pill" alt="Settings Dashboard view"></span></div>
+
   <p>System settings control how Rostas behaves — coordinator email addresses, reminder timing, and which features are active. Managed through the <strong>Settings Dashboard</strong> view in Rostas.</p>
 
   <figure>
@@ -1132,7 +1247,7 @@
   </div>
 
   <!-- S15 -->
-  <h2 class="section-title" id="s15">15. When to Contact Tech Support</h2>
+  <h2 class="section-title" id="s15">When to Contact Tech Support</h2>
   <p>Most day-to-day operations are fully self-contained in Rostas. The situations below require more technical involvement:</p>
   <ul>
     <li>The volunteer web app URL has changed and needs updating (after a system redeployment).</li>
@@ -1149,6 +1264,402 @@
     <div class="note">When contacting Tech Support about an error, include the error message from the Status Dashboard and a description of what you were doing when it occurred.</div>
   </div>
 
+
+  <!-- PART C continued banner -->
+  <div class="part-banner" id="part-c-cont">
+    <span class="part-label">Part C — Overall Coordinator (continued)</span>
+    <span class="part-title">Roster Type Management</span>
+    <span class="part-sub">Adding · Removing · Decline and Replace</span>
+  </div>
+
+  <!-- S16: Adding a New Roster Type -->
+  <h2 class="section-title" id="s16">Adding a New Roster Type</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-settings-dashboard.png" class="nav-pill" alt="Settings Dashboard"></span></div>
+  <p>New roster types (e.g. an Evening service) can be added by an Overall Coordinator directly through Rostas without needing to contact Tech Support. The process takes about 5 minutes and the system scaffolds all required Config keys automatically.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Before you start:</strong> Confirm the Infoodle group for the new roster type exists and you have its numeric Group ID. If the group has not been created yet, create it in Infoodle first, add the relevant volunteers to it, then come back here.
+  </div>
+
+  <h3 class="sub-title" id="s16-s1">Step 1 — Add the Roster Type in Rostas</h3>
+  <div class="step-box">
+    <div class="step-label">Step 1 — Add the Roster Type in Rostas</div>
+    <p>Go to Rostas → <strong>Settings Dashboard → Add New Roster</strong>. Fill in the form:</p>
+    <ul style="margin-top:0.5rem;">
+      <li><strong>Roster Name</strong> — the internal name (e.g. <em>Evening</em>). Title case, no spaces in the middle.</li>
+      <li><strong>Coordinator Name, Email, Phone</strong> — the coordinator for this roster type.</li>
+      <li><strong>Calendar Time Slot</strong> — display order on the Seasons Calendar. Use 3 or 4 for a new type.</li>
+      <li><strong>Infoodle Group ID</strong> — the numeric group ID. If unsure, run Knox Roster → Developer tools → List all groups.</li>
+    </ul>
+    <p style="margin-top:0.5rem;">Save the row. This automatically queues an <code>addRosterType</code> command in the Commands tab.</p>
+  </div>
+
+  <figure>
+    <img src="add-role-form.png" alt="Add Role form showing Roster Type, Role Name, Min/Max People, Is Active fields" class="screenshot-mid">
+    <figcaption>Add Role form — fill in all required fields when adding a new roster type or role.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="s16-s2">Step 2 — Wait 1 Minute</h3>
+  <div class="step-box">
+    <div class="step-label">Step 2 — Wait 1 Minute</div>
+    <p>The command poller picks up the <code>addRosterType</code> command and scaffolds all Config keys:</p>
+    <ul style="margin-top:0.5rem;">
+      <li><code>COORDINATOR_{TYPE}</code>, <code>COORDINATOR_{TYPE}_EMAIL</code>, <code>COORDINATOR_{TYPE}_PHONE</code></li>
+      <li><code>SEASONS_SLOT_{type}</code>, <code>ROSTER_BUILD_WEEKS_{type}</code></li>
+      <li>Adds the type to <code>ROSTER_TYPES</code> and <code>INFOODLE_GROUP_MAP</code></li>
+    </ul>
+    <p style="margin-top:0.5rem;">Check the Command history panel — the result shows the number of keys added.</p>
+  </div>
+
+  <h3 class="sub-title" id="s16-s3">Step 3 — Add Roles in Edit Roles</h3>
+  <div class="step-box">
+    <div class="step-label">Step 3 — Add Roles</div>
+    <p>Go to Rostas → <strong>Edit Roles</strong>. Add each role for the new roster type — set <strong>Roster_Type</strong> to the new name exactly. Set <strong>Is_Active = Active</strong>, and set Min/Max People as needed.</p>
+  </div>
+
+  <h3 class="sub-title" id="s16-s4">Step 4 — Add a Season</h3>
+  <div class="step-box">
+    <div class="step-label">Step 4 — Add a Season</div>
+    <p>Go to Rostas → <strong>Seasons Dashboard</strong>. Add a new season — set start and end dates, frequency (Weekly or Fortnightly), day of week, and <strong>Is_Active = TRUE</strong>.</p>
+  </div>
+
+  <h3 class="sub-title" id="s16-s5">Step 5 — Refresh Calendar and Buttons</h3>
+  <div class="step-box">
+    <div class="step-label">Step 5 — Refresh Calendar and Buttons</div>
+    <p>In Rostas → <strong>Run Commands</strong>:</p>
+    <ul style="margin-top:0.5rem;">
+      <li>Run <strong>0. Refresh calendar</strong> — rebuilds the Seasons Calendar to include the new roster type's dates.</li>
+      <li>Run <strong>7. Maintenance → Refresh command buttons</strong> — new Build, Send, and Preview buttons appear for the new type.</li>
+    </ul>
+  </div>
+
+  <h3 class="sub-title" id="s16-s6">Step 6 — Import Historical Data (if applicable)</h3>
+  <div class="step-box">
+    <div class="step-label">Step 6 — Import Historical Data</div>
+    <p>If you have an existing spreadsheet with past assignments for this roster type, import it now. This gives the fairness engine accurate history from day one so it won't re-roster the same people. See <a href="#a1">Appendix A1 — Import Existing Roster Data</a> for full instructions. If there is no existing history, skip this step.</p>
+  </div>
+
+  <h3 class="sub-title" id="s16-s7">Step 7 — Set Preferences and Run</h3>
+  <div class="step-box">
+    <div class="step-label">Step 7 — Set Preferences and Run</div>
+    <p>Set Ministry_Pref for volunteers (via Individual Details or after Volunteer Sync once the Infoodle group is populated). Send role preference emails if the roster type uses specialist roles. Then follow Steps 3, 4, 5, and 6 of the Roster Cycle to collect availability, build, preview, and send.</p>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Refresh command buttons:</strong> Run 7. Maintenance → Refresh command buttons any time the Run Commands panel looks wrong — missing buttons, wrong labels, or buttons for inactive types still appearing. Safe to run at any time.
+  </div>
+
+  <!-- S17: Removing a Roster Type -->
+  <h2 class="section-title" id="s17">Removing a Roster Type</h2>
+  <p>If a roster type is no longer needed, it can be removed. This deactivates its roles and seasons, removes its Config keys, and rebuilds the Run Commands buttons. Historical assignment records are not deleted — they remain in RosterAssignments for reference.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>This cannot be undone automatically.</strong> Make sure you genuinely want to remove the roster type. If you might need it again, set its season <code>Is_Active = FALSE</code> instead — that stops it appearing in builds without removing any data.
+  </div>
+
+  <h3 class="sub-title" id="s17a">Option A — Via Rostas Run Commands (Recommended)</h3>
+  <div class="step-box">
+    <div class="step-label">Delete via Run Commands</div>
+    <p>Go to Rostas → <strong>Run Commands → Step 7 Maintenance</strong>. A <em>Delete [Type] roster type</em> button appears for each active roster type. Tap the button for the type you want to remove. The system processes the deletion within 1 minute. Check Command history for the result — it confirms Config keys, roles, seasons, and frequency rows removed.</p>
+  </div>
+
+  <h3 class="sub-title" id="s17b">Option B — Via Apps Script Menu</h3>
+  <div class="step-box">
+    <div class="step-label">Delete via Menu</div>
+    <p>In the spreadsheet menu: <strong>Knox Roster → Delete a roster type</strong>. A numbered list of active roster types appears. Enter the number of the type to delete and confirm. The menu version shows a detailed confirmation dialog before proceeding.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>What gets changed</th><th>What stays untouched</th></tr></thead>
+      <tbody>
+        <tr><td>5 Config keys deleted (<code>COORDINATOR_{TYPE}</code> etc.)</td><td>RosterAssignments rows — left intact (historical data)</td></tr>
+        <tr><td>Type removed from <code>ROSTER_TYPES</code> and <code>INFOODLE_GROUP_MAP</code></td><td>Audit_Log entries</td></tr>
+        <tr><td>Master_Roles rows marked Inactive</td><td>VolunteerRoles entries</td></tr>
+        <tr><td>Seasons rows marked Inactive</td><td></td></tr>
+        <tr><td>VolunteerFrequency rows for this type deleted</td><td></td></tr>
+        <tr><td>Run Commands buttons rebuilt</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- S18: Coordinator-Triggered Decline and Replace -->
+  <h2 class="section-title" id="s18">Coordinator-Triggered Decline and Replace</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-global-roster.png" class="nav-pill" alt="Global Roster"></span></div>
+  <p>The standard Manual Replacement (Section 10) lets you pick a specific replacement volunteer directly. Decline and Replace is different — it marks a volunteer as declined and hands control to the automated SMS chain, which contacts available volunteers one by one until someone accepts.</p>
+  <p>Use this when a volunteer contacts you to say they cannot make it, but you do not have a specific replacement in mind and prefer the system to find one.</p>
+
+  <h3 class="sub-title">Via the Global Roster View</h3>
+  <div class="step-box">
+    <div class="step-label">Decline and Replace — Global Roster</div>
+    <p>Go to Rostas → <strong>Global Roster</strong>. Find the assignment. Tap <strong>Save as Declined</strong> in the assignment edit panel. The system marks the assignment Declined and immediately starts the SMS replacement chain — the same chain that runs when a volunteer taps 'Can't make it' in their notification email.</p>
+  </div>
+
+  <h3 class="sub-title">Via the Commands Tab (Advanced)</h3>
+  <div class="step-box">
+    <div class="step-label">Decline and Replace — Commands Tab</div>
+    <p>An Overall Coordinator can also write a command row to the Commands tab directly:</p>
+    <ul style="margin-top:0.5rem;">
+      <li><strong>Command:</strong> <code>declineAndReplace</code></li>
+      <li><strong>Parameters:</strong> the Assignment_ID (e.g. <code>RA_1234567890</code>) — find this in the RosterAssignments tab.</li>
+    </ul>
+    <p style="margin-top:0.5rem;">The poller picks it up within 1 minute, marks the assignment Declined, and starts the SMS chain.</p>
+  </div>
+
+  <h3 class="sub-title">Comparison: Manual Replacement vs Decline and Replace</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th></th><th>Manual Replacement (§10)</th><th>Decline and Replace (§18)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>You choose the replacement?</strong></td><td><span class="tick">✅</span> Yes — pick from dropdown</td><td><span class="dash">❌</span> No — system finds via SMS</td></tr>
+        <tr><td><strong>Replacement gets notified?</strong></td><td><span class="tick">✅</span> Yes — automatic notification sent</td><td><span class="tick">✅</span> Yes — automated SMS chain</td></tr>
+        <tr><td><strong>Best for</strong></td><td>Volunteer nominates own replacement</td><td>Last-minute gap, no obvious replacement</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">🌙</span>
+    <strong>Quiet hours apply:</strong> If you trigger Decline and Replace between 9pm and 7am NZ time, the SMS chain queues until 7am. For urgent same-day slots, contact potential replacements directly in parallel.
+  </div>
+
+  <!-- APPENDIX A BANNER -->
+  <div class="part-banner" id="appendix-a">
+    <span class="part-label">Appendix A — Technical Owner</span>
+    <span class="part-title">Import, Maintenance &amp; Redeployment</span>
+    <span class="part-sub">Apps Script access required &middot; Not available in the Rostas app</span>
+  </div>
+
+  <!-- A1: Import Existing Roster Data -->
+  <h2 class="section-title" id="a1">A1. Import Existing Roster Data</h2>
+  <p>The Import Existing Roster function loads a manually-made roster into Rostas. It is used in two situations: bootstrapping a brand-new roster type from a spreadsheet the coordinator has already been running, or seeding historical data before go-live so the fairness engine has accurate assignment history from day one.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">🔒</span>
+    <strong>Access required:</strong> This function is only accessible from the Apps Script editor — it is not available in the Rostas AppSheet app. It requires the Google account that owns the spreadsheet and (for AI cleaning) an OpenAI API key stored in Script Properties.
+  </div>
+
+  <h3 class="sub-title">When to Use Import</h3>
+  <p><strong>Use Import when:</strong></p>
+  <ul>
+    <li>Setting up Rostas for the first time and you have an existing roster spreadsheet to carry over.</li>
+    <li>Adding a new roster type (e.g. Evening) and you want to give the system historical assignment data so it applies fairness rotation from the start.</li>
+    <li>A previous roster season was managed manually and you want it visible in the Roster Assignments history.</li>
+  </ul>
+  <p><strong>Do not use Import to:</strong></p>
+  <ul>
+    <li>Fix or edit existing assignments — use Manual Replacement or edit directly in Rostas instead.</li>
+    <li>Re-import data that is already in RosterAssignments — the script skips rows with duplicate Assignment IDs but will add rows if you paste fresh data with new IDs.</li>
+  </ul>
+
+  <h3 class="sub-title" id="a1-prereq">Prerequisites</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Requirement</th><th>How to check</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Apps Script access</strong></td><td>Open the spreadsheet → Extensions → Apps Script. You should see the Knox Roster project. If you see a permissions error, you need to be added as an Editor of the spreadsheet.</td></tr>
+        <tr><td><strong>OpenAI API key</strong> (for AI cleaning only)</td><td>In Apps Script → Project Settings → Script Properties. Look for <code>OPENAI_API_KEY</code>. If missing, go to platform.openai.com, create a key, and add it here. AI cleaning will not run without it, but you can still import without AI cleaning.</td></tr>
+        <tr><td><strong>Active season in Seasons tab</strong></td><td>The import requires an active season for the roster type you are importing. Check the Seasons tab — <code>Is_Active</code> should be TRUE and the date range should cover your import data.</td></tr>
+        <tr><td><strong>Roles in Master_Roles tab</strong></td><td>Every role name in your source spreadsheet must exactly match a role in Master_Roles. Run the import once and check the result — any unknown role names are listed. Add them to Master_Roles and re-run.</td></tr>
+        <tr><td><strong>Volunteers in Volunteers tab</strong></td><td>All volunteer names must match the Volunteers tab. The AI cleaning step handles nicknames and abbreviations — if skipping AI cleaning, ensure names match exactly.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title" id="a1-pivot">Step-by-Step: Pivot Format (Recommended)</h3>
+  <p>All steps are run from the <strong>Knox Roster</strong> menu in the spreadsheet menu bar. Pivot format is recommended when your existing roster is a grid (dates across the top, roles down the side).</p>
+
+  <div class="step-box">
+    <div class="step-label">Step A — Open the Apps Script Editor</div>
+    <p>In the Rostas spreadsheet: <strong>Extensions → Apps Script</strong>. The Knox Roster project opens. You do not need to edit any code. All actions are run from the Knox Roster menu at the top of the spreadsheet.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step B — Create the ImportPivot Tab</div>
+    <p>In the spreadsheet menu: <strong>Knox Roster → Import Existing Roster → Setup — Create Pivot tab</strong>. This creates an ImportPivot tab with sample data showing the expected format. Delete the sample rows (rows 2–4) before pasting your data.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step C — Paste Your Existing Roster</div>
+    <p>Open your source spreadsheet. Copy the roster grid — including the header row with dates and the role column. Paste it into cell A1 of the ImportPivot tab. Expected layout:</p>
+    <ul style="margin-top:0.5rem;font-family:'Courier New',monospace;font-size:12.5px;">
+      <li>Row 1: &nbsp; Roles &nbsp;│&nbsp; 13/04/2026 &nbsp;│&nbsp; 27/04/2026 &nbsp;│&nbsp; …</li>
+      <li>Row 2+: Soup &nbsp;│&nbsp; Jane Smith &nbsp;│&nbsp; Bronnie H &nbsp;│&nbsp; …</li>
+    </ul>
+    <p style="margin-top:0.5rem;">Volunteer names can include informal names, initials, and pairs (e.g. "Bruce &amp; Cole"). The AI cleaning step resolves these.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step D — Run AI Cleaning (Recommended)</div>
+    <p>In the spreadsheet menu: <strong>Knox Roster → Import Existing Roster → 1. Clean roster with AI</strong>. The AI reads your pasted roster and compares every volunteer name and role name against the Volunteers tab and Master_Roles tab. It resolves: nicknames and informal names (e.g. "Bronnie" → "Bronwyn Harrison"), last-name-only references, minor role name variations, and pairs listed in one cell. The cleaned version is written back into ImportPivot. New nickname mappings are saved to the Nickname_Map tab. Review the cleaned ImportPivot tab before importing.</p>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>If AI cleaning fails:</strong> Check that the <code>OPENAI_API_KEY</code> is present in Apps Script → Project Settings → Script Properties. You can proceed without AI cleaning — names that do not match will be flagged in the import result as "Unmatched names". Fix them in ImportPivot and re-run.
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step E — Run the Import</div>
+    <p>In the spreadsheet menu: <strong>Knox Roster → Import Existing Roster → 2. Import (Pivot format)</strong>. A dialog asks you to confirm the Roster Type. Select the correct type and confirm. The import shows a results dialog:</p>
+    <ul style="margin-top:0.5rem;">
+      <li>✅ <strong>Written</strong> — assignments successfully added to RosterAssignments.</li>
+      <li>⏭ <strong>Skipped</strong> — rows already present in RosterAssignments — safe to ignore.</li>
+      <li>⚠️ <strong>Unmatched names</strong> — volunteer names that could not be resolved. Cells highlighted red in ImportPivot.</li>
+      <li>❓ <strong>Unknown roles</strong> — role names not found in Master_Roles. Add and re-run.</li>
+    </ul>
+    <p style="margin-top:0.5rem;">Correct any highlighted cells and re-run until zero unmatched names and zero unknown roles.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step F — Seed Volunteer Roles from Import</div>
+    <p>In the spreadsheet menu: <strong>Knox Roster → Import Existing Roster → 4. Seed volunteer roles from import</strong>. Reads the imported RosterAssignments and creates VolunteerRoles entries for each volunteer-role pairing found. Does not overwrite any existing VolunteerRoles entries.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step G — Seed Volunteer Frequency from Import</div>
+    <p>In the spreadsheet menu: <strong>Knox Roster → Import Existing Roster → 5. Seed volunteer frequency from import</strong>. Counts how many times each volunteer appears in the imported data and creates VolunteerFrequency entries. Gives the fairness rotation engine a realistic starting point so the first build does not re-roster the same people who just served.</p>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">✅</span>
+    <strong>After steps F and G:</strong> The system is ready to build its first roster. Check the Individual Details view for a few volunteers to confirm their frequency counts look right before running the first build.
+  </div>
+
+  <h3 class="sub-title" id="a1-flat">Alternative: Flat Format</h3>
+  <p>If your source data is a simple list rather than a grid, use the flat format instead.</p>
+  <div class="step-box">
+    <div class="step-label">Setup — Create the ImportRoster Tab</div>
+    <p>Knox Roster → Import Existing Roster → Setup — Create Flat tab. Delete the example row and paste or type your data with these columns:</p>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Column</th><th>Required format</th></tr></thead>
+      <tbody>
+        <tr><td><code>A — Service_Date</code></td><td>DD/MM/YYYY as plain text (e.g. 13/04/2026)</td></tr>
+        <tr><td><code>B — Role_Name</code></td><td>Exact role name as it appears in Master_Roles</td></tr>
+        <tr><td><code>C — Volunteer_Name</code></td><td>Full name matching the Volunteers tab</td></tr>
+        <tr><td><code>D — Import_Status</code></td><td>Leave blank — the script fills this column</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Then run: <strong>Knox Roster → Import Existing Roster → 3. Import (Flat format)</strong>. AI cleaning is not available for flat format. Ensure names and roles are an exact match before importing. Follow Steps F and G above to seed roles and frequency after the import.</p>
+
+  <h3 class="sub-title" id="a1-after">After the Import</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Check</th><th>How</th></tr></thead>
+      <tbody>
+        <tr><td><strong>RosterAssignments tab</strong></td><td>Filter by Roster_Type to see imported rows. Spot-check dates, roles, and volunteer names.</td></tr>
+        <tr><td><strong>VolunteerRoles tab</strong></td><td>Should now contain entries for each volunteer-role pairing. Check a few volunteers in the Volunteers Roles view in Rostas.</td></tr>
+        <tr><td><strong>Individual Details view</strong></td><td>Check that the frequency count in Max Days Rostered reflects how many times they appeared in the imported data.</td></tr>
+        <tr><td><strong>Run a preview build</strong></td><td>Go to Rostas → Run Commands and run Step 4 Build Roster. If the system assigns someone who was just rostered heavily in the imported data, re-run Step G.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Do not re-import:</strong> Running the import a second time with the same data is safe (existing rows are skipped) but running it with a modified copy will create duplicate assignments with new Assignment IDs. If you need to correct imported data, delete the affected rows from RosterAssignments and re-run with corrected source data.
+  </div>
+
+  <h3 class="sub-title" id="a1-nicknames">Managing the Nickname Map</h3>
+  <p>Each time AI cleaning resolves a new nickname (e.g. "Bronnie" → "Bronwyn Harrison") it saves the mapping to the Nickname_Map tab. This means the same resolution is used automatically in future imports without needing to call the AI again.</p>
+  <p>To view or edit the nickname map: <strong>Knox Roster → Import Existing Roster → Setup — Manage nickname map</strong>. The Nickname_Map tab opens. Column A is the informal name (lowercase), Column B is the resolved full name. You can add entries manually.</p>
+
+  <h3 class="sub-title" id="a1-trouble">Troubleshooting — Import</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Problem</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr><td>"No active season found"</td><td>Add a season in Rostas → Seasons Dashboard, set Is_Active = TRUE and run Step 0 Refresh Calendar before retrying.</td></tr>
+        <tr><td>"Role not found in Master_Roles"</td><td>Add the missing role to Master_Roles, or correct the role name in ImportPivot and re-run.</td></tr>
+        <tr><td>Unmatched volunteer names (red cells)</td><td>Run AI cleaning, or correct the name in ImportPivot to match the Volunteers tab exactly.</td></tr>
+        <tr><td>"OPENAI_API_KEY not found"</td><td>Add OPENAI_API_KEY to Apps Script → Project Settings → Script Properties with a key from platform.openai.com.</td></tr>
+        <tr><td>Frequency counts look wrong after seeding</td><td>Re-run Step G. Check RosterAssignments for the imported rows and confirm Volunteer_Name values match the Volunteers tab.</td></tr>
+        <tr><td>Import ran but RosterAssignments is empty</td><td>Check that ImportPivot has data, the Roster_Type matches an active season. Filter Audit_Log to ERROR for more detail.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="contact-card">
+    <div class="name">📞 Need help with import?</div>
+    <div class="detail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7a9a2b0b4aba2b3b3a2b5b487b0a6aeb3a6b5a6e9a8b5a0e9a9bd">[email&#160;protected]</a></div>
+    <div class="note">Include a screenshot of the result dialog or error message, and describe which step you were on.</div>
+  </div>
+
+  <!-- A2: Webapp Redeployment -->
+  <h2 class="section-title" id="a2">A2. After a Webapp Redeployment — Sync Preview URLs</h2>
+  <p>Every time the Apps Script web app is redeployed, Google assigns a new <code>WEBAPP_URL</code>. The Rosters tab stores a <code>Preview_URL</code> column that must be updated whenever this changes.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Symptoms of a stale URL:</strong> The Communications view in Rostas shows broken preview links, or volunteers receive broken links in notification emails. Check <code>WEBAPP_URL</code> in Config first — if it has not been updated since the redeployment, update it before running the sync.
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step 1 — Update WEBAPP_URL in Config</div>
+    <p>In the Apps Script editor: <strong>Deploy → Manage deployments</strong>. Copy the new web app URL. In Rostas → Update Settings, find <code>WEBAPP_URL</code> and paste the new URL. Save.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step 2 — Sync Preview URLs</div>
+    <p>In the spreadsheet menu: <strong>Knox Roster → Developer tools → Sync Roster Preview URLs</strong>. Reads <code>WEBAPP_URL</code> and writes the correct <code>?view=preview&amp;roster=X</code> URL for every active roster in the Rosters tab. Inactive rosters have their Preview_URL cleared automatically.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Step 3 — Confirm</div>
+    <p>Open <code>WEBAPP_URL?view=preview</code> in a browser. The roster type selector should load. If it shows a permissions error, check the deployment is set to <strong>Anyone</strong> access.</p>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Also runs automatically:</strong> <code>syncRosterPreviewUrls()</code> triggers automatically whenever a roster's <code>Is_Active</code> status is toggled in the Rosters tab, so manual running is only needed after a URL change.
+  </div>
+
+  <!-- A3: Audit Log Pruning -->
+  <h2 class="section-title" id="a3">A3. Audit Log Pruning</h2>
+  <p>The Audit_Log tab records every system event. Over time this tab grows large. The pruning function trims it to a manageable size without deleting recent entries.</p>
+
+  <h3 class="sub-title">One-Time Setup</h3>
+  <div class="step-box">
+    <div class="step-label">Install the Pruning Trigger</div>
+    <p>In the spreadsheet menu: <strong>Knox Roster → Setup — Audit Log Pruning</strong>. Installs a weekly time-based trigger that automatically prunes the Audit_Log. Run this <strong>once at go-live</strong>. Do not run again — duplicate triggers cause double-pruning.</p>
+  </div>
+
+  <h3 class="sub-title">Manual Prune</h3>
+  <div class="step-box">
+    <div class="step-label">Prune Now</div>
+    <p>In the spreadsheet menu: <strong>Knox Roster → Prune Audit Log Now</strong>. Immediately trims the Audit_Log to the most recent entries. Safe to run at any time. Useful if the tab has grown very large before the trigger was installed.</p>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>What gets kept:</strong> All ERROR-level entries are always retained. INFO entries older than the configured retention window (default 90 days) are removed. The window can be adjusted in Config — search for <code>AUDIT_LOG</code>.
+  </div>
+
+  <!-- A4: Clean VolunteerRoles Tab -->
+  <h2 class="section-title" id="a4">A4. Clean VolunteerRoles Tab</h2>
+  <p>The VolunteerRoles tab can accumulate blank rows or duplicates over time — particularly after bulk imports or if volunteers submit the role preference form more than once. The cleanup function removes these safely.</p>
+
+  <div class="step-box">
+    <div class="step-label">Run Cleanup</div>
+    <p>In the spreadsheet menu: <strong>Knox Roster → (run from menu)</strong> — the function is <code>cleanVolunteerRoles</code> in Maintainance.gs. If it is not in the menu, open the Apps Script editor, select <code>cleanVolunteerRoles</code> from the function dropdown, and click Run. What it removes:</p>
+    <ul style="margin-top:0.5rem;">
+      <li>Rows with a blank Volunteer_ID or Role_ID.</li>
+      <li>Rows where Role_Type is not Primary or Fillable.</li>
+      <li>Duplicate Volunteer_ID + Role_ID combinations.</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">✅</span>
+    <strong>Safe to re-run:</strong> The function only removes invalid or duplicate rows — it never deletes a valid, unique role assignment. A toast notification shows the count of rows kept and removed.
+  </div>
+
   <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">
   <p style="font-size:12px;color:var(--text-muted);text-align:center;">Knox Church Waitara &middot; Rostas Coordinator Guide &middot; April 2026</p>
   <div style="text-align:center;margin-top:1rem;"><a href="#cover" id="back-top">↑ Back to top</a></div>
@@ -1156,7 +1667,7 @@
 </div>
 </main>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── COLLAPSIBLE TOC ──────────────────────────────────────────────────────
   document.querySelectorAll('.toc-toggle').forEach(function(btn) {
     btn.addEventListener('click', function() {
@@ -1267,13 +1778,3 @@
     if (b) {
       b.style.transition = 'none';
       b.style.width = '0%';
-      setTimeout(function() {
-        b.style.transition = 'width ' + cDelay + 'ms linear';
-        b.style.width = '100%';
-      }, 100);
-    }
-    cTimer = setTimeout(function() { cShow(1); }, cDelay);
-  });
-</script>
-</body>
-</html>

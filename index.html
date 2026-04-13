@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rostas Coordinator Guide — Knox Church Waitara</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #1a2e4a;
@@ -729,8 +728,7 @@
 
 
     <div style="padding: 1.2rem 1.2rem 0.5rem; margin-top: 0.5rem; border-top: 1px solid #2e4a6a;">
-      <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf"
-         style="display:flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;text-decoration:none;padding:0.55rem 0.9rem;border-radius:5px;font-size:12px;font-weight:600;letter-spacing:0.04em;">
+      <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf" style="display:flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;text-decoration:none;padding:0.55rem 0.9rem;border-radius:5px;font-size:12px;font-weight:600;letter-spacing:0.04em;">
         <span>⬇</span> Download PDF Guide
       </a>
     </div>
@@ -753,7 +751,7 @@
   <div id="audio-intro">
     <div class="audio-label">Watch First</div>
     <div class="audio-title">7 min Intro to Rostas</div>
-    <video controls preload="none">
+    <video controls="" preload="none">
       <source src="Orchestrating_Empathy.mp4" type="video/mp4">
       Your browser does not support video playback.
     </video>
@@ -764,10 +762,9 @@
     <div class="carousel-eyebrow">Quick Start Guide</div>
     <h2 class="carousel-title">Orchestrating with Empathy — 15 slides</h2>
     <div id="carousel" role="region" aria-label="Quick Start Guide slides">
-      <img id="carousel-img" src="slide-01.png" alt="Slide 1 of 15"
-           style="width:100%;height:100%;object-fit:contain;background:#fff;display:block;">
-      <button class="carousel-btn" id="carousel-prev" onclick="cPrev()" aria-label="Previous slide">&#8249;</button>
-      <button class="carousel-btn" id="carousel-next" onclick="cNext()" aria-label="Next slide">&#8250;</button>
+      <img id="carousel-img" src="slide-01.png" alt="Slide 1 of 15" style="width:100%;height:100%;object-fit:contain;background:#fff;display:block;">
+      <button class="carousel-btn" id="carousel-prev" onclick="cPrev()" aria-label="Previous slide">‹</button>
+      <button class="carousel-btn" id="carousel-next" onclick="cNext()" aria-label="Next slide">›</button>
       <div id="carousel-progress"><div id="carousel-progress-bar"></div></div>
     </div>
     <div id="carousel-footer">
@@ -790,13 +787,13 @@
       </div>
     </div>
     <div id="carousel-counter">Slide 1 of 15</div>
-    <div id="carousel-hint">Auto-advances every 40 seconds &middot; Pauses on hover &middot; &larr; &rarr; keys or swipe</div>
+    <div id="carousel-hint">Auto-advances every 40 seconds · Pauses on hover · ← → keys or swipe</div>
   </div>
 
   <!-- INTRO -->
   <h2 class="section-title" id="intro">Introduction</h2>
-  <p>Rostas is the coordinator app for managing Knox Church Waitara's volunteer rosters. It builds rosters for Sunday services, Music team, and Nourish (fortnightly), connects to Infoodle for volunteer data, and handles notifications, reminders, and SMS replacements automatically.</p>
-  <p>This guide covers everything you need: from collecting availability through to handling replacements. <strong>Part B</strong> covers Roster Coordinator tasks. <strong>Part C</strong> covers additional Overall Coordinator tasks (Lisa &amp; Sharon).</p>
+  <p>Rostas is the coordinator app for managing Knox Church Waitara's volunteer rosters. It builds rosters for Church groups, or volunteer organisations, it currently connects to the Infoodle database to access volunteer data, and handles notifications, reminders, and SMS replacements automatically using the <font color="#1a3366"><span style="font-size: 14px;">Twilio SMS</span></font>&nbsp;API service</p>
+  <p>This guide covers everything you need: from collecting availability through to handling replacements. <strong>Part B</strong> covers Roster Coordinator tasks. <strong>Part C</strong> covers additional Overall Coordinator tasks for those who have database access. .</p>
 
   <!-- WHO CAN DO WHAT -->
   <h2 class="section-title" id="who-what">Who Can Do What</h2>
@@ -830,13 +827,11 @@
   <!-- PART B -->
   <div class="part-banner" id="part-b">
     <span class="part-label">Part B</span>
-    <span class="part-title">Roster Coordinator</span>
-    <span class="part-sub">Sunday Coordinator · Music Coordinator · Nourish Coordinator</span>
-  </div>
+    <span class="part-title">Roster Coordinators Guide&nbsp;</span></div>
 
   <!-- S1 -->
   <h2 class="section-title" id="s1">1. Getting Started with Rostas</h2>
-  <p>Rostas is built primarily for desktop access, though it can also be used on a tablet or mobile phone. Your coordinator will send you a link or invite when you are set up.</p>
+  <p>Rostas is built primarily for desktop access, though it can also be used on a tablet most mobile most mobile views will look cramped Your Overall Coordinator / Tech Support will send you a link to use on your desktop&nbsp;</p>
 
   <h3 class="sub-title" id="s1-views">The Rostas Views</h3>
   <p>When you open Rostas you will see these views in the left-hand sidebar. Tap the relevant view to navigate to that area of the system.</p>
@@ -845,7 +840,7 @@
 
   <figure>
     <img src="nav-sidebar.png" alt="Rostas sidebar navigation showing all views" class="screenshot-sm">
-    <figcaption>The Rostas left-hand sidebar — tap any view to navigate to that area.</figcaption>
+    <figcaption>The Rostas left-hand sidebar — tap any view to navigate to that area.</figcaption><figcaption><br></figcaption>
   </figure>
 
   <div class="callout callout-info">
@@ -853,12 +848,12 @@
     <strong>The Run Commands view is your main working area.</strong> This is where you trigger all roster actions — sending emails, building the roster, and sending notifications. Each button runs a single action and shows you the result when it is done. After tapping a button, Rostas queues the action and runs it within a minute. A <em>Complete</em> message appears in the Result column when done — always check this before moving on.
   </div>
 
-  <figure>
+  <figure><br></figure><figure>
     <img src="run-commands.png" alt="Run Commands view showing all roster action buttons" class="screenshot">
     <figcaption>Run Commands — your main working area. Each button triggers one roster action. The Command history panel shows results.</figcaption>
   </figure>
 
-  <h3 class="sub-title" id="s1-results">Reading Results</h3>
+  <h3 class="sub-title" id="s1-results"><br></h3><h3 class="sub-title" id="s1-results">Reading Results</h3>
   <p>Every action writes a result message in the Command history panel. Common results:</p>
   <ul>
     <li><strong>Filled: 12, Pending: 3, Unfilled: 0</strong> — roster built successfully. Pending means a volunteer marked Unsure but has been provisionally assigned.</li>
@@ -1260,7 +1255,7 @@
 
   <div class="contact-card">
     <div class="name">📞 Contact Tech Support — Guy</div>
-    <div class="detail">newsletters&#64;waitara&#46;org&#46;nz</div>
+    <div class="detail">newsletters@waitara.org.nz</div>
     <div class="note">When contacting Tech Support about an error, include the error message from the Status Dashboard and a description of what you were doing when it occurred.</div>
   </div>
 
@@ -1430,7 +1425,7 @@
   <div class="part-banner" id="appendix-a">
     <span class="part-label">Appendix A — Technical Owner</span>
     <span class="part-title">Import, Maintenance &amp; Redeployment</span>
-    <span class="part-sub">Apps Script access required &middot; Not available in the Rostas app</span>
+    <span class="part-sub">Apps Script access required · Not available in the Rostas app</span>
   </div>
 
   <!-- A1: Import Existing Roster Data -->
@@ -1587,7 +1582,7 @@
 
   <div class="contact-card">
     <div class="name">📞 Need help with import?</div>
-    <div class="detail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7a9a2b0b4aba2b3b3a2b5b487b0a6aeb3a6b5a6e9a8b5a0e9a9bd">[email&#160;protected]</a></div>
+    <div class="detail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7a9a2b0b4aba2b3b3a2b5b487b0a6aeb3a6b5a6e9a8b5a0e9a9bd">[email&nbsp;protected]</a></div>
     <div class="note">Include a screenshot of the result dialog or error message, and describe which step you were on.</div>
   </div>
 
@@ -1661,7 +1656,7 @@
   </div>
 
   <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">
-  <p style="font-size:12px;color:var(--text-muted);text-align:center;">Knox Church Waitara &middot; Rostas Coordinator Guide &middot; April 2026</p>
+  <p style="font-size:12px;color:var(--text-muted);text-align:center;">Knox Church Waitara · Rostas Coordinator Guide · April 2026</p>
   <div style="text-align:center;margin-top:1rem;"><a href="#cover" id="back-top">↑ Back to top</a></div>
 
 </div>
@@ -1782,5 +1777,6 @@
   });
   cShow(0);
 </script>
-</body>
-</html>
+
+
+</body></html>

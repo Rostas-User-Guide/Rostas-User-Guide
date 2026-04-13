@@ -515,7 +515,7 @@ async function buildContent($, imgs) {
       const cap = $el.find('figcaption').first();
       const src = img.attr('src') || '';
       const cls = img.attr('class') || '';
-      if (src && !src.startsWith('pill-') && imgs[src]) {
+      if (src && imgs[src]) {
         const { w, h } = imgSize(cls, imgs[src].w, imgs[src].h);
         out.push(spacer(100));
         out.push(new Paragraph({

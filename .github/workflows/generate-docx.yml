@@ -1,0 +1,36 @@
+name: Generate Coordinator Guide DOCX
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'generate_docx.js'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate DOCX
+        run: node generate_docx.js
+
+      - name: Commit and push DOCX
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add Rostas_Coordinator_Guide.docx
+          git diff --staged --quiet || git commit -m "Auto-regenerate Coordinator Guide DOCX"
+          git push

@@ -1,0 +1,48 @@
+name: Generate Coordinator Guide DOCX
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'generate_docx.js'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate DOCX
+        run: node generate_docx.js
+
+      - name: Install LibreOffice
+        run: sudo apt-get install -y libreoffice --no-install-recommends
+
+      - name: Convert DOCX to PDF (refreshes TOC page numbers)
+        run: |
+          libreoffice --headless --convert-to pdf \
+            --outdir . \
+            Rostas_Coordinator_Guide.docx
+
+      - name: Rename PDF
+        run: mv Rostas_Coordinator_Guide.pdf Rostas_Coordinator_Guide.pdf || true
+
+      - name: Commit and push files
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add Rostas_Coordinator_Guide.docx Rostas_Coordinator_Guide.pdf
+          git diff --staged --quiet || git commit -m "Auto-regenerate Coordinator Guide (DOCX + PDF)"
+          git push

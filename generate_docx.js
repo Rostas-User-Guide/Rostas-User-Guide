@@ -63,10 +63,22 @@ const C = {
 // docx-js ImageRun.transformation takes pixels (96dpi). 1 inch = 1440 DXA = 96px.
 function dxaToEmu(dxa) { return Math.round(dxa * 96 / 1440); }
 
-function imgSize(cls) {
-  if (cls.includes('screenshot-mid')) return { w: Math.round(CONTENT_W * 0.56), h: Math.round(CONTENT_W * 0.56 * 0.70) };
-  if (cls.includes('screenshot-sm'))  return { w: Math.round(CONTENT_W * 0.38), h: Math.round(CONTENT_W * 0.38 * 0.90) };
-  return { w: CONTENT_W, h: Math.round(CONTENT_W * 0.58) };
+// Scale image to fit max width, preserving real aspect ratio
+function imgSize(cls, imgW, imgH) {
+  let maxW;
+  if (cls.includes('screenshot-mid')) maxW = Math.round(CONTENT_W * 0.56);
+  else if (cls.includes('screenshot-sm'))  maxW = Math.round(CONTENT_W * 0.38);
+  else maxW = CONTENT_W;
+  // Use actual aspect ratio if we have real dimensions
+  if (imgW && imgH && imgH > 0) {
+    const w = maxW;
+    const h = Math.round(w * imgH / imgW);
+    return { w, h };
+  }
+  // Fallback estimates
+  if (cls.includes('screenshot-mid')) return { w: maxW, h: Math.round(maxW * 0.70) };
+  if (cls.includes('screenshot-sm'))  return { w: maxW, h: Math.round(maxW * 0.90) };
+  return { w: maxW, h: Math.round(maxW * 0.55) };
 }
 
 // ─── HTTP fetch ───────────────────────────────────────────────────────────────
@@ -98,25 +110,49 @@ function buildLocalMap(dir) {
   return map;
 }
 
-// Detect real image type from file header — never trust the extension
-function detectImageType(buf) {
-  if (buf[0]===0x89&&buf[1]===0x50&&buf[2]===0x4E&&buf[3]===0x47) return 'png';
-  if (buf[0]===0xFF&&buf[1]===0xD8&&buf[2]===0xFF) return 'jpeg';
+// Detect real image type and dimensions from file header — never trust the extension
+function detectImageInfo(buf) {
+  // PNG
+  if (buf[0]===0x89&&buf[1]===0x50&&buf[2]===0x4E&&buf[3]===0x47) {
+    const w = buf.readUInt32BE(16), h = buf.readUInt32BE(20);
+    return { type: 'png', w, h };
+  }
+  // JPEG — scan for SOF marker
+  if (buf[0]===0xFF&&buf[1]===0xD8&&buf[2]===0xFF) {
+    let i = 2;
+    while (i < buf.length - 8) {
+      if (buf[i] !== 0xFF) break;
+      const marker = buf[i+1];
+      const len = buf.readUInt16BE(i+2);
+      if (marker >= 0xC0 && marker <= 0xC3) {
+        const h = buf.readUInt16BE(i+5), w = buf.readUInt16BE(i+7);
+        return { type: 'jpeg', w, h };
+      }
+      i += 2 + len;
+    }
+    return { type: 'jpeg', w: 0, h: 0 };
+  }
+  // WebP
   if (buf[0]===0x52&&buf[1]===0x49&&buf[2]===0x46&&buf[3]===0x46&&
-      buf[8]===0x57&&buf[9]===0x45&&buf[10]===0x42&&buf[11]===0x50) return 'webp';
-  if (buf[0]===0x47&&buf[1]===0x49&&buf[2]===0x46) return 'gif';
-  return 'png';
+      buf[8]===0x57&&buf[9]===0x45&&buf[10]===0x42&&buf[11]===0x50)
+    return { type: 'webp', w: 0, h: 0 };
+  // GIF
+  if (buf[0]===0x47&&buf[1]===0x49&&buf[2]===0x46)
+    return { type: 'gif', w: 0, h: 0 };
+  return { type: 'png', w: 0, h: 0 };
 }
 
 async function loadImage(src, localMap) {
   const local = localMap[src.toLowerCase()];
   if (local && fs.existsSync(local)) {
     const data = fs.readFileSync(local);
-    return { data, type: detectImageType(data) };
+    const info = detectImageInfo(data);
+    return { data, ...info };
   }
   try {
     const data = await fetchURL(GITHUB_RAW + encodeURIComponent(src));
-    return { data, type: detectImageType(data) };
+    const info = detectImageInfo(data);
+    return { data, ...info };
   } catch { return null; }
 }
 
@@ -445,7 +481,7 @@ async function buildContent($, imgs) {
       const src = img.attr('src') || '';
       const cls = img.attr('class') || '';
       if (src && !src.startsWith('pill-') && imgs[src]) {
-        const { w, h } = imgSize(cls);
+        const { w, h } = imgSize(cls, imgs[src].w, imgs[src].h);
         out.push(spacer(100));
         out.push(new Paragraph({
           alignment: AlignmentType.CENTER,
@@ -474,7 +510,7 @@ async function buildContent($, imgs) {
       const src = $el.attr('src') || '';
       const cls = $el.attr('class') || '';
       if (src && !src.startsWith('pill-') && !src.startsWith('slide-') && imgs[src]) {
-        const { w, h } = imgSize(cls);
+        const { w, h } = imgSize(cls, imgs[src].w, imgs[src].h);
         out.push(new Paragraph({
           alignment: AlignmentType.CENTER,
           children: [new ImageRun({ data: imgs[src].data, type: imgs[src].type,

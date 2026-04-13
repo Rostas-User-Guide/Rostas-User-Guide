@@ -34,7 +34,7 @@ const {
 // ─── Config ───────────────────────────────────────────────────────────────────
 const GITHUB_RAW  = 'https://raw.githubusercontent.com/Rostas-User-Guide/Rostas-User-Guide/main/';
 const GITHUB_HTML = GITHUB_RAW + 'index.html';
-const OUTPUT_FILE = process.env.OUTPUT_FILE || './Rostas_Coordinator_Guide.docx';
+const OUTPUT_FILE = '/mnt/user-data/outputs/Rostas_Coordinator_Guide.docx';
 
 // A4 portrait, ~2cm margins
 const PAGE_W    = 11906;
@@ -97,14 +97,25 @@ function buildLocalMap(dir) {
   return map;
 }
 
+// Detect real image type from file header — never trust the extension
+function detectImageType(buf) {
+  if (buf[0]===0x89&&buf[1]===0x50&&buf[2]===0x4E&&buf[3]===0x47) return 'png';
+  if (buf[0]===0xFF&&buf[1]===0xD8&&buf[2]===0xFF) return 'jpeg';
+  if (buf[0]===0x52&&buf[1]===0x49&&buf[2]===0x46&&buf[3]===0x46&&
+      buf[8]===0x57&&buf[9]===0x45&&buf[10]===0x42&&buf[11]===0x50) return 'webp';
+  if (buf[0]===0x47&&buf[1]===0x49&&buf[2]===0x46) return 'gif';
+  return 'png';
+}
+
 async function loadImage(src, localMap) {
-  const ext  = path.extname(src).replace('.','').toLowerCase();
-  const type = ext === 'jpg' ? 'jpeg' : (ext || 'png');
   const local = localMap[src.toLowerCase()];
-  if (local && fs.existsSync(local)) return { data: fs.readFileSync(local), type };
+  if (local && fs.existsSync(local)) {
+    const data = fs.readFileSync(local);
+    return { data, type: detectImageType(data) };
+  }
   try {
-    const buf = await fetchURL(GITHUB_RAW + encodeURIComponent(src));
-    return { data: buf, type };
+    const data = await fetchURL(GITHUB_RAW + encodeURIComponent(src));
+    return { data, type: detectImageType(data) };
   } catch { return null; }
 }
 
@@ -495,7 +506,7 @@ async function main() {
   const localIdx = args.indexOf('--local');
   const imgsIdx  = args.indexOf('--images');
   const localHTML = localIdx >= 0 ? args[localIdx + 1] : null;
-  const imgsDir   = imgsIdx  >= 0 ? args[imgsIdx  + 1] : '.';
+  const imgsDir   = imgsIdx  >= 0 ? args[imgsIdx  + 1] : '/mnt/project';
 
   console.log('🚀  Rostas Coordinator Guide  →  DOCX');
   console.log('═'.repeat(45));

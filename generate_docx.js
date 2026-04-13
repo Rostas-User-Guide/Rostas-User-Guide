@@ -341,6 +341,55 @@ function buildTOC() {
   ];
 }
 
+// ─── Slides section (2 per page) ─────────────────────────────────────────────
+function buildSlides(imgs) {
+  const out = [];
+  out.push(new Paragraph({
+    heading: HeadingLevel.HEADING_1,
+    children: [new TextRun({ text: 'Quick Start Guide — Orchestrating with Empathy', bold: true, color: C.heading })],
+    spacing: { before: 200, after: 240 },
+  }));
+
+  // Two slides per page — half-width each to fit side by side isn't possible in
+  // docx (no inline columns), so we stack two per page with a page break every 2
+  const SLIDE_W = CONTENT_W;
+  const pairs = [];
+  for (let i = 1; i <= 15; i++) {
+    const src = 'slide-' + String(i).padStart(2, '0') + '.png';
+    pairs.push(src);
+  }
+
+  for (let i = 0; i < pairs.length; i++) {
+    const src = pairs[i];
+    if (imgs[src]) {
+      // Half-height to fit two per page (A4 usable height ~13200 DXA, half = 6600)
+      const aspectW = imgs[src].w || 16;
+      const aspectH = imgs[src].h || 9;
+      const w = SLIDE_W;
+      const h = Math.round(w * aspectH / aspectW);
+      // Cap height to half-page so two fit
+      const maxH = 5600; // ~half A4 page in DXA
+      const finalW = h > maxH ? Math.round(w * maxH / h) : w;
+      const finalH = h > maxH ? maxH : h;
+
+      out.push(new Paragraph({
+        alignment: AlignmentType.CENTER,
+        children: [new ImageRun({ data: imgs[src].data, type: imgs[src].type,
+          transformation: { width: dxaToEmu(finalW), height: dxaToEmu(finalH) } })],
+        spacing: { before: 60, after: 60 },
+      }));
+
+      // Page break after every 2nd slide, or after the last one
+      const isSecond = (i + 1) % 2 === 0;
+      const isLast   = i === pairs.length - 1;
+      if (isSecond || isLast) {
+        out.push(new Paragraph({ children: [new PageBreak()] }));
+      }
+    }
+  }
+  return out;
+}
+
 // ─── Content parser (second pass) ────────────────────────────────────────────
 async function buildContent($, imgs) {
   const out = [];
@@ -543,8 +592,13 @@ async function main() {
   const srcs = new Set();
   $('img').each((_,el) => {
     const s = $(el).attr('src') || '';
-    if (s && !s.startsWith('http') && !s.startsWith('data:') && !s.startsWith('slide-')) srcs.add(s);
+    if (s && !s.startsWith('http') && !s.startsWith('data:')) srcs.add(s);
   });
+  // Explicitly include all 15 slides (they load dynamically in the HTML carousel)
+  for (let i = 1; i <= 15; i++) {
+    srcs.add('slide-' + String(i).padStart(2, '0') + '.png');
+  }
+
   const localMap = buildLocalMap(imgsDir);
 
   console.log(`\n📸  Loading ${srcs.size} images...`);
@@ -652,7 +706,7 @@ async function main() {
         properties: { page: { size: { width: PAGE_W, height: PAGE_H },
             margin: { top: MARGIN, right: MARGIN, bottom: MARGIN, left: MARGIN } } },
         footers: { default: footer },
-        children: [...tocParas, ...content],
+        children: [...tocParas, ...buildSlides(imgs), ...content],
       },
     ],
   });

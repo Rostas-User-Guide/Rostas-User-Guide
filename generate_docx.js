@@ -26,7 +26,7 @@ const cheerio = require('cheerio');
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
   ImageRun, Footer, AlignmentType, LevelFormat, ExternalHyperlink,
-  HeadingLevel, BorderStyle, WidthType, ShadingType,
+  TableOfContents, HeadingLevel, BorderStyle, WidthType, ShadingType,
   PageNumber, PageBreak, UnderlineType, Tab,
   TabStopType, LeaderType,
 } = require('docx');
@@ -322,51 +322,23 @@ function linesToPage(linesBefore) {
   return 3 + Math.ceil(linesBefore / LINES_PER_PAGE);
 }
 
-// ─── Static TOC builder ───────────────────────────────────────────────────────
-function buildTOC(headings) {
-  const paras = [];
-
-  // Title
-  paras.push(new Paragraph({
-    children: [new TextRun({ text: 'Contents', bold: true, size: 36, color: C.heading, font: 'Calibri' })],
-    spacing: { before: 200, after: 320 },
-  }));
-
-  for (const h of headings) {
-    const isH1  = h.level === 1;
-    const page  = String(linesToPage(h.linesBefore));
-    const indent = isH1 ? 0 : 360;   // h3 entries indented
-
-    paras.push(new Paragraph({
-      indent: { left: indent },
-      tabStops: [{
-        type: TabStopType.RIGHT,
-        position: CONTENT_W - indent,
-        leader: LeaderType.DOT,
-      }],
-      spacing: { before: isH1 ? 160 : 80, after: isH1 ? 60 : 40 },
-      children: [
-        new TextRun({
-          text: h.text,
-          bold: isH1,
-          size: isH1 ? 22 : 20,
-          color: isH1 ? C.tocH1 : C.tocH2,
-          font: 'Calibri',
-        }),
-        new TextRun({ children: [new Tab()], bold: isH1, size: isH1 ? 22 : 20, color: isH1 ? C.tocH1 : C.tocH2 }),
-        new TextRun({
-          text: page,
-          bold: isH1,
-          size: isH1 ? 22 : 20,
-          color: isH1 ? C.tocH1 : C.tocH2,
-          font: 'Calibri',
-        }),
+// ─── Word field TOC (rendered correctly by LibreOffice → PDF) ─────────────────
+function buildTOC() {
+  return [
+    new Paragraph({
+      children: [new TextRun({ text: 'Contents', bold: true, size: 36, color: C.heading, font: 'Calibri' })],
+      spacing: { before: 200, after: 200 },
+    }),
+    new TableOfContents('Contents', {
+      hyperlink: true,
+      headingStyleRange: '1-2',
+      stylesWithLevels: [
+        { styleId: 'Heading1', level: 1 },
+        { styleId: 'Heading2', level: 2 },
       ],
-    }));
-  }
-
-  paras.push(new Paragraph({ children: [new PageBreak()] }));
-  return paras;
+    }),
+    new Paragraph({ children: [new PageBreak()] }),
+  ];
 }
 
 // ─── Content parser (second pass) ────────────────────────────────────────────
@@ -587,10 +559,10 @@ async function main() {
   const found = Object.values(imgs).filter(Boolean).length;
   console.log(`    ${found}/${srcs.size} images loaded`);
 
-  // 4. Build static TOC
+  // 4. Build Word field TOC (LibreOffice will render correct page numbers in PDF)
   console.log('\n📋  Building TOC...');
-  const tocParas = buildTOC(headings);
-  console.log(`    ✓ ${headings.length} entries`);
+  const tocParas = buildTOC();
+  console.log(`    ✓ TOC field inserted (${headings.length} headings detected)`);
 
   // 5. Parse content
   console.log('\n📝  Parsing content...');
@@ -667,6 +639,7 @@ async function main() {
           run: { color: C.link, underline: { type: UnderlineType.SINGLE } } },
       ],
     },
+    features: { updateFields: true },
     sections: [
       // Cover — no footer
       {

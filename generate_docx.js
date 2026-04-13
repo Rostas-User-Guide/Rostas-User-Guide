@@ -495,7 +495,7 @@ async function main() {
   const localIdx = args.indexOf('--local');
   const imgsIdx  = args.indexOf('--images');
   const localHTML = localIdx >= 0 ? args[localIdx + 1] : null;
-  const imgsDir   = imgsIdx  >= 0 ? args[imgsIdx  + 1] : '/mnt/project';
+  const imgsDir   = imgsIdx  >= 0 ? args[imgsIdx  + 1] : '.';
 
   console.log('🚀  Rostas Coordinator Guide  →  DOCX');
   console.log('═'.repeat(45));

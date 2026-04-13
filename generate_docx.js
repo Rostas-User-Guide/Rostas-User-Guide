@@ -34,7 +34,7 @@ const {
 // ─── Config ───────────────────────────────────────────────────────────────────
 const GITHUB_RAW  = 'https://raw.githubusercontent.com/Rostas-User-Guide/Rostas-User-Guide/main/';
 const GITHUB_HTML = GITHUB_RAW + 'index.html';
-const OUTPUT_FILE = process.env.OUTPUT_FILE || './Rostas_Coordinator_Guide.docx';
+const OUTPUT_FILE = '/mnt/user-data/outputs/Rostas_Coordinator_Guide.docx';
 
 // A4 portrait, ~2cm margins
 const PAGE_W    = 11906;
@@ -60,7 +60,8 @@ const C = {
   tocDot:   'AAAAAA',
 };
 
-function dxaToEmu(dxa) { return Math.round(dxa * 914400 / 1440); }
+// docx-js ImageRun.transformation takes pixels (96dpi). 1 inch = 1440 DXA = 96px.
+function dxaToEmu(dxa) { return Math.round(dxa * 96 / 1440); }
 
 function imgSize(cls) {
   if (cls.includes('screenshot-mid')) return { w: Math.round(CONTENT_W * 0.56), h: Math.round(CONTENT_W * 0.56 * 0.70) };

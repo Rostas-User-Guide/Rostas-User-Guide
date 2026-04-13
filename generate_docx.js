@@ -424,19 +424,33 @@ async function buildContent($, imgs) {
       return;
     }
 
-    // Pill row → compact text label
+// Pill row → render actual pill images inline (fall back to text if missing)
     if ($el.hasClass('pill-row') || $el.hasClass('pill-grid')) {
-      const labels = [];
-      $el.find('img.nav-pill').each((_,img) => {
-        const lbl = ($(img).attr('alt') || '').replace(/ view$/i,'').trim();
-        if (lbl) labels.push(lbl);
+      const children = [];
+      // 34px CSS height → DXA then to pixels via dxaToEmu
+      const PILL_H_DXA = Math.round(34 * 1440 / 96); // 510 DXA
+      $el.find('img.nav-pill').each((_, img) => {
+        const src = $(img).attr('src') || '';
+        const lbl = ($(img).attr('alt') || '').replace(/ view$/i, '').trim();
+        if (src && imgs[src]) {
+          const { w: iw, h: ih } = imgs[src];
+          const pillW = (iw && ih) ? Math.round(PILL_H_DXA * iw / ih)
+                                   : Math.round(PILL_H_DXA * 3.2);
+          children.push(new ImageRun({
+            data: imgs[src].data,
+            type: imgs[src].type,
+            transformation: { width: dxaToEmu(pillW), height: dxaToEmu(PILL_H_DXA) },
+          }));
+          children.push(new TextRun({ text: '  ' })); // gap between pills
+        } else {
+          // Fallback: text label if image missing
+          if (children.length) children.push(new TextRun({ text: '  •  ', size: 18, color: C.pill }));
+          children.push(new TextRun({ text: lbl, size: 18, color: C.pill }));
+        }
       });
-      if (labels.length) out.push(new Paragraph({
-        children: [
-          new TextRun({ text: 'View:  ', bold: true, size: 18, color: C.pill }),
-          new TextRun({ text: labels.join('  •  '), size: 18, color: C.pill }),
-        ],
-        spacing: { before: 60, after: 60 },
+      if (children.length) out.push(new Paragraph({
+        children,
+        spacing: { before: 60, after: 80 },
       }));
       return;
     }

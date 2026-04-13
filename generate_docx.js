@@ -34,7 +34,7 @@ const {
 // ─── Config ───────────────────────────────────────────────────────────────────
 const GITHUB_RAW  = 'https://raw.githubusercontent.com/Rostas-User-Guide/Rostas-User-Guide/main/';
 const GITHUB_HTML = GITHUB_RAW + 'index.html';
-const OUTPUT_FILE = '/mnt/user-data/outputs/Rostas_Coordinator_Guide.docx';
+const OUTPUT_FILE = process.env.OUTPUT_FILE || './Rostas_Coordinator_Guide.docx';
 
 // A4 portrait, ~2cm margins
 const PAGE_W    = 11906;

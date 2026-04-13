@@ -544,7 +544,7 @@ async function buildContent($, imgs) {
     if (tag === 'img') {
       const src = $el.attr('src') || '';
       const cls = $el.attr('class') || '';
-      if (src && !src.startsWith('pill-') && !src.startsWith('slide-') && imgs[src]) {
+      if (src && !src.startsWith('slide-') && imgs[src]) {
         const { w, h } = imgSize(cls, imgs[src].w, imgs[src].h);
         out.push(new Paragraph({
           alignment: AlignmentType.CENTER,

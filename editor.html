@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rostas Guide Editor</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:     #1a2e4a;
+    --navy-mid: #2b4570;
+    --gold:     #b8932a;
+    --gold-light: #f5e9c8;
+    --teal:     #2a7d7b;
+    --amber:    #d97706;
+    --green:    #2d7a4f;
+    --red:      #c0392b;
+    --text:     #1e2d3d;
+    --muted:    #5a6a7e;
+    --border:   #dde4ed;
+    --bg:       #f0f4f8;
+    --sidebar:  240px;
+    --toolbar:  52px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── TOOLBAR ── */
+  #toolbar {
+    height: var(--toolbar);
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  #toolbar .logo {
+    font-family: 'Lora', serif;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    margin-right: 0.5rem;
+  }
+  #toolbar .logo span { color: var(--gold); }
+
+  .tb-sep { width: 1px; height: 24px; background: #3a5580; margin: 0 0.25rem; }
+
+  .tb-btn {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #c8d6e8;
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+  }
+  .tb-btn:hover { background: rgba(255,255,255,0.14); color: #fff; }
+  .tb-btn.bold  { font-weight: 700; }
+  .tb-btn.italic { font-style: italic; }
+
+  #btn-save {
+    margin-left: auto;
+    background: var(--gold);
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.38rem 1.1rem;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  #btn-save:hover { background: #a07820; }
+  #btn-save:disabled { opacity: 0.5; cursor: default; }
+
+  #status {
+    font-size: 12px;
+    color: #849ab4;
+    margin-left: 0.5rem;
+    min-width: 160px;
+  }
+  #status.dirty  { color: #f59e0b; }
+  #status.saving { color: #60a5fa; }
+  #status.saved  { color: #34d399; }
+  #status.error  { color: #f87171; }
+
+  /* ── LAYOUT ── */
+  #layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── SECTION NAV ── */
+  #section-nav {
+    width: var(--sidebar);
+    min-width: var(--sidebar);
+    background: var(--navy-mid);
+    overflow-y: auto;
+    padding: 0.75rem 0 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: #3a5a80 transparent;
+    flex-shrink: 0;
+  }
+
+  #section-nav h3 {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    padding: 0.8rem 1rem 0.3rem;
+  }
+
+  .nav-section {
+    display: block;
+    padding: 0.35rem 1rem;
+    color: #a8bdd4;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.35;
+  }
+  .nav-section:hover { color: #fff; background: rgba(255,255,255,0.06); border-left-color: var(--gold); }
+  .nav-section.active { color: #fff; background: rgba(184,147,42,0.15); border-left-color: var(--gold); }
+
+  /* ── EDITOR AREA ── */
+  #editor-wrap {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem 2.5rem;
+    background: #fff;
+  }
+
+  /* Token screen */
+  #token-screen {
+    max-width: 480px;
+    margin: 4rem auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    border: 1px solid var(--border);
+  }
+  #token-screen h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  #token-screen p {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+  }
+  #token-screen a { color: var(--gold); }
+  #token-input {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-family: monospace;
+    margin-bottom: 1rem;
+    outline: none;
+  }
+  #token-input:focus { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(184,147,42,0.15); }
+  #btn-connect {
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.4rem;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    width: 100%;
+  }
+  #btn-connect:hover { background: var(--navy-mid); }
+  #token-error { color: var(--red); font-size: 13px; margin-top: 0.6rem; display: none; }
+
+  /* Loading state */
+  #loading {
+    text-align: center;
+    padding: 4rem;
+    color: var(--muted);
+  }
+  .spinner {
+    width: 36px; height: 36px;
+    border: 3px solid var(--border);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 1rem;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── GUIDE CONTENT STYLES (mirrored from index.html) ── */
+  #editor-content {
+    max-width: 800px;
+    margin: 0 auto;
+    outline: none;
+    min-height: 400px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  #editor-content:focus-within {
+    /* subtle editing indicator */
+  }
+
+  /* Highlight editable areas on hover */
+  #editor-content p:hover,
+  #editor-content li:hover,
+  #editor-content td:hover {
+    background: rgba(184,147,42,0.04);
+    border-radius: 3px;
+    cursor: text;
+  }
+
+  /* Guide styles */
+  #editor-content h1 {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  #editor-content h2.section-title {
+    font-family: 'Lora', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--navy);
+    border-bottom: 2px solid var(--gold-light);
+    padding-bottom: 0.4rem;
+    margin: 2.2rem 0 1rem;
+    scroll-margin-top: 20px;
+  }
+  #editor-content h3.sub-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin: 1.4rem 0 0.5rem;
+  }
+  #editor-content p { margin-bottom: 0.8rem; }
+  #editor-content ul, #editor-content ol {
+    margin: 0.5rem 0 0.9rem 1.5rem;
+  }
+  #editor-content li { margin-bottom: 0.3rem; }
+  #editor-content code {
+    font-family: 'Courier New', monospace;
+    font-size: 12.5px;
+    background: #eef1f6;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--navy-mid);
+  }
+  #editor-content .step-box {
+    background: #fdf8ee;
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+    padding: 0.8rem 1.1rem;
+    margin: 1rem 0;
+  }
+  #editor-content .step-box .step-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  #editor-content .callout {
+    border-radius: 5px;
+    padding: 0.75rem 1.1rem;
+    margin: 1rem 0;
+    font-size: 14px;
+    line-height: 1.55;
+    border-left: 4px solid;
+  }
+  #editor-content .callout-warn { background: #fef3c7; border-color: var(--amber); color: #7c4a00; }
+  #editor-content .callout-tip  { background: #e0f2f1; border-color: var(--teal);  color: #1a4a49; }
+  #editor-content .callout-info { background: #e8f0fb; border-color: #4a7cd4;      color: #1a3366; }
+  #editor-content .part-banner {
+    background: var(--navy);
+    color: #fff;
+    border-radius: 6px;
+    padding: 1rem 1.4rem;
+    margin: 2.5rem 0 2rem;
+  }
+  #editor-content .part-banner .part-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  #editor-content .part-banner .part-title {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  #editor-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    margin: 1rem 0;
+  }
+  #editor-content thead tr { background: var(--navy); color: #fff; }
+  #editor-content thead th { padding: 0.6rem 0.8rem; text-align: left; font-size: 12px; }
+  #editor-content tbody tr:nth-child(even) { background: #f4f7fb; }
+  #editor-content tbody td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  #editor-content img.screenshot, #editor-content img.screenshot-mid, #editor-content img.screenshot-sm {
+    display: block;
+    max-width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+    margin: 1rem 0 0.4rem;
+    pointer-events: none; /* prevent drag in edit mode */
+  }
+  #editor-content img.screenshot-mid { max-width: 480px; }
+  #editor-content img.screenshot-sm  { max-width: 280px; }
+  #editor-content figcaption {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  #editor-content .pill-row, #editor-content .pill-grid { display: none; } /* hide nav pills in editor */
+  #editor-content video { max-width: 100%; border-radius: 8px; display: block; margin: 0.5rem 0; }
+  #editor-content .tl-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; margin: 1rem 0; }
+  #editor-content .tl-card { border-radius: 6px; padding: 0.8rem 1rem; font-size: 13px; }
+  #editor-content .tl-green { background: #e8f5ee; border-top: 3px solid var(--green); }
+  #editor-content .tl-amber { background: #fef3c7; border-top: 3px solid var(--amber); }
+  #editor-content .tl-red   { background: #fdecea; border-top: 3px solid var(--red); }
+  #editor-content #cover { border-bottom: 3px solid var(--navy); padding-bottom: 2rem; margin-bottom: 2.5rem; }
+  #editor-content .eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 0.5rem; }
+  #editor-content #audio-intro { background: linear-gradient(135deg, #1a2e4a, #2b4570); border-radius: 10px; padding: 1rem 1.4rem; margin: 1.5rem 0 2rem; }
+  #editor-content #audio-intro .audio-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  #editor-content #audio-intro .audio-title { font-family: 'Lora', serif; font-size: 1rem; color: #fff; }
+  #editor-content #carousel-section { display: none; } /* hide carousel in editor */
+  #editor-content .contact-card { background: var(--navy); color: #fff; border-radius: 8px; padding: 1.1rem 1.4rem; margin: 1rem 0; }
+  #editor-content .contact-card .name { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; }
+  #editor-content .contact-card .detail { color: #a8bdd4; margin-top: 2px; }
+  #editor-content .tbl-wrap { overflow-x: auto; margin: 1rem 0; }
+
+  /* Edit-mode helpers */
+  #editor-content [contenteditable="true"]:focus { outline: 2px solid rgba(184,147,42,0.3); border-radius: 3px; }
+
+  /* Commit message bar */
+  #commit-bar {
+    background: var(--navy);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+  #commit-bar label { color: #849ab4; font-size: 12px; white-space: nowrap; }
+  #commit-msg {
+    flex: 1;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #3a5580;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.07);
+    color: #fff;
+    font-size: 12.5px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+  }
+  #commit-msg:focus { border-color: var(--gold); }
+  #commit-msg::placeholder { color: #5a7a9a; }
+
+  /* Toast notification */
+  #toast {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--navy);
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    font-size: 13.5px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 999;
+    border-left: 4px solid var(--gold);
+  }
+  #toast.show { transform: translateY(0); opacity: 1; }
+  #toast.error { border-left-color: var(--red); }
+  #toast.success { border-left-color: #34d399; }
+</style>
+</head>
+<body>
+
+<!-- TOOLBAR -->
+<div id="toolbar">
+  <div class="logo">Rostas <span>Guide</span> Editor</div>
+  <div class="tb-sep"></div>
+  <button class="tb-btn bold"   onclick="fmt('bold')"          title="Bold (Ctrl+B)"><b>B</b></button>
+  <button class="tb-btn italic" onclick="fmt('italic')"        title="Italic (Ctrl+I)"><i>I</i></button>
+  <button class="tb-btn"        onclick="fmt('insertUnorderedList')" title="Bullet list">• List</button>
+  <button class="tb-btn"        onclick="insertCallout('info')"  title="Info callout">📋 Info</button>
+  <button class="tb-btn"        onclick="insertCallout('warn')"  title="Warning callout">⚠️ Warn</button>
+  <button class="tb-btn"        onclick="insertCallout('tip')"   title="Tip callout">💡 Tip</button>
+  <div class="tb-sep"></div>
+  <button class="tb-btn"        onclick="discardChanges()"      title="Reload from GitHub">↺ Reload</button>
+  <div id="status">Not loaded</div>
+  <button id="btn-save" onclick="saveGuide()" disabled>💾 Save to GitHub</button>
+</div>
+
+<!-- LAYOUT -->
+<div id="layout">
+
+  <!-- SECTION NAV -->
+  <nav id="section-nav">
+    <h3>Sections</h3>
+    <div id="nav-list"></div>
+  </nav>
+
+  <!-- EDITOR AREA -->
+  <div id="editor-wrap">
+
+    <!-- Token screen -->
+    <div id="token-screen">
+      <h2>Connect to GitHub</h2>
+      <p>Enter your GitHub Personal Access Token to load and edit the guide. Your token needs <strong>repo</strong> (read + write) scope.<br><br>
+      <a href="https://github.com/settings/tokens/new?scopes=repo&description=Rostas+Guide+Editor" target="_blank">Create a token here →</a></p>
+      <input id="token-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+      <button id="btn-connect" onclick="connect()">Connect &amp; Load Guide</button>
+      <div id="token-error"></div>
+    </div>
+
+    <!-- Loading -->
+    <div id="loading" style="display:none">
+      <div class="spinner"></div>
+      Loading guide from GitHub…
+    </div>
+
+    <!-- Editor content -->
+    <div id="editor-content" style="display:none" spellcheck="true"></div>
+
+  </div>
+</div>
+
+<!-- COMMIT MESSAGE BAR -->
+<div id="commit-bar" style="display:none">
+  <label for="commit-msg">Commit message:</label>
+  <input id="commit-msg" type="text" placeholder="What did you change?" maxlength="120">
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script>
+const OWNER  = 'Rostas-User-Guide';
+const REPO   = 'Rostas-User-Guide';
+const BRANCH = 'main';
+const RAW    = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/`;
+const API    = `https://api.github.com/repos/${OWNER}/${REPO}/contents/index.html`;
+
+let token        = '';
+let currentSha   = '';
+let originalHTML = '';
+let isDirty      = false;
+let loadedDoc    = null;
+
+// ── Token management ──────────────────────────────────────────────────────
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('rostas_editor_token');
+  if (saved) {
+    token = saved;
+    document.getElementById('token-input').value = saved;
+    loadGuide();
+  }
+});
+
+async function connect() {
+  const input = document.getElementById('token-input').value.trim();
+  if (!input) return;
+  token = input;
+  localStorage.setItem('rostas_editor_token', token);
+  await loadGuide();
+}
+
+// ── Load guide from GitHub ────────────────────────────────────────────────
+async function loadGuide() {
+  show('loading');
+  setStatus('Loading…', '');
+  try {
+    const resp = await fetch(API, { headers: { Authorization: `token ${token}` } });
+    if (!resp.ok) throw new Error(resp.status === 401 ? 'Invalid token' : `GitHub error ${resp.status}`);
+    const data = await resp.json();
+    currentSha   = data.sha;
+    originalHTML = decodeURIComponent(escape(atob(data.content.replace(/\n/g,''))));
+
+    // Parse and display
+    renderEditor(originalHTML);
+    show('editor');
+    setStatus('Loaded — no unsaved changes', '');
+    isDirty = false;
+    document.getElementById('btn-save').disabled = true;
+    document.getElementById('commit-bar').style.display = 'flex';
+  } catch(e) {
+    show('token');
+    const err = document.getElementById('token-error');
+    err.textContent = e.message;
+    err.style.display = 'block';
+  }
+}
+
+// ── Render the guide HTML in the editor ──────────────────────────────────
+function renderEditor(html) {
+  const parser = new DOMParser();
+  loadedDoc = parser.parseFromString(html, 'text/html');
+  const mainInner = loadedDoc.getElementById('main-inner');
+  if (!mainInner) { toast('Could not find #main-inner in index.html', 'error'); return; }
+
+  // Clone so we can modify for display without affecting save
+  const display = mainInner.cloneNode(true);
+
+  // Fix image/video paths for display
+  display.querySelectorAll('img').forEach(img => {
+    const src = img.getAttribute('src');
+    if (src && !src.startsWith('http') && !src.startsWith('data:')) {
+      img.setAttribute('src', RAW + src);
+      img.setAttribute('data-orig', src);
+    }
+  });
+  display.querySelectorAll('source').forEach(s => {
+    const src = s.getAttribute('src');
+    if (src && !src.startsWith('http')) s.setAttribute('src', RAW + src);
+  });
+
+  // Remove scripts from display
+  display.querySelectorAll('script').forEach(s => s.remove());
+
+  const editorEl = document.getElementById('editor-content');
+  editorEl.innerHTML = display.innerHTML;
+  editorEl.contentEditable = 'true';
+
+  // Build section nav
+  buildNav(editorEl);
+
+  // Track changes
+  editorEl.addEventListener('input', markDirty);
+}
+
+// ── Section navigation ────────────────────────────────────────────────────
+function buildNav(editorEl) {
+  const navList = document.getElementById('nav-list');
+  navList.innerHTML = '';
+  const headings = editorEl.querySelectorAll('h2.section-title, div.part-banner');
+  headings.forEach(el => {
+    const btn = document.createElement('button');
+    btn.className = 'nav-section';
+    const text = el.querySelector('.part-title')
+      ? el.querySelector('.part-label').textContent + ' ' + el.querySelector('.part-title').textContent
+      : el.textContent.trim().replace(/\s+/g, ' ').slice(0, 45);
+    btn.textContent = text;
+    btn.onclick = () => {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelectorAll('.nav-section').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    };
+    navList.appendChild(btn);
+  });
+
+  // Highlight active section on scroll
+  document.getElementById('editor-wrap').addEventListener('scroll', () => {
+    const sy = document.getElementById('editor-wrap').scrollTop;
+    let active = null;
+    editorEl.querySelectorAll('h2.section-title').forEach((h, i) => {
+      if (h.offsetTop - 80 <= sy) active = i;
+    });
+    if (active !== null) {
+      document.querySelectorAll('.nav-section').forEach((b, i) => {
+        b.classList.toggle('active', i === active);
+      });
+    }
+  }, { passive: true });
+}
+
+// ── Dirty tracking ────────────────────────────────────────────────────────
+function markDirty() {
+  if (!isDirty) {
+    isDirty = true;
+    setStatus('Unsaved changes', 'dirty');
+    document.getElementById('btn-save').disabled = false;
+  }
+}
+
+// ── Formatting commands ───────────────────────────────────────────────────
+function fmt(cmd) { document.execCommand(cmd, false, null); }
+
+function insertCallout(type) {
+  const icons = { info: '📋', warn: '⚠️', tip: '💡' };
+  const html = `<div class="callout callout-${type}"><span class="callout-icon">${icons[type]}</span> Your text here.</div>`;
+  document.execCommand('insertHTML', false, html);
+}
+
+// ── Save to GitHub ────────────────────────────────────────────────────────
+async function saveGuide() {
+  if (!isDirty) return;
+
+  const btn = document.getElementById('btn-save');
+  btn.disabled = true;
+  setStatus('Saving…', 'saving');
+
+  try {
+    // Get edited content
+    const editorEl = document.getElementById('editor-content');
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = editorEl.innerHTML;
+
+    // Restore original image paths
+    tempDiv.querySelectorAll('img[data-orig]').forEach(img => {
+      img.setAttribute('src', img.getAttribute('data-orig'));
+      img.removeAttribute('data-orig');
+    });
+
+    // Rebuild full HTML using original as base
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(originalHTML, 'text/html');
+    const mainInner = doc.getElementById('main-inner');
+    mainInner.innerHTML = tempDiv.innerHTML;
+
+    // Restore video source paths (they got absolute URLs, need to be relative)
+    mainInner.querySelectorAll('source').forEach(s => {
+      const src = s.getAttribute('src');
+      if (src && src.startsWith(RAW)) {
+        s.setAttribute('src', src.replace(RAW, ''));
+      }
+    });
+
+    const updatedHTML = '<!DOCTYPE html>\n' + doc.documentElement.outerHTML;
+
+    // Commit message
+    const msg = document.getElementById('commit-msg').value.trim()
+      || 'Update guide content via editor';
+
+    // Encode and commit
+    const encoded = btoa(unescape(encodeURIComponent(updatedHTML)));
+    const resp = await fetch(API, {
+      method: 'PUT',
+      headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg, content: encoded, sha: currentSha })
+    });
+
+    if (!resp.ok) {
+      const err = await resp.json();
+      throw new Error(err.message || `GitHub error ${resp.status}`);
+    }
+
+    const result = await resp.json();
+    currentSha   = result.content.sha;
+    originalHTML = updatedHTML;
+    isDirty = false;
+    setStatus('Saved ✓', 'saved');
+    document.getElementById('commit-msg').value = '';
+    toast('Saved to GitHub. The PDF will regenerate in about 60 seconds.', 'success');
+
+    // Reset status after delay
+    setTimeout(() => {
+      if (!isDirty) setStatus('No unsaved changes', '');
+    }, 4000);
+
+  } catch(e) {
+    setStatus('Save failed: ' + e.message, 'error');
+    toast('Save failed: ' + e.message, 'error');
+    btn.disabled = false;
+  }
+}
+
+async function discardChanges() {
+  if (isDirty && !confirm('Discard unsaved changes and reload from GitHub?')) return;
+  isDirty = false;
+  await loadGuide();
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────
+function show(which) {
+  document.getElementById('token-screen').style.display = which === 'token'  ? 'block' : 'none';
+  document.getElementById('loading').style.display      = which === 'loading' ? 'block' : 'none';
+  document.getElementById('editor-content').style.display = which === 'editor' ? 'block' : 'none';
+}
+
+function setStatus(msg, cls) {
+  const el = document.getElementById('status');
+  el.textContent = msg;
+  el.className = cls;
+}
+
+function toast(msg, type = '') {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'show ' + type;
+  clearTimeout(el._t);
+  el._t = setTimeout(() => { el.className = ''; }, 4000);
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+    e.preventDefault();
+    saveGuide();
+  }
+});
+
+// Warn on unload if dirty
+window.addEventListener('beforeunload', e => {
+  if (isDirty) { e.preventDefault(); e.returnValue = ''; }
+});
+</script>
+</body>
+</html>

@@ -288,16 +288,16 @@
   }
 
   .part-banner .part-label {
-    font-size: 10px;
-    letter-spacing: 0.14em;
+    font-size: 13px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 2px;
+    font-weight: 700;
+    margin-bottom: 4px;
   }
 
-  .part-banner .part-title { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 600; }
-  .part-banner .part-sub { font-size: 12px; color: #a8bdd4; margin-top: 2px; }
+  .part-banner .part-title { font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 700; }
+  .part-banner .part-sub { font-size: 12px; color: #a8bdd4; margin-top: 4px; }
 
   h2.section-title {
     font-family: 'Lora', serif;
@@ -609,6 +609,8 @@
 
   <div id="toc">
 
+    <div class="toc-part">Part A — Introducing Rostas</div>
+
     <a class="toc-item toc-h1" href="#intro">Introduction</a>
     <a class="toc-item toc-h1" href="#who-what">Who Can Do What</a>
 
@@ -706,7 +708,7 @@
 
     <a class="toc-item toc-h1" href="#s18">Coordinator-Triggered Decline &amp; Replace</a>
 
-    <div class="toc-part">Appendix A — Technical Owner</div>
+    <div class="toc-part">Part D — Expert Help</div>
 
     <!-- A1 -->
     <div class="toc-parent" id="parent-a1">
@@ -738,6 +740,12 @@
 <!-- ════ MAIN ════════════════════════════════════════ -->
 <main id="main">
 <div id="main-inner">
+
+  <!-- PART A -->
+  <div class="part-banner" id="part-a">
+    <span class="part-label">Part A</span>
+    <span class="part-title">Introducing Rostas</span>
+  </div>
 
   <!-- COVER -->
   <div id="cover">
@@ -793,7 +801,7 @@
   <!-- INTRO -->
   <h2 class="section-title" id="intro">Introduction</h2>
   <p>Rostas is the coordinator app for managing Church &amp; Community volunteer rosters. It currently connects to the Infoodle database to access volunteer data, and handles notifications, reminders, and SMS replacements automatically using the <font color="#1a3366"><span style="font-size: 14px;">Twilio SMS</span></font>&nbsp;service. Both these services are paid services requiring a subscription.&nbsp;</p>
-  <p>This guide covers everything you need: from collecting availability through to handling replacements. <strong>Part B</strong> covers Roster Coordinator tasks. <strong>Part C</strong> covers additional Overall Coordinator tasks for those who have database access. .</p>
+  <p>This guide covers everything you need: from collecting availability through to handling replacements. <strong>Part A</strong> introduces Rostas with a video and overview. <strong>Part B</strong> covers Roster Coordinator tasks. <strong>Part C</strong> covers additional Overall Coordinator tasks for those who have database access. <strong>Part D</strong> covers expert/technical tasks requiring Apps Script access.</p>
 
   <!-- WHO CAN DO WHAT -->
   <h2 class="section-title" id="who-what">Who Can Do What</h2>
@@ -1387,11 +1395,11 @@
     <strong>Quiet hours apply:</strong> If you trigger Decline and Replace between 9pm and 7am NZ time, the SMS chain queues until 7am. For urgent same-day slots, contact potential replacements directly in parallel.
   </div>
 
-  <!-- APPENDIX A BANNER -->
+  <!-- PART D BANNER -->
   <div class="part-banner" id="appendix-a">
-    <span class="part-label">Appendix A — Technical Owner</span>
-    <span class="part-title">Import, Maintenance &amp; Redeployment</span>
-    <span class="part-sub">Apps Script access required · Not available in the Rostas app</span>
+    <span class="part-label">Part D</span>
+    <span class="part-title">Expert Help</span>
+    <span class="part-sub">Import, Maintenance &amp; Redeployment · Apps Script access required</span>
   </div>
 
   <!-- A1: Import Existing Roster Data -->
@@ -1622,7 +1630,10 @@
 
   <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">
   <p style="font-size:12px;color:var(--text-muted);text-align:center;">Knox Church Waitara · Rostas Coordinator Guide · April 2026</p>
-  <div style="text-align:center;margin-top:1rem;"><a href="#cover" id="back-top">↑ Back to top</a></div>
+  <div style="text-align:center;margin-top:1rem;display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;">
+    <a href="#cover" id="back-top">↑ Back to top</a>
+    <a href="https://rostas-user-guide.github.io/Rostas-User-Guide/editor" target="_blank" style="color:var(--gold);font-size:12px;">✏️ Edit this guide</a>
+  </div>
 
 </div>
 </main>

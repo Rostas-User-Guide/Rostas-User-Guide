@@ -678,7 +678,19 @@
       <a class="toc-item toc-h2" href="#s13-add">Adding a New Volunteer</a>
     </div>
 
-    <a class="toc-item toc-h1" href="#s14">Settings &amp; Configuration</a>
+    <div class="toc-parent" id="parent-s14">
+      <a class="toc-parent-link" href="#s14">Settings &amp; Configuration</a>
+      <button class="toc-toggle" data-target="children-s14" aria-label="Toggle submenu"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-s14">
+      <a class="toc-item toc-h2" href="#s14-coords">Coordinator Contact Details</a>
+      <a class="toc-item toc-h2" href="#s14-email">Email Templates</a>
+      <a class="toc-item toc-h2" href="#s14-reminders">Reminder Settings</a>
+      <a class="toc-item toc-h2" href="#s14-smstemplates">SMS Templates</a>
+      <a class="toc-item toc-h2" href="#s14-timing">Timing &amp; Engine</a>
+      <a class="toc-item toc-h2" href="#s14-testmode">Testing &amp; Live Mode</a>
+      <a class="toc-item toc-h2" href="#s14-tech">Managed by Tech Support</a>
+    </div>
     <a class="toc-item toc-h1" href="#s15">When to Contact Tech Support</a>
 
     <!-- 16. Adding a New Roster Type -->
@@ -1194,49 +1206,319 @@
   <p>New volunteers must be added to Infoodle first and assigned to the correct Infoodle group for their roster type. Once in Infoodle, run a manual sync and they will appear in Rostas. You will then need to set their role preferences before they can be included in a roster build.</p>
 
   <!-- S14 -->
-  <h2 class="section-title" id="s14"><br></h2><h2 class="section-title" id="s14">Settings and Configuration</h2>
+  <h2 class="section-title" id="s14">Settings and Configuration</h2>
   <div class="pill-row"><span class="pill-chip"><img src="pill-settings-dashboard.png" class="nav-pill" alt="Settings Dashboard view"></span></div>
 
-  <p>System settings control how Rostas behaves — coordinator email addresses, reminder timing, and which features are active. Managed through the <strong>Settings Dashboard</strong> view in Rostas.</p>
+  <p>System settings control how Rostas behaves — coordinator contacts, reminder timing, message wording, and which features are active. All settings are managed through the <strong>Settings Dashboard</strong> view in Rostas. Settings are grouped by category; tap a row to view details and use Edit to change a value.</p>
 
   <figure>
     <img src="settings-dashboard.png" alt="Settings Dashboard view showing config keys grouped by category with an Edit panel on the right" class="screenshot">
-    <figcaption>Settings Dashboard — settings are grouped by category. Tap a row to view details and use Edit to change a value. Use Add New Roster to add a new roster type.</figcaption><figcaption><br></figcaption>
+    <figcaption>Settings Dashboard — settings are grouped by category. Tap a row to view details and use Edit to change a value.</figcaption>
   </figure>
+
+  <div class="callout callout-info">
+    <strong>Two types of editable fields:</strong> Numeric settings use a button selector — tap the value you want. Boolean settings (on/off) use a toggle switch. Text settings use a free-text field. Never edit a setting's <em>key name</em> — only the value column.
+  </div>
+
+  <!-- ── GROUP 1: COORDINATOR CONTACT DETAILS ── -->
+  <h3 class="sub-title" id="s14-coords">Coordinator Contact Details</h3>
+  <p>Each roster type has its own coordinator name, email, and mobile number used in outgoing messages, escalation alerts, and the SMS replacement chain. The general <code>COORDINATOR_NAME</code> / <code>EMAIL</code> / <code>PHONE</code> keys are used as fallbacks where no type-specific value is set.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Setting Key</th><th>What it controls</th><th>Format</th></tr></thead>
+      <tbody>
+        <tr><td><code>COORDINATOR_NAME</code></td><td>Default coordinator name used in messages and escalations</td><td>Text</td></tr>
+        <tr><td><code>COORDINATOR_EMAIL</code></td><td>Default coordinator email — receives summary emails and error escalations</td><td>Email address</td></tr>
+        <tr><td><code>COORDINATOR_PHONE</code></td><td>Default coordinator mobile — receives urgent SMS escalations and all messages in test mode</td><td><code>+64...</code> format, no spaces</td></tr>
+        <tr><td><code>COORDINATOR_SUNDAY</code> / <code>_EMAIL</code> / <code>_PHONE</code></td><td>Sunday-specific coordinator contact details</td><td>As above</td></tr>
+        <tr><td><code>COORDINATOR_MUSIC</code> / <code>_EMAIL</code> / <code>_PHONE</code></td><td>Music-specific coordinator contact details</td><td>As above</td></tr>
+        <tr><td><code>COORDINATOR_NOURISH</code> / <code>_EMAIL</code> / <code>_PHONE</code></td><td>Nourish-specific coordinator contact details</td><td>As above</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout callout-warn" style="margin-top:0.75rem;">
+    <span class="callout-icon">⚠️</span>
+    Phone numbers must be in <code>+64</code> international format with no spaces — e.g. <code>+64211234567</code>. An incorrectly formatted number will cause SMS delivery to fail silently.
+  </div>
+
+  <!-- ── GROUP 2: EMAIL NOTIFICATION TEMPLATES ── -->
+  <h3 class="sub-title" id="s14-email">Email Notification Templates</h3>
+  <p>These settings control the wording of the roster notification email sent to volunteers at Step 6. Use the <strong>Preview Communications</strong> button to check how changes look before sending to volunteers.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Setting Key</th><th>What it controls</th></tr></thead>
+      <tbody>
+        <tr><td><code>EMAIL_SUBJECT</code></td><td>Subject line of the roster notification email</td></tr>
+        <tr><td><code>EMAIL_INTRO_TEXT</code></td><td>Opening paragraph. Use <code>[Name]</code> as a placeholder for the volunteer's first name</td></tr>
+        <tr><td><code>EMAIL_INTRO</code></td><td>Short intro line above the roster assignment table</td></tr>
+        <tr><td><code>EMAIL_ARRIVAL_NOTE</code></td><td>Optional note below the table — e.g. arrival time or parking instructions. Leave blank if not needed</td></tr>
+        <tr><td><code>EMAIL_SIGNOFF</code></td><td>Closing line below the table — e.g. a thank-you message</td></tr>
+        <tr><td><code>EMAIL_Tech_Support</code></td><td>Email address shown to volunteers as the tech support contact</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── GROUP 3: REMINDER SETTINGS ── -->
+  <h3 class="sub-title" id="s14-reminders">Reminder Settings</h3>
+  <p>These settings control when and how reminder messages are sent to volunteers in the days before a service. Reminder emails and SMS are sent automatically — no manual action is required once these are configured.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Setting Key</th><th>What it controls</th><th>Values</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>REMINDER_DAYS_BEFORE</code></td>
+          <td>How many days before a service the reminder email is sent</td>
+          <td>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;">
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">1</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">2</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy);background:var(--navy);font-size:12px;font-weight:600;color:#fff;">3</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">4</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">5</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">6</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">7</span>
+            </div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Highlighted = current default (3)</div>
+          </td>
+        </tr>
+        <tr><td><code>REMINDER_INTRO_TEXT</code></td><td>Opening line in the reminder email — e.g. "Just a friendly reminder that you're rostered on:"</td><td>Text</td></tr>
+        <tr><td><code>REMINDER_CANT_MAKE_IT</code></td><td>Line below the assignment in the reminder — prompts volunteers to tap the decline link if they can't attend</td><td>Text</td></tr>
+        <tr><td><code>REMINDER_SIGNOFF</code></td><td>Closing line of the reminder email</td><td>Text</td></tr>
+        <tr><td><code>REMINDER_SMS_TEMPLATE</code></td><td>Wording of the reminder SMS sent one day before the service. Placeholders: <code>{firstName}</code> <code>{roleName}</code> <code>{dateLabel}</code> <code>{declineUrl}</code></td><td>Text</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── GROUP 4: SMS TEMPLATES ── -->
+  <h3 class="sub-title" id="s14-smstemplates">SMS Replacement Chain Templates</h3>
+  <p>These settings control the wording of all SMS messages sent during the replacement chain — when a volunteer declines and Rostas works through the backup list to find a replacement.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Setting Key</th><th>When it is sent</th><th>Placeholders available</th></tr></thead>
+      <tbody>
+        <tr><td><code>SMS_REPLACEMENT_REQUEST</code></td><td>Sent to each backup volunteer asking if they can cover the role</td><td><code>[Name]</code> <code>[Role]</code> <code>[DayOfWeek]</code> <code>[Date]</code> <code>[Link]</code> <code>[Deadline]</code></td></tr>
+        <tr><td><code>SMS_TEMPLATE_CONFIRM</code></td><td>Sent to the backup volunteer who accepts — confirms their assignment</td><td><code>[Name]</code> <code>[Role]</code> <code>[Date]</code></td></tr>
+        <tr><td><code>SMS_TEMPLATE_RELEASE</code></td><td>Sent to the original volunteer once a replacement has been found</td><td><code>[Name]</code> <code>[Role]</code> <code>[Date]</code></td></tr>
+        <tr><td><code>SMS_TEMPLATE_ESCALATE</code></td><td>Sent to the coordinator when the full backup list is exhausted with no replacement found</td><td><code>[Role]</code> <code>[Date]</code></td></tr>
+        <tr><td><code>SMS_YES_MESSAGE</code></td><td>Confirmation message when a volunteer taps Yes via the SMS reply link</td><td><code>{name}</code> <code>{date}</code> <code>{role}</code></td></tr>
+        <tr><td><code>SMS_NO_MESSAGE</code></td><td>Response message when a volunteer taps No via the SMS reply link</td><td><code>{name}</code></td></tr>
+        <tr><td><code>SMS_MANUAL_REPLACE</code></td><td>SMS sent to a volunteer added via the Manual Replace feature in Rostas</td><td><code>[Name]</code> <code>[Role]</code> <code>[Date]</code> <code>[DeclineURL]</code> <code>[RosterURL]</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── GROUP 5: TIMING & ROSTER ENGINE ── -->
+  <h3 class="sub-title" id="s14-timing">Timing and Roster Engine</h3>
+  <p>These settings control how far ahead rosters are built, how long volunteers have to respond, and how quickly the SMS replacement chain moves between contacts. Numeric settings use a button selector in the Settings Dashboard — tap the value you want.</p>
 
   <div class="tbl-wrap">
     <table>
-      <thead>
-        <tr>
-          <th>✅ Safe to Change</th>
-          <th>🔒 Leave to Tech Support</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Setting Key</th><th>What it controls</th><th>Values</th></tr></thead>
       <tbody>
         <tr>
+          <td><code>ROSTER_BUILD_WEEKS_Sunday</code><br><code>ROSTER_BUILD_WEEKS_Music</code><br><code>ROSTER_BUILD_WEEKS_Nourish</code></td>
+          <td>How many weeks ahead the roster engine builds for each type. Each type can have a different depth.</td>
           <td>
-            <ul style="margin:0;padding-left:1.1rem;">
-              <li>Coordinator name and email for each roster type</li>
-              <li>Coordinator mobile number (for SMS test mode)</li>
-              <li>Reminder timing — minutes between SMS replacement messages</li>
-              <li>Email and SMS message wording templates</li>
-            </ul>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;">
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">4</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">6</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy);background:var(--navy);font-size:12px;font-weight:600;color:#fff;">8</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">10</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">12</span>
+            </div>
           </td>
+        </tr>
+        <tr>
+          <td><code>AVAILABILITY_WEEKS_AHEAD</code></td>
+          <td>How many weeks ahead the availability form shows to volunteers. Should be equal to or greater than your largest <code>ROSTER_BUILD_WEEKS</code> value — if volunteers aren't asked about a date, the engine has no data to build with.</td>
           <td>
-            <ul style="margin:0;padding-left:1.1rem;">
-              <li><code>SMS_ENABLED</code> and <code>SMS_TEST_MODE</code> — control live SMS delivery. Contact Guy before changing.</li>
-              <li><code>WEBAPP_URL</code> — volunteer web app address. Only changes on redeployment.</li>
-              <li><code>INFOODLE_GROUP_MAP</code> and Infoodle credentials — technical settings for sync.</li>
-              <li><code>ROSTER_FREEZE_WEEKS</code> — controls which dates are protected from rebuild.</li>
-            </ul>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;">
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">4</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">6</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy);background:var(--navy);font-size:12px;font-weight:600;color:#fff;">8</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">10</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">12</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code>ROSTER_FREEZE_WEEKS</code></td>
+          <td>How many upcoming weeks are protected from being overwritten when you rebuild a roster. Assignments within the freeze window are left untouched. Increase this if you've already sent notifications and don't want the build to disturb confirmed slots.</td>
+          <td>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;">
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">1</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">2</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy);background:var(--navy);font-size:12px;font-weight:600;color:#fff;">3</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">4</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">5</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">6</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code>FORM_DEADLINE_DAYS</code></td>
+          <td>How many days volunteers have to complete the availability form before it closes</td>
+          <td>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;">
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">2</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">3</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy);background:var(--navy);font-size:12px;font-weight:600;color:#fff;">4</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">5</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">6</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">7</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code>SMS_TIMER_NORMAL_MINS</code></td>
+          <td>Minutes to wait before texting the next backup volunteer during a normal replacement (service more than 24 hours away)</td>
+          <td>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;">
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">30</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">60</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">90</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">120</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">150</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">180</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code>SMS_TIMER_URGENT_MINS</code></td>
+          <td>Minutes to wait between contacts when the service is less than 24 hours away</td>
+          <td>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;">
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">5</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">10</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy);background:var(--navy);font-size:12px;font-weight:600;color:#fff;">15</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">20</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code>SMS_TIMER_PANIC_MINS</code></td>
+          <td>Minutes between contacts during a last-minute replacement (service imminent)</td>
+          <td>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;">
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">3</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy);background:var(--navy);font-size:12px;font-weight:600;color:#fff;">5</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">10</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><code>SMS_QUIET_START</code> / <code>SMS_QUIET_END</code></td>
+          <td>The time window during which SMS messages will not be sent. Default: no SMS between 9:00pm and 7:00am. Replacement chain messages that fall in this window are held and sent when the quiet period ends.</td>
+          <td>Time (24hr format)</td>
+        </tr>
+        <tr>
+          <td><code>NO_CONSECUTIVE_ROLE_FRAGMENTS</code></td>
+          <td>Role name fragments where week-after-week rostering is avoided. The engine deprioritises last week's holder when building the next week. Default: <code>Worship Leader</code>. Add additional roles as comma-separated values.</td>
+          <td>Text (comma-separated)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── GROUP 6: ROLE & ROSTER PREFERENCES ── -->
+  <h3 class="sub-title" id="s14-roleprefs">Role and Roster Preferences</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Setting Key</th><th>What it controls</th></tr></thead>
+      <tbody>
+        <tr><td><code>ROLE_PREF_ROSTER_TYPES</code></td><td>Comma-separated list of roster types that use the role preference email step. If a roster type does not need role preferences (e.g. a simple duty roster), remove it from this list and volunteers will not receive role preference emails for that type. Default: <code>Sunday,Music</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══ TESTING AND LIVE MODE CONTROLS ══ -->
+  <h3 class="sub-title" id="s14-testmode">Testing and Live Mode Controls</h3>
+  <p>Three settings control whether Rostas contacts real volunteers or redirects everything to the coordinator for testing. These must be correctly set before go-live and should only be changed deliberately.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Setting Key</th><th>What it does</th><th>Toggle</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>SMS_ENABLED</code></td>
+          <td>Master kill switch for all SMS. When OFF, no SMS is sent anywhere in the system — replacement chain, reminders, escalations — all suppressed. Twilio credentials are preserved. Use this if you need to pause SMS temporarily without losing your configuration.</td>
+          <td>
+            <span style="display:inline-flex;align-items:center;gap:6px;">
+              <span style="background:var(--green);color:#fff;padding:3px 12px;border-radius:14px;font-size:12px;font-weight:700;">ON</span>
+              <span style="background:#dde4ed;color:var(--text-muted);padding:3px 12px;border-radius:14px;font-size:12px;font-weight:600;">OFF</span>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td><code>SMS_TEST_MODE</code></td>
+          <td>When ON, all SMS messages are redirected to the coordinator phone only — no volunteer receives any text. Use during testing to see exactly what volunteers would receive without contacting them. Must be OFF in production.</td>
+          <td>
+            <span style="display:inline-flex;align-items:center;gap:6px;">
+              <span style="background:#dde4ed;color:var(--text-muted);padding:3px 12px;border-radius:14px;font-size:12px;font-weight:600;">ON</span>
+              <span style="background:var(--green);color:#fff;padding:3px 12px;border-radius:14px;font-size:12px;font-weight:700;">OFF</span>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td><code>EMAIL_TEST_MODE</code></td>
+          <td>When ON, all roster notification emails and reminder emails are redirected to the coordinator email only. No volunteer receives any email. Must be OFF in production.</td>
+          <td>
+            <span style="display:inline-flex;align-items:center;gap:6px;">
+              <span style="background:#dde4ed;color:var(--text-muted);padding:3px 12px;border-radius:14px;font-size:12px;font-weight:600;">ON</span>
+              <span style="background:var(--green);color:#fff;padding:3px 12px;border-radius:14px;font-size:12px;font-weight:700;">OFF</span>
+            </span>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="callout callout-warn">
+
+  <div class="callout callout-warn" style="margin-top:1rem;">
     <span class="callout-icon">⚠️</span>
-    If you are not sure whether a setting is safe to change, contact Guy first. Some settings affect the whole system across all roster types. An incorrect value can prevent roster builds or stop emails and SMS from sending.
+    <strong>Go-live checklist — confirm before sending your first real roster:</strong>
+    <ul style="margin:0.6rem 0 0 0;padding-left:1.2rem;">
+      <li><code>SMS_TEST_MODE</code> → <strong>OFF</strong></li>
+      <li><code>EMAIL_TEST_MODE</code> → <strong>OFF</strong></li>
+      <li><code>SMS_ENABLED</code> → <strong>ON</strong></li>
+    </ul>
+    <p style="margin-top:0.6rem;margin-bottom:0;">If you are unsure whether the system is in live or test mode, check the Status Dashboard — it shows a <em>Test Mode active</em> banner when either test mode is on. Always send a Preview and verify a real volunteer email arrives before treating the system as live.</p>
+  </div>
+
+  <!-- ══ LEAVE TO TECH SUPPORT ══ -->
+  <h3 class="sub-title" id="s14-tech">Settings Managed by Tech Support</h3>
+  <p>The following settings are visible in the Settings Dashboard but should not be edited by coordinators. Each is explained below so you understand what it does and why it is restricted.</p>
+
+  <div style="display:flex;flex-direction:column;gap:1.2rem;margin-top:1rem;">
+
+    <div style="border:1.5px solid var(--border);border-radius:8px;padding:1rem 1.2rem;">
+      <div style="font-family:'Lora',serif;font-weight:600;color:var(--navy);margin-bottom:0.4rem;"><code style="font-family:'DM Sans',sans-serif;">WEBAPP_URL</code> — Volunteer web app address</div>
+      <p style="margin:0 0 0.5rem;">This is the URL of the volunteer-facing web app — the availability form, the confirm/decline pages, and the personal roster view. It is generated by Google Apps Script and does not change unless the script is redeployed from scratch.</p>
+      <p style="margin:0 0 0.5rem;">Redeployment is a rare technical operation (typically done when recovering from a corrupted deployment or migrating to a new Google account). When it happens, every link previously sent to volunteers stops working until this setting is updated and the Sync Preview URLs tool is run.</p>
+      <p style="margin:0;"><strong>What to do:</strong> Tech support will handle the update. You do not need to action anything — you will know it has happened because volunteer links will start returning errors. See Part D for the technical procedure.</p>
+    </div>
+
+    <div style="border:1.5px solid var(--border);border-radius:8px;padding:1rem 1.2rem;">
+      <div style="font-family:'Lora',serif;font-weight:600;color:var(--navy);margin-bottom:0.4rem;"><code style="font-family:'DM Sans',sans-serif;">INFOODLE_GROUP_IDS</code> — Which Infoodle groups are synced</div>
+      <p style="margin:0 0 0.5rem;">A comma-separated list of Infoodle group numbers that Rostas pulls from during the volunteer sync. Each number corresponds to one volunteer group in Infoodle. The group number is the <code>id=</code> value in the Infoodle URL when you open that group.</p>
+      <p style="margin:0;"><strong>Why it's restricted:</strong> Adding an incorrect group ID causes the sync to attempt to pull from a non-existent or unrelated group. Removing a group ID means those volunteers disappear from Rostas on the next sync. Coordinators may be asked by tech support to look up a group ID — open the group in Infoodle and copy the number after <code>id=</code> in the browser URL bar.</p>
+    </div>
+
+    <div style="border:1.5px solid var(--border);border-radius:8px;padding:1rem 1.2rem;">
+      <div style="font-family:'Lora',serif;font-weight:600;color:var(--navy);margin-bottom:0.4rem;"><code style="font-family:'DM Sans',sans-serif;">INFOODLE_GROUP_MAP</code> — Which group maps to which roster type</div>
+      <p style="margin:0 0 0.5rem;">This setting maps each Infoodle group ID to a roster type, using the format <code>499:Sunday,464:Music,502:Nourish</code>. It tells the sync engine which volunteers belong to which roster. A volunteer in multiple Infoodle groups will appear in multiple roster types.</p>
+      <p style="margin:0;"><strong>Why it's restricted:</strong> The format is precise — a stray comma, a missing colon, a space in the wrong place, or a roster type name that doesn't exactly match the <code>ROSTER_TYPES</code> list will silently break the volunteer sync. Even experienced users have introduced bugs here. Always ask tech support to update this setting when adding or removing roster types.</p>
+    </div>
+
+    <div style="border:1.5px solid var(--border);border-radius:8px;padding:1rem 1.2rem;">
+      <div style="font-family:'Lora',serif;font-weight:600;color:var(--navy);margin-bottom:0.4rem;"><code style="font-family:'DM Sans',sans-serif;">ROSTER_TYPES</code> — The list of active roster types</div>
+      <p style="margin:0 0 0.5rem;">This setting holds the comma-separated list of active roster types — e.g. <code>Sunday,Music,Nourish</code>. It looks simple but editing it directly is not the right way to add a roster type.</p>
+      <p style="margin:0;"><strong>Why it's restricted:</strong> Adding a name to this list alone does nothing useful — a new roster type also requires coordinator contact keys, a build-weeks setting, an Infoodle group mapping, roles in the Master Roles list, and a season. If you add the name here without those, the build engine will fail when it tries to use the incomplete configuration. Use the <strong>Add Roster Type</strong> button in Run Commands instead — it scaffolds everything in one step. See <a href="#s16">Adding a New Roster Type</a>.</p>
+    </div>
+
+  </div>
+
+  <div class="callout callout-info" style="margin-top:1.2rem;">
+    <strong>Infoodle credentials</strong> (Site Code, Client ID, Client Secret) and <strong>Twilio credentials</strong> (Account SID, Auth Token, From Number) are also visible in the Settings Dashboard. These are private API keys — treat them like passwords. Never share them and never edit them without guidance from tech support.
   </div>
 
   <!-- S15 -->

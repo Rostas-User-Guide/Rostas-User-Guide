@@ -1209,15 +1209,15 @@
   <h2 class="section-title" id="s14">Settings and Configuration</h2>
   <div class="pill-row"><span class="pill-chip"><img src="pill-settings-dashboard.png" class="nav-pill" alt="Settings Dashboard view"></span></div>
 
-  <p>System settings control how Rostas behaves — coordinator contacts, reminder timing, message wording, and which features are active. All settings are managed through the <strong>Settings Dashboard</strong> view in Rostas. Settings are grouped by category; tap a row to view details and use Edit to change a value.</p>
+  <p>System settings control how Rostas behaves — coordinator contacts, reminder timing, message wording, and which features are active. All settings are managed through the <strong>Settings Dashboard</strong> view in Rostas. Settings are grouped into categories on the left; tap a category to see its settings list, then tap any row to open the detail panel on the right where you can edit the value.</p>
 
   <figure>
-    <img src="settings-dashboard.png" alt="Settings Dashboard view showing config keys grouped by category with an Edit panel on the right" class="screenshot">
-    <figcaption>Settings Dashboard — settings are grouped by category. Tap a row to view details and use Edit to change a value.</figcaption>
+    <img src="Screenshot_2026-04-20_2_20_59_PM.png" alt="Settings Dashboard showing three-column layout: Settings Categories on the left, the setting list in the middle, and a detail edit panel on the right showing COORDINATOR_NAME with current value Guy Pilkinton" class="screenshot">
+    <figcaption>Settings Dashboard — three-column layout. Choose a category, select a setting, then edit the value in the detail panel on the right.</figcaption>
   </figure>
 
   <div class="callout callout-info">
-    <strong>Two types of editable fields:</strong> Numeric settings use a button selector — tap the value you want. Boolean settings (on/off) use a toggle switch. Text settings use a free-text field. Never edit a setting's <em>key name</em> — only the value column.
+    <strong>Three types of editable fields:</strong> <strong>Numeric and time settings</strong> use button selectors — tap the value you want (e.g. freeze weeks, quiet-hours time). <strong>Boolean settings</strong> (on/off) use <em>True / False</em> buttons — the highlighted button is the current value. <strong>Text settings</strong> use a free-text input field. Multi-value settings like <code>NO_CONSECUTIVE_ROLE_FRAGMENTS</code> show chip-style buttons — tap to select or deselect values. Never edit a setting's <em>key name</em> — only its value.
   </div>
 
   <!-- ── GROUP 1: COORDINATOR CONTACT DETAILS ── -->
@@ -1292,6 +1292,11 @@
   <!-- ── GROUP 4: SMS TEMPLATES ── -->
   <h3 class="sub-title" id="s14-smstemplates">SMS Replacement Chain Templates</h3>
   <p>These settings control the wording of all SMS messages sent during the replacement chain — when a volunteer declines and Rostas works through the backup list to find a replacement.</p>
+
+  <figure>
+    <img src="Screenshot_2026-04-20_2_21_18_PM.png" alt="Settings Dashboard Message Wording category showing SMS_TEMPLATE_CONFIRM with an editable text field and the current message text" class="screenshot">
+    <figcaption>Message Wording settings — text fields let you edit message wording directly. The Edit box shows the current value; save when done. Use placeholders like <code>[Name]</code> and <code>[Role]</code> exactly as shown.</figcaption>
+  </figure>
   <div class="tbl-wrap">
     <table>
       <thead><tr><th>Setting Key</th><th>When it is sent</th><th>Placeholders available</th></tr></thead>
@@ -1310,6 +1315,11 @@
   <!-- ── GROUP 5: TIMING & ROSTER ENGINE ── -->
   <h3 class="sub-title" id="s14-timing">Timing and Roster Engine</h3>
   <p>These settings control how far ahead rosters are built, how long volunteers have to respond, and how quickly the SMS replacement chain moves between contacts. Numeric settings use a button selector in the Settings Dashboard — tap the value you want.</p>
+
+  <figure>
+    <img src="Screenshot_2026-04-20_2_21_45_PM.png" alt="Settings Dashboard Timing and Behaviour showing ROSTER_FREEZE_WEEKS selected with numbered button options, current value 3 highlighted" class="screenshot">
+    <figcaption>Timing &amp; Behaviour settings — numeric values are selected by tapping the button for the number you want. The highlighted button shows the current value.</figcaption>
+  </figure>
 
   <div class="tbl-wrap">
     <table>
@@ -1435,6 +1445,11 @@
   <h3 class="sub-title" id="s14-testmode">Testing and Live Mode Controls</h3>
   <p>Three settings control whether Rostas contacts real volunteers or redirects everything to the coordinator for testing. These must be correctly set before go-live and should only be changed deliberately.</p>
 
+  <figure>
+    <img src="Screenshot_2026-04-20_2_23_08_PM.png" alt="Settings Dashboard Quick Controls showing SMS_ENABLED with True and False toggle buttons, currently False" class="screenshot">
+    <figcaption>Quick Controls — boolean settings use <strong>True / False</strong> toggle buttons. The highlighted (dark) button is the active value. SMS_ENABLED is shown here as OFF (False).</figcaption>
+  </figure>
+
   <div class="tbl-wrap">
     <table>
       <thead><tr><th>Setting Key</th><th>What it does</th><th>Toggle</th></tr></thead>
@@ -1512,7 +1527,7 @@
     <div style="border:1.5px solid var(--border);border-radius:8px;padding:1rem 1.2rem;">
       <div style="font-family:'Lora',serif;font-weight:600;color:var(--navy);margin-bottom:0.4rem;"><code style="font-family:'DM Sans',sans-serif;">ROSTER_TYPES</code> — The list of active roster types</div>
       <p style="margin:0 0 0.5rem;">This setting holds the comma-separated list of active roster types — e.g. <code>Sunday,Music,Nourish</code>. It looks simple but editing it directly is not the right way to add a roster type.</p>
-      <p style="margin:0;"><strong>Why it's restricted:</strong> Adding a name to this list alone does nothing useful — a new roster type also requires coordinator contact keys, a build-weeks setting, an Infoodle group mapping, roles in the Master Roles list, and a season. If you add the name here without those, the build engine will fail when it tries to use the incomplete configuration. Use the <strong>Add Roster Type</strong> button in Run Commands instead — it scaffolds everything in one step. See <a href="#s16">Adding a New Roster Type</a>.</p>
+      <p style="margin:0;"><strong>Why it's restricted:</strong> Adding a name to this list alone does nothing useful — a new roster type also requires coordinator contact keys, a build-weeks setting, an Infoodle group mapping, roles in the Master Roles list, and a season. If you add the name here without those, the build engine will fail when it tries to use the incomplete configuration. Use the <strong>Add Roster</strong> form in the Settings Dashboard instead — it scaffolds everything in one step. See <a href="#s16">Adding a New Roster Type</a>.</p>
     </div>
 
   </div>
@@ -1550,7 +1565,7 @@
   <!-- S16: Adding a New Roster Type -->
   <h2 class="section-title" id="s16">Adding a New Roster Type</h2>
   <div class="pill-row"><span class="pill-chip"><img src="pill-settings-dashboard.png" class="nav-pill" alt="Settings Dashboard"></span></div>
-  <p>New roster types (e.g. a Community Meal) can be added by an Overall Coordinator directly through Rostas without needing to contact Tech Support. The process takes about 5 minutes and the system scaffolds all required Config keys automatically.</p>
+  <p>New roster types (e.g. a Community Meal) can be added by an Overall Coordinator directly through the <strong>Settings Dashboard</strong> in Rostas without needing to contact Tech Support. The process takes about 5 minutes and the system scaffolds all required Config keys automatically. The Add Roster form is fully integrated into the Settings Dashboard — there is no separate button or screen needed.</p>
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
@@ -1560,19 +1575,21 @@
   <h3 class="sub-title" id="s16-s1"><br></h3><h3 class="sub-title" id="s16-s1">Step 1 — Add the Roster Type in Rostas</h3>
   <div class="step-box">
     <div class="step-label">Step 1 — Add the Roster Type in Rostas</div>
-    <p>Go to Rostas → <strong>Settings Dashboard → Add New Roster</strong>. Fill in the form:</p>
+    <p>Go to Rostas → <strong>Settings Dashboard → Add Roster</strong> (at the bottom of the Settings Categories list). Fill in all required fields:</p>
     <ul style="margin-top:0.5rem;">
-      <li><strong>Roster Name</strong> — the internal name (e.g. <i>Community_Meal</i>). Title case, no spaces in the middle.</li>
-      <li><strong>Coordinator Name, Email, Phone</strong> — the coordinator for this roster type.</li>
-      <li><strong>Calendar Time Slot</strong> — display order on the Seasons Calendar. Use 3 or 4 for a new type if the Roster is the 3 and 4 roster on that day.&nbsp; This gives different rosters visual separation in the Calendar.</li>
-      <li><strong>Infoodle Group ID</strong> — the numeric group ID. If unsure, run Knox Roster → Developer tools → List all groups.</li>
+      <li><strong>Roster Type Name</strong> — go to Infoodle Admin &gt; Rosters &gt; Roster Types and copy the Type Name exactly as it appears there.</li>
+      <li><strong>Day of Week</strong> — e.g. <em>Sunday</em> (the day the roster runs).</li>
+      <li><strong>Infoodle Group ID</strong> — open the volunteer group in Infoodle and copy the number after <code>id=</code> in the URL. If unsure, run Knox Roster → Developer tools → List all groups.</li>
+      <li><strong>Coordinator Name, Email, Phone</strong> — the coordinator for this roster type. Phone must start with <code>+64</code>.</li>
+      <li><strong>Is_Active</strong> — set to <strong>Y</strong>.</li>
+      <li><strong>Calendar Slot Number</strong> — display order on the Seasons Calendar. Use <strong>1</strong> if this is the only roster on its day; use <strong>2</strong> or <strong>3</strong> if multiple rosters fall on the same day and need visual separation.</li>
     </ul>
-    <p style="margin-top:0.5rem;">Save the row. This automatically queues an <code>addRosterType</code> command in the Commands tab.</p>
+    <p style="margin-top:0.5rem;">Save the form. This automatically queues an <code>addRosterType</code> command in the Commands tab.</p>
   </div>
 
-  <figure><br></figure><figure>
-    <img src="add-role-form.png" alt="Add Role form showing Roster Type, Role Name, Min/Max People, Is Active fields" class="screenshot-mid">
-    <figcaption>Add Role form — fill in all required fields when adding a new roster type or role.</figcaption>
+  <figure>
+    <img src="Screenshot_2026-04-20_2_23_54_PM.png" alt="Add Roster form in Settings Dashboard showing fields for Roster Type Name, Day of Week, Infoodle Group ID, Coordinator Name, Email, Phone, Is Active toggle, and Calendar slot number buttons" class="screenshot-mid">
+    <figcaption>Add Roster form — accessed from Settings Dashboard → Add Roster. Fill in all required fields (marked with *). The Calendar Slot number controls display order when multiple rosters fall on the same day.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="s16-s2"><br></h3><h3 class="sub-title" id="s16-s2">Step 2 — Wait 1 Minute</h3>

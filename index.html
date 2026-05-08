@@ -648,6 +648,7 @@
     </div>
     <div class="toc-children" id="children-s6">
       <a class="toc-item toc-h2" href="#s6-missed">Missed the email?</a>
+      <a class="toc-item toc-h2" href="#s6-nudge">Automatic SMS nudge</a>
     </div>
 
     <!-- 7. Build the Roster -->
@@ -763,7 +764,7 @@
 
   <!-- COVER -->
   <div id="cover">
-    <div class="eyebrow">Rostas Coordinators GUIDE · April 2026</div>
+    <div class="eyebrow">Rostas Coordinators GUIDE · May 2026</div>
     <h1>Rostas Coordinator Guide</h1>
     <p class="subtitle">A complete guide to building rosters, managing replacements, and protecting your volunteers' energy.</p>
     <p class="meta">Knox Church Waitara</p>
@@ -814,7 +815,7 @@
 
   <!-- INTRO -->
   <h2 class="section-title" id="intro">Introduction</h2>
-  <p>Rostas is the coordinator app for managing Church &amp; Community volunteer rosters. It currently connects to the Infoodle database to access volunteer data, and handles notifications, reminders, and SMS replacements automatically using the <font color="#1a3366"><span style="font-size: 14px;">Twilio SMS</span></font>&nbsp;service. Both these services are paid services requiring a subscription.&nbsp;</p>
+  <p>Rostas is the coordinator app for managing Church &amp; Community volunteer rosters. It currently connects to the Infoodle database to access volunteer data, and handles notifications, reminders, and SMS replacements automatically using the <font color="#1a3366"><span style="font-size: 14px;">Twilio SMS</span></font>&nbsp;service (with ClickSend retained as a switchable fallback). Both these services are paid services requiring a subscription.&nbsp;</p>
   <p>This guide covers everything you need: from collecting availability through to handling replacements. <strong>Part A</strong> introduces Rostas with a video and overview. <strong>Part B</strong> covers Roster Coordinator tasks. <strong>Part C</strong> covers additional Overall Coordinator tasks for those who have database access. <strong>Part D</strong> covers expert/technical tasks requiring Apps Script access.</p>
 
   <!-- WHO CAN DO WHAT -->
@@ -858,7 +859,7 @@
 
   <h3 class="sub-title" id="s1-views">The Rostas Views</h3>
   <p><br></p><p>When you open Rostas you will see these views in the left-hand sidebar. Tap the relevant view to navigate to that area of the system.</p>
-  <div class="pill-grid"><span class="pill-chip"><img src="pill-run-commands.png" class="nav-pill" alt="Run Commands view"></span><span class="pill-chip"><img src="pill-seasons-dashboard.png" class="nav-pill" alt="Seasons Dashboard view"></span><span class="pill-chip"><img src="pill-global-roster.png" class="nav-pill" alt="Global Roster view"></span><span class="pill-chip"><img src="pill-volunteers-roles.png" class="nav-pill" alt="Volunteers Roles view"></span><span class="pill-chip"><img src="pill-individual-details.png" class="nav-pill" alt="Individual Details view"></span><span class="pill-chip"><img src="pill-communications.png" class="nav-pill" alt="Communications view"></span><span class="pill-chip"><img src="pill-roles-list.png" class="nav-pill" alt="Roles List view"></span><span class="pill-chip"><img src="pill-settings-dashboard.png" class="nav-pill" alt="Settings Dashboard view"></span><span class="pill-chip"><img src="pill-status-dashboard.png" class="nav-pill" alt="Status Dashboard view"></span></div>
+  <div class="pill-grid"><span class="pill-chip"><img src="pill-run-commands.png" class="nav-pill" alt="Run Commands view"></span><span class="pill-chip"><img src="pill-seasons-dashboard.png" class="nav-pill" alt="Seasons Dashboard view"></span><span class="pill-chip"><img src="pill-global-roster.png" class="nav-pill" alt="Global Roster view"></span><span class="pill-chip"><img src="pill-volunteers-roles.png" class="nav-pill" alt="Volunteers Roles view"></span><span class="pill-chip"><img src="pill-individual-details.png" class="nav-pill" alt="Individual Details view"></span><span class="pill-chip"><img src="pill-communications.png" class="nav-pill" alt="Communications view"></span><span class="pill-chip"><img src="pill-roles-list.png" class="nav-pill" alt="Roles List view"></span><span class="pill-chip"><img src="pill-settings-dashboard.png" class="nav-pill" alt="Settings Dashboard view"></span><span class="pill-chip"><img src="pill-status-dashboard.png" class="nav-pill" alt="Status Dashboard view"></span><span class="pill-chip"><img src="pill-sms-and-email.png" class="nav-pill" alt="SMS and Email view"></span></div>
 
 
   <figure>
@@ -1026,6 +1027,31 @@
   <h3 class="sub-title" id="s6-missed">What if someone missed the email?</h3>
   <p>You can update a volunteer's availability directly in Rostas via the <strong>Individual Details</strong> view. Select the volunteer from the left panel, then use the Availability Requests panel (bottom right) to find the date and update their status.</p>
 
+  <h3 class="sub-title" id="s6-nudge">Automatic SMS nudge for non-responders</h3>
+  <p>After availability emails are sent, Rostas automatically sends a follow-up SMS to any volunteer who has not yet responded — no manual action required. The nudge fires once per cycle, a set number of days after the emails were sent, and only goes to volunteers who still have no upcoming availability response on record.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">💬</span>
+    <strong>How it works end to end:</strong>
+    <ul style="margin:0.5rem 0 0 0;padding-left:1.2rem;">
+      <li>You send availability emails (Step 3). The system records the send date automatically.</li>
+      <li>After N days (default: 2), the daily background process checks who has not yet responded.</li>
+      <li>Non-responders receive a short SMS nudge with a direct link to their availability form.</li>
+      <li>The nudge fires <strong>once only</strong> per email cycle — it will not repeat.</li>
+      <li>The cycle resets automatically the next time availability emails are sent.</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">⚙️</span>
+    <strong>To adjust the nudge timing or wording:</strong> Go to Settings Dashboard and search for <code>AVAILABILITY_SMS_NUDGE_DAYS</code> (set 1–5 days) and <code>AVAILABILITY_SMS_NUDGE_TEMPLATE</code> (edit the SMS text). Placeholders available: <code>[Name]</code>, <code>[RosterType]</code>, <code>[Link]</code>.
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    The nudge SMS respects all the usual controls — <code>SMS_ENABLED</code>, quiet hours, and individual volunteer SMS opt-outs. Opted-out volunteers are silently skipped and counted as Skipped in the daily run log, not as errors.
+  </div>
+
   <!-- S7 -->
   <h2 class="section-title" id="s7">Step 4 — Build the Roster</h2>
   <div class="pill-row"><span class="pill-chip"><img src="pill-run-commands.png" class="nav-pill" alt="Run Commands view"></span><span class="pill-chip"><img src="pill-global-roster.png" class="nav-pill" alt="Global Roster view"></span></div>
@@ -1183,6 +1209,7 @@
 
   <!-- SMS AND EMAIL OPT-OUTS — NEW SECTION -->
   <h2 class="section-title" id="sms-email">Managing Volunteer SMS and Email Opt-outs</h2>
+  <div class="pill-row"><span class="pill-chip"><img src="pill-sms-and-email.png" class="nav-pill" alt="SMS and Email view"></span></div>
   <p>Volunteers can opt out of receiving roster SMS messages and/or emails at any time using a self-service preferences link that appears at the bottom of every Rostas email, on the SMS reply page, and on the availability and role preference form success screens. Coordinators can also view and override any volunteer's opt-out status from the <strong>SMS and Email</strong> view in Rostas.</p>
 
   <h3 class="sub-title">How volunteers opt out</h3>
@@ -1328,6 +1355,17 @@
         <tr><td><code>REMINDER_CANT_MAKE_IT</code></td><td>Line below the assignment in the reminder — prompts volunteers to tap the decline link if they can't attend</td><td>Text</td></tr>
         <tr><td><code>REMINDER_SIGNOFF</code></td><td>Closing line of the reminder email</td><td>Text</td></tr>
         <tr><td><code>REMINDER_SMS_TEMPLATE</code></td><td>Wording of the reminder SMS sent one day before the service. Placeholders: <code>{firstName}</code> <code>{roleName}</code> <code>{dateLabel}</code> <code>{declineUrl}</code></td><td>Text</td></tr>
+        <tr><td><code>AVAILABILITY_SMS_NUDGE_DAYS</code></td><td>How many days after availability emails are sent before the system texts non-responders with a reminder SMS. Default: 2. Set between 1 and 5.</td><td>
+            <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;">
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">1</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy);background:var(--navy);font-size:12px;font-weight:600;color:#fff;">2</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">3</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">4</span>
+              <span style="padding:2px 9px;border-radius:14px;border:1.5px solid var(--navy-mid);font-size:12px;font-weight:600;color:var(--navy-mid);">5</span>
+            </div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Highlighted = current default (2)</div>
+          </td></tr>
+        <tr><td><code>AVAILABILITY_SMS_NUDGE_TEMPLATE</code></td><td>Wording of the automatic SMS nudge sent to volunteers who have not yet submitted their availability. Placeholders: <code>[Name]</code> <code>[RosterType]</code> <code>[Link]</code></td><td>Text</td></tr>
       </tbody>
     </table>
   </div>
@@ -1352,20 +1390,20 @@
 
   <!-- SMS PROVIDER — NEW SUBSECTION -->
   <h3 class="sub-title" id="s14-smsprovider">SMS Provider</h3>
-  <p>Rostas supports two SMS providers: <strong>Twilio</strong> and <strong>ClickSend</strong>. The active provider is controlled by the <code>SMS_PROVIDER</code> key in the Message Wording settings — no code changes are needed to switch. Twilio is currently the active provider.</p>
+  <p>Rostas supports two SMS providers: <strong>Twilio</strong> and <strong>ClickSend</strong>. The active provider is controlled by the <code>SMS_PROVIDER</code> key in the Message Wording settings — no code changes are needed to switch. <strong>Twilio is the current active provider.</strong> ClickSend is retained as a switchable alternative.</p>
 
   <figure>
     <img src="Settings_Dashboard.png" alt="Settings Dashboard Message Wording category showing SMS_PROVIDER, CLICKSEND_USERNAME, CLICKSEND_API_KEY and CLICKSEND_FROM keys in the settings list" class="screenshot">
-    <figcaption>Message Wording settings — now includes <code>SMS_PROVIDER</code> and ClickSend configuration keys alongside the SMS templates. Tap any row to edit in the right-hand panel.</figcaption>
+    <figcaption>Message Wording settings — includes <code>SMS_PROVIDER</code> and both Twilio and ClickSend configuration keys. Tap any row to edit in the right-hand panel.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
     <table>
       <thead><tr><th>Setting Key</th><th>What it controls</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td><code>SMS_PROVIDER</code></td><td>Active SMS provider. <code>twilio</code> = Twilio (current), <code>clicksend</code> = ClickSend</td><td>Change in Settings only — no code changes needed</td></tr>
-        <tr><td><code>CLICKSEND_USERNAME</code></td><td>ClickSend account email address</td><td>Retained for future use — do not delete</td></tr>
-        <tr><td><code>CLICKSEND_API_KEY</code></td><td>ClickSend API key — treat as a password</td><td>Retained for future use — do not share</td></tr>
+        <tr><td><code>SMS_PROVIDER</code></td><td>Active SMS provider. <code>twilio</code> = Twilio (current), <code>clicksend</code> = ClickSend (alternative)</td><td>Change in Settings only — no code changes needed</td></tr>
+        <tr><td><code>CLICKSEND_USERNAME</code></td><td>ClickSend account email address</td><td>Retained as fallback — do not delete</td></tr>
+        <tr><td><code>CLICKSEND_API_KEY</code></td><td>ClickSend API key — treat as a password</td><td>Retained as fallback — do not share</td></tr>
         <tr><td><code>CLICKSEND_FROM</code></td><td>Sender name shown on volunteers' phones when using ClickSend (max 11 chars)</td><td>Subject to NZ carrier support</td></tr>
       </tbody>
     </table>
@@ -1588,7 +1626,7 @@
   </div>
 
   <div class="callout callout-info" style="margin-top:1.2rem;">
-    <strong>Infoodle credentials</strong> (Site Code, Client ID, Client Secret) and <strong>Twilio credentials</strong> (Account SID, Auth Token, From Number) are also visible in the Settings Dashboard. These are private API keys — treat them like passwords. Never share them and never edit them without guidance from tech support.
+    <strong>Infoodle credentials</strong> (Site Code, Client ID, Client Secret) and <strong>Twilio credentials</strong> (Account SID, Auth Token, From Number) are also visible in the Settings Dashboard. Twilio is the active SMS provider. These are private API keys — treat them like passwords. Never share them and never edit them without guidance from tech support.
   </div>
 
   <!-- S15 -->
@@ -1981,7 +2019,7 @@
   </div>
 
   <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">
-  <p style="font-size:12px;color:var(--text-muted);text-align:center;">Knox Church Waitara · Rostas Coordinator Guide · April 2026</p>
+  <p style="font-size:12px;color:var(--text-muted);text-align:center;">Knox Church Waitara · Rostas Coordinator Guide · May 2026</p>
   <div style="text-align:center;margin-top:1rem;display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;">
     <a href="#cover" id="back-top">↑ Back to top</a>
     <a href="https://rostas-user-guide.github.io/Rostas-User-Guide/editor" target="_blank" style="color:var(--gold);font-size:12px;">✏️ Edit this guide</a>

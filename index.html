@@ -555,6 +555,17 @@
     </div>
 
     <a class="toc-item toc-h1" href="#s2">The Roster Cycle</a>
+
+    <div class="toc-parent" id="parent-wizard">
+      <a class="toc-parent-link" href="#wizard">The Roster Wizard</a>
+      <button class="toc-toggle" data-target="children-wizard" aria-label="Toggle submenu"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-wizard">
+      <a class="toc-item toc-h2" href="#wizard-dashboard">Roster Dashboard</a>
+      <a class="toc-item toc-h2" href="#wizard-steps">Walking Through the Steps</a>
+      <a class="toc-item toc-h2" href="#wizard-next-cycle">Start Next Cycle</a>
+    </div>
+
     <a class="toc-item toc-h1" href="#s3">Step 0 — Refresh Calendar</a>
 
     <div class="toc-parent" id="parent-s4">
@@ -747,7 +758,7 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">✨</span>
-    <strong>New in May 2026 — Relational Rostering.</strong> Rostas can now pair household members and preferred buddies on the same service dates, so families serve together and friends can offer to fill in for one another. See <a href="#rel-rostering">Relational Rostering</a> for the full feature, and <a href="#s14-quick">Quick Controls</a> for the global on/off toggle.
+    <strong>New in May 2026 — Relational Rostering &amp; Roster Wizard.</strong> Rostas can now pair household members and preferred buddies on the same service dates, so families serve together and friends can offer to fill in for one another. A new guided <strong>Roster Wizard</strong> provides a step-by-step view of the full roster cycle for each roster type. See <a href="#rel-rostering">Relational Rostering</a> and <a href="#wizard">The Roster Wizard</a> for details, and <a href="#s14-quick">Quick Controls</a> for the global toggles.
   </div>
 
   <h2 class="section-title" id="who-what">Who Can Do What</h2>
@@ -847,6 +858,87 @@
     <strong>Timing tip:</strong>&nbsp;<strong>&nbsp;tip:</strong>&nbsp;Send availability emails at least a 7-10 days before the first date of the new season. Allow volunteers time to respond before building the roster.
   </div>
   <div class="callout callout-info"><strong>Normal roster workflow:</strong> Step 0 → Step 1 → Step 2 → Step 3 → Step 4 → Step 5 (Preview — check before sending) → Step 6 (Send notifications).</div>
+
+  <!-- ════ ROSTER WIZARD ════ -->
+  <h2 class="section-title" id="wizard">The Roster Wizard</h2>
+  <p>The Roster Wizard is a guided, step-by-step interface that walks you through the same roster cycle as Run Commands — but in a single, linear view that shows exactly where you are, what is done, and what is next. Each roster type has its own wizard. You can use the wizard, Run Commands, or both — they share the same underlying actions.</p>
+
+  <h3 class="sub-title" id="wizard-dashboard">Roster Dashboard</h3>
+  <p>When you open the wizard you first land on the <strong>Roster Dashboard</strong>, which lists every active roster type with a status badge at a glance.</p>
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Only rosters with <code>ROSTER_ACTIVE_{Type}</code> set to True appear on the Roster Dashboard.</strong> If a roster type is not visible, check <strong>Settings → Quick Controls</strong> and enable the relevant toggle. See <a href="#s14-quick">Quick Controls</a>.
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Status badge</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td><span style="background:var(--gold);color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700;">Ready to Send</span></td><td>Roster built and reviewed — ready to send notifications.</td></tr>
+        <tr><td><span style="background:var(--green);color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700;">Active</span></td><td>Notifications sent. Roster is live for the current cycle.</td></tr>
+        <tr><td><span style="background:#4a7cd4;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700;">In Progress</span></td><td>Current cycle partially complete — some steps remain.</td></tr>
+        <tr><td><span style="background:var(--border);color:var(--text-muted);padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700;">Not Started</span></td><td>No activity yet for this cycle.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title" id="wizard-steps">Walking Through the Steps</h3>
+  <p>Tap a roster on the dashboard to open its wizard. The wizard displays all six steps in order. Completed steps show a ✓ timestamp; the current active step is expanded with its action buttons; future steps are greyed out until the preceding step is done.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Step</th><th>Title</th><th>What you do</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td>Refresh &amp; Sync</td>
+          <td>Answer the seasons calendar question: <strong>Yes — already done</strong> or <strong>No — refresh now</strong>. The volunteer sync timestamp is shown automatically.</td>
+          <td>Tapping <em>No — refresh now</em> runs Step 0 (Refresh Calendar) in the background. The sync timestamp confirms the last successful Infoodle sync.</td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td>Role Preferences</td>
+          <td>Tap <strong>Send Role Preference Emails</strong> to invite volunteers to update their roles, or <strong>Coordinator will set if required</strong> to skip and manage preferences directly in the Preferred Roles view.</td>
+          <td>If skipped, the step shows <em>Skipped — coordinator managing role preferences directly</em>. Safe to skip when preferences are already current.</td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td>Send Availability Email / SMS</td>
+          <td>Tap <strong>Send Availability Emails</strong>. A live response counter appears after sending — e.g. <em>37 / 54 responded</em>. Two follow-up buttons appear: <strong>Send SMS Nudge to N</strong> (texts non-responders immediately) and <strong>Re-send Availability Emails</strong>.</td>
+          <td>The progress bar fills as responses come in. The SMS Nudge button sends immediately, bypassing the scheduled <code>AVAILABILITY_SMS_NUDGE_DAYS</code> delay.</td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td>Build Roster</td>
+          <td>Tap <strong>Build Roster Now</strong>. The current response count is displayed before you build so you can see how many have responded.</td>
+          <td>You can build even if not all volunteers have responded. Music roster may take up to 10 minutes — this is normal.</td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td>Check Roster &amp; Communications</td>
+          <td>The step shows an overall fill status. Tap <strong>Open Global Roster in AppSheet</strong> to review assignments and make manual replacements. When satisfied tap <strong>Reviewed — ready to notify</strong> to unlock Step 6.</td>
+          <td>Do not skip this step — it is your last chance to fix problems before volunteers are notified.</td>
+        </tr>
+        <tr>
+          <td><strong>6</strong></td>
+          <td>Send Notifications</td>
+          <td>Tap <strong>Send Notifications</strong>. The step confirms the number of volunteers notified and the timestamp.</td>
+          <td>Reminders fire automatically after this step — email 3 days before service, SMS 1 day before. No further action needed until the next cycle.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Each wizard step maps directly to a Run Commands button.</strong> You can mix both approaches within a cycle — for example, build via Run Commands then use the wizard for the review and notify steps. Both update the same data.
+  </div>
+
+  <h3 class="sub-title" id="wizard-next-cycle">Start Next Cycle</h3>
+  <p>Once Step 6 is complete, the wizard shows a <strong>Start Next Cycle</strong> button. Tapping it resets the wizard progress indicators for this roster type, ready for the next availability round. No past data is deleted — all assignments remain in the roster history.</p>
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    Only tap <strong>Start Next Cycle</strong> once all notifications for the current cycle have been sent. Resetting mid-cycle clears the wizard progress indicators; the underlying assignments are unaffected.
+  </div>
 
   <h2 class="section-title" id="s3">3. Step 0 — Refresh the Seasons Calendar</h2>
   <div class="pill-row">
@@ -1549,12 +1641,27 @@
   </div>
 
   <!-- QUICK CONTROLS — FOUR GLOBAL TOGGLES -->
-  <h3 class="sub-title" id="s14-quick">Quick Controls — Four Global Toggles</h3>
-  <p>The Quick Controls category contains four global on/off toggles that affect the whole system. All four use a True / False toggle in the Settings Detail View panel on the right. These must be correctly set before go-live and should only be changed deliberately.</p>
+  <h3 class="sub-title" id="s14-quick">Quick Controls — Global Toggles</h3>
+  <p>The Quick Controls category contains on/off toggles that affect the whole system. All use a True / False toggle in the Settings Detail View panel on the right. These must be correctly set before go-live and should only be changed deliberately.</p>
   <div class="tbl-wrap">
     <table>
       <thead><tr><th>Setting Key</th><th>What it does</th><th>Live setting</th></tr></thead>
       <tbody>
+        <tr>
+          <td><code>ROSTER_ACTIVE_Sunday</code></td>
+          <td>Controls whether the Sunday roster appears on the Roster Dashboard in the wizard. Set to False to hide it without removing any data.</td>
+          <td><div style="display:flex;gap:6px;"><span style="background:var(--green);color:#fff;padding:3px 12px;border-radius:14px;font-size:12px;font-weight:700;">True</span><span style="background:#dde4ed;color:var(--text-muted);padding:3px 12px;border-radius:14px;font-size:12px;font-weight:600;">False</span></div></td>
+        </tr>
+        <tr>
+          <td><code>ROSTER_ACTIVE_Music</code></td>
+          <td>Controls whether the Music roster appears on the Roster Dashboard in the wizard.</td>
+          <td><div style="display:flex;gap:6px;"><span style="background:var(--green);color:#fff;padding:3px 12px;border-radius:14px;font-size:12px;font-weight:700;">True</span><span style="background:#dde4ed;color:var(--text-muted);padding:3px 12px;border-radius:14px;font-size:12px;font-weight:600;">False</span></div></td>
+        </tr>
+        <tr>
+          <td><code>ROSTER_ACTIVE_Nourish</code></td>
+          <td>Controls whether the Nourish roster appears on the Roster Dashboard in the wizard.</td>
+          <td><div style="display:flex;gap:6px;"><span style="background:var(--green);color:#fff;padding:3px 12px;border-radius:14px;font-size:12px;font-weight:700;">True</span><span style="background:#dde4ed;color:var(--text-muted);padding:3px 12px;border-radius:14px;font-size:12px;font-weight:600;">False</span></div></td>
+        </tr>
         <tr>
           <td><code>RELATIONAL_ROSTERING_ENABLED</code></td>
           <td>Pairs household members and preferred buddies on the same service dates. When True, families are scheduled together. When False, standard tier-based assignment only — no pairing pass.</td>
@@ -1582,6 +1689,7 @@
     <span class="callout-icon">⚠️</span>
     <strong>Go-live checklist for Quick Controls — confirm before sending your first real roster:</strong>
     <ul style="margin:0.6rem 0 0 0;padding-left:1.2rem;">
+      <li><code>ROSTER_ACTIVE_Sunday</code> / <code>_Music</code> / <code>_Nourish</code> → <strong>True</strong> for each roster type you want to appear in the wizard</li>
       <li><code>SMS_TEST_MODE</code> → <strong>False</strong></li>
       <li><code>EMAIL_TEST_MODE</code> → <strong>False</strong></li>
       <li><code>SMS_ENABLED</code> → <strong>True</strong></li>
@@ -1699,7 +1807,12 @@
   <p>If a roster type is no longer needed, it can be removed. Historical assignment records are not deleted — they remain in RosterAssignments for reference.</p>
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <strong>This cannot be undone automatically.</strong> If you might need the roster type again, set its season <code>Is_Active = FALSE</code> instead — that stops it appearing in builds without removing any data.
+    <strong>This cannot be undone automatically.</strong> If you might need the roster type again, consider one of the softer options instead:
+    <ul style="margin:0.5rem 0 0 0;padding-left:1.2rem;">
+      <li>Set <code>ROSTER_ACTIVE_{Type}</code> = <strong>False</strong> in Settings → Quick Controls to hide it from the Roster Dashboard and wizard without removing any data.</li>
+      <li>Set its season <code>Is_Active = FALSE</code> to stop it appearing in builds.</li>
+    </ul>
+    Only use the full removal below if you are certain the roster type will not be needed again.
   </div>
 
   <h3 class="sub-title" id="s17a">Rostas Run Commands</h3>

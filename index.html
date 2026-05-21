@@ -5,6 +5,7 @@
 <title>Rostas Coordinator Guide — Knox Church Waitara</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <style>
   :root {
     --navy: #1a2e4a;
@@ -525,6 +526,129 @@
   .enum-btn { padding: 2px 9px; border-radius: 14px; font-size: 12px; font-weight: 600; }
   .enum-btn-active { background: var(--navy); color: #fff; border: 1.5px solid var(--navy); }
   .enum-btn-inactive { color: var(--navy-mid); border: 1.5px solid var(--navy-mid); }
+
+  /* ── Search ───────────────────────────────────── */
+  #search-wrap {
+    padding: 0.75rem 1.2rem 0.6rem;
+    position: relative;
+  }
+
+  #search-input {
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12.5px;
+    padding: 0.45rem 2rem 0.45rem 0.75rem;
+    outline: none;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  #search-input::placeholder { color: #7a94b0; }
+
+  #search-input:focus {
+    background: rgba(255,255,255,0.13);
+    border-color: var(--gold);
+  }
+
+  #search-clear {
+    position: absolute;
+    right: 1.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #7a94b0;
+    font-size: 15px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 2px 4px;
+    display: none;
+  }
+
+  #search-clear:hover { color: #fff; }
+
+  #search-results {
+    position: absolute;
+    top: calc(100% - 0.1rem);
+    left: 0;
+    right: 0;
+    background: #162540;
+    border: 1px solid rgba(184,147,42,0.4);
+    border-radius: 0 0 8px 8px;
+    max-height: 340px;
+    overflow-y: auto;
+    z-index: 200;
+    display: none;
+    scrollbar-width: thin;
+    scrollbar-color: #3a5a80 transparent;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  #search-results.open { display: block; }
+
+  .sr-item {
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.12s;
+  }
+
+  .sr-item:last-child { border-bottom: none; }
+
+  .sr-item:hover, .sr-item.sr-active {
+    background: rgba(184,147,42,0.15);
+  }
+
+  .sr-section {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .sr-title {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+
+  .sr-snippet {
+    font-size: 11.5px;
+    color: #849ab4;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sr-snippet mark {
+    background: rgba(184,147,42,0.35);
+    color: #fff;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+
+  #search-empty {
+    padding: 0.8rem 1rem;
+    font-size: 12px;
+    color: #7a94b0;
+    text-align: center;
+  }
+
+  #search-hint {
+    font-size: 10px;
+    color: #5a6a7e;
+    text-align: center;
+    padding: 0 1.2rem 0.4rem;
+    letter-spacing: 0.03em;
+  }
 </style>
 </head>
 <body>
@@ -538,6 +662,13 @@
   </div>
 
   <div id="toc">
+
+    <div id="search-wrap">
+      <input id="search-input" type="search" placeholder="Search guide… (/ to focus)" autocomplete="off" spellcheck="false" aria-label="Search guide">
+      <button id="search-clear" aria-label="Clear search">✕</button>
+      <div id="search-results" role="listbox" aria-label="Search results"></div>
+    </div>
+    <div id="search-hint">↑ ↓ navigate · Enter jump · Esc close</div>
 
     <div class="toc-part">Part A — Introducing Rostas</div>
     <a class="toc-item toc-h1" href="#intro">Introduction</a>
@@ -756,7 +887,9 @@
   <p>Rostas is the coordinator app for managing Church &amp; Community volunteer rosters. It currently connects to the Infoodle database to access volunteer data, and handles notifications, reminders, and SMS replacements automatically using the <span style="color:#1a3366;font-size:14px;">Twilio SMS</span> service (with ClickSend retained as a switchable fallback). Both these services are paid services requiring a subscription.</p>
   <p>This guide covers everything you need: from collecting availability through to handling replacements. <strong>Part A</strong> introduces Rostas with a video and overview. <strong>Part B</strong> covers Roster Coordinator tasks. <strong>Part C</strong> covers additional Overall Coordinator tasks for those who have database access. <strong>Part D</strong> covers expert/technical tasks requiring Apps Script access.</p>
 
-  <div class="callout callout-info"><strong>Relational Rostering &amp; Roster Wizard.</strong> Rostas can now pair household members and preferred buddies on the same service dates, so families serve together and friends can offer to fill in for one another. A new guided <strong>Roster Wizard</strong> provides a step-by-step view of the full roster cycle for each roster type. See <a href="#rel-rostering">Relational Rostering</a> and <a href="#wizard">The Roster Wizard</a> for details, and <a href="#s14-quick">Quick Controls</a> for the global toggles.
+  <div class="callout callout-info">
+    <span class="callout-icon">✨</span>
+    <strong>New in May 2026 — Relational Rostering &amp; Roster Wizard.</strong> Rostas can now pair household members and preferred buddies on the same service dates, so families serve together and friends can offer to fill in for one another. A new guided <strong>Roster Wizard</strong> provides a step-by-step view of the full roster cycle for each roster type. See <a href="#rel-rostering">Relational Rostering</a> and <a href="#wizard">The Roster Wizard</a> for details, and <a href="#s14-quick">Quick Controls</a> for the global toggles.
   </div>
 
   <h2 class="section-title" id="who-what">Who Can Do What</h2>
@@ -893,11 +1026,6 @@
   </figure>
 
   <figure>
-    <img src="step1b.png" alt="Sunday Roster Wizard Step 1 — second question asking whether new volunteers were added in Infoodle today, with If Yes Sync Now and No buttons" class="screenshot">
-    <figcaption>Step 1 continues with a second question — whether any volunteers were added in Infoodle since the last nightly sync. Tap <strong>If Yes — Sync Now</strong> to pull them in immediately, or <strong>No</strong> to proceed. The last sync timestamp is shown so you can judge whether a manual sync is needed.</figcaption>
-  </figure>
-
-  <figure>
     <img src="step2.png" alt="Sunday Roster Wizard showing Step 1 complete and Step 2 Role Preferences now active" class="screenshot">
     <figcaption>After confirming Step 1, the wizard advances to Step 2 — Role Preferences. Completed steps collapse to a single ✓ confirmation line.</figcaption>
   </figure>
@@ -909,8 +1037,8 @@
         <tr>
           <td><strong>1</strong></td>
           <td>Refresh &amp; Sync</td>
-          <td><ul><li>Answer the seasons calendar question: <strong>Yes — already done</strong> or <strong>No — refresh now</strong>.&nbsp;</li><li>Answer Question: <b>If Yes - Sync Now</b>. or <b>No</b>&nbsp;to sync from Infoodle</li></ul></td>
-          <td><ul><li>Tapping<em>&nbsp;— refresh now</em> runs Step 0 (Refresh Calendar) in the background. </li><li>Tapping Sync Now is for when you have added new volunteer info today.&nbsp; Infoodle sync happens nightly at 1 am</li></ul></td>
+          <td>Answer the seasons calendar question: <strong>Yes — already done</strong> or <strong>No — refresh now</strong>. The volunteer sync timestamp is shown automatically.</td>
+          <td>Tapping <em>No — refresh now</em> runs Step 0 (Refresh Calendar) in the background. The sync timestamp confirms the last successful Infoodle sync.</td>
         </tr>
         <tr>
           <td><strong>2</strong></td>
@@ -2118,6 +2246,228 @@
     if (b) { b.style.transition = 'none'; b.style.width = '0%'; }
   });
   cShow(0);
+
+  // ── Search ─────────────────────────────────────────────────────────────
+  (function() {
+    // Build index from every section heading + its text content
+    var sections = [];
+    var mainEl = document.getElementById('main-inner');
+
+    // Collect all headings with IDs as anchor points
+    var headings = Array.from(mainEl.querySelectorAll('h2[id], h3[id]'));
+
+    headings.forEach(function(h, idx) {
+      // Gather all text between this heading and the next
+      var textNodes = [];
+      var sibling = h.nextSibling;
+      var nextH = headings[idx + 1];
+      while (sibling && sibling !== nextH) {
+        if (sibling.nodeType === 3) {
+          textNodes.push(sibling.textContent);
+        } else if (sibling.nodeType === 1 && !sibling.matches('h2,h3')) {
+          textNodes.push(sibling.textContent || sibling.innerText || '');
+        }
+        sibling = sibling.nextSibling;
+      }
+      var body = textNodes.join(' ').replace(/\s+/g, ' ').trim();
+
+      // Determine parent section label (Part A/B/C/D context)
+      var partLabel = '';
+      var prev = h;
+      while (prev) {
+        prev = prev.previousElementSibling;
+        if (prev && prev.classList && prev.classList.contains('part-banner')) {
+          partLabel = (prev.querySelector('.part-title') || {}).textContent || '';
+          break;
+        }
+      }
+
+      sections.push({
+        id:       h.id,
+        title:    h.textContent.trim(),
+        part:     partLabel,
+        body:     body.slice(0, 400),
+        fullBody: body
+      });
+    });
+
+    // Initialise Fuse
+    var fuse = new Fuse(sections, {
+      keys: [
+        { name: 'title',    weight: 0.55 },
+        { name: 'body',     weight: 0.35 },
+        { name: 'part',     weight: 0.10 }
+      ],
+      threshold:        0.38,
+      includeScore:     true,
+      includeMatches:   true,
+      minMatchCharLength: 2,
+      ignoreLocation:   true
+    });
+
+    var input    = document.getElementById('search-input');
+    var clearBtn = document.getElementById('search-clear');
+    var resultsEl = document.getElementById('search-results');
+    var hintEl   = document.getElementById('search-hint');
+    var activeIdx = -1;
+    var currentResults = [];
+
+    function highlightSnippet(text, matches) {
+      // Find match indices for the body field and build a highlighted snippet
+      var bodyMatch = (matches || []).find(function(m) { return m.key === 'body'; });
+      if (!bodyMatch || !bodyMatch.indices.length) {
+        return text.slice(0, 100) + (text.length > 100 ? '…' : '');
+      }
+      // Find the first match position and show surrounding context
+      var firstIdx = bodyMatch.indices[0][0];
+      var start = Math.max(0, firstIdx - 40);
+      var end   = Math.min(text.length, firstIdx + 100);
+      var snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+
+      // Apply <mark> tags around each matched range, adjusted for our slice
+      var offset = start > 0 ? start - 1 : 0;
+      var marked = snippet;
+      // Simple approach: highlight the matched term in the snippet
+      var allMatches = bodyMatch.indices;
+      // Build a flat set of highlighted character positions
+      var chars = snippet.split('');
+      var markStart = [], markEnd = [];
+      allMatches.forEach(function(range) {
+        var s = range[0] - offset;
+        var e = range[1] - offset + 1;
+        if (s >= 0 && e <= chars.length) {
+          markStart.push(s);
+          markEnd.push(e);
+        }
+      });
+      var out = '';
+      for (var i = 0; i < chars.length; i++) {
+        if (markStart.indexOf(i) > -1) out += '<mark>';
+        out += chars[i].replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        if (markEnd.indexOf(i) > -1) out += '</mark>';
+      }
+      return out;
+    }
+
+    function renderResults(query) {
+      resultsEl.innerHTML = '';
+      activeIdx = -1;
+
+      if (!query || query.length < 2) {
+        resultsEl.classList.remove('open');
+        clearBtn.style.display = 'none';
+        hintEl.style.display = 'block';
+        currentResults = [];
+        return;
+      }
+
+      clearBtn.style.display = 'block';
+      currentResults = fuse.search(query).slice(0, 8);
+
+      if (currentResults.length === 0) {
+        resultsEl.innerHTML = '<div id="search-empty">No results for <strong>' +
+          query.replace(/</g,'&lt;') + '</strong></div>';
+        resultsEl.classList.add('open');
+        hintEl.style.display = 'none';
+        return;
+      }
+
+      currentResults.forEach(function(result, i) {
+        var sec     = result.item;
+        var snippet = highlightSnippet(sec.fullBody, result.matches);
+        var div = document.createElement('div');
+        div.className = 'sr-item';
+        div.setAttribute('role', 'option');
+        div.setAttribute('data-idx', i);
+        div.innerHTML =
+          (sec.part ? '<div class="sr-section">' + sec.part + '</div>' : '') +
+          '<div class="sr-title">' + sec.title.replace(/</g,'&lt;') + '</div>' +
+          '<div class="sr-snippet">' + snippet + '</div>';
+        div.addEventListener('mousedown', function(e) {
+          e.preventDefault();
+          jumpTo(i);
+        });
+        resultsEl.appendChild(div);
+      });
+
+      resultsEl.classList.add('open');
+      hintEl.style.display = 'none';
+    }
+
+    function jumpTo(idx) {
+      var result = currentResults[idx];
+      if (!result) return;
+      var target = document.getElementById(result.item.id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Flash the heading briefly
+        target.style.transition = 'color 0.2s';
+        target.style.color = 'var(--gold)';
+        setTimeout(function() { target.style.color = ''; }, 1200);
+      }
+      closeResults();
+    }
+
+    function closeResults() {
+      resultsEl.classList.remove('open');
+      hintEl.style.display = 'block';
+      activeIdx = -1;
+    }
+
+    function setActive(idx) {
+      var items = resultsEl.querySelectorAll('.sr-item');
+      items.forEach(function(el) { el.classList.remove('sr-active'); });
+      activeIdx = ((idx % items.length) + items.length) % items.length;
+      if (items[activeIdx]) {
+        items[activeIdx].classList.add('sr-active');
+        items[activeIdx].scrollIntoView({ block: 'nearest' });
+      }
+    }
+
+    input.addEventListener('input', function() {
+      renderResults(input.value.trim());
+    });
+
+    input.addEventListener('keydown', function(e) {
+      if (!resultsEl.classList.contains('open')) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setActive(activeIdx + 1);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setActive(activeIdx <= 0 ? currentResults.length - 1 : activeIdx - 1);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        jumpTo(activeIdx >= 0 ? activeIdx : 0);
+      } else if (e.key === 'Escape') {
+        closeResults();
+        input.blur();
+      }
+    });
+
+    clearBtn.addEventListener('click', function() {
+      input.value = '';
+      closeResults();
+      clearBtn.style.display = 'none';
+      input.focus();
+    });
+
+    // Close when clicking outside
+    document.addEventListener('mousedown', function(e) {
+      if (!document.getElementById('search-wrap').contains(e.target)) {
+        closeResults();
+      }
+    });
+
+    // / key focuses search (unless already in an input)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        input.focus();
+        input.select();
+      }
+    });
+  })();
 </script>
 
 

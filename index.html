@@ -65,9 +65,9 @@
     z-index: 1;
   }
 
-#sidebar-logo {
+  #sidebar-logo {
     display: block;
-    width: 200px;
+    width: 144px;
     height: auto;
     object-fit: contain;
     border-radius: 14px;
@@ -348,7 +348,7 @@
     border-radius: 6px;
     border: 1px solid var(--border);
     box-shadow: 0 2px 10px rgba(0,0,0,0.09);
-    margin: 2.5rem 0 0.8rem;
+    margin: 2rem 0 0.6rem;
   }
 
   .screenshot-sm {
@@ -559,7 +559,19 @@
 
     <!-- Part B -->
     <div class="toc-part">Part B — Setting Up Rostas</div>
-    <a class="toc-item toc-h1" href="#part-b">Coming soon</a>
+    <a class="toc-item toc-h1" href="#b-wizard">The Setup Wizard</a>
+    <div class="toc-parent" id="parent-b-steps">
+      <a class="toc-parent-link" href="#b-step1">Setup Steps</a>
+      <button class="toc-toggle" data-target="children-b-steps" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-b-steps">
+      <a class="toc-item toc-h2" href="#b-step1">Step 1 — Your Organisation</a>
+      <a class="toc-item toc-h2" href="#b-step2">Step 2 — Your Details</a>
+      <a class="toc-item toc-h2" href="#b-step3">Step 3 — SMS Test</a>
+      <a class="toc-item toc-h2" href="#b-step4">Step 4 — Done</a>
+    </div>
+    <a class="toc-item toc-h1" href="#b-volunteers">Adding Volunteers</a>
+    <a class="toc-item toc-h1" href="#b-whats-next">What's Next</a>
 
     <!-- Part C -->
     <div class="toc-part">Part C — The Roster Cycle</div>
@@ -756,7 +768,7 @@ The Intelligent Matching Engine</h3>
   </div>
 
   <figure>
-    <img src="comms-replacement-sms.png" alt="Example replacement SMS as received on a volunteer's phone" class="screenshot">
+    <img src="comms-replacement-sms.png" alt="Example replacement SMS as received on a volunteer's phone" class="screenshot-mid">
     <figcaption>What a "Can't Make It" request looks like on a volunteer's phone — a clear message with a link to proceed or change mind and continue being rostered on that day.</figcaption>
   </figure>
 
@@ -820,17 +832,156 @@ The Intelligent Matching Engine</h3>
     </table>
   </div>
 
-  <!-- ══ PART B PLACEHOLDER ══ -->
+  <!-- ══ PART B ══════════════════════════════════════ -->
   <div class="part-banner" id="part-b">
     <span class="part-label">Part B</span>
     <span class="part-title">Setting Up Rostas</span>
-    <span class="part-sub">First-run setup wizard · Adding your first roster type</span>
+    <span class="part-sub">First-run setup wizard · Adding volunteers · Your first roster type</span>
   </div>
 
-  <div class="coming-soon">
-    <div class="cs-icon">🚧</div>
-    <h3>Coming soon</h3>
-    <p>This section is being written. Check back shortly — or <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf" style="color:var(--gold);">download the PDF</a> for the current version.</p>
+  <p>When you open Rostas for the first time, the setup wizard runs automatically. It takes about five minutes and covers the essentials — your organisation name, your contact details, and a quick SMS test to make sure everything is working before your first roster build.</p>
+
+  <p>The wizard runs once. After it's complete, Rostas opens directly to the Build Dashboard on every future visit.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Before you start:</strong> Your Rostas coordinator needs to have set up the system and given you the link to open it. If you don't have a link yet, ask them for it.
+  </div>
+
+  <h2 class="section-title" id="b-wizard">The Setup Wizard</h2>
+  <p>The wizard has four steps shown across the top of the screen. You can see at a glance how far through you are and what's coming next.</p>
+
+  <h3 class="sub-title" id="b-step1">Step 1 — Your Organisation</h3>
+  <p>The first step establishes your organisation's identity. The name you enter here appears in every message sent to volunteers — availability emails, roster notifications, and SMS reminders.</p>
+
+  <figure>
+    <img src="setup-step1-org.png" alt="Setup wizard Step 1 — Your Organisation, showing organisation name, timezone and country code fields" class="screenshot">
+    <figcaption>Step 1 — enter your organisation name, timezone, and country code. The name appears in every volunteer-facing message Rostas sends.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Field</th><th>What to enter</th><th>Required?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Organisation name</strong></td><td>Your organisation's full name as you want it to appear to volunteers — e.g. "Riverside Community Church". Maximum 40 characters.</td><td>Yes</td></tr>
+        <tr><td><strong>Timezone</strong></td><td>Select your timezone from the dropdown. This controls all scheduling and quiet hours.</td><td>Yes</td></tr>
+        <tr><td><strong>Country / calling code</strong></td><td>Select your country. This is used to format volunteer phone numbers correctly for SMS delivery.</td><td>Yes</td></tr>
+        <tr><td><strong>Website</strong></td><td>Optional. Your organisation's website URL — must start with https://</td><td>No</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Click <strong>Next →</strong> when all required fields are filled. The button stays disabled until everything is valid.</p>
+
+  <h3 class="sub-title" id="b-step2">Step 2 — Your Details</h3>
+  <p>Step 2 captures the primary coordinator's contact details. These are used for SMS test sends, coordinator escalation alerts when the replacement chain is exhausted, and the top bar of the coordinator app.</p>
+
+  <figure>
+    <img src="setup-step2-details.png" alt="Setup wizard Step 2 — Your Details, showing name, email and mobile fields" class="screenshot">
+    <figcaption>Step 2 — enter your name, email address, and mobile number. Your mobile must include the country code.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Field</th><th>What to enter</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Your name</strong></td><td>Your full name as coordinator — e.g. "Sarah Mitchell"</td></tr>
+        <tr><td><strong>Your email</strong></td><td>Your email address — receives error alerts and escalation notifications</td></tr>
+        <tr><td><strong>Your mobile</strong></td><td>Your mobile number in full international format — e.g. +6421123456. Must include country code.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Include your country code in the mobile number.</strong> Enter it as +6421123456, not 021123456. Without the country code SMS delivery will fail.
+  </div>
+
+  <h3 class="sub-title" id="b-step3">Step 3 — SMS Test</h3>
+  <p>Before your first roster build, Rostas verifies that SMS is working. This step sends a real test message to your mobile so you can confirm everything is set up correctly.</p>
+
+  <figure>
+    <img src="setup-step3-sms.png" alt="Setup wizard Step 3 — SMS test, showing send test SMS button" class="screenshot">
+    <figcaption>Step 3 — your mobile number is pre-filled from Step 2. Tap "Send test SMS" to send a real test message to your phone.</figcaption>
+  </figure>
+
+  <div class="step-box">
+    <div class="step-label">How to complete Step 3</div>
+    <p>Your mobile number is pre-filled from Step 2. Tap <strong>Send test SMS →</strong> and wait for the message to arrive on your phone — usually within 30 seconds. Once received, a green confirmation appears and the Next button enables.</p>
+  </div>
+
+  <figure>
+    <img src="setup-step3-sms-received.png" alt="Setup wizard Step 3 — SMS confirmed received, showing green Message received banner" class="screenshot">
+    <figcaption>When the test message arrives, a green "Message received — SMS is ready" confirmation appears. Tap Next to continue.</figcaption>
+  </figure>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>If the test message doesn't arrive</strong> within a minute, check that your mobile number includes the country code and is entered correctly. You can edit the number in the field and try again. If it still fails, contact your tech support person — the SMS connection may need to be configured.
+  </div>
+
+  <h3 class="sub-title" id="b-step4">Step 4 — Done</h3>
+  <p>Once SMS is confirmed, the wizard completes and Rostas is ready to use.</p>
+
+  <figure>
+    <img src="setup-step4-done.png" alt="Setup wizard complete — Rostas is ready screen with Go to Build button" class="screenshot">
+    <figcaption>"Rostas is ready" — setup is complete. Click "Go to Build" to open the Build Dashboard and start your first roster cycle.</figcaption>
+  </figure>
+
+  <p>From here you have two options:</p>
+  <ul>
+    <li><strong>Go to Build →</strong> — takes you straight to the Build Dashboard, ready to start your first roster cycle. This is the right choice if your volunteers are already imported.</li>
+    <li><strong>Explore Settings</strong> — opens the Settings view if you want to review or customise anything before your first build.</li>
+  </ul>
+
+  <h2 class="section-title" id="b-volunteers">Adding Your Volunteers</h2>
+  <p>Before you can build a roster, Rostas needs to know who your volunteers are. There are two ways to get them in:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Method</th><th>Best for</th><th>Where to find it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>CSV Import</strong></td><td>Most organisations — import from a spreadsheet you already have</td><td>Volunteers → Import CSV</td></tr>
+        <tr><td><strong>Add manually</strong></td><td>Small teams or adding individuals one at a time</td><td>Volunteers → Add Volunteer</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title" id="b-csv">Importing from CSV</h3>
+  <p>If you have a spreadsheet of volunteers — from a previous roster system, a church database, or even a simple contact list — you can import them directly using the CSV Import Wizard. The wizard maps your spreadsheet columns to the right fields in Rostas and handles phone number formatting automatically.</p>
+
+  <div class="step-box">
+    <div class="step-label">To import volunteers from a spreadsheet</div>
+    <p>Go to <strong>Volunteers</strong> in the sidebar, then click <strong>Import CSV</strong>. The wizard walks you through uploading your file, mapping columns, and reviewing the results before importing. Phone numbers are automatically normalised to the correct international format for SMS delivery.</p>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Your CSV needs at minimum:</strong> volunteer name and mobile number. Email address is strongly recommended so volunteers can receive roster notifications by email. Any additional columns can be mapped or skipped during the import.
+  </div>
+
+  <h3 class="sub-title" id="b-add-manual">Adding Volunteers Manually</h3>
+  <p>To add a single volunteer, go to <strong>Volunteers</strong> in the sidebar and click <strong>Add Volunteer</strong>. Fill in their name, mobile, and email, then save. They'll appear in the volunteers list immediately and can be included in your next roster build.</p>
+
+  <h2 class="section-title" id="b-whats-next">What's Next</h2>
+  <p>Once your volunteers are in, you're ready to build your first roster. Head to <strong>Part C — The Roster Cycle</strong> which walks you through the six-step wizard from start to finish.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">📋</span>
+    <strong>Setup checklist before your first build:</strong>
+    <ul style="margin:0.5rem 0 0 0;padding-left:1.2rem;">
+      <li>✓ Organisation name set</li>
+      <li>✓ Coordinator contact details set</li>
+      <li>✓ SMS test confirmed working</li>
+      <li>✓ Volunteers imported or added</li>
+      <li>○ Volunteer role preferences set (can be done during the wizard)</li>
+    </ul>
   </div>
 
   <!-- ══ PART C PLACEHOLDER ══ -->

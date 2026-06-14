@@ -627,7 +627,23 @@
 
     <!-- Part F -->
     <div class="toc-part">Part F — Settings &amp; Troubleshooting</div>
-    <a class="toc-item toc-h1" href="#part-f">Coming soon</a>
+    <a class="toc-item toc-h1" href="#f-settings">The Settings View</a>
+    <a class="toc-item toc-h1" href="#f-categories">Settings Categories</a>
+    <a class="toc-item toc-h1" href="#f-sms-templates">SMS Templates</a>
+    <a class="toc-item toc-h1" href="#f-quick-controls">Quick Controls</a>
+    <a class="toc-item toc-h1" href="#f-advanced">Advanced Settings</a>
+    <a class="toc-item toc-h1" href="#f-checklist">Setup Checklist</a>
+    <div class="toc-parent" id="parent-f-trouble">
+      <a class="toc-parent-link" href="#f-troubleshooting">Troubleshooting</a>
+      <button class="toc-toggle" data-target="children-f-trouble" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-f-trouble">
+      <a class="toc-item toc-h2" href="#f-no-sms">No SMS received</a>
+      <a class="toc-item toc-h2" href="#f-no-email">No email received</a>
+      <a class="toc-item toc-h2" href="#f-unfilled">Unfilled slots</a>
+      <a class="toc-item toc-h2" href="#f-replacement-stuck">Replacement chain stuck</a>
+      <a class="toc-item toc-h2" href="#f-contact">Contact tech support</a>
+    </div>
 
     <div style="padding: 1.2rem 1.2rem 0.5rem; margin-top: 0.5rem; border-top: 1px solid #2e4a6a;">
       <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf"
@@ -1512,17 +1528,173 @@ The Intelligent Matching Engine</h3>
     <strong>All volunteer pages are mobile-optimised.</strong> Most volunteers will open them on their phone directly from an email or SMS. No app installation, no account creation — just a tap.
   </div>
 
-  <!-- ══ PART F PLACEHOLDER ══ -->
+  <!-- ══ PART F ══════════════════════════════════════ -->
   <div class="part-banner" id="part-f">
     <span class="part-label">Part F</span>
     <span class="part-title">Settings &amp; Troubleshooting</span>
-    <span class="part-sub">Configuration · SMS templates · Common problems</span>
+    <span class="part-sub">Configuration · SMS templates · Common problems · System status</span>
   </div>
 
-  <div class="coming-soon">
-    <div class="cs-icon">🚧</div>
-    <h3>Coming soon</h3>
-    <p>This section is being written. Check back shortly — or <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf" style="color:var(--gold);">download the PDF</a> for the current version.</p>
+  <p>The Settings view is where you configure how Rostas behaves — organisation details, coordinator contacts, message wording, timing, and system controls. Access it by clicking <strong>Settings</strong> in the sidebar.</p>
+
+  <h2 class="section-title" id="f-settings">The Settings View</h2>
+  <p>Settings are organised into categories in the left panel. Click any setting row to open it in the right panel where you can read a description, see an example value, and edit it. Use the search bar to find a setting by name or keyword.</p>
+
+  <figure>
+    <img src="settings-panel-standard.png" alt="Settings view showing left panel list and right panel editor" class="screenshot">
+    <figcaption>The Settings view — categories and settings in the left panel, the selected setting's detail and edit field in the right panel. Search filters the list live.</figcaption>
+  </figure>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Use the search bar</strong> at the top of the settings list to find any setting instantly. Search matches against the setting name, friendly name, and description.
+  </div>
+
+  <h2 class="section-title" id="f-categories">Settings Categories</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Category</th><th>What it covers</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>👤 Organisation</strong></td><td>Organisation name, timezone, country code, website, logo</td></tr>
+        <tr><td><strong>📋 Coordinator contacts</strong></td><td>Coordinator name, email, and mobile — both org-level and per-roster-type</td></tr>
+        <tr><td><strong>💬 SMS</strong></td><td>SMS provider, test mode, quiet hours, Twilio credentials</td></tr>
+        <tr><td><strong>✏️ Message wording</strong></td><td>All SMS and email templates — availability requests, notifications, reminders, replacement chain</td></tr>
+        <tr><td><strong>⚙️ Timing &amp; behaviour</strong></td><td>How many weeks ahead to build, frequency defaults, reminder timing, SMS chain wait times</td></tr>
+        <tr><td><strong>⚡ Quick controls</strong></td><td>On/off toggles for each roster type, SMS enabled, test modes</td></tr>
+        <tr><td><strong>🔒 Advanced</strong></td><td>Technical settings — only edit if you know what you're doing</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title" id="f-sms-templates">SMS Message Templates</h2>
+  <p>The Message Wording category contains all the SMS and email templates Rostas uses to communicate with volunteers. SMS templates have special protections to prevent common mistakes.</p>
+
+  <figure>
+    <img src="settings-panel-sms.png" alt="Settings panel showing SMS template field with character counter and required placeholders" class="screenshot">
+    <figcaption>SMS template fields show a live character counter, required placeholder list, and a preview button. The Save button is disabled if the message exceeds 160 characters or is missing a required placeholder.</figcaption>
+  </figure>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>SMS messages must stay under 160 characters.</strong> Messages over 160 characters are split into two texts and charged double. The character counter turns red when you exceed the limit and blocks saving until you shorten the message.
+  </div>
+
+  <h3 class="sub-title" id="f-placeholders">Template Placeholders</h3>
+  <p>SMS and email templates use placeholders in square brackets that Rostas replaces with real values when sending. Never remove a required placeholder — if a required one is missing, the Save button is blocked.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Placeholder</th><th>What it becomes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>[Name]</code></td><td>The volunteer's first name</td></tr>
+        <tr><td><code>[Role]</code></td><td>The role they've been assigned to</td></tr>
+        <tr><td><code>[Date]</code></td><td>The date of the service</td></tr>
+        <tr><td><code>[Link]</code></td><td>A personalised link to accept or decline</td></tr>
+        <tr><td><code>[Deadline]</code></td><td>The time by which they need to respond</td></tr>
+        <tr><td><code>[OrgName]</code></td><td>Your organisation name from Settings</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title" id="f-quick-controls">Quick Controls</h2>
+  <p>Quick Controls contains the most commonly needed on/off switches. Check these if something isn't behaving as expected.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Setting</th><th>What it does</th><th>Default</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>ROSTER_ACTIVE_{Type}</code></td><td>Shows or hides a roster type on the Build Dashboard</td><td>True</td></tr>
+        <tr><td><code>SMS_ENABLED</code></td><td>Master switch for all SMS. False = no SMS anywhere in the system</td><td>True</td></tr>
+        <tr><td><code>SMS_TEST_MODE</code></td><td>Redirects all SMS to coordinator phone only. Use for testing.</td><td>False</td></tr>
+        <tr><td><code>EMAIL_TEST_MODE</code></td><td>Redirects all emails to coordinator email only. Use for testing.</td><td>False</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Always check test modes are OFF before sending a real roster.</strong> If <code>SMS_TEST_MODE</code> or <code>EMAIL_TEST_MODE</code> is True, volunteers will not receive any messages — only you will.
+  </div>
+
+  <h2 class="section-title" id="f-advanced">Advanced Settings</h2>
+  <p>The Advanced section contains settings that affect core system behaviour. They're visible but locked — clicking a setting shows a warning and requires you to explicitly unlock it before editing.</p>
+
+  <figure>
+    <img src="settings-advanced.png" alt="Settings advanced section showing locked settings with warning banner" class="screenshot">
+    <figcaption>Advanced settings are collapsed by default and shown with a lock icon. Click "Unlock to edit" in the right panel to make changes — only do this if you're confident about what you're changing.</figcaption>
+  </figure>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">🔒</span>
+    <strong>Advanced settings can break things if changed incorrectly.</strong> If you're unsure, leave them as they are or contact your tech support person before making changes.
+  </div>
+
+  <h2 class="section-title" id="f-checklist">Setup Checklist</h2>
+  <p>After the initial setup wizard completes, a checklist card appears at the top of the Settings view. It shows which setup tasks are done and which still need attention. Click any incomplete item to jump straight to that setting.</p>
+
+  <figure>
+    <img src="settings-checklist.png" alt="Settings view showing setup checklist card with completed and incomplete items" class="screenshot">
+    <figcaption>The setup checklist — ticked items are confirmed complete, open circles need attention. Click any item to open the relevant setting. Dismiss the checklist once everything is done.</figcaption>
+  </figure>
+
+  <h2 class="section-title" id="f-troubleshooting">Troubleshooting</h2>
+  <p>Most issues in Rostas fall into a small number of categories. Work through this list before contacting tech support.</p>
+
+  <h3 class="sub-title" id="f-no-sms">Volunteers aren't receiving SMS messages</h3>
+  <ul>
+    <li>Check <strong>Settings → Quick Controls → SMS_ENABLED</strong> is True</li>
+    <li>Check <strong>SMS_TEST_MODE</strong> is False — if True, all messages go to the coordinator only</li>
+    <li>Check the volunteer's SMS toggle is On in their detail page</li>
+    <li>Check quiet hours — SMS won't send between 9pm and 8am</li>
+    <li>Check the volunteer's mobile number is in correct international format (+64...)</li>
+  </ul>
+
+  <h3 class="sub-title" id="f-no-email">Volunteers aren't receiving emails</h3>
+  <ul>
+    <li>Check <strong>EMAIL_TEST_MODE</strong> is False in Quick Controls</li>
+    <li>Check the volunteer's Email toggle is On in their detail page</li>
+    <li>Ask the volunteer to check their spam/junk folder</li>
+    <li>Confirm their email address is correct in their volunteer detail page</li>
+  </ul>
+
+  <h3 class="sub-title" id="f-unfilled">Roster has unfilled slots after building</h3>
+  <ul>
+    <li>Check that enough volunteers have responded to the availability email</li>
+    <li>Check that volunteers have role preferences set — without preferences set, the engine can't assign them</li>
+    <li>Check frequency caps — volunteers who've hit their monthly cap won't be assigned further</li>
+    <li>Consider rebuilding after more availability responses come in</li>
+    <li>Use manual replacement on the Board to fill remaining slots</li>
+  </ul>
+
+  <h3 class="sub-title" id="f-replacement-stuck">SMS replacement chain isn't progressing</h3>
+  <ul>
+    <li>Check quiet hours — chain pauses between 9pm and 8am and resumes automatically</li>
+    <li>Check <strong>SMS_ENABLED</strong> is True</li>
+    <li>Check there are eligible volunteers left on the backup list — if the list is exhausted you'll receive an escalation SMS</li>
+    <li>Use manual replacement on the Board to assign someone directly</li>
+  </ul>
+
+  <h3 class="sub-title" id="f-contact">When to contact tech support</h3>
+  <p>Contact your tech support person if:</p>
+  <ul>
+    <li>SMS messages are failing with error messages in the system</li>
+    <li>The web app URL has changed and volunteer links are broken</li>
+    <li>You need to change Twilio or other API credentials</li>
+    <li>Something is producing repeated errors that don't resolve on their own</li>
+    <li>You need to add or remove a roster type</li>
+    <li>Anything requiring access to the Google Apps Script editor</li>
+  </ul>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">📞</span>
+    <strong>When contacting tech support</strong>, include a description of what you were doing, what you expected to happen, and what actually happened. A screenshot of any error message is very helpful.
   </div>
 
   <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">

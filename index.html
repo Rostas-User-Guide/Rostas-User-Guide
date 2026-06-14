@@ -603,7 +603,11 @@
 
     <!-- Part D -->
     <div class="toc-part">Part D — Using the Board</div>
-    <a class="toc-item toc-h1" href="#part-d">Coming soon</a>
+    <a class="toc-item toc-h1" href="#d-reading">Reading the Board</a>
+    <a class="toc-item toc-h1" href="#d-actions">Taking Action on a Cell</a>
+    <a class="toc-item toc-h1" href="#d-replace">Manual Replacement</a>
+    <a class="toc-item toc-h1" href="#d-sms-chain">The SMS Replacement Chain</a>
+    <a class="toc-item toc-h1" href="#d-search">Searching for a Volunteer</a>
 
     <!-- Part E -->
     <div class="toc-part">Part E — Managing Volunteers</div>
@@ -1143,11 +1147,6 @@ The Intelligent Matching Engine</h3>
   <h3 class="sub-title" id="c-rebuild-step1">Step 1 — Refresh &amp; Sync</h3>
   <p>The first step refreshes your seasons calendar — overlaying public and school holidays — and confirms your volunteer list is current. This takes about 30 seconds and happens automatically when you start.</p>
 
-  <div class="callout callout-warn">
-    <span class="callout-icon">⚠️</span>
-    <strong>Screenshot coming</strong> — wizard steps 0–3 screenshots will be added shortly.
-  </div>
-
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
     <strong>Always run this step</strong> at the start of each new cycle. It ensures your dates are correct before availability emails go out.
@@ -1178,11 +1177,16 @@ The Intelligent Matching Engine</h3>
   </div>
 
   <h3 class="sub-title" id="c-rebuild-step5">Step 5 — Check Roster</h3>
-  <p>Before anything is sent to volunteers, you review what Rostas has built. The Communications Preview shows you exactly what every volunteer will receive — the email, the SMS, the roster view — before a single message leaves the system.</p>
+  <p>Before anything is sent to volunteers, you review what Rostas has built. Clicking <strong>Check Roster</strong> opens the Roster Board in a special review mode — you can see every assignment, make any manual changes needed, and then return to the wizard to send notifications.</p>
 
   <figure>
-    <img src="wizard-step4-communications.png" alt="Rebuild Wizard Step 5 — Communications preview showing email preview for a volunteer" class="screenshot">
-    <figcaption>Step 5 — the Communications Preview. Check the email and SMS for each volunteer before sending. Switch between roster types and communication types using the tabs at the top.</figcaption>
+    <img src="wizard-board-check.png" alt="Roster Board in review mode showing Back to wizard button and full roster grid" class="screenshot">
+    <figcaption>The Roster Board opens in review mode with a gold "← Back to wizard" button at the top. Review all assignments, make any swaps needed, then click Back to wizard when you're ready to notify volunteers.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="wizard-step4-communications.png" alt="Communications preview showing email preview for a volunteer" class="screenshot">
+    <figcaption>The Communications Preview tab shows exactly what each volunteer will receive — check the email wording, volunteer names, roles, and dates before sending.</figcaption>
   </figure>
 
   <div class="tl-grid">
@@ -1243,17 +1247,108 @@ The Intelligent Matching Engine</h3>
     <strong>Confirm the season early</strong> — ideally a few weeks before the current season ends, so you have time to collect availability and build the next roster before the first date arrives.
   </div>
 
-  <!-- ══ PART D PLACEHOLDER ══ -->
+  <!-- ══ PART D ══════════════════════════════════════ -->
   <div class="part-banner" id="part-d">
     <span class="part-label">Part D</span>
     <span class="part-title">Using the Board</span>
     <span class="part-sub">Day-to-day management · Replacements · Manual swaps</span>
   </div>
 
-  <div class="coming-soon">
-    <div class="cs-icon">🚧</div>
-    <h3>Coming soon</h3>
-    <p>This section is being written. Check back shortly — or <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf" style="color:var(--gold);">download the PDF</a> for the current version.</p>
+  <p>The Roster Board is where you manage the roster between builds. You'll come here to check on replacement progress, make manual swaps, confirm pending assignments, or search for a specific volunteer. Access it by clicking <strong>View</strong> in the sidebar.</p>
+
+  <h2 class="section-title" id="d-reading">Reading the Board</h2>
+  <p>The Board shows every roster date as a row, with roles as columns. Each cell shows the assigned volunteer's name and date. Colour coding tells you the status of each assignment at a glance.</p>
+
+  <figure>
+    <img src="Rostas_Board_View.png" alt="The Sunday Roster Board showing the full grid with colour-coded cells and action bar" class="screenshot">
+    <figcaption>The Roster Board — dates run down the left, roles across the top. Click any cell to select it and see the available actions. Use the roster type tabs at the top to switch between rosters.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Colour</th><th>Status</th><th>What it means</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span style="background:#e8f5ee;border:1px solid #2d7a4f;padding:2px 10px;border-radius:4px;font-size:12px;">Green</span></td><td><strong>Filled</strong></td><td>Volunteer confirmed and rostered. No action needed.</td></tr>
+        <tr><td><span style="background:#fef3c7;border:1px solid #d97706;padding:2px 10px;border-radius:4px;font-size:12px;">Amber</span></td><td><strong>Pending</strong></td><td>Volunteer marked Not sure — provisionally assigned, awaiting confirmation.</td></tr>
+        <tr><td><span style="background:#e8f0fb;border:1px solid #4a7cd4;padding:2px 10px;border-radius:4px;font-size:12px;">Blue</span></td><td><strong>SMS Chain</strong></td><td>Replacement chain active — Rostas is texting backup volunteers automatically.</td></tr>
+        <tr><td><span style="background:#fdecea;border:1px solid #c0392b;padding:2px 10px;border-radius:4px;font-size:12px;">Red</span></td><td><strong>Unfilled</strong></td><td>No volunteer assigned. Needs attention.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title" id="d-legend">Legend and Frequency</h3>
+  <p>The legend at the top of the board shows the four cell states. To the right, the <strong>volunteer search</strong> lets you find a specific person and see all their assignments highlighted across the board. The <strong>Frequency</strong> indicator shows how many times the currently searched volunteer has been rostered in the current period.</p>
+
+  <h2 class="section-title" id="d-actions">Taking Action on a Cell</h2>
+  <p>Click any cell on the board to select it. The selected cell gets a navy border and an action bar appears at the top of the board showing who is assigned, what role, and what date — with buttons for the available actions.</p>
+
+  <figure>
+    <img src="board-replace-bar.png" alt="Board with a cell selected showing the action bar with Save as filled, Save as declined, Replace and Close buttons" class="screenshot">
+    <figcaption>Clicking a cell opens the action bar. From here you can save the assignment as filled, mark it as declined (which starts the SMS replacement chain), manually replace the volunteer, or close the selection.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Action</th><th>What it does</th><th>When to use it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Save as filled</strong></td><td>Confirms the assignment — changes cell to green</td><td>When a pending volunteer has confirmed verbally or you want to lock in an assignment</td></tr>
+        <tr><td><strong>Save as declined</strong></td><td>Marks the volunteer as declined and starts the automated SMS replacement chain</td><td>When a volunteer tells you they can't make it and you want Rostas to find a replacement automatically</td></tr>
+        <tr><td><strong>Replace</strong></td><td>Opens the replacement panel so you can manually choose a specific volunteer</td><td>When you want to pick the replacement yourself rather than let the SMS chain run</td></tr>
+        <tr><td><strong>Close</strong></td><td>Deselects the cell without making any changes</td><td>When you clicked the wrong cell</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title" id="d-replace">Manual Replacement</h2>
+  <p>When you click <strong>Replace</strong>, a panel appears showing all available volunteers for that role and date, sorted by priority tier. Each volunteer shows their availability status and how recently they've been rostered.</p>
+
+  <figure>
+    <img src="board-replace-dropdown.png" alt="Replacement panel showing available volunteers tiered by priority with Select buttons" class="screenshot">
+    <figcaption>The replacement panel — volunteers are listed by priority tier. Tier 1 shows available volunteers with the role as their primary. Click Select next to any volunteer to assign them immediately.</figcaption>
+  </figure>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>The tiers match the engine.</strong> Tier 1 volunteers are available and have this as a primary role — the ideal replacement. Lower tiers are less ideal but still valid options. Pick the best fit for the situation.
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">📬</span>
+    <strong>The replacement volunteer is notified automatically.</strong> Once you click Select, Rostas sends them an SMS and email with their assignment details. You don't need to contact them separately.
+  </div>
+
+  <h2 class="section-title" id="d-sms-chain">The SMS Replacement Chain</h2>
+  <p>When a volunteer taps "Can't make it" in their notification email — or when you click <strong>Save as declined</strong> on the board — Rostas starts the automated SMS replacement chain. It works through available volunteers one at a time until someone accepts.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>What happens</th><th>Timing</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Rostas identifies the next eligible volunteer and sends them an SMS</td><td>Immediately (within quiet hours)</td></tr>
+        <tr><td>If they accept — slot is filled, original volunteer released</td><td>As soon as they reply</td></tr>
+        <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal) or 15 min (urgent, within 24hrs of service)</td></tr>
+        <tr><td>If no one accepts — coordinator receives an escalation SMS</td><td>After list is exhausted</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">🌙</span>
+    <strong>Quiet hours apply to the SMS chain.</strong> Messages are never sent between 9pm and 8am. If the chain is running overnight it pauses automatically and resumes in the morning. You can monitor progress on the board — cells in the SMS chain state show in blue.
+  </div>
+
+  <h2 class="section-title" id="d-search">Searching for a Volunteer</h2>
+  <p>Use the search field at the top right of the board to find a specific volunteer. As you type, their assignments are highlighted across the entire board — making it easy to see all their upcoming dates at once. The frequency bar shows how many times they've been rostered in the current period relative to their cap.</p>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Use volunteer search before making a manual replacement.</strong> Search for the volunteer you're thinking of replacing them with first — check they're not already heavily rostered that period before adding another date.
   </div>
 
   <!-- ══ PART E PLACEHOLDER ══ -->

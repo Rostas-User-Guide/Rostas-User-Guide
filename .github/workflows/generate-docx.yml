@@ -27,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Generate DOCX
-        run: node generate_docx.js
+        run: node generate_docx.js --local ./index.html --images .
 
       - name: Install LibreOffice
         run: sudo apt-get install -y libreoffice python3-uno --no-install-recommends
@@ -46,8 +46,3 @@ jobs:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add Rostas_Coordinator_Guide.pdf
-          git diff --staged --quiet || git commit -m "Auto-regenerate Coordinator Guide (DOCX + PDF)"
-          git push

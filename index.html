@@ -67,7 +67,7 @@
 
   #sidebar-logo {
     display: block;
-    width: 250px;
+    width: 144px;
     height: auto;
     object-fit: contain;
     border-radius: 14px;
@@ -611,7 +611,19 @@
 
     <!-- Part E -->
     <div class="toc-part">Part E — Managing Volunteers</div>
-    <a class="toc-item toc-h1" href="#part-e">Coming soon</a>
+    <a class="toc-item toc-h1" href="#e-list">The Volunteers List</a>
+    <a class="toc-item toc-h1" href="#e-add">Adding a Volunteer</a>
+    <a class="toc-item toc-h1" href="#e-import">Importing from CSV</a>
+    <div class="toc-parent" id="parent-e-detail">
+      <a class="toc-parent-link" href="#e-detail">Volunteer Detail Page</a>
+      <button class="toc-toggle" data-target="children-e-detail" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-e-detail">
+      <a class="toc-item toc-h2" href="#e-detail-contact">Contact Details &amp; Toggles</a>
+      <a class="toc-item toc-h2" href="#e-detail-roster">Roster Settings</a>
+      <a class="toc-item toc-h2" href="#e-detail-add-roster">Adding to a New Roster</a>
+    </div>
+    <a class="toc-item toc-h1" href="#e-volunteer-facing">What Volunteers See</a>
 
     <!-- Part F -->
     <div class="toc-part">Part F — Settings &amp; Troubleshooting</div>
@@ -1351,17 +1363,153 @@ The Intelligent Matching Engine</h3>
     <strong>Use volunteer search before making a manual replacement.</strong> Search for the volunteer you're thinking of replacing them with first — check they're not already heavily rostered that period before adding another date.
   </div>
 
-  <!-- ══ PART E PLACEHOLDER ══ -->
+  <!-- ══ PART E ══════════════════════════════════════ -->
   <div class="part-banner" id="part-e">
     <span class="part-label">Part E</span>
     <span class="part-title">Managing Volunteers</span>
-    <span class="part-sub">Importing · Adding · Editing volunteer details</span>
+    <span class="part-sub">Volunteers list · Adding · Editing · Volunteer detail</span>
   </div>
 
-  <div class="coming-soon">
-    <div class="cs-icon">🚧</div>
-    <h3>Coming soon</h3>
-    <p>This section is being written. Check back shortly — or <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf" style="color:var(--gold);">download the PDF</a> for the current version.</p>
+  <p>The Volunteers section is where you manage everyone who serves in your organisation. Access it by clicking <strong>Volunteers</strong> in the sidebar. From here you can view all volunteers, add new ones, edit details, and manage per-roster settings like role preferences, frequency caps, and availability.</p>
+
+  <h2 class="section-title" id="e-list">The Volunteers List</h2>
+  <p>The volunteers list shows every volunteer in the system — their name, roster types, phone number, and email at a glance. Use the search bar to find someone quickly, or filter by Active, Inactive, or All.</p>
+
+  <figure>
+    <img src="vol-list.png" alt="The Volunteers list showing a table of volunteers with name, roster types, phone and email columns" class="screenshot">
+    <figcaption>The Volunteers list — all volunteers in one place. Search by name, email, or phone. Click any row to open that volunteer's detail page.</figcaption>
+  </figure>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Click any row</strong> to open the volunteer's full detail page — where you can edit their information, manage their roster preferences, set frequency caps, and view their availability history.
+  </div>
+
+  <h2 class="section-title" id="e-add">Adding a Volunteer</h2>
+  <p>To add a new volunteer, click <strong>Add Volunteer</strong> in the top right of the Volunteers list. Fill in their details and save — they'll appear in the list immediately and can be included in your next roster build.</p>
+
+  <figure>
+    <img src="vol-add-form.png" alt="Add volunteer form showing name, phone, email and roster type fields" class="screenshot">
+    <figcaption>The Add Volunteer form — enter the volunteer's name, mobile number, email, and which roster types they serve in. Mobile must include the country code.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Field</th><th>What to enter</th><th>Required?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Full name</strong></td><td>Volunteer's full name as you want it to appear in rosters and messages</td><td>Yes</td></tr>
+        <tr><td><strong>Mobile</strong></td><td>Mobile number in full international format — e.g. +6421123456</td><td>Yes (for SMS)</td></tr>
+        <tr><td><strong>Email</strong></td><td>Email address for roster notifications and availability requests</td><td>Yes (for email)</td></tr>
+        <tr><td><strong>Roster types</strong></td><td>Which rosters this volunteer serves in — tick all that apply</td><td>Yes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Mobile number format matters.</strong> Enter numbers in full international format including country code — e.g. +6421123456, not 021123456. Incorrectly formatted numbers will fail to receive SMS messages silently.
+  </div>
+
+  <h2 class="section-title" id="e-import">Importing Volunteers from CSV</h2>
+  <p>If you have a spreadsheet of volunteers, use the CSV Import Wizard to bring them in all at once. Click <strong>Import CSV</strong> in the top right of the Volunteers list.</p>
+
+  <figure>
+    <img src="vol-add-csv-2.png" alt="CSV import wizard showing column mapping step" class="screenshot">
+    <figcaption>The CSV Import Wizard — map your spreadsheet columns to the right Rostas fields. Phone numbers are automatically normalised to international format during import.</figcaption>
+  </figure>
+
+  <div class="step-box">
+    <div class="step-label">How to import from CSV</div>
+    <p>Go to <strong>Volunteers → Import CSV</strong>. Upload your spreadsheet file, then map each column to the correct Rostas field (name, mobile, email, roster type). Review the preview, then click Import. Any phone numbers that are missing the country code are automatically corrected during import.</p>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Your CSV needs at minimum:</strong> Full name and mobile number. Email is strongly recommended. If your spreadsheet has a column for roster type or ministry preference, map it during import and volunteers will be automatically assigned to the right rosters.
+  </div>
+
+  <h2 class="section-title" id="e-detail">Volunteer Detail Page</h2>
+  <p>Click any volunteer in the list to open their detail page. This is where you manage everything about that volunteer — their contact details, which rosters they're in, role preferences, frequency caps, availability, and notes.</p>
+
+  <figure>
+    <img src="vol-detail-sunday.png" alt="Volunteer detail page showing left panel with contact info and toggles, right panel with roster settings" class="screenshot">
+    <figcaption>The Volunteer detail page — contact details and toggles on the left, roster-specific settings on the right. Use the roster type tabs to switch between rosters the volunteer serves in.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="e-detail-contact">Contact Details and Toggles</h3>
+  <p>The left panel shows the volunteer's name, phone, email, and active status. Three toggles control their participation:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Toggle</th><th>What it controls</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Active</strong></td><td>Whether this volunteer appears in roster builds. Set to inactive to pause someone without deleting them.</td></tr>
+        <tr><td><strong>Email</strong></td><td>Whether this volunteer receives email notifications from Rostas. Turn off if they've opted out or prefer SMS only.</td></tr>
+        <tr><td><strong>SMS</strong></td><td>Whether this volunteer receives SMS messages. Turn off if they've opted out.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title" id="e-detail-roster">Roster Settings</h3>
+  <p>The right panel shows settings for the currently selected roster type. Use the roster type tabs at the top of the left panel to switch between rosters if the volunteer serves in more than one.</p>
+
+  <figure>
+    <img src="vol-detail-sunday-2.png" alt="Volunteer detail right panel showing roles, frequency, buddy and availability sections" class="screenshot">
+    <figcaption>The right panel — roles, frequency cap, buddy/household settings, and availability tiles for the selected roster type. Scroll down to see all sections.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Section</th><th>What it controls</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Roles</strong></td><td>Which roles this volunteer can perform in this roster — Primary (they do this regularly), Fillable (they'll cover if needed), or Not for me.</td></tr>
+        <tr><td><strong>Frequency</strong></td><td>Maximum number of times per month this volunteer can be rostered for this roster type. The engine never exceeds this cap.</td></tr>
+        <tr><td><strong>Buddy</strong></td><td>A preferred volunteer to serve alongside. The engine and replacement chain both favour pairing buddies on the same dates.</td></tr>
+        <tr><td><strong>Household</strong></td><td>Family members to be rostered together when possible. Detected automatically or set manually.</td></tr>
+        <tr><td><strong>Availability</strong></td><td>Date tiles showing this volunteer's availability responses for upcoming dates. Green = available, amber = not sure, red = can't make it.</td></tr>
+        <tr><td><strong>Notes</strong></td><td>Free-text notes about this volunteer's preferences or circumstances — visible only to coordinators.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title" id="e-detail-add-roster">Adding a Volunteer to a New Roster</h3>
+  <p>If a volunteer starts serving in an additional roster type, click the inactive roster tab on their detail page. A confirmation dialog appears — confirm to add them to that roster. Their settings for the new roster start fresh and can be configured from the right panel.</p>
+
+  <figure>
+    <img src="vol-detail-add-roster.png" alt="Add to roster confirmation dialog showing roster name and confirm button" class="screenshot">
+    <figcaption>Clicking an inactive roster tab shows a confirmation before adding the volunteer. Once confirmed they appear in that roster's volunteer pool at the next build.</figcaption>
+  </figure>
+
+  <h2 class="section-title" id="e-volunteer-facing">What Volunteers See</h2>
+  <p>Volunteers interact with Rostas entirely through personalised links sent by email or SMS — no login, no app to download. There are three volunteer-facing pages:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Page</th><th>When it's sent</th><th>What volunteers do</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Availability form</strong></td><td>When you run Step 3 of the Rebuild Wizard</td><td>Mark which dates they're available, not sure, or can't make it</td></tr>
+        <tr><td><strong>Roster notification</strong></td><td>When you send notifications in Step 6</td><td>View their assignments, tap "Can't make it" if needed</td></tr>
+        <tr><td><strong>Replacement request</strong></td><td>Automatically during the SMS replacement chain</td><td>Accept or decline a slot via SMS link</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure>
+    <img src="vol-roster-view.png" alt="Volunteer-facing roster view showing upcoming assignments on mobile" class="screenshot">
+    <figcaption>The volunteer roster view — shows upcoming assignments in a clean mobile-friendly layout. Volunteers access this via the link in their notification email.</figcaption>
+  </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">📱</span>
+    <strong>All volunteer pages are mobile-optimised.</strong> Most volunteers will open them on their phone directly from an email or SMS. No app installation, no account creation — just a tap.
   </div>
 
   <!-- ══ PART F PLACEHOLDER ══ -->

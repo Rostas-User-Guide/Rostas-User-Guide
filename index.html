@@ -67,7 +67,7 @@
 
   #sidebar-logo {
     display: block;
-    width: 240px;
+    width: 144px;
     height: auto;
     object-fit: contain;
     border-radius: 14px;
@@ -575,7 +575,31 @@
 
     <!-- Part C -->
     <div class="toc-part">Part C — The Roster Cycle</div>
-    <a class="toc-item toc-h1" href="#part-c">Coming soon</a>
+    <a class="toc-item toc-h1" href="#c-dashboard">The Build Dashboard</a>
+    <div class="toc-parent" id="parent-c-new">
+      <a class="toc-parent-link" href="#c-new-roster">New Roster Wizard</a>
+      <button class="toc-toggle" data-target="children-c-new" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-c-new">
+      <a class="toc-item toc-h2" href="#c-new-step1">Step 1 — Name &amp; Icon</a>
+      <a class="toc-item toc-h2" href="#c-new-step2">Step 2 — Roles</a>
+      <a class="toc-item toc-h2" href="#c-new-step3">Step 3 — Season</a>
+      <a class="toc-item toc-h2" href="#c-new-step4">Step 4 — Volunteers</a>
+      <a class="toc-item toc-h2" href="#c-new-step5">Step 5 — Review</a>
+    </div>
+    <div class="toc-parent" id="parent-c-rebuild">
+      <a class="toc-parent-link" href="#c-rebuild">Rebuild Wizard</a>
+      <button class="toc-toggle" data-target="children-c-rebuild" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-c-rebuild">
+      <a class="toc-item toc-h2" href="#c-rebuild-step1">Step 1 — Refresh &amp; Sync</a>
+      <a class="toc-item toc-h2" href="#c-rebuild-step2">Step 2 — Role Preferences</a>
+      <a class="toc-item toc-h2" href="#c-rebuild-step3">Step 3 — Availability</a>
+      <a class="toc-item toc-h2" href="#c-rebuild-step4">Step 4 — Build Roster</a>
+      <a class="toc-item toc-h2" href="#c-rebuild-step5">Step 5 — Check Roster</a>
+      <a class="toc-item toc-h2" href="#c-rebuild-step6">Step 6 — Notify</a>
+    </div>
+    <a class="toc-item toc-h1" href="#c-season">Confirming a New Season</a>
 
     <!-- Part D -->
     <div class="toc-part">Part D — Using the Board</div>
@@ -984,17 +1008,239 @@ The Intelligent Matching Engine</h3>
     </ul>
   </div>
 
-  <!-- ══ PART C PLACEHOLDER ══ -->
+  <!-- ══ PART C ══════════════════════════════════════ -->
   <div class="part-banner" id="part-c">
     <span class="part-label">Part C</span>
     <span class="part-title">The Roster Cycle</span>
-    <span class="part-sub">The 6-step Run Sheet Wizard · Building and sending your roster</span>
+    <span class="part-sub">New Roster Wizard · Rebuild Wizard · Building and sending your roster</span>
   </div>
 
-  <div class="coming-soon">
-    <div class="cs-icon">🚧</div>
-    <h3>Coming soon</h3>
-    <p>This section is being written. Check back shortly — or <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf" style="color:var(--gold);">download the PDF</a> for the current version.</p>
+  <p>There are two roster wizards in Rostas. The <strong>New Roster Wizard</strong> runs once when you set up a new roster type — it defines the name, roles, season dates, and volunteers. The <strong>Rebuild Wizard</strong> runs every few weeks to collect availability, build the roster, and send notifications to volunteers.</p>
+
+  <p>Both start from the <strong>Build Dashboard</strong>.</p>
+
+  <!-- ══ BUILD DASHBOARD ══ -->
+  <h2 class="section-title" id="c-dashboard">The Build Dashboard</h2>
+  <p>The Build Dashboard is your home base for all roster activity. It shows every active roster type with its current status and coverage bar at a glance.</p>
+
+  <figure>
+    <img src="build-dashboard.png" alt="The Build Dashboard showing roster cards for Sunday, Music, Nourish and Lock Up" class="screenshot">
+    <figcaption>The Build Dashboard — each card shows a roster type, its coverage bar, and current status. Click any card to open the wizard for that roster.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Status badge</th><th>What it means</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span style="background:#2d7a4f;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700;">Active</span></td><td>Notifications sent. Roster is live for the current cycle.</td></tr>
+        <tr><td><span style="background:#b8932a;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700;">Ready to Send</span></td><td>Roster built and reviewed — ready to send notifications.</td></tr>
+        <tr><td><span style="background:#4a7cd4;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700;">In Progress</span></td><td>A build is partially complete — some steps still to do.</td></tr>
+        <tr><td><span style="background:#1a2e4a;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700;">Season Confirm</span></td><td>Next season needs to be confirmed before a new build can start.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>New Roster</strong> — the green card at the bottom of the dashboard. Click it to set up a brand new roster type from scratch.
+  </div>
+
+  <!-- ══ NEW ROSTER WIZARD ══ -->
+  <h2 class="section-title" id="c-new-roster">The New Roster Wizard</h2>
+  <p>Run this wizard when you're setting up a roster type for the first time — for example, adding a Music roster or a Hospitality team. It takes about 10 minutes and walks you through five steps: Name &amp; Icon, Roles, Season, Volunteers, and Review.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>You only run the New Roster Wizard once per roster type.</strong> After setup is complete, all future roster builds use the Rebuild Wizard instead.
+  </div>
+
+  <h3 class="sub-title" id="c-new-step1">Step 1 — Name &amp; Icon</h3>
+  <p>Give your roster a short name and choose an icon. The name appears in SMS messages, emails, and the coordinator app — keep it brief and clear.</p>
+
+  <figure>
+    <img src="new-roster-step0-schedule.png" alt="New Roster Wizard Step 1 — Name your roster, showing a text field with Music entered" class="screenshot">
+    <figcaption>Step 1 — name your roster. This name appears in all volunteer communications, so keep it short and recognisable — e.g. "Sunday", "Music", "Hospitality".</figcaption>
+  </figure>
+
+  <figure>
+    <img src="new-roster-step0-schedule-2.png" alt="New Roster Wizard Step 1 — icon selection screen showing icon grid" class="screenshot">
+    <figcaption>After naming the roster, choose an icon that represents it. The icon appears on the Build Dashboard card and in the coordinator app sidebar.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="c-new-step2">Step 2 — Roles</h3>
+  <p>Define the roles that need to be filled each time this roster runs. For each role, set a minimum and maximum number of people required.</p>
+
+  <figure>
+    <img src="new-roster-step1-roles.png" alt="New Roster Wizard Step 2 — Roles, showing a list of roles with min/max settings" class="screenshot">
+    <figcaption>Step 2 — add the roles for this roster. Set minimum and maximum people for each role. The engine will always try to fill the minimum; it won't exceed the maximum.</figcaption>
+  </figure>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Role names matter.</strong> Use clear, specific names that volunteers will recognise — e.g. "Sound Desk", "Welcome Team", "Data Projection". These names appear in SMS messages and emails sent to volunteers.
+  </div>
+
+  <h3 class="sub-title" id="c-new-step3">Step 3 — Season</h3>
+  <p>A season defines the date range, frequency, and day of week for this roster. Rostas uses seasons to calculate which dates to roster for, and to overlay public and school holidays automatically.</p>
+
+  <figure>
+    <img src="new-roster-step2-season.png" alt="New Roster Wizard Step 3 — Season setup showing start date, end date, frequency and day of week" class="screenshot">
+    <figcaption>Step 3 — set up your first season. Enter start and end dates, choose how often the roster runs (weekly or fortnightly), and select the day of week.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="new-roster-step2-season-2.png" alt="New Roster Wizard Step 3 — season with preview dates showing" class="screenshot">
+    <figcaption>Once you've entered the season details, a preview of the roster dates appears — showing which dates fall within the season, with any public holidays already marked.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Field</th><th>What to enter</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Start date</strong></td><td>The first date this roster will run</td></tr>
+        <tr><td><strong>End date</strong></td><td>The last date of this season — typically end of term, semester, or year</td></tr>
+        <tr><td><strong>Frequency</strong></td><td>Weekly or Fortnightly</td></tr>
+        <tr><td><strong>Day of week</strong></td><td>Which day the roster runs — e.g. Sunday, Monday</td></tr>
+        <tr><td><strong>Pause school holidays</strong></td><td>Tick if this roster doesn't run during school holidays</td></tr>
+        <tr><td><strong>Pause public holidays</strong></td><td>Tick if this roster doesn't run on public holidays</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title" id="c-new-step4">Step 4 — Volunteers</h3>
+  <p>Select which volunteers from your list will serve on this roster. Only volunteers already in Rostas can be added here — if someone is missing, add them in the Volunteers section first then return to this step.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Screenshot coming</strong> — this section will be updated with a screenshot of the volunteer selection step shortly.
+  </div>
+
+  <h3 class="sub-title" id="c-new-step5">Step 5 — Review</h3>
+  <p>The final step shows a summary of everything you've set up — roster name, roles, season dates, and volunteer count. Review it carefully before confirming.</p>
+
+  <figure>
+    <img src="new-roster-step4-review.png" alt="New Roster Wizard Step 5 — Review showing summary of roster setup" class="screenshot">
+    <figcaption>Step 5 — review your roster setup before confirming. You can go back to any previous step to make changes. Once confirmed, the roster appears on the Build Dashboard.</figcaption>
+  </figure>
+
+  <p>Click <strong>Confirm &amp; Create Roster</strong> to finish. Your new roster type appears on the Build Dashboard immediately. You're now ready to run your first Rebuild Wizard for this roster.</p>
+
+  <!-- ══ REBUILD WIZARD ══ -->
+  <h2 class="section-title" id="c-rebuild">The Rebuild Wizard</h2>
+  <p>The Rebuild Wizard is the recurring roster cycle you run every few weeks. It collects availability from volunteers, builds the roster automatically, lets you review it, and sends notifications — all in six guided steps.</p>
+
+  <p>To start, click any roster card on the Build Dashboard. If a build is already in progress, you'll be taken straight to where you left off.</p>
+
+  <figure>
+    <img src="build-dashboard-inprogress.png" alt="Build Dashboard showing a roster with an in-progress build and resume banner" class="screenshot">
+    <figcaption>When a build is in progress, the dashboard shows where you left off. Click the card to resume from that step.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="c-rebuild-step1">Step 1 — Refresh &amp; Sync</h3>
+  <p>The first step refreshes your seasons calendar — overlaying public and school holidays — and confirms your volunteer list is current. This takes about 30 seconds and happens automatically when you start.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Screenshot coming</strong> — wizard steps 0–3 screenshots will be added shortly.
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Always run this step</strong> at the start of each new cycle. It ensures your dates are correct before availability emails go out.
+  </div>
+
+  <h3 class="sub-title" id="c-rebuild-step2">Step 2 — Role Preferences</h3>
+  <p>This step gives volunteers the opportunity to update their role preferences — which roles they're willing to perform. You can either send a role preference email to all volunteers, or skip this step if preferences are already up to date.</p>
+
+  <div class="step-box">
+    <div class="step-label">When to send role preference emails</div>
+    <p>Send them at the start of a new season, when new volunteers have joined, or when you know someone's availability for certain roles has changed. For a routine rebuild mid-season, it's usually safe to skip this step.</p>
+  </div>
+
+  <h3 class="sub-title" id="c-rebuild-step3">Step 3 — Availability</h3>
+  <p>Rostas emails all active volunteers asking which upcoming dates they're available. Each volunteer receives a personalised link — no login required. They tap their dates, mark any they can't make, and save.</p>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">⏰</span>
+    <strong>Allow 5–7 days for responses</strong> before moving to Step 4. Volunteers who don't respond within a configurable number of days automatically receive an SMS nudge.
+  </div>
+
+  <h3 class="sub-title" id="c-rebuild-step4">Step 4 — Build Roster</h3>
+  <p>With one click, the roster engine analyses every volunteer — their availability, role preferences, how recently they've served, and their monthly frequency cap — and fills every slot automatically. The build takes about 30 seconds for most rosters.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">⚙️</span>
+    <strong>The engine uses a four-tier priority system</strong> — see Part A, The Intelligent Matching Engine for full detail on how slots are filled.
+  </div>
+
+  <h3 class="sub-title" id="c-rebuild-step5">Step 5 — Check Roster</h3>
+  <p>Before anything is sent to volunteers, you review what Rostas has built. The Communications Preview shows you exactly what every volunteer will receive — the email, the SMS, the roster view — before a single message leaves the system.</p>
+
+  <figure>
+    <img src="wizard-step4-communications.png" alt="Rebuild Wizard Step 5 — Communications preview showing email preview for a volunteer" class="screenshot">
+    <figcaption>Step 5 — the Communications Preview. Check the email and SMS for each volunteer before sending. Switch between roster types and communication types using the tabs at the top.</figcaption>
+  </figure>
+
+  <div class="tl-grid">
+    <div class="tl-card tl-green">
+      <div class="tl-label">🟢 Filled</div>
+      Volunteer confirmed. Notification ready to send.
+    </div>
+    <div class="tl-card tl-amber">
+      <div class="tl-label">🟡 Pending</div>
+      Provisionally assigned (volunteer marked Not sure). Will receive a confirm/decline message.
+    </div>
+    <div class="tl-card tl-red">
+      <div class="tl-label">🔴 Unfilled</div>
+      No volunteer found. Address before sending if possible.
+    </div>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Don't skip this step.</strong> It's your last chance to catch problems before volunteers are notified. Check for unfilled slots, confirm the message wording looks right, and make any manual swaps needed.
+  </div>
+
+  <h3 class="sub-title" id="c-rebuild-step6">Step 6 — Notify</h3>
+  <p>Once you're satisfied with the roster, click <strong>Send Notifications</strong>. Every rostered volunteer receives a personalised email with their assignments and a "Can't make it?" link. An SMS is sent at the same time.</p>
+
+  <figure>
+    <img src="wizard-step6-done.png" alt="Rebuild Wizard Step 6 — all steps complete with green ticks" class="screenshot">
+    <figcaption>Step 6 complete — all six steps show green ticks. Notifications have been sent and automatic reminders are queued. The cycle is done until next time.</figcaption>
+  </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">📬</span>
+    <strong>What happens automatically after Step 6:</strong>
+    <ul style="margin:0.5rem 0 0 0;padding-left:1.2rem;">
+      <li>Email reminder sent 3 days before each service date</li>
+      <li>SMS reminder sent 1 day before each service date</li>
+      <li>If a volunteer taps "Can't make it" — the SMS replacement chain starts automatically</li>
+    </ul>
+    No further action needed until the next roster cycle.
+  </div>
+
+  <!-- ══ CONFIRM SEASON ══ -->
+  <h2 class="section-title" id="c-season">Confirming a New Season</h2>
+  <p>When the current season is coming to an end, the Build Dashboard shows a <strong>Season Confirm</strong> button on the relevant roster card. You need to confirm the next season's dates before you can run a new build.</p>
+
+  <figure>
+    <img src="wizard-season-confirm.png" alt="Season confirmation screen showing date selection for next season" class="screenshot">
+    <figcaption>The Season Confirm screen — review the proposed dates for the next season, adjust any that need changing, and confirm. Rostas automatically pauses dates that fall on public or school holidays based on your roster settings.</figcaption>
+  </figure>
+
+  <div class="step-box">
+    <div class="step-label">To confirm a new season</div>
+    <p>Click the <strong>Season Confirm</strong> button on the Build Dashboard card. Review the proposed start and end dates, adjust if needed, then click <strong>Confirm Season</strong>. The roster card updates and you can proceed with a new build.</p>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Confirm the season early</strong> — ideally a few weeks before the current season ends, so you have time to collect availability and build the next roster before the first date arrives.
   </div>
 
   <!-- ══ PART D PLACEHOLDER ══ -->

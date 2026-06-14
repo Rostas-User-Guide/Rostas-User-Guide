@@ -65,34 +65,13 @@
     z-index: 1;
   }
 
-  /* Logo lockup — R-mark + ostas */
-  #logo-lockup {
-    display: flex;
-    align-items: flex-end;
-    gap: 0;
-    margin-bottom: 0.6rem;
-  }
-
-  #logo-lockup img {
-    width: 44px;
-    height: 52px;
+  #sidebar-logo {
+    display: block;
+    width: 144px;
+    height: auto;
     object-fit: contain;
-    background: #fff;
-    padding: 3px;
-    border-radius: 10px;
-    border: 2px solid rgba(255,255,255,0.6);
-    flex-shrink: 0;
-  }
-
-  #logo-lockup span {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 31px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -0.01em;
-    line-height: 1;
-    margin-bottom: 2px;
-    margin-left: 4px;
+    border-radius: 14px;
+    margin: 0 auto 0.6rem;
   }
 
   #sidebar-header .guide-label {
@@ -369,7 +348,7 @@
     border-radius: 6px;
     border: 1px solid var(--border);
     box-shadow: 0 2px 10px rgba(0,0,0,0.09);
-    margin: 1rem 0 0.4rem;
+    margin: 2rem 0 0.6rem;
   }
 
   .screenshot-sm {
@@ -378,7 +357,7 @@
     border-radius: 6px;
     border: 1px solid var(--border);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    margin: 1rem 0 0.4rem;
+    margin: 2rem 0 0.6rem;
   }
 
   .screenshot-mid {
@@ -387,14 +366,14 @@
     border-radius: 6px;
     border: 1px solid var(--border);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    margin: 1rem 0 0.4rem;
+    margin: 2rem 0 0.6rem;
   }
 
   figcaption, .img-caption {
     font-size: 12px;
     color: var(--text-muted);
     font-style: italic;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   /* Coming soon placeholder */
@@ -548,10 +527,7 @@
 <!-- ════ SIDEBAR ════════════════════════════════════ -->
 <nav id="sidebar" aria-label="Table of contents">
   <div id="sidebar-header">
-    <div id="logo-lockup">
-      <img src="logoBlueRed.png" alt="Rostas">
-      <span>ostas</span>
-    </div>
+    <img id="sidebar-logo" src="logoBlueRed.png" alt="Rostas">
     <div class="guide-label">Coordinator Guide</div>
   </div>
 
@@ -714,12 +690,7 @@
     <strong>If a volunteer doesn't respond</strong>, Rostas sends an automatic SMS nudge after a configurable number of days. No manual chasing needed.
   </div>
 
-  <figure>
-    <img src="av-form-partial.png" alt="Availability form showing a mix of available, not sure, and can't make it tiles" class="screenshot-mid">
-    <figcaption>The availability form — date tiles in green (available), amber (not sure), and red (can't make it). Volunteers tap to change a date then save.</figcaption>
-  </figure>
-
-  <h3 class="sub-title" id="a-engine">The Intelligent Matching Engine</h3>
+The Intelligent Matching Engine</h3>
   <p>The roster engine doesn't fill slots blindly. It uses a four-tier priority system that respects both when volunteers can serve and what they actually want to do:</p>
 
   <figure>
@@ -747,7 +718,7 @@
   <p>The Board is your day-to-day view of the current roster. It shows every slot, every date, and every volunteer assignment at a glance. A traffic light colour system tells you instantly what's filled, what's pending, and what needs attention.</p>
 
   <figure>
-    <img src="comms-roster-view.png" alt="The Roster Board showing assignments colour-coded by status" class="screenshot">
+    <img src="Rostas_Board_View.png" alt="The Roster Board showing assignments colour-coded by status" class="screenshot">
     <figcaption>The Roster Board — every slot colour-coded so you can see at a glance what's filled, pending, and needs attention.</figcaption>
   </figure>
 
@@ -786,16 +757,12 @@
 
   <figure>
     <img src="comms-replacement-sms.png" alt="Example replacement SMS as received on a volunteer's phone" class="screenshot-mid">
-    <figcaption>What a replacement request looks like on a volunteer's phone — a clear message with a link to accept or decline.</figcaption>
+    <figcaption>What a "Can't Make It" request looks like on a volunteer's phone — a clear message with a link to proceed or change mind and continue being rostered on that day.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="a-volunteers">Looking After Your Volunteers</h3>
   <p>Rostas is designed with your volunteers in mind, not just your roster.</p>
 
-  <figure>
-    <img src="Rostas_Intelligent_Roster_Assistant-1.png" alt="Rostas promotes sustainable ministry — for coordinators and volunteers" class="screenshot">
-    <figcaption>Rostas protects volunteer energy through frequency caps, quiet hours, and self-serve opt-outs.</figcaption>
-  </figure>
 
   <div class="tbl-wrap">
     <table>

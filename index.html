@@ -629,7 +629,7 @@
     <div class="toc-part">Part F — Settings &amp; Troubleshooting</div>
     <a class="toc-item toc-h1" href="#f-settings">The Settings View</a>
     <a class="toc-item toc-h1" href="#f-categories">Settings Categories</a>
-    <a class="toc-item toc-h1" href="#f-sms-templates">SMS Templates</a>
+    <a class="toc-item toc-h1" href="#f-sms-templates">SMS Settings</a>
     <a class="toc-item toc-h1" href="#f-quick-controls">Quick Controls</a>
     <a class="toc-item toc-h1" href="#f-advanced">Advanced Settings</a>
     <a class="toc-item toc-h1" href="#f-checklist">Setup Checklist</a>
@@ -1535,51 +1535,86 @@ The Intelligent Matching Engine</h3>
     <span class="part-sub">Configuration · SMS templates · Common problems · System status</span>
   </div>
 
-  <p>The Settings view is where you configure how Rostas behaves — organisation details, coordinator contacts, message wording, timing, and system controls. Access it by clicking <strong>Settings</strong> in the sidebar.</p>
+  <p>The Settings view is where you configure how Rostas behaves — your organisation's identity, SMS credentials, message wording, timing rules, and more. Open it by clicking <strong>Settings</strong> in the left sidebar.</p>
 
   <h2 class="section-title" id="f-settings">The Settings View</h2>
-  <p>Settings are organised into categories in the left panel. Click any setting row to open it in the right panel where you can read a description, see an example value, and edit it. Use the search bar to find a setting by name or keyword.</p>
+
+  <h3 class="sub-title" id="f-navigation">Finding your way around</h3>
+  <p>The Settings view has two parts that work together.</p>
+  <p>The <strong>chip strip</strong> runs across the top and lets you jump directly to any category — Org, Contacts, SMS, Wording, Timing, Controls, System Status, and Advanced. Clicking a chip scrolls the left panel to that section instantly. The <strong>Communications</strong> chip (gold, with an arrow) opens the Communications Preview in place of Settings — use it to see how your message templates look before sending.</p>
+  <p>The <strong>search bar</strong> (top right, "Search settings…") filters the left panel live as you type. It searches across setting names and descriptions simultaneously — so typing "SMS" shows not just the SMS category but any setting whose description mentions SMS, across all categories. Non-matching rows disappear; categories with no matches collapse. Clear the search to restore the full list.</p>
 
   <figure>
-    <img src="settings-panel-standard.png" alt="Settings view showing left panel list and right panel editor" class="screenshot">
-    <figcaption>The Settings view — categories and settings in the left panel, the selected setting's detail and edit field in the right panel. Search filters the list live.</figcaption>
+    <img src="settings-panel-standard.png" alt="Settings view showing two-column layout with left panel settings list and right panel editor" class="screenshot">
+    <figcaption>The Settings view — categories and settings in the left panel, the selected setting's detail and edit field in the right panel.</figcaption>
   </figure>
 
-  <div class="callout callout-tip">
-    <span class="callout-icon">💡</span>
-    <strong>Use the search bar</strong> at the top of the settings list to find any setting instantly. Search matches against the setting name, friendly name, and description.
-  </div>
+  <h3 class="sub-title" id="f-layout">The two-column layout</h3>
+  <ul>
+    <li><strong>Left panel</strong> — the scrollable list of all settings, grouped by category. Each row shows the setting name, a one-line description, and its current value on the right. Click any row to open it for editing.</li>
+    <li><strong>Right panel</strong> — appears when you click a row. Shows the full description, an example value, the input field, and Save/Cancel buttons. The panel stays fixed while you scroll the left panel, so you can read and compare other settings without losing your place.</li>
+  </ul>
+  <p>To close the right panel without saving, click Cancel or click a different row.</p>
+
+  <h3 class="sub-title" id="f-editing">Editing a setting</h3>
+  <ol>
+    <li>Click the row in the left panel. The right panel opens showing the setting name, description, and current value pre-filled in the input.</li>
+    <li>Make your change. The input type matches the setting — dropdowns for timezone and country code, toggles for on/off settings, text fields for everything else.</li>
+    <li>Validation runs as you type or on blur. If the value is invalid (wrong format, missing required content) the field turns red with an explanation. The Save button stays disabled until the value is valid.</li>
+    <li>Click <strong>Save</strong>. The left panel updates immediately to show the new value — no page reload needed.</li>
+  </ol>
 
   <h2 class="section-title" id="f-categories">Settings Categories</h2>
+  <ul>
+    <li><strong>Organisation</strong> — your organisation's name, tagline, timezone, country calling code, contact email, website, and volunteer-facing logo. The organisation name is the most important field: it appears in every SMS and email sent to volunteers as [OrgName]. Get this right first.</li>
+    <li><strong>Coordinator Contacts</strong> — your name, email, and mobile, plus per-roster coordinator contacts for Sunday, Music, Nourish, and any other roster types you've added. The per-roster contacts receive escalation alerts when a replacement chain is exhausted with no one found.</li>
+    <li><strong>SMS</strong> — the SMS kill switch, test mode toggle, quiet hours, replacement timers, and Twilio credentials. See <a href="#f-sms-templates">SMS settings in detail</a> below.</li>
+    <li><strong>Message Wording</strong> — every SMS template and email text block that Rostas sends to volunteers. SMS templates show a live character counter and required placeholder checker. See <a href="#f-wording">Message wording</a> below.</li>
+    <li><strong>Timing &amp; Behaviour</strong> — how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing, and public holiday region.</li>
+    <li><strong>Quick Controls</strong> — per-roster active toggles and email test mode. Useful for temporarily hiding a roster from the Build wizard without deleting it, or for switching email test mode on and off quickly.</li>
+    <li><strong>Advanced</strong> — settings that affect system internals (web app URL, roster type list, Infoodle credentials). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
+  </ul>
 
-  <div class="tbl-wrap">
-    <table>
-      <thead>
-        <tr><th>Category</th><th>What it covers</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>👤 Organisation</strong></td><td>Organisation name, timezone, country code, website, logo</td></tr>
-        <tr><td><strong>📋 Coordinator contacts</strong></td><td>Coordinator name, email, and mobile — both org-level and per-roster-type</td></tr>
-        <tr><td><strong>💬 SMS</strong></td><td>SMS provider, test mode, quiet hours, Twilio credentials</td></tr>
-        <tr><td><strong>✏️ Message wording</strong></td><td>All SMS and email templates — availability requests, notifications, reminders, replacement chain</td></tr>
-        <tr><td><strong>⚙️ Timing &amp; behaviour</strong></td><td>How many weeks ahead to build, frequency defaults, reminder timing, SMS chain wait times</td></tr>
-        <tr><td><strong>⚡ Quick controls</strong></td><td>On/off toggles for each roster type, SMS enabled, test modes</td></tr>
-        <tr><td><strong>🔒 Advanced</strong></td><td>Technical settings — only edit if you know what you're doing</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2 class="section-title" id="f-sms-templates">SMS Message Templates</h2>
-  <p>The Message Wording category contains all the SMS and email templates Rostas uses to communicate with volunteers. SMS templates have special protections to prevent common mistakes.</p>
-
-  <figure>
-    <img src="settings-panel-sms.png" alt="Settings panel showing SMS template field with character counter and required placeholders" class="screenshot">
-    <figcaption>SMS template fields show a live character counter, required placeholder list, and a preview button. The Save button is disabled if the message exceeds 160 characters or is missing a required placeholder.</figcaption>
-  </figure>
+  <h2 class="section-title" id="f-sms-templates">SMS Settings in Detail</h2>
+  <p>Three settings here are worth understanding before you go live.</p>
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <strong>SMS messages must stay under 160 characters.</strong> Messages over 160 characters are split into two texts and charged double. The character counter turns red when you exceed the limit and blocks saving until you shorten the message.
+    <p><strong>SMS enabled</strong> — the master kill switch. When this is false, no SMS leaves Rostas at all — not replacements, not reminders, not test sends. The System Status card shows a red warning when this is off. Only disable it deliberately (e.g. during a migration or if your Twilio account lapses).</p>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <p><strong>SMS test mode</strong> — when true, every SMS that would go to a volunteer is redirected to the coordinator mobile instead. The message is prefixed with [TEST - would go to candidate]. Use this while setting up or testing replacement chains. Turn it off before your first real roster cycle. The System Status card shows an amber warning when test mode is on.</p>
+  </div>
+
+  <p><strong>Quiet hours</strong> — SMS quiet hours start and end are set as 24-hour values (e.g. 21 = 9pm, 8 = 8am). Rostas will not send any SMS outside this window, including replacement chain advances. If a replacement request hits quiet hours, it waits until the quiet period ends before texting the next candidate. The default is 9pm–8am.</p>
+
+  <p><strong>Replacement timers</strong> — three escalation speeds:</p>
+  <ul>
+    <li><strong>Normal</strong> (default 120 min) — used when the service is more than 24 hours away</li>
+    <li><strong>Urgent</strong> (default 30 min) — used when the service is within 24 hours</li>
+    <li><strong>Panic</strong> (default 10 min) — used when the service is within 2 hours</li>
+  </ul>
+  <p>If volunteers are frequently timing out before responding, consider increasing the normal timer. If you're often scrambling at short notice, reducing the urgent or panic timers gets through the candidate list faster.</p>
+
+  <h3 class="sub-title" id="f-wording">Message Wording</h3>
+  <p>Every SMS template has three protections built in to prevent accidental breakage.</p>
+
+  <figure>
+    <img src="settings-panel-sms.png" alt="Settings panel showing SMS template field with character counter and required placeholders list" class="screenshot">
+    <figcaption>SMS template fields show a live character counter, required placeholder list, and a preview button. The Save button is disabled if the message exceeds 160 characters or is missing a required placeholder.</figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Character counter</strong> — SMS messages over 160 characters are split into two by carriers and charged as two texts. The counter below the textarea turns amber at 140 characters and red at 161+. The Save button is disabled when the count is red.</li>
+    <li><strong>Required placeholders</strong> — each template has a set of placeholders that must be present for it to work correctly. For example, the replacement request SMS must include [Link] — without it, volunteers have no way to respond. Missing placeholders are shown in red below the textarea. Save is blocked until all required placeholders are present.</li>
+    <li><strong>Preview SMS</strong> — click this button to see the template rendered with realistic sample values substituted in ([Name] → Sarah, [Role] → Welcome Team, [Date] → today's date, [Link] → a sample short URL). This shows you exactly what a volunteer will read, at the correct character count. It does not send a real SMS.</li>
+  </ul>
+
+  <div class="callout">
+    <span class="callout-icon">ℹ️</span>
+    All placeholder names use square brackets: [Name], [Role], [Date], [Link], [OrgName], [Deadline]. Never use curly braces — {name} will not be substituted.
   </div>
 
   <h3 class="sub-title" id="f-placeholders">Template Placeholders</h3>
@@ -1624,16 +1659,19 @@ The Intelligent Matching Engine</h3>
   </div>
 
   <h2 class="section-title" id="f-advanced">Advanced Settings</h2>
-  <p>The Advanced section contains settings that affect core system behaviour. They're visible but locked — clicking a setting shows a warning and requires you to explicitly unlock it before editing.</p>
+  <p>The Advanced section is collapsed by default and greyed out. It contains settings that the system needs to function but that coordinators rarely need to touch. Changing them incorrectly can cause roster builds to fail or SMS links to break.</p>
+  <p>To edit an advanced setting: click the row, read the amber warning in the right panel, then click <strong>Unlock</strong> to edit. The field becomes editable. Save as normal.</p>
 
   <figure>
     <img src="settings-advanced.png" alt="Settings advanced section showing locked settings with warning banner" class="screenshot">
     <figcaption>Advanced settings are collapsed by default and shown with a lock icon. Click "Unlock to edit" in the right panel to make changes — only do this if you're confident about what you're changing.</figcaption>
   </figure>
 
+  <p>The most common reason a coordinator needs the Advanced section is after redeploying Rostas — the <strong>Web app URL</strong> must be updated to match the new deployment URL. If short links in SMS stop working after a redeployment, this is almost always the cause.</p>
+
   <div class="callout callout-warn">
     <span class="callout-icon">🔒</span>
-    <strong>Advanced settings can break things if changed incorrectly.</strong> If you're unsure, leave them as they are or contact your tech support person before making changes.
+    Advanced settings can break things if changed incorrectly. If you're unsure, leave them as they are or contact your tech support person before making changes.
   </div>
 
   <h2 class="section-title" id="f-checklist">Setup Checklist</h2>

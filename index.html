@@ -628,6 +628,7 @@
     <!-- Part F -->
     <div class="toc-part">Part F — Settings &amp; Troubleshooting</div>
     <a class="toc-item toc-h1" href="#f-settings">The Settings View</a>
+    <a class="toc-item toc-h1" href="#f-system-status">Using System Status</a>
     <a class="toc-item toc-h1" href="#f-categories">Settings Categories</a>
     <a class="toc-item toc-h1" href="#f-sms-templates">SMS Settings</a>
     <a class="toc-item toc-h1" href="#f-quick-controls">Quick Controls</a>
@@ -1569,6 +1570,60 @@ The Intelligent Matching Engine</h3>
     <li>Click <strong>Save</strong>. The left panel updates immediately to show the new value — no page reload needed.</li>
   </ol>
 
+  <h2 class="section-title" id="f-system-status">Using System Status</h2>
+  <p>The System Status card and the settings list below it are designed to work together. The card tells you what's wrong; the settings list is where you fix it.</p>
+  <p>Treat System Status as your starting point every time you open the Settings page. Before searching for a specific setting or making a planned change, glance at the Warnings column first. If it shows green — "All systems go" — you can proceed with whatever you came to do. If it shows amber or red, deal with those first, because some warnings mean volunteers aren't receiving messages right now.</p>
+
+  <figure>
+    <img src="Settings-System-Status.png" alt="System Status card showing SMS and test mode warning indicators" class="screenshot">
+    <figcaption>The System Status card — shows a red indicator when SMS is disabled and an amber indicator when test mode is on. Check this card if messages aren't being sent.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="f-status-fix">Following a warning to its fix</h3>
+  <p>Every warning in the System Status card maps directly to one or more settings in the list below. Rather than hunting through categories manually, use the search bar — the warning text itself usually contains the keyword you need:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>You see this warning</th><th>Search for this</th><th>Setting to change</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SMS is disabled</td><td><code>SMS enabled</code></td><td>SMS → SMS enabled → turn on</td></tr>
+        <tr><td>SMS test mode is ON</td><td><code>test mode</code></td><td>SMS → SMS test mode → turn off</td></tr>
+        <tr><td>Email test mode is ON</td><td><code>test mode</code></td><td>Quick Controls → Email test mode → turn off</td></tr>
+        <tr><td>Twilio credentials not configured</td><td><code>Twilio</code></td><td>SMS → Account SID / Auth Token / From number</td></tr>
+        <tr><td>Web app URL not set</td><td><code>web app</code></td><td>Advanced → Web app URL</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>The typical workflow is: see the warning → type the keyword into the search bar → click the matching row → fix it in the right panel → save. The whole thing takes under a minute once you know the pattern.</p>
+
+  <h3 class="sub-title" id="f-status-refresh">After making a change, check the card again</h3>
+  <p>The System Status card doesn't update automatically when you save a setting — it loaded when you opened Settings and reflects that moment in time. After fixing a warning, click <strong>Refresh</strong> in the System Status card header to reload it and confirm the warning has cleared. This is especially important for the SMS disabled and test mode warnings, where it's easy to accidentally save the wrong value.</p>
+
+  <h3 class="sub-title" id="f-status-rhythm">Understanding your roster's rhythm</h3>
+  <p>Once warnings are clear, the lower sections of the card give you a different kind of visibility — not problems to fix, but patterns to understand.</p>
+  <ul>
+    <li><strong>Activity sparkline</strong> — tells you whether Rostas is actually doing things day-to-day. A healthy system shows green bars most days. If you see a flat line of zero bars across the past week, it may mean the daily triggers have stopped running — cross-check with Roster Health to see if the maintenance and calendar rebuild timestamps are recent.</li>
+    <li><strong>Communications Sent chart</strong> — shows whether emails and SMS are actually going out. If you sent availability emails three days ago but the chart shows zero emails on that date, something suppressed them — check whether email test mode was on at the time (Quick Controls → Email test mode).</li>
+    <li><strong>Replacement Outcomes bar</strong> — useful after your first few roster cycles. A high timeout rate (amber) often means your replacement timers are too short for how quickly your volunteers respond, or that quiet hours are eating into available sending time. You can adjust both under SMS → Replacement timer settings and SMS quiet hours.</li>
+    <li><strong>Communication Failures table</strong> — the most direct diagnostic tool. If a volunteer tells you they never received a replacement SMS, open Settings, refresh System Status, and scroll to this table. If you see an ERROR entry for <code>sendSMS_Twilio_</code> on the date in question, the message was attempted but failed — the error message will tell you why (wrong credentials, Twilio account issue, etc.). If you see nothing for that date at all, the message may have been suppressed before it even reached the sending step — check SMS enabled, test mode, and quiet hours for that time window.</li>
+  </ul>
+
+  <h3 class="sub-title" id="f-status-loop">The feedback loop in practice</h3>
+  <p>Think of it as three layers working together:</p>
+  <ul>
+    <li><strong>System Status card</strong> — shows you what the system did, and what's misconfigured</li>
+    <li><strong>Settings left panel</strong> — lets you find and understand the relevant setting</li>
+    <li><strong>Settings right panel</strong> — lets you read the full description, see the example, and make the change safely</li>
+  </ul>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    A coordinator who builds this habit — open Settings, check System Status, fix any warnings, then do what you came to do — will catch problems before volunteers notice them rather than after.
+  </div>
+
   <h2 class="section-title" id="f-categories">Settings Categories</h2>
   <ul>
     <li><strong>Organisation</strong> — your organisation's name, tagline, timezone, country calling code, contact email, website, and volunteer-facing logo. The organisation name is the most important field: it appears in every SMS and email sent to volunteers as [OrgName]. Get this right first.</li>
@@ -1592,11 +1647,6 @@ The Intelligent Matching Engine</h3>
     <span class="callout-icon">⚠️</span>
     <p><strong>SMS test mode</strong> — when true, every SMS that would go to a volunteer is redirected to the coordinator mobile instead. The message is prefixed with [TEST - would go to candidate]. Use this while setting up or testing replacement chains. Turn it off before your first real roster cycle. The System Status card shows an amber warning when test mode is on.</p>
   </div>
-
-  <figure>
-    <img src="Settings-System-Status.png" alt="System Status card showing SMS and test mode warning indicators" class="screenshot">
-    <figcaption>The System Status card — shows a red indicator when SMS is disabled and an amber indicator when test mode is on. Check this card if messages aren't being sent.</figcaption>
-  </figure>
 
   <p><strong>Quiet hours</strong> — SMS quiet hours start and end are set as 24-hour values (e.g. 21 = 9pm, 8 = 8am). Rostas will not send any SMS outside this window, including replacement chain advances. If a replacement request hits quiet hours, it waits until the quiet period ends before texting the next candidate. The default is 9pm–8am.</p>
 

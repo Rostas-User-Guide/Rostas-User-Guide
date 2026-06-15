@@ -520,9 +520,61 @@
   #search-empty { padding: 0.8rem 1rem; font-size: 12px; color: #7a94b0; text-align: center; }
 
   #search-hint { font-size: 10px; color: #5a6a7e; text-align: center; padding: 0 1.2rem 0.4rem; letter-spacing: 0.03em; }
+
+  #return-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1.25rem;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1rem;
+    background: var(--navy);
+    color: #fff;
+    border: 1.5px solid rgba(184,147,42,0.5);
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  #return-btn:hover {
+    background: var(--navy-mid);
+    border-color: var(--gold);
+  }
+  #return-btn svg {
+    flex-shrink: 0;
+  }
+  #return-fallback {
+    display: none;
+    position: fixed;
+    top: 3.2rem;
+    right: 1.25rem;
+    z-index: 9999;
+    background: var(--amber-light);
+    border: 1px solid var(--amber);
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 11.5px;
+    color: #7c4a00;
+    max-width: 220px;
+    line-height: 1.4;
+  }
 </style>
 </head>
 <body>
+
+<body>
+
+<button id="return-btn" onclick="returnToRostas()" title="Close this tab and return to Rostas">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  Back to Rostas
+</button>
+<div id="return-fallback">Switch back to the Rostas tab in your browser.</div>
 
 <!-- ════ SIDEBAR ════════════════════════════════════ -->
 <nav id="sidebar" aria-label="Table of contents">
@@ -1995,6 +2047,20 @@ The Intelligent Matching Engine</h3>
       if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') { e.preventDefault(); input.focus(); input.select(); }
     });
   })();
+
+  function returnToRostas() {
+    try {
+      window.close();
+    } catch(e) {}
+    // If window.close() was blocked, show fallback message after 300ms
+    setTimeout(function() {
+      var btn = document.getElementById('return-btn');
+      var fallback = document.getElementById('return-fallback');
+      // If we're still here, close was blocked
+      if (fallback) fallback.style.display = 'block';
+      if (btn) btn.style.borderColor = 'var(--amber)';
+    }, 300);
+  }
 </script>
 
 </body></html>

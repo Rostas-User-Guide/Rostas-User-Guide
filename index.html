@@ -1545,6 +1545,11 @@ The Intelligent Matching Engine</h3>
   <p>The <strong>search bar</strong> (top right, "Search settings…") filters the left panel live as you type. It searches across setting names and descriptions simultaneously — so typing "SMS" shows not just the SMS category but any setting whose description mentions SMS, across all categories. Non-matching rows disappear; categories with no matches collapse. Clear the search to restore the full list.</p>
 
   <figure>
+    <img src="Settings-View- With-System-Status-Pill.png" alt="Settings view showing the chip strip navigation across the top with category pills" class="screenshot">
+    <figcaption>The chip strip across the top of Settings — click any category pill to jump straight to that section. The gold Communications chip opens the message preview.</figcaption>
+  </figure>
+
+  <figure>
     <img src="settings-panel-standard.png" alt="Settings view showing two-column layout with left panel settings list and right panel editor" class="screenshot">
     <figcaption>The Settings view — categories and settings in the left panel, the selected setting's detail and edit field in the right panel.</figcaption>
   </figure>
@@ -1587,6 +1592,11 @@ The Intelligent Matching Engine</h3>
     <span class="callout-icon">⚠️</span>
     <p><strong>SMS test mode</strong> — when true, every SMS that would go to a volunteer is redirected to the coordinator mobile instead. The message is prefixed with [TEST - would go to candidate]. Use this while setting up or testing replacement chains. Turn it off before your first real roster cycle. The System Status card shows an amber warning when test mode is on.</p>
   </div>
+
+  <figure>
+    <img src="Settings-System-Status.png" alt="System Status card showing SMS and test mode warning indicators" class="screenshot">
+    <figcaption>The System Status card — shows a red indicator when SMS is disabled and an amber indicator when test mode is on. Check this card if messages aren't being sent.</figcaption>
+  </figure>
 
   <p><strong>Quiet hours</strong> — SMS quiet hours start and end are set as 24-hour values (e.g. 21 = 9pm, 8 = 8am). Rostas will not send any SMS outside this window, including replacement chain advances. If a replacement request hits quiet hours, it waits until the quiet period ends before texting the next candidate. The default is 9pm–8am.</p>
 

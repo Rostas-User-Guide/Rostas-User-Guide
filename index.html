@@ -564,12 +564,58 @@
     max-width: 220px;
     line-height: 1.4;
   }
+
+  #sidebar-toggle {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 5px;
+    color: #a8bdd4;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.15s, color 0.15s;
+  }
+  #sidebar-toggle:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+  #sidebar-reopen {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 9999;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    background: var(--navy);
+    color: var(--gold);
+    border: 1px solid rgba(184,147,42,0.4);
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+    padding: 0.75rem 0.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.15s;
+  }
+  #sidebar-reopen:hover { background: var(--navy-mid); }
+
+  body.sidebar-collapsed #sidebar { display: none; }
+  body.sidebar-collapsed #sidebar-reopen { display: block; }
 </style>
 </head>
 <body>
 
 <body>
 
+<button id="sidebar-reopen" onclick="expandSidebar()" title="Show navigation">Nav ▶</button>
 <button id="return-btn" onclick="returnToRostas()" title="Close this tab and return to Rostas">
   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
   Back to Rostas
@@ -578,9 +624,10 @@
 
 <!-- ════ SIDEBAR ════════════════════════════════════ -->
 <nav id="sidebar" aria-label="Table of contents">
-  <div id="sidebar-header">
+  <div id="sidebar-header" style="position:relative">
     <img id="sidebar-logo" src="logoBlueRed.png" alt="Rostas">
     <div class="guide-label">Coordinator Guide</div>
+    <button id="sidebar-toggle" onclick="collapseSidebar()" title="Hide navigation">✕</button>
   </div>
 
   <div id="toc">
@@ -2047,6 +2094,13 @@ The Intelligent Matching Engine</h3>
       if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') { e.preventDefault(); input.focus(); input.select(); }
     });
   })();
+
+  function collapseSidebar() {
+    document.body.classList.add('sidebar-collapsed');
+  }
+  function expandSidebar() {
+    document.body.classList.remove('sidebar-collapsed');
+  }
 
   function returnToRostas() {
     try {

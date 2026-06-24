@@ -666,7 +666,14 @@
       <a class="toc-item toc-h2" href="#c-new-step5">Step 5 — Review</a>
     </div>
     <a class="toc-item toc-h1" href="#c-manage-roles">Managing Roles</a>
-    <a class="toc-item toc-h1" href="#c-frequency">Frequency Settings</a>
+    <div class="toc-parent" id="parent-c-frequency">
+      <a class="toc-parent-link" href="#c-frequency">Frequency Settings</a>
+      <button class="toc-toggle" data-target="children-c-frequency" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-c-frequency">
+      <a class="toc-item toc-h2" href="#c-frequency-cadence">Roster cadence</a>
+      <a class="toc-item toc-h2" href="#c-frequency-cap">Volunteer frequency cap</a>
+    </div>
     <div class="toc-parent" id="parent-c-rebuild">
       <a class="toc-parent-link" href="#c-rebuild">Rebuild Wizard</a>
       <button class="toc-toggle" data-target="children-c-rebuild" aria-label="Toggle"><span class="arrow">›</span></button>
@@ -731,6 +738,9 @@
          style="display:flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;text-decoration:none;padding:0.55rem 0.9rem;border-radius:5px;font-size:12px;font-weight:600;letter-spacing:0.04em;">
         <span>⬇</span> Download PDF Guide
       </a>
+      <button onclick="openEditor()" style="margin-top:0.5rem;display:flex;align-items:center;gap:0.5rem;background:none;border:1px solid rgba(255,255,255,0.15);color:#a8bdd4;padding:0.45rem 0.9rem;border-radius:5px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;letter-spacing:0.03em;transition:border-color 0.15s,color 0.15s;" onmouseover="this.style.borderColor='rgba(184,147,42,0.5)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='#a8bdd4'">
+        <span>✏</span> Edit this guide
+      </button>
     </div>
   </div>
 </nav>
@@ -1271,30 +1281,57 @@
 
   <!-- ══ FREQUENCY ══ -->
   <h2 class="section-title" id="c-frequency">Frequency Settings</h2>
-  <p>Frequency caps limit how often a volunteer can be rostered in a given period — protecting them from burnout and ensuring the workload is spread fairly. Each volunteer has an individual frequency cap per roster type, set on their detail page.</p>
+  <p>Rostas has two separate but related frequency concepts — how often a <em>roster</em> runs, and how often an individual <em>volunteer</em> gets assigned. It's worth understanding both.</p>
+
+  <h3 class="sub-title" id="c-frequency-cadence">Roster cadence — how often the roster runs</h3>
+  <p>Not every roster runs every week. A community meal might run fortnightly, a kids' ministry only on the 1st and 3rd Sunday of the month, or a small group monthly. The <strong>Frequency</strong> screen sets this cadence for each roster type — it controls which dates appear in the season and therefore which dates Rostas builds for.</p>
 
   <figure>
-    <img src="frequency-sunday.png" alt="Frequency settings screen showing Weekly and Fortnightly options with cap controls" class="screenshot">
-    <figcaption>The Frequency screen — set the default rostering frequency for this roster type. Individual volunteers can have their own cap set on their detail page, which overrides the default.</figcaption>
+    <img src="frequency-sunday.png" alt="Frequency settings screen showing Weekly, Fortnightly, 1st and 3rd, 2nd and 4th, and Monthly options" class="screenshot">
+    <figcaption>The Frequency screen — choose how often this roster runs. Changes apply from the next roster build onward; dates already built keep their original cadence. Access it from Build Dashboard → ⋯ → Frequency.</figcaption>
   </figure>
-
-  <p>There are two levels of frequency control:</p>
 
   <div class="tbl-wrap">
     <table>
       <thead>
-        <tr><th>Level</th><th>Where to set it</th><th>Effect</th></tr>
+        <tr><th>Option</th><th>When to use it</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Roster default</strong></td><td>Build Dashboard → ⋯ → Frequency</td><td>Applies to all volunteers in that roster who don't have an individual override</td></tr>
-        <tr><td><strong>Individual override</strong></td><td>Volunteer detail page → Frequency section</td><td>Overrides the roster default for that specific volunteer only</td></tr>
+        <tr><td><strong>Weekly</strong></td><td>Roster runs every week — e.g. Sunday service</td></tr>
+        <tr><td><strong>Fortnightly</strong></td><td>Roster runs every two weeks</td></tr>
+        <tr><td><strong>1st and 3rd</strong></td><td>Roster runs on the 1st and 3rd occurrence of the day in each month</td></tr>
+        <tr><td><strong>2nd and 4th</strong></td><td>Roster runs on the 2nd and 4th occurrence of the day in each month</td></tr>
+        <tr><td><strong>Monthly</strong></td><td>Roster runs once a month — e.g. a quarterly review team</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>The frequency cap counts distinct service dates</strong>, not individual role assignments. A volunteer rostered to two roles on the same date counts as one service, not two — so a buddy pair serving together doesn't consume double their allocation.
+    <strong>Roster cadence is set once per roster type</strong> and applies to everyone in that roster. If two different groups within the same organisation run on different weeks, set them up as separate roster types.
+  </div>
+
+  <h3 class="sub-title" id="c-frequency-cap">Volunteer frequency cap — how often a volunteer gets assigned</h3>
+  <p>Separate from the roster cadence, each volunteer has an individual frequency cap that controls how often they personally get rostered within a running roster. This protects volunteers from being assigned every single week even when they're always available — spreading the load fairly across the team.</p>
+
+  <p>Frequency caps are set on the <strong>volunteer detail page</strong> under the Frequency section for each roster type. A volunteer's cap can be set independently for each roster they serve in.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Example</th><th>Roster cadence</th><th>Volunteer cap</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sunday team volunteer</td><td>Weekly</td><td>Every 2 weeks</td><td>Rostered roughly once a fortnight</td></tr>
+        <tr><td>Sound desk specialist</td><td>Weekly</td><td>Every week</td><td>Rostered every Sunday (willing and able)</td></tr>
+        <tr><td>Occasional helper</td><td>Fortnightly</td><td>Once a month</td><td>Rostered roughly once a month</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>The cap counts distinct service dates</strong>, not individual role assignments. A volunteer rostered to two roles on the same date counts as one service — so serving in two roles on one Sunday doesn't consume double their allocation.
   </div>
 
   <!-- ══ REBUILD WIZARD ══ -->
@@ -2198,6 +2235,13 @@
       if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') { e.preventDefault(); input.focus(); input.select(); }
     });
   })();
+
+  function openEditor() {
+    var token = prompt('Enter the editor access token:');
+    if (token && token.trim()) {
+      window.open('https://rostas-user-guide.github.io/Rostas-User-Guide/editor.html?token=' + encodeURIComponent(token.trim()), '_blank');
+    }
+  }
 
   function collapseSidebar() {
     document.body.classList.add('sidebar-collapsed');

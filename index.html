@@ -152,7 +152,7 @@
     transition: max-height 0.25s ease;
   }
 
-  .toc-children.open { max-height: 600px; }
+  .toc-children.open { max-height: 800px; }
 
   .toc-item {
     display: block;
@@ -376,21 +376,6 @@
     margin-bottom: 1.5rem;
   }
 
-  /* Coming soon placeholder */
-  .coming-soon {
-    background: #fff;
-    border: 2px dashed var(--border);
-    border-radius: 8px;
-    padding: 3rem 2rem;
-    text-align: center;
-    margin: 2rem 0;
-    color: var(--text-muted);
-  }
-
-  .coming-soon .cs-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-  .coming-soon h3 { font-family: 'Lora', serif; color: var(--navy); margin-bottom: 0.5rem; font-size: 1.1rem; }
-  .coming-soon p { font-size: 13.5px; margin: 0; }
-
   /* Video placeholder */
   #video-placeholder {
     background: linear-gradient(135deg, #1a2e4a 0%, #2b4570 100%);
@@ -542,13 +527,9 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     transition: background 0.15s, border-color 0.15s;
   }
-  #return-btn:hover {
-    background: var(--navy-mid);
-    border-color: var(--gold);
-  }
-  #return-btn svg {
-    flex-shrink: 0;
-  }
+  #return-btn:hover { background: var(--navy-mid); border-color: var(--gold); }
+  #return-btn svg { flex-shrink: 0; }
+
   #return-fallback {
     display: none;
     position: fixed;
@@ -611,8 +592,6 @@
   body.sidebar-collapsed #sidebar-reopen { display: block; }
 </style>
 </head>
-<body>
-
 <body>
 
 <button id="sidebar-reopen" onclick="expandSidebar()" title="Show navigation">Nav ▶</button>
@@ -686,6 +665,8 @@
       <a class="toc-item toc-h2" href="#c-new-step4">Step 4 — Volunteers</a>
       <a class="toc-item toc-h2" href="#c-new-step5">Step 5 — Review</a>
     </div>
+    <a class="toc-item toc-h1" href="#c-manage-roles">Managing Roles</a>
+    <a class="toc-item toc-h1" href="#c-frequency">Frequency Settings</a>
     <div class="toc-parent" id="parent-c-rebuild">
       <a class="toc-parent-link" href="#c-rebuild">Rebuild Wizard</a>
       <button class="toc-toggle" data-target="children-c-rebuild" aria-label="Toggle"><span class="arrow">›</span></button>
@@ -799,11 +780,11 @@
   </div>
 
   <h2 class="section-title" id="a-how-it-works">How Rostas Works — The Big Picture</h2>
-  <p>Rostas works in a rhythm that repeats every few weeks. The six-step Run Sheet Wizard guides you through each stage in order:</p>
+  <p>Rostas works in a rhythm that repeats every few weeks. The six-step Rebuild Wizard guides you through each stage in order:</p>
 
   <figure>
     <img src="Rostas_Intelligent_Roster_Assistant-6.png" alt="The Roster Lifecycle — six steps from Refresh and Sync through to Notify" class="screenshot">
-    <figcaption>The six-step roster lifecycle. The Run Sheet Wizard guides you through each step — each stage is triggered by a single button.</figcaption>
+    <figcaption>The six-step roster lifecycle. The Rebuild Wizard guides you through each step — each stage is triggered by a single button.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
@@ -823,8 +804,8 @@
   </div>
 
   <figure>
-    <img src="build-dashboard.png" alt="The Rostas Build Dashboard showing roster cards" class="screenshot">
-    <figcaption>The Build Dashboard — your starting point for each roster cycle. Each card shows the current build status for that roster type.</figcaption>
+    <img src="build-dashboard.png" alt="The Rostas Build Dashboard showing roster cards for Sunday, Music and Lock Up" class="screenshot">
+    <figcaption>The Build Dashboard — your starting point for each roster cycle. Each card shows the current build status and coverage bar for that roster type. Click any card to open its wizard.</figcaption>
   </figure>
 
   <!-- ══ KEY CONCEPTS ══ -->
@@ -858,7 +839,7 @@
     <strong>If a volunteer doesn't respond</strong>, Rostas sends an automatic SMS nudge after a configurable number of days. No manual chasing needed.
   </div>
 
-The Intelligent Matching Engine</h3>
+  <h3 class="sub-title" id="a-engine">The Intelligent Matching Engine</h3>
   <p>The roster engine doesn't fill slots blindly. It uses a four-tier priority system that respects both when volunteers can serve and what they actually want to do:</p>
 
   <figure>
@@ -886,8 +867,8 @@ The Intelligent Matching Engine</h3>
   <p>The Board is your day-to-day view of the current roster. It shows every slot, every date, and every volunteer assignment at a glance. A traffic light colour system tells you instantly what's filled, what's pending, and what needs attention.</p>
 
   <figure>
-    <img src="Rostas_Board_View.png" alt="The Roster Board showing assignments colour-coded by status" class="screenshot">
-    <figcaption>The Roster Board — every slot colour-coded so you can see at a glance what's filled, pending, and needs attention.</figcaption>
+    <img src="board-sunday.png" alt="The Sunday Roster Board showing the full grid with colour-coded cells" class="screenshot">
+    <figcaption>The Roster Board — dates run down the left, roles across the top. Click any cell to select it and take action. Use the roster type tabs at the top to switch between rosters.</figcaption>
   </figure>
 
   <div class="tl-grid">
@@ -925,12 +906,11 @@ The Intelligent Matching Engine</h3>
 
   <figure>
     <img src="comms-replacement-sms.png" alt="Example replacement SMS as received on a volunteer's phone" class="screenshot-mid">
-    <figcaption>What a "Can't Make It" request looks like on a volunteer's phone — a clear message with a link to proceed or change mind and continue being rostered on that day.</figcaption>
+    <figcaption>What a replacement request looks like on a volunteer's phone — a clear message with a short link to accept or decline.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="a-volunteers">Looking After Your Volunteers</h3>
   <p>Rostas is designed with your volunteers in mind, not just your roster.</p>
-
 
   <div class="tbl-wrap">
     <table>
@@ -1032,7 +1012,7 @@ The Intelligent Matching Engine</h3>
   <p>Click <strong>Next →</strong> when all required fields are filled. The button stays disabled until everything is valid.</p>
 
   <h3 class="sub-title" id="b-step2">Step 2 — Your Details</h3>
-  <p>Step 2 captures the primary coordinator's contact details. These are used for SMS test sends, coordinator escalation alerts when the replacement chain is exhausted, and the top bar of the coordinator app.</p>
+  <p>Step 2 captures the primary coordinator's contact details. These are used for SMS test sends, coordinator escalation alerts when the replacement chain is exhausted, and the bottom of the coordinator app sidebar.</p>
 
   <figure>
     <img src="setup-step2-details.png" alt="Setup wizard Step 2 — Your Details, showing name, email and mobile fields" class="screenshot">
@@ -1144,7 +1124,7 @@ The Intelligent Matching Engine</h3>
   <div class="part-banner" id="part-c">
     <span class="part-label">Part C</span>
     <span class="part-title">The Roster Cycle</span>
-    <span class="part-sub">New Roster Wizard · Rebuild Wizard · Building and sending your roster</span>
+    <span class="part-sub">New Roster Wizard · Managing Roles · Frequency · Rebuild Wizard</span>
   </div>
 
   <p>There are two roster wizards in Rostas. The <strong>New Roster Wizard</strong> runs once when you set up a new roster type — it defines the name, roles, season dates, and volunteers. The <strong>Rebuild Wizard</strong> runs every few weeks to collect availability, build the roster, and send notifications to volunteers.</p>
@@ -1153,11 +1133,11 @@ The Intelligent Matching Engine</h3>
 
   <!-- ══ BUILD DASHBOARD ══ -->
   <h2 class="section-title" id="c-dashboard">The Build Dashboard</h2>
-  <p>The Build Dashboard is your home base for all roster activity. It shows every active roster type with its current status and coverage bar at a glance.</p>
+  <p>The Build Dashboard is your home base for all roster activity. Open it by clicking <strong>Build</strong> in the sidebar. It shows every active roster type with its current status and coverage bar at a glance.</p>
 
   <figure>
-    <img src="build-dashboard.png" alt="The Build Dashboard showing roster cards for Sunday, Music, Nourish and Lock Up" class="screenshot">
-    <figcaption>The Build Dashboard — each card shows a roster type, its coverage bar, and current status. Click any card to open the wizard for that roster.</figcaption>
+    <img src="build-dashboard.png" alt="The Build Dashboard showing roster cards for Sunday, Music and Lock Up with coverage bars" class="screenshot">
+    <figcaption>The Build Dashboard — each card shows a roster type, its coverage bar (green filled, red unfilled), and current status badge. Click any card to open the wizard for that roster.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
@@ -1176,7 +1156,7 @@ The Intelligent Matching Engine</h3>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>New Roster</strong> — the green card at the bottom of the dashboard. Click it to set up a brand new roster type from scratch.
+    <strong>New Roster</strong> — a card at the bottom of the dashboard lets you set up a brand new roster type from scratch. See the New Roster Wizard section below.
   </div>
 
   <!-- ══ NEW ROSTER WIZARD ══ -->
@@ -1192,20 +1172,20 @@ The Intelligent Matching Engine</h3>
   <p>Give your roster a short name and choose an icon. The name appears in SMS messages, emails, and the coordinator app — keep it brief and clear.</p>
 
   <figure>
-    <img src="new-roster-step0-schedule.png" alt="New Roster Wizard Step 1 — Name your roster, showing a text field with Music entered" class="screenshot">
+    <img src="new-roster-step0-schedule.png" alt="New Roster Wizard Step 1 — Name your roster, showing a text field" class="screenshot">
     <figcaption>Step 1 — name your roster. This name appears in all volunteer communications, so keep it short and recognisable — e.g. "Sunday", "Music", "Hospitality".</figcaption>
   </figure>
 
   <figure>
-    <img src="new-roster-step0-schedule-2.png" alt="New Roster Wizard Step 1 — icon selection screen showing icon grid" class="screenshot">
-    <figcaption>After naming the roster, choose an icon that represents it. The icon appears on the Build Dashboard card and in the coordinator app sidebar.</figcaption>
+    <img src="new-roster-step0-schedule-2.png" alt="New Roster Wizard Step 1 — name entered and icon selected" class="screenshot">
+    <figcaption>After naming the roster, choose an icon that represents it. The icon appears on the Build Dashboard card and in the coordinator app sidebar tabs.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="c-new-step2">Step 2 — Roles</h3>
   <p>Define the roles that need to be filled each time this roster runs. For each role, set a minimum and maximum number of people required.</p>
 
   <figure>
-    <img src="new-roster-step1-roles.png" alt="New Roster Wizard Step 2 — Roles, showing a list of roles with min/max settings" class="screenshot">
+    <img src="new-roster-step1-roles.png" alt="New Roster Wizard Step 2 — Roles, showing role rows with min and max fields" class="screenshot">
     <figcaption>Step 2 — add the roles for this roster. Set minimum and maximum people for each role. The engine will always try to fill the minimum; it won't exceed the maximum.</figcaption>
   </figure>
 
@@ -1218,13 +1198,8 @@ The Intelligent Matching Engine</h3>
   <p>A season defines the date range, frequency, and day of week for this roster. Rostas uses seasons to calculate which dates to roster for, and to overlay public and school holidays automatically.</p>
 
   <figure>
-    <img src="new-roster-step2-season.png" alt="New Roster Wizard Step 3 — Season setup showing start date, end date, frequency and day of week" class="screenshot">
-    <figcaption>Step 3 — set up your first season. Enter start and end dates, choose how often the roster runs (weekly or fortnightly), and select the day of week.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="new-roster-step2-season-2.png" alt="New Roster Wizard Step 3 — season with preview dates showing" class="screenshot">
-    <figcaption>Once you've entered the season details, a preview of the roster dates appears — showing which dates fall within the season, with any public holidays already marked.</figcaption>
+    <img src="new-roster-step2-season.png" alt="New Roster Wizard Step 3 — Season setup with day, frequency, date range and projected date pills" class="screenshot">
+    <figcaption>Step 3 — set up your first season. Choose day of week, frequency, and date range. Projected dates appear as pills below — school holidays are labelled automatically so you can see which dates will be paused.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
@@ -1244,22 +1219,83 @@ The Intelligent Matching Engine</h3>
   </div>
 
   <h3 class="sub-title" id="c-new-step4">Step 4 — Volunteers</h3>
-  <p>Select which volunteers from your list will serve on this roster. Only volunteers already in Rostas can be added here — if someone is missing, add them in the Volunteers section first then return to this step.</p>
-
-  <div class="callout callout-warn">
-    <span class="callout-icon">⚠️</span>
-    <strong>Screenshot coming</strong> — this section will be updated with a screenshot of the volunteer selection step shortly.
-  </div>
-
-  <h3 class="sub-title" id="c-new-step5">Step 5 — Review</h3>
-  <p>The final step shows a summary of everything you've set up — roster name, roles, season dates, and volunteer count. Review it carefully before confirming.</p>
+  <p>Select which volunteers from your list will serve on this roster. Tick each volunteer you want to include. Only volunteers already in Rostas appear here — if someone is missing, add them in the Volunteers section first then return to this step.</p>
 
   <figure>
-    <img src="new-roster-step4-review.png" alt="New Roster Wizard Step 5 — Review showing summary of roster setup" class="screenshot">
+    <img src="new-roster-step3-volunteers.png" alt="New Roster Wizard Step 4 — volunteer selection with checkboxes" class="screenshot">
+    <figcaption>Step 4 — tick each volunteer who serves in this roster. Use the search field to find someone quickly if you have a large list. You can also import additional volunteers via CSV from this step.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="c-new-step5">Step 5 — Review</h3>
+  <p>The final step shows a summary of everything you've set up — roster name, icon, roles, season dates, and volunteer count. Review it carefully before confirming.</p>
+
+  <figure>
+    <img src="new-roster-step4-review.png" alt="New Roster Wizard Step 5 — Review showing summary of roster setup with Create Roster button" class="screenshot">
     <figcaption>Step 5 — review your roster setup before confirming. You can go back to any previous step to make changes. Once confirmed, the roster appears on the Build Dashboard.</figcaption>
   </figure>
 
   <p>Click <strong>Confirm &amp; Create Roster</strong> to finish. Your new roster type appears on the Build Dashboard immediately. You're now ready to run your first Rebuild Wizard for this roster.</p>
+
+  <!-- ══ MANAGE ROLES ══ -->
+  <h2 class="section-title" id="c-manage-roles">Managing Roles</h2>
+  <p>After a roster is created, you can add, edit, rename, or deactivate its roles at any time using the Manage Roles screen. Access it from the roster card on the Build Dashboard — click the <strong>⋯</strong> menu on any card and choose <strong>Manage Roles</strong>.</p>
+
+  <figure>
+    <img src="manage-roles-main.png" alt="Manage Roles screen showing Sunday roster roles list with min, max and active toggles" class="screenshot">
+    <figcaption>The Manage Roles screen — all roles for the selected roster type in one place. Set minimum and maximum people per role, and use the active toggle to temporarily suspend a role without deleting it.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Action</th><th>How to do it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Add a new role</strong></td><td>Click <strong>Add Role</strong> at the bottom of the list. Enter the role name, minimum, and maximum.</td></tr>
+        <tr><td><strong>Edit a role</strong></td><td>Click the role row to edit its name, minimum, or maximum in place.</td></tr>
+        <tr><td><strong>Deactivate a role</strong></td><td>Toggle the Active switch off. The role is hidden from future builds but its history is preserved. Reactivate it any time.</td></tr>
+        <tr><td><strong>Reorder roles</strong></td><td>Drag rows to reorder — the order here determines the column order on the Roster Board.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Role names in SMS messages.</strong> If you rename a role, any SMS and email messages sent after that point will use the new name. Volunteers who received earlier messages with the old name may be briefly confused — consider the timing if mid-cycle.
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Deactivate rather than delete.</strong> Deactivating a role preserves all the history of who served in it. Deleting a role is permanent and removes that data. Unless you're correcting a setup mistake, always deactivate.
+  </div>
+
+  <!-- ══ FREQUENCY ══ -->
+  <h2 class="section-title" id="c-frequency">Frequency Settings</h2>
+  <p>Frequency caps limit how often a volunteer can be rostered in a given period — protecting them from burnout and ensuring the workload is spread fairly. Each volunteer has an individual frequency cap per roster type, set on their detail page.</p>
+
+  <figure>
+    <img src="frequency-sunday.png" alt="Frequency settings screen showing Weekly and Fortnightly options with cap controls" class="screenshot">
+    <figcaption>The Frequency screen — set the default rostering frequency for this roster type. Individual volunteers can have their own cap set on their detail page, which overrides the default.</figcaption>
+  </figure>
+
+  <p>There are two levels of frequency control:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Level</th><th>Where to set it</th><th>Effect</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Roster default</strong></td><td>Build Dashboard → ⋯ → Frequency</td><td>Applies to all volunteers in that roster who don't have an individual override</td></tr>
+        <tr><td><strong>Individual override</strong></td><td>Volunteer detail page → Frequency section</td><td>Overrides the roster default for that specific volunteer only</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>The frequency cap counts distinct service dates</strong>, not individual role assignments. A volunteer rostered to two roles on the same date counts as one service, not two — so a buddy pair serving together doesn't consume double their allocation.
+  </div>
 
   <!-- ══ REBUILD WIZARD ══ -->
   <h2 class="section-title" id="c-rebuild">The Rebuild Wizard</h2>
@@ -1268,8 +1304,8 @@ The Intelligent Matching Engine</h3>
   <p>To start, click any roster card on the Build Dashboard. If a build is already in progress, you'll be taken straight to where you left off.</p>
 
   <figure>
-    <img src="build-dashboard-inprogress.png" alt="Build Dashboard showing a roster with an in-progress build and resume banner" class="screenshot">
-    <figcaption>When a build is in progress, the dashboard shows where you left off. Click the card to resume from that step.</figcaption>
+    <img src="build-dashboard-inprogress.png" alt="Build Dashboard showing a roster with an in-progress amber card and resume banner" class="screenshot">
+    <figcaption>When a build is in progress, the dashboard card shows an amber border and a resume banner at the top of the page. Click the card to pick up where you left off.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="c-rebuild-step1">Step 1 — Refresh &amp; Sync</h3>
@@ -1291,6 +1327,11 @@ The Intelligent Matching Engine</h3>
   <h3 class="sub-title" id="c-rebuild-step3">Step 3 — Availability</h3>
   <p>Rostas emails all active volunteers asking which upcoming dates they're available. Each volunteer receives a personalised link — no login required. They tap their dates, mark any they can't make, and save.</p>
 
+  <figure>
+    <img src="wizard-step3-availability.png" alt="Wizard Step 3 — Send Availability Emails button and current response stats" class="screenshot">
+    <figcaption>Step 3 — click "Send Availability Emails" to notify all active volunteers. The panel updates with response stats as volunteers reply over the following days.</figcaption>
+  </figure>
+
   <div class="callout callout-tip">
     <span class="callout-icon">⏰</span>
     <strong>Allow 5–7 days for responses</strong> before moving to Step 4. Volunteers who don't respond within a configurable number of days automatically receive an SMS nudge.
@@ -1305,16 +1346,21 @@ The Intelligent Matching Engine</h3>
   </div>
 
   <h3 class="sub-title" id="c-rebuild-step5">Step 5 — Check Roster</h3>
-  <p>Before anything is sent to volunteers, you review what Rostas has built. Clicking <strong>Check Roster</strong> opens the Roster Board in a special review mode — you can see every assignment, make any manual changes needed, and then return to the wizard to send notifications.</p>
+  <p>Before anything is sent to volunteers, you review what Rostas has built. Clicking <strong>Open Roster Board</strong> opens the Board in review mode — you can see every assignment, make any manual changes needed, and then return to the wizard. The Communications Preview tab lets you see exactly what each volunteer will receive before you send.</p>
 
   <figure>
-    <img src="wizard-board-check.png" alt="Roster Board in review mode showing Back to wizard button and full roster grid" class="screenshot">
-    <figcaption>The Roster Board opens in review mode with a gold "← Back to wizard" button at the top. Review all assignments, make any swaps needed, then click Back to wizard when you're ready to notify volunteers.</figcaption>
+    <img src="wizard-step5-check.png" alt="Wizard Step 5 — Check Roster showing Open Roster Board and Reviewed ready to notify buttons" class="screenshot">
+    <figcaption>Step 5 — open the Roster Board to review assignments, or use the Communications Preview to check exactly what volunteers will receive. When you're satisfied, click "Reviewed — ready to notify" to proceed.</figcaption>
   </figure>
 
   <figure>
-    <img src="wizard-step4-communications.png" alt="Communications preview showing email preview for a volunteer" class="screenshot">
-    <figcaption>The Communications Preview tab shows exactly what each volunteer will receive — check the email wording, volunteer names, roles, and dates before sending.</figcaption>
+    <img src="wizard-board-check.png" alt="Board open from wizard — cell selected with action bar showing Save as filled, Save as declined, Replace and Close" class="screenshot">
+    <figcaption>The Roster Board in review mode — click any cell to select it and access the action bar. Make any swaps needed, then return to the wizard when you're satisfied with the roster.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="wizard-step4-communications.png" alt="Communications Preview showing availability email for Music roster" class="screenshot">
+    <figcaption>The Communications Preview — see exactly what each volunteer will receive. Check wording, names, roles, and dates before sending notifications.</figcaption>
   </figure>
 
   <div class="tl-grid">
@@ -1338,11 +1384,11 @@ The Intelligent Matching Engine</h3>
   </div>
 
   <h3 class="sub-title" id="c-rebuild-step6">Step 6 — Notify</h3>
-  <p>Once you're satisfied with the roster, click <strong>Send Notifications</strong>. Every rostered volunteer receives a personalised email with their assignments and a "Can't make it?" link. An SMS is sent at the same time.</p>
+  <p>Once you're satisfied with the roster, click <strong>Send Notifications Now</strong>. Every rostered volunteer receives a personalised email with their assignments and a "Can't make it?" link.</p>
 
   <figure>
-    <img src="wizard-step6-done.png" alt="Rebuild Wizard Step 6 — all steps complete with green ticks" class="screenshot">
-    <figcaption>Step 6 complete — all six steps show green ticks. Notifications have been sent and automatic reminders are queued. The cycle is done until next time.</figcaption>
+    <img src="wizard-step6-done.png" alt="Rebuild Wizard Step 6 — all steps complete with green ticks and Start Next Cycle button" class="screenshot">
+    <figcaption>Step 6 complete — all six steps show green ticks. Notifications have been sent and automatic reminders are queued. Click "Start Next Cycle" when you're ready to begin the next build.</figcaption>
   </figure>
 
   <div class="callout callout-info">
@@ -1361,8 +1407,8 @@ The Intelligent Matching Engine</h3>
   <p>When the current season is coming to an end, the Build Dashboard shows a <strong>Season Confirm</strong> button on the relevant roster card. You need to confirm the next season's dates before you can run a new build.</p>
 
   <figure>
-    <img src="wizard-season-confirm.png" alt="Season confirmation screen showing date selection for next season" class="screenshot">
-    <figcaption>The Season Confirm screen — review the proposed dates for the next season, adjust any that need changing, and confirm. Rostas automatically pauses dates that fall on public or school holidays based on your roster settings.</figcaption>
+    <img src="wizard-season-confirm.png" alt="Season confirmation screen showing projected dates and roles list" class="screenshot">
+    <figcaption>The Season Confirm screen — review the proposed dates for the next season alongside the current roles list. Adjust dates if needed, then confirm. Rostas automatically pauses dates that fall on public or school holidays based on your roster settings.</figcaption>
   </figure>
 
   <div class="step-box">
@@ -1388,8 +1434,8 @@ The Intelligent Matching Engine</h3>
   <p>The Board shows every roster date as a row, with roles as columns. Each cell shows the assigned volunteer's name and date. Colour coding tells you the status of each assignment at a glance.</p>
 
   <figure>
-    <img src="Rostas_Board_View.png" alt="The Sunday Roster Board showing the full grid with colour-coded cells and action bar" class="screenshot">
-    <figcaption>The Roster Board — dates run down the left, roles across the top. Click any cell to select it and see the available actions. Use the roster type tabs at the top to switch between rosters.</figcaption>
+    <img src="board-sunday.png" alt="The Sunday Roster Board showing the full grid with colour-coded cells, role headers, and legend" class="screenshot">
+    <figcaption>The Roster Board — dates run down the left, role columns across the top with green headers. Use the roster type tabs at the very top to switch between rosters. The legend and frequency search are in the header row above the grid.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
@@ -1407,14 +1453,14 @@ The Intelligent Matching Engine</h3>
   </div>
 
   <h3 class="sub-title" id="d-legend">Legend and Frequency</h3>
-  <p>The legend at the top of the board shows the four cell states. To the right, the <strong>volunteer search</strong> lets you find a specific person and see all their assignments highlighted across the board. The <strong>Frequency</strong> indicator shows how many times the currently searched volunteer has been rostered in the current period.</p>
+  <p>The legend row at the top of the board shows the four cell states. To the right, the <strong>volunteer search</strong> (with ◀ ▶ navigation arrows) lets you find a specific person and step through volunteers one by one. The <strong>Frequency</strong> panel shows how often the currently searched volunteer is rostered and when they were last assigned.</p>
 
   <h2 class="section-title" id="d-actions">Taking Action on a Cell</h2>
-  <p>Click any cell on the board to select it. The selected cell gets a navy border and an action bar appears at the top of the board showing who is assigned, what role, and what date — with buttons for the available actions.</p>
+  <p>Click any cell on the board to select it. The selected cell gets a navy border and a sticky action bar appears across the full width of the page — showing the volunteer's name, role, date, and current status, with action buttons on the right.</p>
 
   <figure>
-    <img src="board-replace-bar.png" alt="Board with a cell selected showing the action bar with Save as filled, Save as declined, Replace and Close buttons" class="screenshot">
-    <figcaption>Clicking a cell opens the action bar. From here you can save the assignment as filled, mark it as declined (which starts the SMS replacement chain), manually replace the volunteer, or close the selection.</figcaption>
+    <img src="board-replace-bar.png" alt="Board with a cell selected showing the full-width action bar and replacement panel below it" class="screenshot">
+    <figcaption>Clicking a cell opens the sticky action bar across the top, showing who is assigned, their role, date, and status. The available replacements panel drops in below, listing tiered candidates with Select buttons. The board grid remains visible behind it.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
@@ -1425,18 +1471,18 @@ The Intelligent Matching Engine</h3>
       <tbody>
         <tr><td><strong>Save as filled</strong></td><td>Confirms the assignment — changes cell to green</td><td>When a pending volunteer has confirmed verbally or you want to lock in an assignment</td></tr>
         <tr><td><strong>Save as declined</strong></td><td>Marks the volunteer as declined and starts the automated SMS replacement chain</td><td>When a volunteer tells you they can't make it and you want Rostas to find a replacement automatically</td></tr>
-        <tr><td><strong>Replace</strong></td><td>Opens the replacement panel so you can manually choose a specific volunteer</td><td>When you want to pick the replacement yourself rather than let the SMS chain run</td></tr>
+        <tr><td><strong>Replace</strong></td><td>Opens the replacement panel showing tiered candidates with Select buttons</td><td>When you want to pick the replacement yourself rather than let the SMS chain run</td></tr>
         <tr><td><strong>Close</strong></td><td>Deselects the cell without making any changes</td><td>When you clicked the wrong cell</td></tr>
       </tbody>
     </table>
   </div>
 
   <h2 class="section-title" id="d-replace">Manual Replacement</h2>
-  <p>When you click <strong>Replace</strong>, a panel appears showing all available volunteers for that role and date, sorted by priority tier. Each volunteer shows their availability status and how recently they've been rostered.</p>
+  <p>When you click <strong>Replace</strong>, the replacement panel appears below the action bar showing all available volunteers for that role and date, sorted by priority tier. Each volunteer shows their availability status and how recently they've been rostered.</p>
 
   <figure>
-    <img src="board-replace-dropdown.png" alt="Replacement panel showing available volunteers tiered by priority with Select buttons" class="screenshot">
-    <figcaption>The replacement panel — volunteers are listed by priority tier. Tier 1 shows available volunteers with the role as their primary. Click Select next to any volunteer to assign them immediately.</figcaption>
+    <img src="board-replace-dropdown.png" alt="Replacement panel showing tiered volunteer candidates with Select buttons" class="screenshot">
+    <figcaption>The replacement panel — volunteers are grouped by tier. Click Select next to any volunteer to assign them immediately. The original volunteer is released and the new one is notified automatically.</figcaption>
   </figure>
 
   <div class="callout callout-tip">
@@ -1447,6 +1493,19 @@ The Intelligent Matching Engine</h3>
   <div class="callout callout-info">
     <span class="callout-icon">📬</span>
     <strong>The replacement volunteer is notified automatically.</strong> Once you click Select, Rostas sends them an SMS and email with their assignment details. You don't need to contact them separately.
+  </div>
+
+  <h2 class="section-title" id="d-two-roles">Assigning a Second Role on the Same Date</h2>
+  <p>Occasionally a volunteer may need to cover two roles on the same date — for example, stepping in for a missing team member while also serving in their usual role. Rostas supports this but flags it clearly so you're making a deliberate choice rather than an accidental double-booking.</p>
+
+  <div class="step-box">
+    <div class="step-label">How to assign a second role</div>
+    <p>On the Volunteer detail page, navigate to the date in question. An amber collapsible section labelled <strong>Second role — already rostered today</strong> appears. Expand it to assign the additional role. The frequency cap counts this date only once regardless of how many roles are assigned on it.</p>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    Use this sparingly. Volunteers serving in multiple roles in one service can feel stretched. Always confirm with the volunteer before assigning a second role.
   </div>
 
   <h2 class="section-title" id="d-sms-chain">The SMS Replacement Chain</h2>
@@ -1460,11 +1519,21 @@ The Intelligent Matching Engine</h3>
       <tbody>
         <tr><td>Rostas identifies the next eligible volunteer and sends them an SMS</td><td>Immediately (within quiet hours)</td></tr>
         <tr><td>If they accept — slot is filled, original volunteer released</td><td>As soon as they reply</td></tr>
-        <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal) or 15 min (urgent, within 24hrs of service)</td></tr>
+        <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal) or 30 min (urgent, within 24hrs of service)</td></tr>
         <tr><td>If no one accepts — coordinator receives an escalation SMS</td><td>After list is exhausted</td></tr>
       </tbody>
     </table>
   </div>
+
+  <figure>
+    <img src="comms-replacement-sms-3.png" alt="Replacement request SMS and confirmation SMS shown in sequence" class="screenshot-mid">
+    <figcaption>The replacement chain in action — the request SMS (left) includes a short link. Once the volunteer accepts, a confirmation SMS is sent immediately (right).</figcaption>
+  </figure>
+
+  <figure>
+    <img src="comms-replacement-sms-2.png" alt="Volunteer decline page showing Yes find replacement and Actually I can make it buttons" class="screenshot-mid">
+    <figcaption>The volunteer-facing decline page — when a volunteer taps "Can't make it", they see this page with two clear options. If they changed their mind they can immediately reinstate themselves.</figcaption>
+  </figure>
 
   <div class="callout callout-info">
     <span class="callout-icon">🌙</span>
@@ -1472,7 +1541,7 @@ The Intelligent Matching Engine</h3>
   </div>
 
   <h2 class="section-title" id="d-search">Searching for a Volunteer</h2>
-  <p>Use the search field at the top right of the board to find a specific volunteer. As you type, their assignments are highlighted across the entire board — making it easy to see all their upcoming dates at once. The frequency bar shows how many times they've been rostered in the current period relative to their cap.</p>
+  <p>Use the search field at the top right of the board to find a specific volunteer. As you type, their assignments are highlighted across the entire board — making it easy to see all their upcoming dates at once. Use the ◀ ▶ arrows to step through volunteers alphabetically. The Frequency panel shows how often the current volunteer is rostered and when they last served.</p>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
@@ -1489,7 +1558,7 @@ The Intelligent Matching Engine</h3>
   <p>The Volunteers section is where you manage everyone who serves in your organisation. Access it by clicking <strong>Volunteers</strong> in the sidebar. From here you can view all volunteers, add new ones, edit details, and manage per-roster settings like role preferences, frequency caps, and availability.</p>
 
   <h2 class="section-title" id="e-list">The Volunteers List</h2>
-  <p>The volunteers list shows every volunteer in the system — their name, roster types, phone number, and email at a glance. Use the search bar to find someone quickly, or filter by Active, Inactive, or All.</p>
+  <p>The volunteers list shows every volunteer in the system — their name, roster types, phone number, and email at a glance. Use the search bar to find someone quickly, or filter by Active, Inactive, or All using the chips below the search bar.</p>
 
   <figure>
     <img src="vol-list.png" alt="The Volunteers list showing a table of volunteers with name, roster types, phone and email columns" class="screenshot">
@@ -1532,8 +1601,8 @@ The Intelligent Matching Engine</h3>
   <p>If you have a spreadsheet of volunteers, use the CSV Import Wizard to bring them in all at once. Click <strong>Import CSV</strong> in the top right of the Volunteers list.</p>
 
   <figure>
-    <img src="vol-add-csv-2.png" alt="CSV import wizard showing column mapping step" class="screenshot">
-    <figcaption>The CSV Import Wizard — map your spreadsheet columns to the right Rostas fields. Phone numbers are automatically normalised to international format during import.</figcaption>
+    <img src="vol-add-csv-2.png" alt="CSV import Step 2 — Match columns screen showing 6 of 16 columns matched with Confident badges" class="screenshot">
+    <figcaption>The CSV column mapping step — Rostas automatically matches columns it recognises with a "Confident" badge. Review the remaining columns and map them manually before importing.</figcaption>
   </figure>
 
   <div class="step-box">
@@ -1550,8 +1619,8 @@ The Intelligent Matching Engine</h3>
   <p>Click any volunteer in the list to open their detail page. This is where you manage everything about that volunteer — their contact details, which rosters they're in, role preferences, frequency caps, availability, and notes.</p>
 
   <figure>
-    <img src="vol-detail-sunday.png" alt="Volunteer detail page showing left panel with contact info and toggles, right panel with roster settings" class="screenshot">
-    <figcaption>The Volunteer detail page — contact details and toggles on the left, roster-specific settings on the right. Use the roster type tabs to switch between rosters the volunteer serves in.</figcaption>
+    <img src="vol-detail-sunday.png" alt="Volunteer detail page showing left panel with contact info and roster tabs, right panel with roster settings" class="screenshot">
+    <figcaption>The Volunteer detail page — contact details and roster type tabs on the left, roster-specific settings on the right. Use the roster type tabs to switch between rosters the volunteer serves in.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="e-detail-contact">Contact Details and Toggles</h3>
@@ -1574,8 +1643,8 @@ The Intelligent Matching Engine</h3>
   <p>The right panel shows settings for the currently selected roster type. Use the roster type tabs at the top of the left panel to switch between rosters if the volunteer serves in more than one.</p>
 
   <figure>
-    <img src="vol-detail-sunday-2.png" alt="Volunteer detail right panel showing roles, frequency, buddy and availability sections" class="screenshot">
-    <figcaption>The right panel — roles, frequency cap, buddy/household settings, and availability tiles for the selected roster type. Scroll down to see all sections.</figcaption>
+    <img src="vol-detail-music.png" alt="Volunteer detail right panel showing Music tab with roles, frequency, buddy and relational rostering panels" class="screenshot">
+    <figcaption>The right panel for the Music roster — roles with legend pills showing Primary/Fillable/Not for me, frequency cap, buddy preference, and household rostering settings. Each roster type has its own independent settings.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
@@ -1598,7 +1667,7 @@ The Intelligent Matching Engine</h3>
   <p>If a volunteer starts serving in an additional roster type, click the inactive roster tab on their detail page. A confirmation dialog appears — confirm to add them to that roster. Their settings for the new roster start fresh and can be configured from the right panel.</p>
 
   <figure>
-    <img src="vol-detail-add-roster.png" alt="Add to roster confirmation dialog showing roster name and confirm button" class="screenshot">
+    <img src="vol-detail-add-roster.png" alt="Add to roster confirmation dialog showing roster name and Confirm and Cancel buttons" class="screenshot">
     <figcaption>Clicking an inactive roster tab shows a confirmation before adding the volunteer. Once confirmed they appear in that roster's volunteer pool at the next build.</figcaption>
   </figure>
 
@@ -1623,6 +1692,11 @@ The Intelligent Matching Engine</h3>
     <figcaption>The volunteer roster view — shows upcoming assignments in a clean mobile-friendly layout. Volunteers access this via the link in their notification email.</figcaption>
   </figure>
 
+  <figure>
+    <img src="comms-roster-view.png" alt="Roster notification email showing volunteer assignments with Confirm and Can't make it buttons" class="screenshot">
+    <figcaption>The roster notification email — every rostered volunteer receives a personalised email with their assignments. The "Can't make it?" button at the bottom starts the replacement chain if tapped.</figcaption>
+  </figure>
+
   <div class="callout callout-info">
     <span class="callout-icon">📱</span>
     <strong>All volunteer pages are mobile-optimised.</strong> Most volunteers will open them on their phone directly from an email or SMS. No app installation, no account creation — just a tap.
@@ -1645,16 +1719,17 @@ The Intelligent Matching Engine</h3>
   <p>The <strong>search bar</strong> (top right, "Search settings…") filters the left panel live as you type. It searches across setting names and descriptions simultaneously — so typing "SMS" shows not just the SMS category but any setting whose description mentions SMS, across all categories. Non-matching rows disappear; categories with no matches collapse. Clear the search to restore the full list.</p>
 
   <figure>
-    <img src="Settings-View- With-System-Status-Pill.png" alt="Settings view showing the chip strip navigation across the top with category pills" class="screenshot">
-    <figcaption>The chip strip across the top of Settings — click any category pill to jump straight to that section. The gold Communications chip opens the message preview.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="settings-panel-standard.png" alt="Settings view showing two-column layout with left panel settings list and right panel editor" class="screenshot">
-    <figcaption>The Settings view — categories and settings in the left panel, the selected setting's detail and edit field in the right panel.</figcaption>
+    <img src="Settings-View- With-System-Status-Pill.png" alt="Settings view showing the chip strip navigation across the top with category pills and System Status" class="screenshot">
+    <figcaption>The chip strip across the top of Settings — click any category pill to jump straight to that section. The gold Communications chip opens the message preview. The System Status panel is visible at the top of the left panel.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="f-layout">The two-column layout</h3>
+
+  <figure>
+    <img src="settings-main.png" alt="Settings view scrolled showing two-column layout with settings list left and edit panel right" class="screenshot">
+    <figcaption>The two-column layout — categories and settings in the scrollable left panel, the selected setting's detail and edit field in the sticky right panel.</figcaption>
+  </figure>
+
   <ul>
     <li><strong>Left panel</strong> — the scrollable list of all settings, grouped by category. Each row shows the setting name, a one-line description, and its current value on the right. Click any row to open it for editing.</li>
     <li><strong>Right panel</strong> — appears when you click a row. Shows the full description, an example value, the input field, and Save/Cancel buttons. The panel stays fixed while you scroll the left panel, so you can read and compare other settings without losing your place.</li>
@@ -1662,6 +1737,12 @@ The Intelligent Matching Engine</h3>
   <p>To close the right panel without saving, click Cancel or click a different row.</p>
 
   <h3 class="sub-title" id="f-editing">Editing a setting</h3>
+
+  <figure>
+    <img src="settings-panel-standard.png" alt="Settings right panel showing Organisation name field with description, example and input" class="screenshot">
+    <figcaption>The right panel — key name at top, friendly label, full description, example value, and the input field. Validation runs as you type. The Save button stays disabled until the value is valid.</figcaption>
+  </figure>
+
   <ol>
     <li>Click the row in the left panel. The right panel opens showing the setting name, description, and current value pre-filled in the input.</li>
     <li>Make your change. The input type matches the setting — dropdowns for timezone and country code, toggles for on/off settings, text fields for everything else.</li>
@@ -1671,11 +1752,11 @@ The Intelligent Matching Engine</h3>
 
   <h2 class="section-title" id="f-system-status">Using System Status</h2>
   <p>The System Status card and the settings list below it are designed to work together. The card tells you what's wrong; the settings list is where you fix it.</p>
-  <p>Treat System Status as your starting point every time you open the Settings page. Before searching for a specific setting or making a planned change, glance at the Warnings column first. If it shows green — "All systems go" — you can proceed with whatever you came to do. If it shows amber or red, deal with those first, because some warnings mean volunteers aren't receiving messages right now.</p>
+  <p>Treat System Status as your starting point every time you open the Settings page. Before searching for a specific setting or making a planned change, glance at the Warnings column first. If it shows green — "All systems go" — you can proceed. If it shows amber or red, deal with those first, because some warnings mean volunteers aren't receiving messages right now.</p>
 
   <figure>
-    <img src="Settings-System-Status.png" alt="System Status card showing SMS and test mode warning indicators" class="screenshot">
-    <figcaption>The System Status card — shows a red indicator when SMS is disabled and an amber indicator when test mode is on. Check this card if messages aren't being sent.</figcaption>
+    <img src="Settings-System-Status.png" alt="System Status panel showing Warnings, Roster Health and Counts columns in horizontal layout" class="screenshot">
+    <figcaption>The System Status panel — three columns showing current warnings, roster health indicators, and message counts. Check this panel if volunteers aren't receiving messages or something seems off.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="f-status-fix">Following a warning to its fix</h3>
@@ -1699,23 +1780,15 @@ The Intelligent Matching Engine</h3>
   <p>The typical workflow is: see the warning → type the keyword into the search bar → click the matching row → fix it in the right panel → save. The whole thing takes under a minute once you know the pattern.</p>
 
   <h3 class="sub-title" id="f-status-refresh">After making a change, check the card again</h3>
-  <p>The System Status card doesn't update automatically when you save a setting — it loaded when you opened Settings and reflects that moment in time. After fixing a warning, click <strong>Refresh</strong> in the System Status card header to reload it and confirm the warning has cleared. This is especially important for the SMS disabled and test mode warnings, where it's easy to accidentally save the wrong value.</p>
+  <p>The System Status card doesn't update automatically when you save a setting — it loaded when you opened Settings and reflects that moment in time. After fixing a warning, click <strong>Refresh</strong> in the System Status card header to reload it and confirm the warning has cleared.</p>
 
   <h3 class="sub-title" id="f-status-rhythm">Understanding your roster's rhythm</h3>
   <p>Once warnings are clear, the lower sections of the card give you a different kind of visibility — not problems to fix, but patterns to understand.</p>
   <ul>
-    <li><strong>Activity sparkline</strong> — tells you whether Rostas is actually doing things day-to-day. A healthy system shows green bars most days. If you see a flat line of zero bars across the past week, it may mean the daily triggers have stopped running — cross-check with Roster Health to see if the maintenance and calendar rebuild timestamps are recent.</li>
-    <li><strong>Communications Sent chart</strong> — shows whether emails and SMS are actually going out. If you sent availability emails three days ago but the chart shows zero emails on that date, something suppressed them — check whether email test mode was on at the time (Quick Controls → Email test mode).</li>
-    <li><strong>Replacement Outcomes bar</strong> — useful after your first few roster cycles. A high timeout rate (amber) often means your replacement timers are too short for how quickly your volunteers respond, or that quiet hours are eating into available sending time. You can adjust both under SMS → Replacement timer settings and SMS quiet hours.</li>
-    <li><strong>Communication Failures table</strong> — the most direct diagnostic tool. If a volunteer tells you they never received a replacement SMS, open Settings, refresh System Status, and scroll to this table. If you see an ERROR entry for <code>sendSMS_Twilio_</code> on the date in question, the message was attempted but failed — the error message will tell you why (wrong credentials, Twilio account issue, etc.). If you see nothing for that date at all, the message may have been suppressed before it even reached the sending step — check SMS enabled, test mode, and quiet hours for that time window.</li>
-  </ul>
-
-  <h3 class="sub-title" id="f-status-loop">The feedback loop in practice</h3>
-  <p>Think of it as three layers working together:</p>
-  <ul>
-    <li><strong>System Status card</strong> — shows you what the system did, and what's misconfigured</li>
-    <li><strong>Settings left panel</strong> — lets you find and understand the relevant setting</li>
-    <li><strong>Settings right panel</strong> — lets you read the full description, see the example, and make the change safely</li>
+    <li><strong>Activity sparkline</strong> — tells you whether Rostas is actually doing things day-to-day. A healthy system shows green bars most days. A flat line across the past week may mean the daily triggers have stopped running.</li>
+    <li><strong>Communications Sent chart</strong> — shows whether emails and SMS are actually going out. If you sent availability emails three days ago but the chart shows zero emails on that date, check whether email test mode was on at the time.</li>
+    <li><strong>Replacement Outcomes bar</strong> — useful after your first few roster cycles. A high timeout rate often means your replacement timers are too short for how quickly your volunteers respond, or that quiet hours are eating into available sending time.</li>
+    <li><strong>Communication Failures table</strong> — the most direct diagnostic tool. If a volunteer tells you they never received a replacement SMS, check this table for an ERROR entry on the date in question. If you see nothing at all for that date, the message may have been suppressed before sending — check SMS enabled, test mode, and quiet hours.</li>
   </ul>
 
   <div class="callout callout-tip">
@@ -1729,9 +1802,9 @@ The Intelligent Matching Engine</h3>
     <li><strong>Coordinator Contacts</strong> — your name, email, and mobile, plus per-roster coordinator contacts for Sunday, Music, Nourish, and any other roster types you've added. The per-roster contacts receive escalation alerts when a replacement chain is exhausted with no one found.</li>
     <li><strong>SMS</strong> — the SMS kill switch, test mode toggle, quiet hours, replacement timers, and Twilio credentials. See <a href="#f-sms-templates">SMS settings in detail</a> below.</li>
     <li><strong>Message Wording</strong> — every SMS template and email text block that Rostas sends to volunteers. SMS templates show a live character counter and required placeholder checker. See <a href="#f-wording">Message wording</a> below.</li>
-    <li><strong>Timing &amp; Behaviour</strong> — how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing, and public holiday region.</li>
+    <li><strong>Timing &amp; Behaviour</strong> — how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
     <li><strong>Quick Controls</strong> — per-roster active toggles and email test mode. Useful for temporarily hiding a roster from the Build wizard without deleting it, or for switching email test mode on and off quickly.</li>
-    <li><strong>Advanced</strong> — settings that affect system internals (web app URL, roster type list, Infoodle credentials). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
+    <li><strong>Advanced</strong> — settings that affect system internals (web app URL, roster type list, Twilio credentials). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
   </ul>
 
   <h2 class="section-title" id="f-sms-templates">SMS Settings in Detail</h2>
@@ -1761,8 +1834,8 @@ The Intelligent Matching Engine</h3>
   <p>Every SMS template has three protections built in to prevent accidental breakage.</p>
 
   <figure>
-    <img src="settings-panel-sms.png" alt="Settings panel showing SMS template field with character counter and required placeholders list" class="screenshot">
-    <figcaption>SMS template fields show a live character counter, required placeholder list, and a preview button. The Save button is disabled if the message exceeds 160 characters or is missing a required placeholder.</figcaption>
+    <img src="settings-panel-sms.png" alt="Settings panel showing SMS template field with 105/160 character counter, required placeholders and Preview SMS button" class="screenshot">
+    <figcaption>SMS template fields show a live character counter (105/160 in this example), the required placeholder list, and a Preview SMS button. The Save button is disabled if the message exceeds 160 characters or is missing a required placeholder.</figcaption>
   </figure>
 
   <ul>
@@ -1771,7 +1844,7 @@ The Intelligent Matching Engine</h3>
     <li><strong>Preview SMS</strong> — click this button to see the template rendered with realistic sample values substituted in ([Name] → Sarah, [Role] → Welcome Team, [Date] → today's date, [Link] → a sample short URL). This shows you exactly what a volunteer will read, at the correct character count. It does not send a real SMS.</li>
   </ul>
 
-  <div class="callout">
+  <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
     All placeholder names use square brackets: [Name], [Role], [Date], [Link], [OrgName], [Deadline]. Never use curly braces — {name} will not be substituted.
   </div>
@@ -1798,6 +1871,11 @@ The Intelligent Matching Engine</h3>
   <h2 class="section-title" id="f-quick-controls">Quick Controls</h2>
   <p>Quick Controls contains the most commonly needed on/off switches. Check these if something isn't behaving as expected.</p>
 
+  <figure>
+    <img src="settings-panel-standard-3.png" alt="Settings right panel showing a toggle field for SMS enabled" class="screenshot">
+    <figcaption>Toggle fields in the right panel — a single switch with immediate visual feedback. The current state is always visible in the left panel list before you even click the row.</figcaption>
+  </figure>
+
   <div class="tbl-wrap">
     <table>
       <thead>
@@ -1819,11 +1897,11 @@ The Intelligent Matching Engine</h3>
 
   <h2 class="section-title" id="f-advanced">Advanced Settings</h2>
   <p>The Advanced section is collapsed by default and greyed out. It contains settings that the system needs to function but that coordinators rarely need to touch. Changing them incorrectly can cause roster builds to fail or SMS links to break.</p>
-  <p>To edit an advanced setting: click the row, read the amber warning in the right panel, then click <strong>Unlock</strong> to edit. The field becomes editable. Save as normal.</p>
+  <p>To edit an advanced setting: click the row, read the amber warning in the right panel, then click <strong>Unlock to edit</strong>. The field becomes editable. Save as normal.</p>
 
   <figure>
-    <img src="settings-advanced.png" alt="Settings advanced section showing locked settings with warning banner" class="screenshot">
-    <figcaption>Advanced settings are collapsed by default and shown with a lock icon. Click "Unlock to edit" in the right panel to make changes — only do this if you're confident about what you're changing.</figcaption>
+    <img src="settings-advanced.png" alt="Settings advanced section expanded showing locked settings with lock icons on each row" class="screenshot">
+    <figcaption>Advanced settings are collapsed by default and each row shows a lock icon. Click "Unlock to edit" in the right panel to make changes — only do this if you're confident about what you're changing.</figcaption>
   </figure>
 
   <p>The most common reason a coordinator needs the Advanced section is after redeploying Rostas — the <strong>Web app URL</strong> must be updated to match the new deployment URL. If short links in SMS stop working after a redeployment, this is almost always the cause.</p>
@@ -1834,12 +1912,37 @@ The Intelligent Matching Engine</h3>
   </div>
 
   <h2 class="section-title" id="f-checklist">Setup Checklist</h2>
-  <p>After the initial setup wizard completes, a checklist card appears at the top of the Settings view. It shows which setup tasks are done and which still need attention. Click any incomplete item to jump straight to that setting.</p>
+  <p>After the initial setup wizard completes, a checklist card appears at the top of the Settings view. It shows which setup tasks are done and which still need attention before going live. The checklist covers ten items — click any incomplete item to jump straight to the relevant setting.</p>
 
   <figure>
-    <img src="settings-checklist.png" alt="Settings view showing setup checklist card with completed and incomplete items" class="screenshot">
-    <figcaption>The setup checklist — ticked items are confirmed complete, open circles need attention. Click any item to open the relevant setting. Dismiss the checklist once everything is done.</figcaption>
+    <img src="settings-checklist.png" alt="Settings setup checklist card showing ticked and unticked items across ten setup tasks" class="screenshot">
+    <figcaption>The setup checklist — ticked items are confirmed complete by reading the current Config values, open circles need attention. Click any item to open the relevant setting. Dismiss the checklist once all ten items are ticked.</figcaption>
   </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Checklist item</th><th>What it checks</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Organisation name set</td><td><code>ORGANISATION_NAME</code> is not blank</td></tr>
+        <tr><td>Coordinator contact set</td><td><code>COORDINATOR_NAME</code>, <code>ORG_EMAIL</code>, <code>COORDINATOR_PHONE</code> are present</td></tr>
+        <tr><td>SMS verified</td><td>Twilio credentials configured and SMS enabled</td></tr>
+        <tr><td>Logo added</td><td><code>VOLUNTEER_LOGO_URL</code> is set</td></tr>
+        <tr><td>Coordinator contacts per roster type</td><td>At least one per-roster coordinator key is set</td></tr>
+        <tr><td>SMS test mode off</td><td><code>SMS_TEST_MODE</code> is not true</td></tr>
+        <tr><td>Email test mode off</td><td><code>EMAIL_TEST_MODE</code> is not true</td></tr>
+        <tr><td>Web app URL configured</td><td><code>WEBAPP_URL</code> is not blank</td></tr>
+        <tr><td>Public holidays fetched</td><td><code>PUBLIC_HOLIDAYS_LAST_FETCHED</code> is present</td></tr>
+        <tr><td>First season confirmed</td><td>At least one roster type has a confirmed season</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>The checklist stays visible until you dismiss it.</strong> Once all ten items are ticked, click Dismiss to clear it. It won't appear again. If you dismiss it with items still incomplete, you can still fix them through the normal settings list — the checklist is a guide, not a gate.
+  </div>
 
   <h2 class="section-title" id="f-troubleshooting">Troubleshooting</h2>
   <p>Most issues in Rostas fall into a small number of categories. Work through this list before contacting tech support.</p>
@@ -1851,6 +1954,7 @@ The Intelligent Matching Engine</h3>
     <li>Check the volunteer's SMS toggle is On in their detail page</li>
     <li>Check quiet hours — SMS won't send between 9pm and 8am</li>
     <li>Check the volunteer's mobile number is in correct international format (+64...)</li>
+    <li>Check the System Status communication failures table for error messages on the relevant date</li>
   </ul>
 
   <h3 class="sub-title" id="f-no-email">Volunteers aren't receiving emails</h3>
@@ -1864,7 +1968,7 @@ The Intelligent Matching Engine</h3>
   <h3 class="sub-title" id="f-unfilled">Roster has unfilled slots after building</h3>
   <ul>
     <li>Check that enough volunteers have responded to the availability email</li>
-    <li>Check that volunteers have role preferences set — without preferences set, the engine can't assign them</li>
+    <li>Check that volunteers have role preferences set — without preferences set, the engine can't assign them to specific roles</li>
     <li>Check frequency caps — volunteers who've hit their monthly cap won't be assigned further</li>
     <li>Consider rebuilding after more availability responses come in</li>
     <li>Use manual replacement on the Board to fill remaining slots</li>
@@ -1881,7 +1985,7 @@ The Intelligent Matching Engine</h3>
   <h3 class="sub-title" id="f-contact">When to contact tech support</h3>
   <p>Contact your tech support person if:</p>
   <ul>
-    <li>SMS messages are failing with error messages in the system</li>
+    <li>SMS messages are failing with error messages in the System Status communication failures table</li>
     <li>The web app URL has changed and volunteer links are broken</li>
     <li>You need to change Twilio or other API credentials</li>
     <li>Something is producing repeated errors that don't resolve on their own</li>
@@ -1891,7 +1995,7 @@ The Intelligent Matching Engine</h3>
 
   <div class="callout callout-info">
     <span class="callout-icon">📞</span>
-    <strong>When contacting tech support</strong>, include a description of what you were doing, what you expected to happen, and what actually happened. A screenshot of any error message is very helpful.
+    <strong>When contacting tech support</strong>, include a description of what you were doing, what you expected to happen, and what actually happened. A screenshot of any error message or the System Status panel is very helpful.
   </div>
 
   <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">
@@ -2106,11 +2210,9 @@ The Intelligent Matching Engine</h3>
     try {
       window.close();
     } catch(e) {}
-    // If window.close() was blocked, show fallback message after 300ms
     setTimeout(function() {
       var btn = document.getElementById('return-btn');
       var fallback = document.getElementById('return-fallback');
-      // If we're still here, close was blocked
       if (fallback) fallback.style.display = 'block';
       if (btn) btn.style.borderColor = 'var(--amber)';
     }, 300);

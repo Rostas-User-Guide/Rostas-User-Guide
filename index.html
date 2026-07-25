@@ -913,10 +913,24 @@
     <strong>Quiet hours are always respected.</strong> Rostas never sends automated SMS between 9pm and 8am. If the replacement chain is running overnight, it pauses and resumes in the morning automatically.
   </div>
 
+<p>When Rostas needs a reply by text — a replacement request, a manual-roster heads-up, or a cross-roster ask — the message contains a <strong>4-digit code</strong>, not a link. New Zealand mobile networks silently filter many texts that contain web links, so a tappable link in an SMS can't be relied on to arrive. On SMS a short code does double duty: it survives carrier filtering <em>and</em> it's far shorter than a link, keeping each message inside the single-text limit so your church isn't charged for two.</p>
+
+  <p>The volunteer opens <strong>rostas.app/enter</strong> and types the 4-digit code from their text. The code is single-use and expires after a short window, so it can't be reused or forwarded. Once entered, they land on the same accept / decline page they'd have reached from a link.</p>
+
   <figure>
     <img src="comms-replacement-sms.png" alt="Example replacement SMS as received on a volunteer's phone" class="screenshot-mid">
-    <figcaption>What a replacement request looks like on a volunteer's phone — a clear message with a short link to accept or decline.</figcaption>
+    <figcaption>What a replacement request looks like on a volunteer's phone — a clear message with a 4-digit code to enter at rostas.app/enter. There's no link in the text: NZ networks filter many link-bearing SMS, and a code keeps the message short and reliable.</figcaption>
   </figure>
+
+  <figure>
+    <img src="comms-enter-code.png" alt="The rostas.app/enter page showing four code-entry boxes and a Continue button" class="screenshot-mid">
+    <figcaption>The rostas.app/enter page — the volunteer types the 4-digit code from their text and taps Continue, reaching the same accept / decline page a link would have opened.</figcaption>
+  </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">📧</span>
+    <strong>Email is unchanged.</strong> Email notifications aren't filtered and aren't charged per character, so they still contain ordinary tappable links — only SMS moved to codes. Because the email carries the link and explains the entry page, it's how most volunteers first learn where rostas.app/enter is. They can bookmark it, and your church can link to it from your website behind the Rostas logo so it's always one tap away.
+  </div>
 
   <h3 class="sub-title" id="a-volunteers">Looking After Your Volunteers</h3>
   <p>Rostas is designed with your volunteers in mind, not just your roster.</p>
@@ -946,7 +960,7 @@
       </thead>
       <tbody>
         <tr><td><strong>You — the coordinator</strong></td><td>Run the 6-step wizard each cycle, review the built roster, handle exceptions, manage volunteers and settings</td></tr>
-        <tr><td><strong>Your volunteers</strong></td><td>Respond to availability emails, set role preferences once, accept or decline replacement requests by tapping a link</td></tr>
+        <tr><td><strong>Your volunteers</strong></td><td>Respond to availability emails, set role preferences once, accept or decline replacement requests by entering a short code or tapping a link</td></tr>
         <tr><td><strong>Rostas</strong></td><td>Everything in between — building the roster, sending notifications, chasing replacements, sending reminders, enforcing frequency caps</td></tr>
       </tbody>
     </table>
@@ -1561,9 +1575,11 @@
     </table>
   </div>
 
+  <p>The request text carries a <strong>4-digit code</strong> rather than a link — NZ networks filter many link-bearing texts, and a code is shorter and cheaper to send. The volunteer enters it at <strong>rostas.app/enter</strong> to reach the accept / decline page. See Part A for the full explanation of code entry.</p>
+
   <figure>
     <img src="comms-replacement-sms-3.png" alt="Replacement request SMS and confirmation SMS shown in sequence" class="screenshot-mid">
-    <figcaption>The replacement chain in action — the request SMS (left) includes a short link. Once the volunteer accepts, a confirmation SMS is sent immediately (right).</figcaption>
+    <figcaption>The replacement chain in action — the request SMS (left) carries a 4-digit code the volunteer enters at rostas.app/enter. Once they accept, a confirmation SMS is sent immediately (right).</figcaption>
   </figure>
 
   <figure>
@@ -1875,14 +1891,14 @@
   </figure>
 
   <ul>
-    <li><strong>Character counter</strong> — SMS messages over 160 characters are split into two by carriers and charged as two texts. The counter below the textarea turns amber at 140 characters and red at 161+. The Save button is disabled when the count is red.</li>
-    <li><strong>Required placeholders</strong> — each template has a set of placeholders that must be present for it to work correctly. For example, the replacement request SMS must include [Link] — without it, volunteers have no way to respond. Missing placeholders are shown in red below the textarea. Save is blocked until all required placeholders are present.</li>
-    <li><strong>Preview SMS</strong> — click this button to see the template rendered with realistic sample values substituted in ([Name] → Sarah, [Role] → Welcome Team, [Date] → today's date, [Link] → a sample short URL). This shows you exactly what a volunteer will read, at the correct character count. It does not send a real SMS.</li>
+    <li><strong>Character counter</strong> — SMS messages over 160 characters are split into two by carriers and charged as two texts. The counter below the textarea turns amber at 140 characters and red at 161+. The Save button is disabled when the count is red. The SMS templates are deliberately terse for this reason — when you edit one, the counter is protecting your church's SMS costs, not just formatting.</li>
+    <li><strong>Required placeholders</strong> — — each template has a set of placeholders that must be present for it to work correctly. For example, the replacement request SMS must include [Code] — without it, the volunteer has no code to enter. (The equivalent email templates require [Link] instead.) Missing placeholders are shown in red below the textarea. Save is blocked until all required placeholders are present.</li>
+    <li><strong>Preview SMS</strong> — click this button to see the template rendered with realistic sample values substituted in ([Name] → Sarah, [Role] → Welcome Team, [Date] → today's date, [Code] → a sample 4-digit code such as 4821). This shows you exactly what a volunteer will read, at the correct character count. It does not send a real SMS.</li>
   </ul>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
-    All placeholder names use square brackets: [Name], [Role], [Date], [Link], [OrgName], [Deadline]. Never use curly braces — {name} will not be substituted.
+    All placeholder names use square brackets: [Name], [Role], [Date], [Link], [Code], [OrgName], [Deadline]. Never use curly braces — {name} will not be substituted.
   </div>
 
   <h3 class="sub-title" id="f-placeholders">Template Placeholders</h3>
@@ -1897,7 +1913,8 @@
         <tr><td><code>[Name]</code></td><td>The volunteer's first name</td></tr>
         <tr><td><code>[Role]</code></td><td>The role they've been assigned to</td></tr>
         <tr><td><code>[Date]</code></td><td>The date of the service</td></tr>
-        <tr><td><code>[Link]</code></td><td>A personalised link to accept or decline</td></tr>
+        <tr><td><code>[Link]</code></td><td>A personalised link to accept or decline. <strong>Email templates only</strong> — SMS templates use <code>[Code]</code> instead</td></tr>
+        <tr><td><code>[Code]</code></td><td>A single-use 4-digit code the volunteer types at rostas.app/enter. <strong>SMS templates only</strong></td></tr>
         <tr><td><code>[Deadline]</code></td><td>The time by which they need to respond</td></tr>
         <tr><td><code>[OrgName]</code></td><td>Your organisation name from Settings</td></tr>
       </tbody>

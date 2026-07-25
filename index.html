@@ -717,6 +717,7 @@
     <a class="toc-item toc-h1" href="#f-system-status">Using System Status</a>
     <a class="toc-item toc-h1" href="#f-categories">Settings Categories</a>
     <a class="toc-item toc-h1" href="#f-sms-templates">SMS Settings</a>
+    <a class="toc-item toc-h1" href="#f-credits">SMS Credits</a>
     <a class="toc-item toc-h1" href="#f-quick-controls">Quick Controls</a>
     <a class="toc-item toc-h1" href="#f-advanced">Advanced Settings</a>
     <a class="toc-item toc-h1" href="#f-checklist">Setup Checklist</a>
@@ -1080,7 +1081,12 @@
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>If the test message doesn't arrive</strong> within a minute, check that your mobile number includes the country code and is entered correctly. You can edit the number in the field and try again. If it still fails, contact your tech support person — the SMS connection may need to be configured.
+    <strong>If the test message doesn't arrive</strong> within a minute, check that your mobile number includes the country code and is entered correctly. You can edit the number in the field and try again. If it still fails, email support@rostas.app — SMS sending is set up by Rostas, not something you configure yourself.
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>If SMS isn't set up on your copy yet</strong>, Step 3 shows a "SMS isn't set up yet" screen instead of the test send, with a link to support@rostas.app and a <strong>Continue without SMS</strong> button. You can finish setup and start using Rostas by email — replacement requests and reminders begin working once SMS is switched on. For most churches SMS is already configured before you receive your copy, so you'll see the test-send screen above.
   </div>
 
   <h3 class="sub-title" id="b-step4">Step 4 — Done</h3>
@@ -1823,7 +1829,7 @@
         <tr><td>SMS is disabled</td><td><code>SMS enabled</code></td><td>SMS → SMS enabled → turn on</td></tr>
         <tr><td>SMS test mode is ON</td><td><code>test mode</code></td><td>SMS → SMS test mode → turn off</td></tr>
         <tr><td>Email test mode is ON</td><td><code>test mode</code></td><td>Quick Controls → Email test mode → turn off</td></tr>
-        <tr><td>Twilio credentials not configured</td><td><code>Twilio</code></td><td>SMS → Account SID / Auth Token / From number</td></tr>
+        <tr><td>SMS is not set up yet</td><td><span class="dash">—</span></td><td>Contact support@rostas.app — this one can't be fixed from Settings, as SMS sending is provisioned by Rostas</td></tr>
         <tr><td>Web app URL not set</td><td><code>web app</code></td><td>Advanced → Web app URL</td></tr>
       </tbody>
     </table>
@@ -1852,11 +1858,11 @@
   <ul>
     <li><strong>Organisation</strong> — your organisation's name, tagline, timezone, country calling code, contact email, website, and volunteer-facing logo. The organisation name is the most important field: it appears in every SMS and email sent to volunteers as [OrgName]. Get this right first.</li>
     <li><strong>Coordinator Contacts</strong> — your name, email, and mobile, plus per-roster coordinator contacts for Sunday, Music, Nourish, and any other roster types you've added. The per-roster contacts receive escalation alerts when a replacement chain is exhausted with no one found.</li>
-    <li><strong>SMS</strong> — the SMS kill switch, test mode toggle, quiet hours, replacement timers, and Twilio credentials. See <a href="#f-sms-templates">SMS settings in detail</a> below.</li>
+    <li><strong>SMS</strong> — the SMS kill switch, test mode toggle, quiet hours, and replacement timers. See <a href="#f-sms-templates">SMS settings in detail</a> below.</li>
     <li><strong>Message Wording</strong> — every SMS template and email text block that Rostas sends to volunteers. SMS templates show a live character counter and required placeholder checker. See <a href="#f-wording">Message wording</a> below.</li>
     <li><strong>Timing &amp; Behaviour</strong> — how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
     <li><strong>Quick Controls</strong> — per-roster active toggles and email test mode. Useful for temporarily hiding a roster from the Build wizard without deleting it, or for switching email test mode on and off quickly.</li>
-    <li><strong>Advanced</strong> — settings that affect system internals (web app URL, roster type list, Twilio credentials). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
+    <li><strong>Advanced</strong> — settings that affect system internals (web app URL, roster type list, AWS SMS keys). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
   </ul>
 
   <h2 class="section-title" id="f-sms-templates">SMS Settings in Detail</h2>
@@ -1921,6 +1927,38 @@
     </table>
   </div>
 
+  <h2 class="section-title" id="f-credits">SMS Credits</h2>
+  <p>Sending SMS costs money — unlike email, every text has a real per-message cost from the mobile networks. Rostas covers this with a simple prepaid credit system: <strong>one credit sends one text.</strong> Credits are used for reminders, replacement requests, and availability nudges, and they never expire — you top up whenever your balance runs low.</p>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">🎁</span>
+    <strong>During the beta, SMS credits are free.</strong> Rostas covers the SMS costs for pilot churches, so there's nothing to buy and no balance to manage yet. This section explains how credits will work once billing goes live, so there are no surprises.
+  </div>
+
+  <figure>
+    <img src="buy-credits.png" alt="The Buy SMS Credits page showing four packs — 250, 500, 750 and 1,000 texts" class="screenshot">
+    <figcaption>The Buy SMS Credits page — four prepaid packs. The large number is how many texts the pack buys; the price is below it. Credits never expire.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Pack</th><th>Texts</th><th>Roughly lasts</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>NZ$50</td><td>250 texts</td><td>A couple of months for a typical church</td></tr>
+        <tr><td>NZ$100</td><td>500 texts</td><td>Around four to six months</td></tr>
+        <tr><td>NZ$150</td><td>750 texts</td><td>Most of a year</td></tr>
+        <tr><td>NZ$200</td><td>1,000 texts</td><td>About a year</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">💡</span>
+    <strong>Keeping SMS costs down.</strong> Reminders are the biggest driver of SMS use — one text per rostered volunteer before every service. If you'd like to stretch your credits further, email reminders cost nothing, and you can rely on SMS mainly for the time-sensitive replacement chain. Your Rostas contact can help you tune this.
+  </div>
+
   <h2 class="section-title" id="f-quick-controls">Quick Controls</h2>
   <p>Quick Controls contains the most commonly needed on/off switches. Check these if something isn't behaving as expected.</p>
 
@@ -1980,7 +2018,7 @@
       <tbody>
         <tr><td>Organisation name set</td><td><code>ORGANISATION_NAME</code> is not blank</td></tr>
         <tr><td>Coordinator contact set</td><td><code>COORDINATOR_NAME</code>, <code>ORG_EMAIL</code>, <code>COORDINATOR_PHONE</code> are present</td></tr>
-        <tr><td>SMS verified</td><td>Twilio credentials configured and SMS enabled</td></tr>
+        <tr><td>SMS verified</td><td>SMS sending is provisioned and <code>SMS_ENABLED</code> is on</td></tr>
         <tr><td>Logo added</td><td><code>VOLUNTEER_LOGO_URL</code> is set</td></tr>
         <tr><td>Coordinator contacts per roster type</td><td>At least one per-roster coordinator key is set</td></tr>
         <tr><td>SMS test mode off</td><td><code>SMS_TEST_MODE</code> is not true</td></tr>

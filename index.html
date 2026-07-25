@@ -1841,13 +1841,12 @@
   <p>The System Status card doesn't update automatically when you save a setting — it loaded when you opened Settings and reflects that moment in time. After fixing a warning, click <strong>Refresh</strong> in the System Status card header to reload it and confirm the warning has cleared.</p>
 
   <h3 class="sub-title" id="f-status-rhythm">Understanding your roster's rhythm</h3>
-  <p>Once warnings are clear, the lower sections of the card give you a different kind of visibility — not problems to fix, but patterns to understand.</p>
+  <p>Once warnings are clear, the lower sections of the card give you a different kind of visibility — not problems to fix, but patterns to understand. Two of them are worth checking regularly.</p>
   <ul>
-    <li><strong>Activity sparkline</strong> — tells you whether Rostas is actually doing things day-to-day. A healthy system shows green bars most days. A flat line across the past week may mean the daily triggers have stopped running.</li>
-    <li><strong>Communications Sent chart</strong> — shows whether emails and SMS are actually going out. If you sent availability emails three days ago but the chart shows zero emails on that date, check whether email test mode was on at the time.</li>
-    <li><strong>Replacement Outcomes bar</strong> — useful after your first few roster cycles. A high timeout rate often means your replacement timers are too short for how quickly your volunteers respond, or that quiet hours are eating into available sending time.</li>
-    <li><strong>Communication Failures table</strong> — the most direct diagnostic tool. If a volunteer tells you they never received a replacement SMS, check this table for an ERROR entry on the date in question. If you see nothing at all for that date, the message may have been suppressed before sending — check SMS enabled, test mode, and quiet hours.</li>
+    <li><strong>Recent Activity</strong> — a running list of the last twenty things Rostas did, newest first, across every level (routine actions, warnings, and errors). This is your first-stop diagnostic: if a volunteer says they didn't get a message, or you're not sure whether a job ran, this list shows what actually happened and when. A steady stream of recent entries means Rostas is ticking over normally; a list whose newest entry is days old may mean the daily triggers have stopped running.</li>
+    <li><strong>Communication Failures</strong> — the most direct troubleshooting tool, shown in the Warnings column. When all is well it reads "No comms failures"; otherwise it lists recent send errors and warnings. If a volunteer tells you they never received a replacement SMS, check here for an entry on the date in question. If you see nothing at all for that date, the message may have been suppressed before sending — check SMS enabled, test mode, and quiet hours.</li>
   </ul>
+  <p>The card also shows activity and communications counts over the past seven days, plus replacement outcomes once you've run a few cycles. A high replacement-timeout rate can mean your replacement timers are too short for how quickly your volunteers reply, or that quiet hours are limiting the available sending window.</p>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>

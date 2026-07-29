@@ -678,7 +678,7 @@
       <button class="toc-toggle" data-target="children-c-rebuild" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-c-rebuild">
-      <a class="toc-item toc-h2" href="#c-rebuild-step1">Step 1 — Refresh &amp; Sync</a>
+      <a class="toc-item toc-h2" href="#c-rebuild-step1">Step 1 — Confirm Dates &amp; Roles</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step2">Step 2 — Role Preferences</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step3">Step 3 — Availability</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step4">Step 4 — Build Roster</a>
@@ -803,7 +803,7 @@
         <tr><th>Step</th><th>Name</th><th>What happens</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>1</strong></td><td><strong>Refresh &amp; Sync</strong></td><td>Rostas refreshes your seasons calendar, overlays public and school holidays, and confirms your volunteer list is up to date.</td></tr>
+        <tr><td><strong>1</strong></td><td><strong>Confirm Dates &amp; Roles</strong></td><td>Rostas refreshes your seasons calendar, overlays public and school holidays, and confirms your volunteer list is up to date.</td></tr>
         <tr><td><strong>2</strong></td><td><strong>Role Prefs</strong></td><td>Volunteers set which roles they're willing to perform — Primary, Fillable, or Not for me. Set once, remembered for every future build.</td></tr>
         <tr><td><strong>3</strong></td><td><strong>Availability</strong></td><td>Rostas emails volunteers asking which upcoming dates they're available. Volunteers tap a link — no login, no app to download.</td></tr>
         <tr><td><strong>4</strong></td><td><strong>Build Roster</strong></td><td>The engine automatically fills every slot using a four-tier priority system. The build takes about 30 seconds.</td></tr>
@@ -1112,8 +1112,8 @@
         <tr><th>Method</th><th>Best for</th><th>Where to find it</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>CSV Import</strong></td><td>Most organisations — import from a spreadsheet you already have</td><td>Volunteers → Import CSV</td></tr>
-        <tr><td><strong>Add manually</strong></td><td>Small teams or adding individuals one at a time</td><td>Volunteers → Add Volunteer</td></tr>
+        <tr><td><strong>CSV Import</strong></td><td>Most organisations — import from a spreadsheet you already have</td><td>Profiles → Import Volunteer CSV</td></tr>
+        <tr><td><strong>Add manually</strong></td><td>Small teams or adding individuals one at a time</td><td>Profiles → Add Volunteer</td></tr>
       </tbody>
     </table>
   </div>
@@ -1123,7 +1123,7 @@
 
   <div class="step-box">
     <div class="step-label">To import volunteers from a spreadsheet</div>
-    <p>Go to <strong>Volunteers</strong> in the sidebar, then click <strong>Import CSV</strong>. The wizard walks you through uploading your file, mapping columns, and reviewing the results before importing. Phone numbers are automatically normalised to the correct international format for SMS delivery.</p>
+    <p>Go to <strong>Profiles</strong> in the sidebar, then click <strong>Import Volunteer CSV</strong>. The wizard walks you through uploading your file, mapping columns, and reviewing the results before importing. Phone numbers are automatically normalised to the correct international format for SMS delivery.</p>
   </div>
 
   <div class="callout callout-tip">
@@ -1132,7 +1132,7 @@
   </div>
 
   <h3 class="sub-title" id="b-add-manual">Adding Volunteers Manually</h3>
-  <p>To add a single volunteer, go to <strong>Volunteers</strong> in the sidebar and click <strong>Add Volunteer</strong>. Fill in their name, mobile, and email, then save. They'll appear in the volunteers list immediately and can be included in your next roster build.</p>
+  <p>To add a single volunteer, go to <strong>Profiles</strong> in the sidebar and click <strong>Add Volunteer</strong>. Fill in their name, mobile, and email, then save. They'll appear in the volunteers list immediately and can be included in your next roster build.</p>
 
   <h2 class="section-title" id="b-whats-next">What's Next</h2>
   <p>Once your volunteers are in, you're ready to build your first roster. Head to <strong>Part C — The Roster Cycle</strong> which walks you through the six-step wizard from start to finish.</p>
@@ -1162,7 +1162,7 @@
 
   <!-- ══ BUILD DASHBOARD ══ -->
   <h2 class="section-title" id="c-dashboard">The Build Dashboard</h2>
-  <p>The Build Dashboard is your home base for all roster activity. Open it by clicking <strong>Build</strong> in the sidebar. It shows every active roster type with its current status and coverage bar at a glance.</p>
+  <p>The Build Dashboard is your home base for all roster activity. Open it by clicking <strong>Builds</strong> in the sidebar. It shows every active roster type with its current status and coverage bar at a glance.</p>
 
   <figure>
     <img src="build-dashboard.png" alt="The Build Dashboard showing roster cards for Sunday, Music and Lock Up with coverage bars" class="screenshot">
@@ -1239,7 +1239,7 @@
       <tbody>
         <tr><td><strong>Start date</strong></td><td>The first date this roster will run</td></tr>
         <tr><td><strong>End date</strong></td><td>The last date of this season — typically end of term, semester, or year</td></tr>
-        <tr><td><strong>Frequency</strong></td><td>Weekly or Fortnightly</td></tr>
+        <tr><td><strong>Frequency</strong></td><td>Daily, Weekly, Fortnightly, 1st and 3rd, 2nd and 4th, or Monthly</td></tr>
         <tr><td><strong>Day of week</strong></td><td>Which day the roster runs — e.g. Sunday, Monday</td></tr>
         <tr><td><strong>Pause school holidays</strong></td><td>Tick if this roster doesn't run during school holidays</td></tr>
         <tr><td><strong>Pause public holidays</strong></td><td>Tick if this roster doesn't run on public holidays</td></tr>
@@ -1316,6 +1316,7 @@
         <tr><th>Option</th><th>When to use it</th></tr>
       </thead>
       <tbody>
+        <tr><td><strong>Daily</strong></td><td>Roster runs every day it applies — e.g. a hospital-visit or meals roster</td></tr>
         <tr><td><strong>Weekly</strong></td><td>Roster runs every week — e.g. Sunday service</td></tr>
         <tr><td><strong>Fortnightly</strong></td><td>Roster runs every two weeks</td></tr>
         <tr><td><strong>1st and 3rd</strong></td><td>Roster runs on the 1st and 3rd occurrence of the day in each month</td></tr>
@@ -1364,8 +1365,8 @@
     <figcaption>When a build is in progress, the dashboard card shows an amber border and a resume banner at the top of the page. Click the card to pick up where you left off.</figcaption>
   </figure>
 
-  <h3 class="sub-title" id="c-rebuild-step1">Step 1 — Refresh &amp; Sync</h3>
-  <p>The first step refreshes your seasons calendar — overlaying public and school holidays — and confirms your volunteer list is current. This takes about 30 seconds and happens automatically when you start.</p>
+  <h3 class="sub-title" id="c-rebuild-step1">Step 1 — Confirm Dates &amp; Roles</h3>
+  <p>The first step confirms the dates and roles for this build, and refreshes your seasons calendar — overlaying public and school holidays — so everything is correct before availability goes out. This takes about 30 seconds.</p>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
@@ -1484,7 +1485,7 @@
     <span class="part-sub">Day-to-day management · Replacements · Manual swaps</span>
   </div>
 
-  <p>The Roster Board is where you manage the roster between builds. You'll come here to check on replacement progress, make manual swaps, confirm pending assignments, or search for a specific volunteer. Access it by clicking <strong>View</strong> in the sidebar.</p>
+  <p>The Roster Board is where you manage the roster between builds. You'll come here to check on replacement progress, make manual swaps, confirm pending assignments, or search for a specific volunteer. Access it by clicking <strong>Boards</strong> in the sidebar.</p>
 
   <h2 class="section-title" id="d-reading">Reading the Board</h2>
   <p>The Board shows every roster date as a row, with roles as columns. Each cell shows the assigned volunteer's name and date. Colour coding tells you the status of each assignment at a glance.</p>
@@ -1528,6 +1529,7 @@
         <tr><td><strong>Save as filled</strong></td><td>Confirms the assignment — changes cell to green</td><td>When a pending volunteer has confirmed verbally or you want to lock in an assignment</td></tr>
         <tr><td><strong>Save as declined</strong></td><td>Marks the volunteer as declined and starts the automated SMS replacement chain</td><td>When a volunteer tells you they can't make it and you want Rostas to find a replacement automatically</td></tr>
         <tr><td><strong>Replace</strong></td><td>Opens the replacement panel showing tiered candidates with Select buttons</td><td>When you want to pick the replacement yourself rather than let the SMS chain run</td></tr>
+        <tr><td><strong>Swap with…</strong></td><td>Swaps this assignment with another volunteer's slot — both move at once. Rostas flags any clashes as amber warnings, but they're advisory: you can always proceed.</td><td>When two rostered volunteers want to trade dates</td></tr>
         <tr><td><strong>Close</strong></td><td>Deselects the cell without making any changes</td><td>When you clicked the wrong cell</td></tr>
       </tbody>
     </table>
@@ -1613,7 +1615,7 @@
     <span class="part-sub">Volunteers list · Adding · Editing · Volunteer detail</span>
   </div>
 
-  <p>The Volunteers section is where you manage everyone who serves in your organisation. Access it by clicking <strong>Volunteers</strong> in the sidebar. From here you can view all volunteers, add new ones, edit details, and manage per-roster settings like role preferences, frequency caps, and availability.</p>
+  <p>The Volunteers section is where you manage everyone who serves in your organisation. Access it by clicking <strong>Profiles</strong> in the sidebar. From here you can view all volunteers, add new ones, edit details, and manage per-roster settings like role preferences, frequency caps, and availability.</p>
 
   <h2 class="section-title" id="e-list">The Volunteers List</h2>
   <p>The volunteers list shows every volunteer in the system — their name, roster types, phone number, and email at a glance. Use the search bar to find someone quickly, or filter by Active, Inactive, or All using the chips below the search bar.</p>

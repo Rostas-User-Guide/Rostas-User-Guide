@@ -674,12 +674,12 @@
       <a class="toc-item toc-h2" href="#c-frequency-cap">Volunteer frequency cap</a>
     </div>
     <div class="toc-parent" id="parent-c-rebuild">
-      <a class="toc-parent-link" href="#c-rebuild">Rebuild Wizard</a>
+      <a class="toc-parent-link" href="#c-rebuild">Roster Wizard</a>
       <button class="toc-toggle" data-target="children-c-rebuild" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-c-rebuild">
       <a class="toc-item toc-h2" href="#c-rebuild-step1">Step 1 — Confirm Dates &amp; Roles</a>
-      <a class="toc-item toc-h2" href="#c-rebuild-step2">Step 2 — Role Preferences</a>
+      <a class="toc-item toc-h2" href="#c-rebuild-step2">Step 2 — Role Prefs</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step3">Step 3 — Availability</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step4">Step 4 — Build Roster</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step5">Step 5 — Check Roster</a>
@@ -790,11 +790,11 @@
   </div>
 
   <h2 class="section-title" id="a-how-it-works">How Rostas Works — The Big Picture</h2>
-  <p>Rostas works in a rhythm that repeats every few weeks. The six-step Rebuild Wizard guides you through each stage in order:</p>
+  <p>Rostas works in a rhythm that repeats every few weeks. The six-step Roster Wizard guides you through each stage in order:</p>
 
   <figure>
     <img src="Rostas_Intelligent_Roster_Assistant-6.png" alt="The Roster Lifecycle — six steps from Refresh and Sync through to Notify" class="screenshot">
-    <figcaption>The six-step roster lifecycle. The Rebuild Wizard guides you through each step — each stage is triggered by a single button.</figcaption>
+    <figcaption>The six-step roster lifecycle. The Roster Wizard guides you through each step — each stage is triggered by a single button.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
@@ -1153,10 +1153,10 @@
   <div class="part-banner" id="part-c">
     <span class="part-label">Part C</span>
     <span class="part-title">The Roster Cycle</span>
-    <span class="part-sub">New Roster Wizard · Managing Roles · Frequency · Rebuild Wizard</span>
+    <span class="part-sub">New Roster Wizard · Managing Roles · Frequency · Roster Wizard</span>
   </div>
 
-  <p>There are two roster wizards in Rostas. The <strong>New Roster Wizard</strong> runs once when you set up a new roster type — it defines the name, roles, season dates, and volunteers. The <strong>Rebuild Wizard</strong> runs every few weeks to collect availability, build the roster, and send notifications to volunteers.</p>
+  <p>There are two roster wizards in Rostas. The <strong>New Roster Wizard</strong> runs once when you set up a new roster type — it defines the name, roles, season dates, and volunteers. The <strong>Roster Wizard</strong> runs every few weeks to collect availability, build the roster, and send notifications to volunteers.</p>
 
   <p>Both start from the <strong>Build Dashboard</strong>.</p>
 
@@ -1240,7 +1240,7 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
-    <strong>You only run the New Roster Wizard once per roster type.</strong> After setup is complete, all future roster builds use the Rebuild Wizard instead.
+    <strong>You only run the New Roster Wizard once per roster type.</strong> After setup is complete, all future roster builds use the Roster Wizard instead.
   </div>
 
   <h3 class="sub-title" id="c-new-step1">Step 1 — Name &amp; Icon</h3>
@@ -1309,7 +1309,7 @@
     <figcaption>Step 5 — review your roster setup before confirming. You can go back to any previous step to make changes. Once confirmed, the roster appears on the Build Dashboard.</figcaption>
   </figure>
 
-  <p>Click <strong>Confirm &amp; Create Roster</strong> to finish. Your new roster type appears on the Build Dashboard immediately. You're now ready to run your first Rebuild Wizard for this roster.</p>
+  <p>Click <strong>Confirm &amp; Create Roster</strong> to finish. Your new roster type appears on the Build Dashboard immediately. You're now ready to run your first Roster Wizard for this roster.</p>
 
   <!-- ══ MANAGE ROLES ══ -->
   <h2 class="section-title" id="c-manage-roles">Managing Roles</h2>
@@ -1401,38 +1401,48 @@
   </div>
 
   <!-- ══ REBUILD WIZARD ══ -->
-  <h2 class="section-title" id="c-rebuild">The Rebuild Wizard</h2>
-  <p>The Rebuild Wizard is the recurring roster cycle you run every few weeks. It collects availability from volunteers, builds the roster automatically, lets you review it, and sends notifications — all in six guided steps.</p>
+  <h2 class="section-title" id="c-rebuild">The Roster Wizard</h2>
+  <p>The Roster Wizard is the recurring roster cycle you run every few weeks. Each roster type has its own — the page is headed "[Your roster] Roster Wizard" — and it takes you through the same six named steps every time: Confirm Dates &amp; Roles, Role Prefs, Availability, Build Roster, Check Roster, and Notify. A progress rail across the top shows where you are, marking each step Completed, Skipped, In progress, or still to come.</p>
 
-  <p>To start, click any roster card on the Build Dashboard. If a build is already in progress, you'll be taken straight to where you left off.</p>
+  <p>To start, open the <strong>Builds</strong> dashboard and click a roster's state button. If a build is already in progress, you're taken straight back to the step you left off at.</p>
 
   <figure>
-    <img src="build-dashboard-inprogress.png" alt="Build Dashboard showing a roster with an in-progress amber card and resume banner" class="screenshot">
-    <figcaption>When a build is in progress, the dashboard card shows an amber border and a resume banner at the top of the page. Click the card to pick up where you left off.</figcaption>
+    <img src="build-dashboard-inprogress.png" alt="A roster on the Builds dashboard mid-cycle, with a resume banner across the top of the page" class="screenshot">
+    <figcaption>When a build is in progress, the roster's state button shows where it's up to and a resume banner appears at the top of the page. Click the state button to pick up where you left off.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="c-rebuild-step1">Step 1 — Confirm Dates &amp; Roles</h3>
-  <p>The first step confirms the dates and roles for this build, and refreshes your seasons calendar — overlaying public and school holidays — so everything is correct before availability goes out. This takes about 30 seconds.</p>
+  <p>This first step is where you confirm two things for the build: which <strong>dates</strong> it covers, and which <strong>roles</strong> (and how many people per role) are in play. Behind the scenes it also refreshes your seasons calendar and overlays public and school holidays, so the dates are correct before availability goes out.</p>
+
+  <figure>
+    <img src="roster-wizard-step1-confirm-dates-roles.png" alt="Roster Wizard Step 1 — Confirm Dates and Roles, showing the date bands and the roles-for-this-build panel" class="screenshot">
+    <figcaption>Step 1 — Confirm Dates &amp; Roles. The date bands show which dates are in this build; below them, a "Roles for this Build" panel lets you set the headcount and turn roles on or off for this build.</figcaption>
+  </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>"Refresh &amp; Sync" is an action within this step, not a step of its own.</strong> You may see a Refresh &amp; Sync button here — it re-pulls the calendar and holidays. It's part of confirming your dates, which is why the step is named Confirm Dates &amp; Roles.
+  </div>
+
+  <h3 class="sub-title" id="c-rebuild-step2">Step 2 — Role Prefs</h3>
+  <p>This step lets volunteers update their role preferences — which roles they're willing to perform. You can send a role-preference email to all volunteers, or skip the step entirely.</p>
+
+  <figure>
+    <img src="roster-wizard-step2-role-prefs.png" alt="Roster Wizard Step 2 — Role Prefs, with Send emails and Skip Role Preferences options" class="screenshot">
+    <figcaption>Step 2 — Role Prefs. Send emails so volunteers can set their own preferences, or use "Skip Role Preferences" if you manage them yourself.</figcaption>
+  </figure>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>Always run this step</strong> at the start of each new cycle. It ensures your dates are correct before availability emails go out.
-  </div>
-
-  <h3 class="sub-title" id="c-rebuild-step2">Step 2 — Role Preferences</h3>
-  <p>This step gives volunteers the opportunity to update their role preferences — which roles they're willing to perform. You can either send a role preference email to all volunteers, or skip this step if preferences are already up to date.</p>
-
-  <div class="step-box">
-    <div class="step-label">When to send role preference emails</div>
-    <p>Send them at the start of a new season, when new volunteers have joined, or when you know someone's availability for certain roles has changed. For a routine rebuild mid-season, it's usually safe to skip this step.</p>
+    <strong>This step is commonly skipped.</strong> Many coordinators set each volunteer's roles directly on the Profile page ahead of time, which makes this step unnecessary for that build — the rail simply marks it "Skipped" and you move on. Send the emails at the start of a new season or when new volunteers join; skip it for a routine mid-cycle build.
   </div>
 
   <h3 class="sub-title" id="c-rebuild-step3">Step 3 — Availability</h3>
   <p>Rostas emails all active volunteers asking which upcoming dates they're available. Each volunteer receives a personalised link — no login required. They tap their dates, mark any they can't make, and save.</p>
 
   <figure>
-    <img src="wizard-step3-availability.png" alt="Wizard Step 3 — Send Availability Emails button and current response stats" class="screenshot">
-    <figcaption>Step 3 — click "Send Availability Emails" to notify all active volunteers. The panel updates with response stats as volunteers reply over the following days.</figcaption>
+    <img src="roster-wizard-step3-availability.png" alt="Roster Wizard Step 3 — Send Availability button and response stats" class="screenshot">
+    <figcaption>Step 3 — send the availability request, then watch the response stats update as volunteers reply over the following days.</figcaption>
   </figure>
 
   <div class="callout callout-tip">
@@ -1441,7 +1451,12 @@
   </div>
 
   <h3 class="sub-title" id="c-rebuild-step4">Step 4 — Build Roster</h3>
-  <p>With one click, the roster engine analyses every volunteer — their availability, role preferences, how recently they've served, and their monthly frequency cap — and fills every slot automatically. The build takes about 30 seconds for most rosters.</p>
+  <p>With one click, the roster engine analyses every volunteer — their availability, role preferences, how recently they've served, and their frequency cap — and fills every slot automatically. The build takes about 30 seconds for most rosters.</p>
+
+  <figure>
+    <img src="roster-wizard-step4-build-roster.png" alt="Roster Wizard Step 4 — Build Roster" class="screenshot">
+    <figcaption>Step 4 — one click builds the whole roster. The engine works through every slot using the four-tier priority system.</figcaption>
+  </figure>
 
   <div class="callout callout-info">
     <span class="callout-icon">⚙️</span>
@@ -1449,21 +1464,16 @@
   </div>
 
   <h3 class="sub-title" id="c-rebuild-step5">Step 5 — Check Roster</h3>
-  <p>Before anything is sent to volunteers, you review what Rostas has built. Clicking <strong>Open Roster Board</strong> opens the Board in review mode — you can see every assignment, make any manual changes needed, and then return to the wizard. The Communications Preview tab lets you see exactly what each volunteer will receive before you send.</p>
+  <p>Before anything is sent to volunteers, you review what Rostas has built. Clicking <strong>Open Roster Board</strong> opens the board in review mode — you can see every assignment, make any manual changes, and return to the wizard. A Communications Preview lets you see exactly what each volunteer will receive before you send.</p>
 
   <figure>
-    <img src="wizard-step5-check.png" alt="Wizard Step 5 — Check Roster showing Open Roster Board and Reviewed ready to notify buttons" class="screenshot">
-    <figcaption>Step 5 — open the Roster Board to review assignments, or use the Communications Preview to check exactly what volunteers will receive. When you're satisfied, click "Reviewed — ready to notify" to proceed.</figcaption>
+    <img src="roster-wizard-step5-check-roster.png" alt="Roster Wizard Step 5 — Check Roster, with Open Roster Board and ready-to-notify options" class="screenshot">
+    <figcaption>Step 5 — open the board to review assignments, or use the Communications Preview to check what volunteers will receive. When you're happy, mark it reviewed to proceed.</figcaption>
   </figure>
 
   <figure>
-    <img src="wizard-board-check.png" alt="Board open from wizard — cell selected with action bar showing Save as filled, Save as declined, Replace and Close" class="screenshot">
-    <figcaption>The Roster Board in review mode — click any cell to select it and access the action bar. Make any swaps needed, then return to the wizard when you're satisfied with the roster.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="wizard-step4-communications.png" alt="Communications Preview showing availability email for Music roster" class="screenshot">
-    <figcaption>The Communications Preview — see exactly what each volunteer will receive. Check wording, names, roles, and dates before sending notifications.</figcaption>
+    <img src="board-overview-2.png" alt="The Roster Board opened in review mode from within the wizard" class="screenshot">
+    <figcaption>The board in review mode, opened from the wizard — click any cell to make a change, then return to the wizard when the roster looks right.</figcaption>
   </figure>
 
   <div class="tl-grid">
@@ -1490,8 +1500,8 @@
   <p>Once you're satisfied with the roster, click <strong>Send Notifications Now</strong>. Every rostered volunteer receives a personalised email with their assignments and a "Can't make it?" link.</p>
 
   <figure>
-    <img src="wizard-step6-done.png" alt="Rebuild Wizard Step 6 — all steps complete with green ticks and Start Next Cycle button" class="screenshot">
-    <figcaption>Step 6 complete — all six steps show green ticks. Notifications have been sent and automatic reminders are queued. Click "Start Next Cycle" when you're ready to begin the next build.</figcaption>
+    <img src="roster-wizard-step6-notify.png" alt="Roster Wizard Step 6 — Notify, all steps complete with a Start Next Cycle option" class="screenshot">
+    <figcaption>Step 6 — Notify. With notifications sent, all six steps show complete on the rail and automatic reminders are queued. Start the next cycle whenever you're ready.</figcaption>
   </figure>
 
   <div class="callout callout-info">
@@ -1786,7 +1796,7 @@
         <tr><th>Page</th><th>When it's sent</th><th>What volunteers do</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Availability form</strong></td><td>When you run Step 3 of the Rebuild Wizard</td><td>Mark which dates they're available, not sure, or can't make it</td></tr>
+        <tr><td><strong>Availability form</strong></td><td>When you run Step 3 of the Roster Wizard</td><td>Mark which dates they're available, not sure, or can't make it</td></tr>
         <tr><td><strong>Roster notification</strong></td><td>When you send notifications in Step 6</td><td>View their assignments, tap "Can't make it" if needed</td></tr>
         <tr><td><strong>Replacement request</strong></td><td>Automatically during the SMS replacement chain</td><td>Accept or decline a slot via SMS link</td></tr>
       </tbody>

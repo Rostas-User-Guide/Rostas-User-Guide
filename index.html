@@ -1184,53 +1184,131 @@
     <strong>Your CSV needs at minimum:</strong> Full name and mobile number. Email is strongly recommended. If your spreadsheet has a column for roster type or ministry preference, map it during import and volunteers will be automatically assigned to the right rosters.
   </div>
 
-  <h2 class="section-title" id="e-detail">Volunteer Detail Page</h2>
-  <p>Click any volunteer in the list to open their detail page. This is where you manage everything about that volunteer — their contact details, which rosters they're in, role preferences, frequency caps, availability, and notes.</p>
+  <h2 class="section-title" id="e-detail">The Profile Detail Page</h2>
+  <p>Click any volunteer in the list to open their profile. This is where you manage everything about that person — their contact details, which rosters they serve in, the roles they do, how often they serve, who they serve alongside, and their availability. The left panel holds their contact details and a tab per roster type; the right panel holds the settings for whichever roster tab is selected, so each roster a volunteer serves in has its own independent setup.</p>
+
+  <h3 class="sub-title" id="e-detail-contact">Contact details &amp; toggles</h3>
+  <p>The left panel shows the volunteer's name, phone, email, and status, with four toggles that control how Rostas treats them:</p>
 
   <figure>
-    <img src="vol-detail-sunday.png" alt="Volunteer detail page showing left panel with contact info and roster tabs, right panel with roster settings" class="screenshot">
-    <figcaption>The Volunteer detail page — contact details and roster type tabs on the left, roster-specific settings on the right. Use the roster type tabs to switch between rosters the volunteer serves in.</figcaption>
-  </figure>
-
-  <h3 class="sub-title" id="e-detail-contact">Contact Details and Toggles</h3>
-  <p>The left panel shows the volunteer's name, phone, email, and active status. Three toggles control their participation:</p>
-
-  <div class="tbl-wrap">
-    <table>
-      <thead>
-        <tr><th>Toggle</th><th>What it controls</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Active</strong></td><td>Whether this volunteer appears in roster builds. Set to inactive to pause someone without deleting them.</td></tr>
-        <tr><td><strong>Email</strong></td><td>Whether this volunteer receives email notifications from Rostas. Turn off if they've opted out or prefer SMS only.</td></tr>
-        <tr><td><strong>SMS</strong></td><td>Whether this volunteer receives SMS messages. Turn off if they've opted out.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3 class="sub-title" id="e-detail-roster">Roster Settings</h3>
-  <p>The right panel shows settings for the currently selected roster type. Use the roster type tabs at the top of the left panel to switch between rosters if the volunteer serves in more than one.</p>
-
-  <figure>
-    <img src="vol-detail-music.png" alt="Volunteer detail right panel showing Music tab with roles, frequency, buddy and relational rostering panels" class="screenshot">
-    <figcaption>The right panel for the Music roster — roles with legend pills showing Primary/Fillable/Not for me, frequency cap, buddy preference, and household rostering settings. Each roster type has its own independent settings.</figcaption>
+    <img src="vol-detail-always-sms.png" alt="Profile left panel showing the four toggles: Active, Email, SMS and Always text too" class="screenshot">
+    <figcaption>The left panel's toggles. "Always text too" is the newest — it opts a volunteer in to reminder texts even when they'd normally be reached by email.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
     <table>
-      <thead>
-        <tr><th>Section</th><th>What it controls</th></tr>
-      </thead>
+      <thead><tr><th>Toggle</th><th>What it controls</th></tr></thead>
       <tbody>
-        <tr><td><strong>Roles</strong></td><td>Which roles this volunteer can perform in this roster — Primary (they do this regularly), Fillable (they'll cover if needed), or Not for me.</td></tr>
-        <tr><td><strong>Frequency</strong></td><td>Maximum number of times per month this volunteer can be rostered for this roster type. The engine never exceeds this cap.</td></tr>
-        <tr><td><strong>Buddy</strong></td><td>A preferred volunteer to serve alongside. The engine and replacement chain both favour pairing buddies on the same dates.</td></tr>
-        <tr><td><strong>Household</strong></td><td>Family members to be rostered together when possible. Detected automatically or set manually.</td></tr>
-        <tr><td><strong>Availability</strong></td><td>Date tiles showing this volunteer's availability responses for upcoming dates. Green = available, amber = not sure, red = can't make it.</td></tr>
-        <tr><td><strong>Notes</strong></td><td>Free-text notes about this volunteer's preferences or circumstances — visible only to coordinators.</td></tr>
+        <tr><td><strong>Active</strong></td><td>Whether this volunteer appears in roster builds. Turn off to pause someone without deleting them.</td></tr>
+        <tr><td><strong>Email</strong></td><td>Whether they receive email notifications. Turn off if they've opted out or prefer SMS only.</td></tr>
+        <tr><td><strong>SMS</strong></td><td>Whether they receive SMS messages at all. Turn off if they've opted out of texts.</td></tr>
+        <tr><td><strong>Always text too</strong></td><td>Opts this volunteer in to the day-before reminder text even when the reminder mode would otherwise skip them (see Settings — reminder mode). Useful for volunteers who reliably miss email.</td></tr>
       </tbody>
     </table>
   </div>
+
+  <h3 class="sub-title" id="e-detail-roles">Roles — what they do</h3>
+  <p>The Roles section on the right panel is where you set which roles this volunteer performs in this roster. Each role shows as <strong>Does This</strong>, <strong>Fills In</strong>, or <strong>Doesn't Do</strong> — the same distinction the matching engine uses as Primary, Fillable, and not-for-me (see Part A, The Intelligent Matching Engine).</p>
+
+  <figure>
+    <img src="profile-roles-filter.png" alt="Profile Roles section with Does This / Fills In / Doesn't Do options per role" class="screenshot">
+    <figcaption>The Roles section. Set each role to Does This (a primary role they do regularly), Fills In (they'll cover it when needed), or Doesn't Do.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="e-detail-role-linking">Linking roles together</h3>
+  <p>Sometimes two roles should travel together — whoever runs the sound desk also runs the projection, say, or a married couple should always be on setup as a pair. Role linking handles this. Both roles must be set to <strong>Does This</strong> first; then click the link icon (🔗) on a role card to open a dropdown of roles you can link it to, and choose the link type.</p>
+
+  <figure>
+    <img src="profile-role-link-dropdown.png" alt="Dropdown of linkable roles after clicking a role card link icon" class="screenshot-mid">
+    <figcaption>Clicking a role's link icon lists the other roles it can be linked to.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="profile-role-link-type-dialog.png" alt="Dialog to choose Dominant-Shadow or Equal Pairing link type" class="screenshot-mid">
+    <figcaption>After picking a role, choose the link type — Dominant—Shadow or Equal Pairing.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Link type</th><th>How it behaves</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dominant — Shadow</strong></td><td>One-way. When the <em>dominant</em> role is filled by this volunteer, Rostas pulls them into the <em>shadow</em> role on the same date too — but not the other way around. Use it when one role should drag a second along with it.</td></tr>
+        <tr><td><strong>Equal Pairing</strong></td><td>Two-way. The two roles are always scheduled together — the volunteer is placed in both or neither. Use it for roles that genuinely go hand in hand.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Linked roles are ringed on the profile so you can see the relationship at a glance: a <strong>gold ring</strong> marks the dominant role, a <strong>grey ring</strong> its shadow, and a <strong>dark-green ring</strong> an equal pair. On the Board, the matching assignment cards carry the same colours.</p>
+
+  <figure>
+    <img src="board-dominant-shadow-cards.png" alt="Board cards for a linked role pair, with matching ring colours" class="screenshot-mid">
+    <figcaption>On the Board, a linked pair's cards share a colour — so a linked assignment is easy to spot.</figcaption>
+  </figure>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>To change or remove a link</strong>, click the link icon on an already-linked role — the dropdown then shows the linked partner and an option to unlink.
+  </div>
+
+  <h3 class="sub-title" id="e-detail-frequency">Frequency — how often they serve</h3>
+  <p>The Frequency control — labelled <strong>ONCE EVERY</strong> — caps how often this volunteer is rostered in this roster, so nobody is over-used even when they're always available. Tap a pill: <strong>No cap</strong>, or once every <strong>1wk</strong> through <strong>12wk</strong>.</p>
+
+  <figure>
+    <img src="profile-roster-frequency.png" alt="Frequency ONCE EVERY control showing No cap and 1wk to 12wk pills" class="screenshot">
+    <figcaption>The Frequency control. "No cap" lets the engine roster them as often as needed; "4wk" means at most once every four weeks, and so on.</figcaption>
+  </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>The cap counts distinct service dates, not roles.</strong> A volunteer rostered to two roles on the same day counts as one service — so serving twice in one Sunday doesn't use up two of their allocation.
+  </div>
+
+  <h3 class="sub-title" id="e-detail-relational">Relational rostering — serving together</h3>
+  <p>Relational rostering asks Rostas to place people <em>together</em> on the same dates — a <strong>Buddy</strong> they like to serve alongside, or a <strong>Household</strong> so family members share the same rota. Turn on "Serves With" and pick who.</p>
+
+  <figure>
+    <img src="profile-relational-rostering.png" alt="Relational Rostering section with Buddy and Household Serves With toggles" class="screenshot">
+    <figcaption>Relational rostering — Buddy and Household "Serves With" settings, so people who want to serve together are scheduled together.</figcaption>
+  </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Relational rostering is not the same as role linking.</strong> Role linking ties two <em>roles</em> together on one person; relational rostering places two <em>people</em> on the same dates. One is about jobs, the other about company.
+  </div>
+
+  <h3 class="sub-title" id="e-detail-availability">Next roster availability</h3>
+  <p>The availability grid shows this volunteer's responses for the upcoming dates — the same three states they set on their own form:</p>
+
+  <figure>
+    <img src="profile-next-roster-availability.png" alt="Next Roster Availability grid with green, gold and red date tiles and holiday tags" class="screenshot">
+    <figcaption>The Next Roster Availability grid. Holiday dates are tagged automatically so you can see at a glance which dates are affected.</figcaption>
+  </figure>
+
+  <div class="tl-grid">
+    <div class="tl-card tl-green"><div class="tl-label">🟢 Available</div>Free to serve on this date.</div>
+    <div class="tl-card tl-amber"><div class="tl-label">🟡 Unsure</div>Might be available — Rostas may provisionally assign them.</div>
+    <div class="tl-card tl-red"><div class="tl-label">🔴 Not available</div>Can't make it — won't be assigned.</div>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>If the season's dates aren't confirmed yet</strong>, an amber banner appears at the bottom of this section — availability can't be collected until the dates are set. Confirm the season first (Part D) and the grid fills in.
+  </div>
+
+  <figure>
+    <img src="profile-season-dates-unconfirmed-banner.png" alt="Amber banner warning that season dates are not yet confirmed" class="screenshot-mid">
+    <figcaption>The season-dates-unconfirmed banner — a reminder to confirm the season before availability can be gathered.</figcaption>
+  </figure>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Searching across rosters.</strong> The prev/next arrows at the top of the profile step through volunteers. Next to them is a search-scope toggle — switch it on to search across every roster rather than just the current one.
+  </div>
+
+  <figure>
+    <img src="profile-nav-search-scope.png" alt="Profile top bar with prev/next arrows and a cross-roster search scope toggle" class="screenshot">
+    <figcaption>The profile top bar — step between volunteers with the arrows, and widen the search to all rosters with the scope toggle.</figcaption>
+  </figure>
 
   <h3 class="sub-title" id="e-detail-add-roster">Adding a Volunteer to a New Roster</h3>
   <p>If a volunteer starts serving in an additional roster type, click the inactive roster tab on their detail page. A confirmation dialog appears — confirm to add them to that roster. Their settings for the new roster start fresh and can be configured from the right panel.</p>

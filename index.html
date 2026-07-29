@@ -651,17 +651,21 @@
 
     <!-- Part C -->
     <div class="toc-part">Part C — Profiles</div>
-    <a class="toc-item toc-h1" href="#e-list">The Volunteers List</a>
-    <a class="toc-item toc-h1" href="#e-add">Adding a Volunteer</a>
     <a class="toc-item toc-h1" href="#e-import">Importing from CSV</a>
+    <a class="toc-item toc-h1" href="#e-add">Adding manually</a>
+    <a class="toc-item toc-h1" href="#e-list">The volunteers list</a>
     <div class="toc-parent" id="parent-e-detail">
-      <a class="toc-parent-link" href="#e-detail">Volunteer Detail Page</a>
+      <a class="toc-parent-link" href="#e-detail">The Profile detail page</a>
       <button class="toc-toggle" data-target="children-e-detail" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-e-detail">
-      <a class="toc-item toc-h2" href="#e-detail-contact">Contact Details &amp; Toggles</a>
-      <a class="toc-item toc-h2" href="#e-detail-roster">Roster Settings</a>
-      <a class="toc-item toc-h2" href="#e-detail-add-roster">Adding to a New Roster</a>
+      <a class="toc-item toc-h2" href="#e-detail-contact">Contact &amp; toggles</a>
+      <a class="toc-item toc-h2" href="#e-detail-roles">Roles</a>
+      <a class="toc-item toc-h2" href="#e-detail-role-linking">Linking roles</a>
+      <a class="toc-item toc-h2" href="#e-detail-frequency">Frequency</a>
+      <a class="toc-item toc-h2" href="#e-detail-relational">Relational rostering</a>
+      <a class="toc-item toc-h2" href="#e-detail-availability">Next roster availability</a>
+      <a class="toc-item toc-h2" href="#e-detail-add-roster">Adding to a new roster</a>
     </div>
     <a class="toc-item toc-h1" href="#e-volunteer-facing">What Volunteers See</a>
 
@@ -731,6 +735,10 @@
       <a class="toc-item toc-h2" href="#f-replacement-stuck">Replacement chain stuck</a>
       <a class="toc-item toc-h2" href="#f-contact">Contact tech support</a>
     </div>
+
+    <!-- Appendix -->
+    <div class="toc-part">Appendix</div>
+    <a class="toc-item toc-h1" href="#appendix-connectors">Connectors</a>
 
     <div style="padding: 1.2rem 1.2rem 0.5rem; margin-top: 0.5rem; border-top: 1px solid #2e4a6a;">
       <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf"
@@ -1126,62 +1134,66 @@
 
   <p>The Volunteers section is where you manage everyone who serves in your organisation. Access it by clicking <strong>Profiles</strong> in the sidebar. From here you can view all volunteers, add new ones, edit details, and manage per-roster settings like role preferences, frequency caps, and availability.</p>
 
-  <h2 class="section-title" id="e-list">The Volunteers List</h2>
-  <p>The volunteers list shows every volunteer in the system — their name, roster types, phone number, and email at a glance. Use the search bar to find someone quickly, or filter by Active, Inactive, or All using the chips below the search bar.</p>
+  <h2 class="section-title" id="e-import">Importing your volunteers from CSV</h2>
+  <p>The quickest way to get your volunteers into Rostas is to import a spreadsheet — from a previous roster system, a church database, or even a simple contact list. This is how most organisations start. If your volunteers already live in another system, you may be able to sync them automatically instead — see the <a href="#appendix-connectors">Connector Appendix</a>.</p>
+  <p>Open the <strong>Profiles</strong> list and click <strong>Import Volunteer CSV</strong> on the toolbar. The import runs in three steps.</p>
 
   <figure>
-    <img src="vol-list.png" alt="The Volunteers list showing a table of volunteers with name, roster types, phone and email columns" class="screenshot">
-    <figcaption>The Volunteers list — all volunteers in one place. Search by name, email, or phone. Click any row to open that volunteer's detail page.</figcaption>
+    <img src="vol-import-csv-upload.png" alt="CSV import step 1 — choose your spreadsheet file" class="screenshot">
+    <figcaption>Step 1 — choose the spreadsheet file to import.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="vol-import-csv-preview.png" alt="CSV import step 2 — column mapping and preview" class="screenshot">
+    <figcaption>Step 2 — Rostas matches the columns it recognises automatically; review the rest, map any it wasn't sure about, and check the preview before committing.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="vol-import-csv-success.png" alt="CSV import step 3 — success confirmation" class="screenshot">
+    <figcaption>Step 3 — a confirmation of how many volunteers were imported. They appear in the Profiles list straight away.</figcaption>
   </figure>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>Click any row</strong> to open the volunteer's full detail page — where you can edit their information, manage their roster preferences, set frequency caps, and view their availability history.
+    <strong>Your CSV needs at minimum a name and a mobile number.</strong> Email is strongly recommended so volunteers can receive availability requests and notifications. If your spreadsheet has a column for roster type, map it during the import and volunteers are assigned to the right rosters automatically. Phone numbers missing a country code are corrected for you.
   </div>
 
-  <h2 class="section-title" id="e-add">Adding a Volunteer</h2>
-  <p>To add a new volunteer, click <strong>Add Volunteer</strong> in the top right of the Volunteers list. Fill in their details and save — they'll appear in the list immediately and can be included in your next roster build.</p>
+  <h2 class="section-title" id="e-add">Adding a volunteer manually</h2>
+  <p>For one-offs — a single new volunteer between imports — click <strong>Add Volunteer</strong> on the Profiles toolbar. Fill in their details and save; they appear in the list immediately and can be included in your next build.</p>
 
   <figure>
     <img src="vol-add-form.png" alt="Add volunteer form showing name, phone, email and roster type fields" class="screenshot">
-    <figcaption>The Add Volunteer form — enter the volunteer's name, mobile number, email, and which roster types they serve in. Mobile must include the country code.</figcaption>
+    <figcaption>The Add Volunteer form — name, mobile, email, and which roster types they serve in.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
     <table>
-      <thead>
-        <tr><th>Field</th><th>What to enter</th><th>Required?</th></tr>
-      </thead>
+      <thead><tr><th>Field</th><th>What to enter</th><th>Required?</th></tr></thead>
       <tbody>
-        <tr><td><strong>Full name</strong></td><td>Volunteer's full name as you want it to appear in rosters and messages</td><td>Yes</td></tr>
-        <tr><td><strong>Mobile</strong></td><td>Mobile number in full international format — e.g. +6421123456</td><td>Yes (for SMS)</td></tr>
-        <tr><td><strong>Email</strong></td><td>Email address for roster notifications and availability requests</td><td>Yes (for email)</td></tr>
-        <tr><td><strong>Roster types</strong></td><td>Which rosters this volunteer serves in — tick all that apply</td><td>Yes</td></tr>
+        <tr><td><strong>Full name</strong></td><td>As you want it to appear in rosters and messages</td><td>Yes</td></tr>
+        <tr><td><strong>Mobile</strong></td><td>Full international format — e.g. +6421123456</td><td>Yes (for SMS)</td></tr>
+        <tr><td><strong>Email</strong></td><td>For notifications and availability requests</td><td>Yes (for email)</td></tr>
+        <tr><td><strong>Roster types</strong></td><td>Which rosters they serve in — tick all that apply</td><td>Yes</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <strong>Mobile number format matters.</strong> Enter numbers in full international format including country code — e.g. +6421123456, not 021123456. Incorrectly formatted numbers will fail to receive SMS messages silently.
+    <strong>Mobile number format matters.</strong> Enter numbers in full international format including country code — e.g. +6421123456, not 021123456. Incorrectly formatted numbers fail to receive SMS silently.
   </div>
 
-  <h2 class="section-title" id="e-import">Importing Volunteers from CSV</h2>
-  <p>If you have a spreadsheet of volunteers, use the CSV Import Wizard to bring them in all at once. Click <strong>Import CSV</strong> in the top right of the Volunteers list.</p>
+  <h2 class="section-title" id="e-list">The volunteers list</h2>
+  <p>Once your volunteers are in, the Profiles list shows everyone — name, roster types, phone, and email — in one place. Search by name, email, or phone, or filter by Active, Inactive, or All using the chips below the search bar. Click any row to open that volunteer's profile.</p>
 
   <figure>
-    <img src="vol-add-csv-2.png" alt="CSV import Step 2 — Match columns screen showing 6 of 16 columns matched with Confident badges" class="screenshot">
-    <figcaption>The CSV column mapping step — Rostas automatically matches columns it recognises with a "Confident" badge. Review the remaining columns and map them manually before importing.</figcaption>
+    <img src="vol-list.png" alt="The Profiles list showing volunteers with name, roster types, phone and email" class="screenshot">
+    <figcaption>The Profiles list — everyone in one place. The toolbar holds Import Volunteer CSV and Add Volunteer; click any row to open a profile.</figcaption>
   </figure>
-
-  <div class="step-box">
-    <div class="step-label">How to import from CSV</div>
-    <p>Go to <strong>Volunteers → Import CSV</strong>. Upload your spreadsheet file, then map each column to the correct Rostas field (name, mobile, email, roster type). Review the preview, then click Import. Any phone numbers that are missing the country code are automatically corrected during import.</p>
-  </div>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>Your CSV needs at minimum:</strong> Full name and mobile number. Email is strongly recommended. If your spreadsheet has a column for roster type or ministry preference, map it during import and volunteers will be automatically assigned to the right rosters.
+    <strong>Click any row</strong> to open that volunteer's full profile — where you edit their details, set the roles they do, their frequency, who they serve with, and view their availability.
   </div>
 
   <h2 class="section-title" id="e-detail">The Profile Detail Page</h2>
@@ -2190,6 +2202,38 @@
   <div class="callout callout-info">
     <span class="callout-icon">📞</span>
     <strong>When contacting tech support</strong>, include a description of what you were doing, what you expected to happen, and what actually happened. A screenshot of any error message or the System Status panel is very helpful.
+  </div>
+
+  <!-- ══ APPENDIX ══ -->
+  <div class="part-banner" id="appendix-connectors">
+    <span class="part-label">Appendix</span>
+    <span class="part-title">Connectors</span>
+    <span class="part-sub">Syncing volunteers from an existing system</span>
+  </div>
+
+  <p>Most organisations get their volunteers into Rostas by <a href="#e-import">importing a CSV</a> — it works for everyone and needs nothing more than a spreadsheet. But if your church already keeps its people in another system, a <strong>connector</strong> can sync them into Rostas automatically, so you don't maintain two lists by hand.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Connectors sync identity only.</strong> A connector brings across each person's <em>name, mobile, and email</em> — nothing more. Everything about <em>how</em> they serve — which rosters they're in, the roles they do, their frequency, who they serve with — is set up and lives entirely inside Rostas. Your other system stays the source of truth for contact details; Rostas stays the source of truth for rostering.
+  </div>
+
+  <h2 class="section-title" id="appendix-infoodle">Infoodle</h2>
+  <p>Infoodle is the first connector available in Rostas. Once it's connected, new and updated contacts flow in on their own — a volunteer added in Infoodle appears in your Profiles list without a re-import, and a changed phone number or email updates itself.</p>
+
+  <p>When someone is removed in Infoodle, Rostas doesn't delete them out from under you. Instead it flags them with a <strong>"Deleted in Infoodle"</strong> marker in the Profiles list, so you can confirm they should go and remove them here deliberately — protecting you from losing a volunteer's history by accident.</p>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">🔌</span>
+    <strong>Setting up the Infoodle connector is done with Rostas, not self-serve.</strong> The connection uses credentials that are provisioned for your church rather than entered by a coordinator — so if you'd like Infoodle sync switched on, contact <a href="mailto:support@rostas.app">support@rostas.app</a> and it'll be set up for you.
+  </div>
+
+  <h2 class="section-title" id="appendix-more-connectors">Other connectors</h2>
+  <p>Infoodle is the first of a growing family of connectors. Support for other church and volunteer platforms — such as Planning Center and Elvanto — is planned, so more organisations can sync rather than import over time.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Not on the list yet?</strong> These connectors are on the roadmap rather than available today, and CSV import works with every system in the meantime — most spreadsheets and databases can export a CSV. If a connector for your platform would help, let your Rostas contact know; it helps prioritise what's built next.
   </div>
 
   <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">

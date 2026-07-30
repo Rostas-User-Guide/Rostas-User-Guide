@@ -705,7 +705,7 @@
       <a class="toc-item toc-h2" href="#c-rebuild-step5">Step 5 — Check Roster</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step6">Step 6 — Notify</a>
     </div>
-    <a class="toc-item toc-h1" href="#c-season">Confirming a New Season</a>
+    <a class="toc-item toc-h1" href="#c-season">Confirming Build Dates</a>
 
     <!-- Part E -->
     <div class="toc-part">Part E — Using the Board</div>
@@ -1744,22 +1744,51 @@
   </div>
 
   <!-- ══ CONFIRM SEASON ══ -->
-  <h2 class="section-title" id="c-season">Confirming a New Season</h2>
-  <p>When the current season is coming to an end, the Build Dashboard shows a <strong>Season Confirm</strong> button on the relevant roster card. You need to confirm the next season's dates before you can run a new build.</p>
+  <h2 class="section-title" id="c-season">Confirming Build Dates</h2>
+  <p>Before each build you confirm exactly which dates it covers, on the <strong>Confirm Build Dates</strong> screen. It lays out your roster's dates in coloured bands — so you can see what's already been built, what this build will cover, and what's coming after — and lets you drop any individual date you don't want rostered.</p>
+
+  <p>You reach it two ways: as the first step of a build (<a href="#c-rebuild-step1">Confirm Dates &amp; Roles</a>), or on its own from the Builds dashboard — <strong>⋯</strong> — <strong>Manage Dates</strong>.</p>
 
   <figure>
-    <img src="wizard-season-confirm.png" alt="Season confirmation screen showing projected dates and roles list" class="screenshot">
-    <figcaption>The Season Confirm screen — review the proposed dates for the next season alongside the current roles list. Adjust dates if needed, then confirm. Rostas automatically pauses dates that fall on public or school holidays based on your roster settings.</figcaption>
+    <img src="confirm-build-dates.png" alt="The Confirm Build Dates screen showing dates in grey, green and cream bands with some excluded in pink" class="screenshot">
+    <figcaption>The Confirm Build Dates screen — each date is a card, coloured by which band it belongs to.</figcaption>
   </figure>
 
-  <div class="step-box">
-    <div class="step-label">To confirm a new season</div>
-    <p>Click the <strong>Season Confirm</strong> button on the Build Dashboard card. Review the proposed start and end dates, adjust if needed, then click <strong>Confirm Season</strong>. The roster card updates and you can proceed with a new build.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Band</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td><span style="background:#eceff3;border:1px solid #b8c2cf;padding:2px 10px;border-radius:4px;font-size:12px;">Last Build</span></td><td>Dates already built in the previous cycle — shown for reference; you can't change them here.</td></tr>
+        <tr><td><span style="background:#e8f5ee;border:1px solid #2d7a4f;padding:2px 10px;border-radius:4px;font-size:12px;">This Build</span></td><td>The dates this build will cover. These are the ones being confirmed.</td></tr>
+        <tr><td><span style="background:#fdf8ee;border:1px solid #b8932a;padding:2px 10px;border-radius:4px;font-size:12px;">Next Build</span></td><td>Dates coming after this build — a look ahead at what's next.</td></tr>
+        <tr><td><span style="background:#fdecea;border:1px solid #c0392b;padding:2px 10px;border-radius:4px;font-size:12px;">Excluded</span></td><td>A date you've removed from the build — turned pink so it won't be rostered.</td></tr>
+      </tbody>
+    </table>
   </div>
+
+  <div class="step-box">
+    <div class="step-label">Adjusting the dates</div>
+    <p>Click a card to turn it pink and remove it from the build. Click the blue arrows to change the last date built in the cycle — extending or shortening how far ahead this build reaches.</p>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Holidays are tagged automatically.</strong> Dates that fall on a public holiday — Christmas Day, Labour Weekend, Waitangi weekend and the like — are labelled for you, and look distinct from dates you've excluded by hand, so you can tell an automatic holiday from a deliberate choice.
+  </div>
+
+  <figure>
+    <img src="wizard-excluded-dates.png" alt="The same screen with a date excluded in pink and holiday-tagged dates" class="screenshot">
+    <figcaption>Excluding a date — a common example is the Sunday just after Christmas, when most people are away: click it to turn it pink and it drops out of the build.</figcaption>
+  </figure>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>Confirm the season early</strong> — ideally a few weeks before the current season ends, so you have time to collect availability and build the next roster before the first date arrives.
+    <strong>Confirm early.</strong> Ideally do this a few weeks before the dates arrive, so there's time to collect availability and build. A <strong>perpetual</strong> roster rolls forward on its own, so each cycle you're simply confirming the next stretch of dates; a <strong>fixed-term</strong> roster is confirmed up to its end date. (See Frequency &amp; Season Type for the difference.)
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Editing dates on their own is safe.</strong> When you open this screen standalone via Manage Dates, your changes apply from the next build onward — dates already built are never altered.
   </div>
 
   <!-- ══ PART E ══════════════════════════════════════ -->

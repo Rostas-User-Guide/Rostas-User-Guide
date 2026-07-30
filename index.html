@@ -685,11 +685,12 @@
     </div>
     <a class="toc-item toc-h1" href="#c-manage-roles">Managing Roles</a>
     <div class="toc-parent" id="parent-c-frequency">
-      <a class="toc-parent-link" href="#c-frequency">Frequency Settings</a>
+      <a class="toc-parent-link" href="#c-frequency">Frequency &amp; Season Type</a>
       <button class="toc-toggle" data-target="children-c-frequency" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-c-frequency">
       <a class="toc-item toc-h2" href="#c-frequency-cadence">Roster cadence</a>
+      <a class="toc-item toc-h2" href="#c-frequency-season-type">Season type</a>
       <a class="toc-item toc-h2" href="#c-frequency-cap">Volunteer frequency cap</a>
     </div>
     <div class="toc-parent" id="parent-c-rebuild">
@@ -1557,59 +1558,71 @@
   </div>
 
   <!-- ══ FREQUENCY ══ -->
-  <h2 class="section-title" id="c-frequency">Frequency Settings</h2>
-  <p>Rostas has two separate but related frequency concepts — how often a <em>roster</em> runs, and how often an individual <em>volunteer</em> gets assigned. It's worth understanding both.</p>
+  <h2 class="section-title" id="c-frequency">Frequency &amp; Season Type</h2>
+  <p>There are two separate frequency ideas in Rostas: how often the <em>roster</em> runs, and how often each <em>volunteer</em> serves. This section covers the roster side — its cadence and whether the season is fixed or ongoing. The per-volunteer cap is set on each person's profile (see <a href="#e-detail-frequency">Frequency on the Profile detail page</a>); the two are explained together at the end.</p>
 
   <h3 class="sub-title" id="c-frequency-cadence">Roster cadence — how often the roster runs</h3>
-  <p>Not every roster runs every week. A community meal might run fortnightly, a kids' ministry only on the 1st and 3rd Sunday of the month, or a small group monthly. The <strong>Frequency</strong> screen sets this cadence for each roster type — it controls which dates appear in the season and therefore which dates Rostas builds for.</p>
+  <p>Not every roster runs weekly. A community meal might run fortnightly, a kids' ministry only on the 1st and 3rd Sunday, a review team monthly. The <strong>Frequency</strong> page sets this cadence per roster type — it decides which dates appear in the season, and therefore which dates Rostas builds for. You reach it two ways: when you first create a roster (in the New Roster Wizard's first step), or any time afterwards from the Builds dashboard — ⋯ — Frequency.</p>
 
   <figure>
-    <img src="frequency-sunday.png" alt="Frequency settings screen showing Weekly, Fortnightly, 1st and 3rd, 2nd and 4th, and Monthly options" class="screenshot">
-    <figcaption>The Frequency screen — choose how often this roster runs. Changes apply from the next roster build onward; dates already built keep their original cadence. Access it from Build Dashboard → ⋯ → Frequency.</figcaption>
+    <img src="season-freq-type-control.png" alt="The Season Freq page showing the cadence pills (Daily to Monthly) and the Fixed-term / Perpetual season type control" class="screenshot">
+    <figcaption>The Frequency page — cadence pills across the top, and the Season Type control below. Changes apply from your next roster build onward; dates already built keep their original cadence.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
     <table>
-      <thead>
-        <tr><th>Option</th><th>When to use it</th></tr>
-      </thead>
+      <thead><tr><th>Option</th><th>When to use it</th></tr></thead>
       <tbody>
         <tr><td><strong>Daily</strong></td><td>Roster runs every day it applies — e.g. a hospital-visit or meals roster</td></tr>
         <tr><td><strong>Weekly</strong></td><td>Roster runs every week — e.g. Sunday service</td></tr>
         <tr><td><strong>Fortnightly</strong></td><td>Roster runs every two weeks</td></tr>
-        <tr><td><strong>1st and 3rd</strong></td><td>Roster runs on the 1st and 3rd occurrence of the day in each month</td></tr>
-        <tr><td><strong>2nd and 4th</strong></td><td>Roster runs on the 2nd and 4th occurrence of the day in each month</td></tr>
-        <tr><td><strong>Monthly</strong></td><td>Roster runs once a month — e.g. a quarterly review team</td></tr>
+        <tr><td><strong>1st and 3rd</strong></td><td>Runs on the 1st and 3rd occurrence of the day each month</td></tr>
+        <tr><td><strong>2nd and 4th</strong></td><td>Runs on the 2nd and 4th occurrence of the day each month</td></tr>
+        <tr><td><strong>Monthly</strong></td><td>Runs once a month — e.g. a quarterly review team</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>Roster cadence is set once per roster type</strong> and applies to everyone in that roster. If two different groups within the same organisation run on different weeks, set them up as separate roster types.
+    <strong>Cadence is set once per roster type</strong> and applies to everyone in it. If two groups run on different weeks, set them up as separate roster types.
   </div>
 
-  <h3 class="sub-title" id="c-frequency-cap">Volunteer frequency cap — how often a volunteer gets assigned</h3>
-  <p>Separate from the roster cadence, each volunteer has an individual frequency cap that controls how often they personally get rostered within a running roster. This protects volunteers from being assigned every single week even when they're always available — spreading the load fairly across the team.</p>
-
-  <p>Frequency caps are set on the <strong>volunteer detail page</strong> under the Frequency section for each roster type. A volunteer's cap can be set independently for each roster they serve in.</p>
+  <h3 class="sub-title" id="c-frequency-season-type">Season type — fixed-term or perpetual</h3>
+  <p>Below the cadence pills, the <strong>Season Type</strong> control decides whether this roster has an end or simply keeps going:</p>
 
   <div class="tbl-wrap">
     <table>
-      <thead>
-        <tr><th>Example</th><th>Roster cadence</th><th>Volunteer cap</th><th>Result</th></tr>
-      </thead>
+      <thead><tr><th>Type</th><th>What it means</th></tr></thead>
       <tbody>
-        <tr><td>Sunday team volunteer</td><td>Weekly</td><td>Every 2 weeks</td><td>Rostered roughly once a fortnight</td></tr>
-        <tr><td>Sound desk specialist</td><td>Weekly</td><td>Every week</td><td>Rostered every Sunday (willing and able)</td></tr>
-        <tr><td>Occasional helper</td><td>Fortnightly</td><td>Once a month</td><td>Rostered roughly once a month</td></tr>
+        <tr><td><strong>Fixed-term</strong></td><td>The season has a real start and end date. Use it for anything with a natural finish — a school term, a set programme, a holiday series.</td></tr>
+        <tr><td><strong>Perpetual (ongoing)</strong></td><td>The roster runs indefinitely with no end date to manage. Rostas keeps enough weeks generated ahead automatically, so a perpetual roster never runs out of dates.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Perpetual seasons roll forward on their own</strong> — the end date is maintained by Rostas, so you never have to extend them. Most ongoing church rosters (Sunday service, welcome team) suit Perpetual. If you later need a perpetual roster to stop on a set date, switch it to Fixed-term and give it an end date.
+  </div>
+
+  <h3 class="sub-title" id="c-frequency-cap">Volunteer frequency cap — how often a person serves</h3>
+  <p>Separate from the roster's cadence, each volunteer has their own cap — how often <em>they</em> personally get rostered — so nobody is used every week just because they're always free. You set it on each person's profile (<a href="#e-detail-frequency">Frequency on the Profile detail page</a>), independently for each roster they serve in. The two settings work together:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Example</th><th>Roster cadence</th><th>Volunteer cap</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Sunday team volunteer</td><td>Weekly</td><td>Once every 2wk</td><td>Rostered roughly once a fortnight</td></tr>
+        <tr><td>Sound desk specialist</td><td>Weekly</td><td>No cap</td><td>Rostered most Sundays (willing and able)</td></tr>
+        <tr><td>Occasional helper</td><td>Fortnightly</td><td>Once every 4wk</td><td>Rostered roughly once a month</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>The cap counts distinct service dates</strong>, not individual role assignments. A volunteer rostered to two roles on the same date counts as one service — so serving in two roles on one Sunday doesn't consume double their allocation.
+    <strong>The cap counts distinct service dates</strong>, not individual roles. A volunteer in two roles on the same date counts as one service — so serving twice on one Sunday doesn't use two of their allocation.
   </div>
 
   <!-- ══ REBUILD WIZARD ══ -->

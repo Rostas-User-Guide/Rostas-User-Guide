@@ -1526,35 +1526,38 @@
 
   <!-- ══ MANAGE ROLES ══ -->
   <h2 class="section-title" id="c-manage-roles">Managing Roles</h2>
-  <p>After a roster is created, you can add, edit, rename, or deactivate its roles at any time using the Manage Roles screen. Access it from the roster card on the Build Dashboard — click the <strong>⋯</strong> menu on any card and choose <strong>Manage Roles</strong>.</p>
+  <p>Once a roster exists, you can add, rename, re-size, or retire its roles at any time. Open the <strong>Builds</strong> dashboard, click the <strong>⋯</strong> menu on the roster's row, and choose <strong>Manage roles</strong>. The page lists every role for that roster with its headcount and an active switch.</p>
 
   <figure>
-    <img src="manage-roles-main.png" alt="Manage Roles screen showing Sunday roster roles list with min, max and active toggles" class="screenshot">
-    <figcaption>The Manage Roles screen — all roles for the selected roster type in one place. Set minimum and maximum people per role, and use the active toggle to temporarily suspend a role without deleting it.</figcaption>
+    <img src="build-dashboard-manage-roles.png" alt="The Manage roles page listing each role with its headcount and an Active / Inactive switch" class="screenshot">
+    <figcaption>The Manage roles page — each role shows its <strong>Headcount</strong> (the minimum and maximum people to roster) and an <strong>Active / Inactive</strong> switch. The engine always tries to fill the minimum and never exceeds the maximum.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
     <table>
-      <thead>
-        <tr><th>Action</th><th>How to do it</th></tr>
-      </thead>
+      <thead><tr><th>Action</th><th>How</th></tr></thead>
       <tbody>
-        <tr><td><strong>Add a new role</strong></td><td>Click <strong>Add Role</strong> at the bottom of the list. Enter the role name, minimum, and maximum.</td></tr>
-        <tr><td><strong>Edit a role</strong></td><td>Click the role row to edit its name, minimum, or maximum in place.</td></tr>
-        <tr><td><strong>Deactivate a role</strong></td><td>Toggle the Active switch off. The role is hidden from future builds but its history is preserved. Reactivate it any time.</td></tr>
-        <tr><td><strong>Reorder roles</strong></td><td>Drag rows to reorder — the order here determines the column order on the Roster Board.</td></tr>
+        <tr><td><strong>Add a role</strong></td><td>Use the add option at the bottom of the list; enter the name and its minimum and maximum headcount.</td></tr>
+        <tr><td><strong>Rename a role</strong></td><td>Use <strong>Rename</strong> on the role. The new name appears in future messages to volunteers.</td></tr>
+        <tr><td><strong>Change headcount</strong></td><td>Adjust the minimum and maximum for how many people the role needs each time.</td></tr>
+        <tr><td><strong>Deactivate a role</strong></td><td>Switch it to <strong>Inactive</strong>. It drops out of future builds but keeps its history, and you can reactivate it any time.</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="callout callout-warn">
-    <span class="callout-icon">⚠️</span>
-    <strong>Role names in SMS messages.</strong> If you rename a role, any SMS and email messages sent after that point will use the new name. Volunteers who received earlier messages with the old name may be briefly confused — consider the timing if mid-cycle.
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Changes apply from your next build onward.</strong> Renaming a role, changing its headcount, switching it active or inactive, or adding a new role all take effect at the next build — dates you've already built keep their original roles and wording. Nothing changes underneath the volunteers you've already notified.
   </div>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>Deactivate rather than delete.</strong> Deactivating a role preserves all the history of who served in it. Deleting a role is permanent and removes that data. Unless you're correcting a setup mistake, always deactivate.
+    <strong>Deactivate rather than delete.</strong> Deactivating a role keeps the full history of who served in it; it just stops appearing in new builds. Reach for deactivate unless you're correcting a genuine setup mistake.
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Mind the timing when renaming mid-cycle.</strong> Because a rename only affects messages sent after it, volunteers already notified will have the old name in their earlier email or text. If you rename partway through a cycle, expect a brief mismatch until the next build.
   </div>
 
   <!-- ══ FREQUENCY ══ -->

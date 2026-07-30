@@ -885,7 +885,7 @@
   <p>The Board is your day-to-day view of the current roster. It shows every slot, every date, and every volunteer assignment at a glance. A traffic light colour system tells you instantly what's filled, what's pending, and what needs attention.</p>
 
   <figure>
-    <img src="board-sunday.png" alt="The Sunday Roster Board showing the full grid with colour-coded cells" class="screenshot">
+    <img src="board-overview.png" alt="The Roster Board showing the full grid with colour-coded cells" class="screenshot">
     <figcaption>The Roster Board — dates run down the left, roles across the top. Click any cell to select it and take action. Use the roster type tabs at the top to switch between rosters.</figcaption>
   </figure>
 
@@ -1073,7 +1073,7 @@
   <p>Before your first roster build, Rostas verifies that SMS is working. This step sends a real test message to your mobile so you can confirm everything is set up correctly.</p>
 
   <figure>
-    <img src="setup-step3-sms.png" alt="Setup wizard Step 3 — SMS test, showing send test SMS button" class="screenshot">
+    <img src="setup-step3-sms-test-form.png" alt="Setup wizard Step 3 — SMS test, showing send test SMS button" class="screenshot">
     <figcaption>Step 3 — your mobile number is pre-filled from Step 2. Tap "Send test SMS" to send a real test message to your phone.</figcaption>
   </figure>
 
@@ -1805,7 +1805,7 @@
   <p>The Board shows every roster date as a row, with roles as columns. Each cell shows the assigned volunteer's name and date. Colour coding tells you the status of each assignment at a glance.</p>
 
   <figure>
-    <img src="board-sunday.png" alt="The Sunday Roster Board showing the full grid with colour-coded cells, role headers, and legend" class="screenshot">
+    <img src="board-overview.png" alt="The Roster Board showing the full grid with colour-coded cells, role headers, and legend" class="screenshot">
     <figcaption>The Roster Board — dates run down the left, role columns across the top with green headers. Use the roster type tabs at the very top to switch between rosters. The legend and frequency search are in the header row above the grid.</figcaption>
   </figure>
 
@@ -1830,7 +1830,7 @@
   <p>Click any cell on the board to select it. The selected cell gets a navy border and a sticky action bar appears across the full width of the page — showing the volunteer's name, role, date, and current status, with action buttons on the right.</p>
 
   <figure>
-    <img src="board-replace-bar.png" alt="Board with a cell selected showing the full-width action bar and replacement panel below it" class="screenshot">
+    <img src="board-replace-panel.png" alt="Board with a cell selected showing the full-width action bar and replacement panel below it" class="screenshot">
     <figcaption>Clicking a cell opens the sticky action bar across the top, showing who is assigned, their role, date, and status. The available replacements panel drops in below, listing tiered candidates with Select buttons. The board grid remains visible behind it.</figcaption>
   </figure>
 
@@ -1849,11 +1849,34 @@
     </table>
   </div>
 
+  <h3 class="sub-title" id="d-swap">Swapping two volunteers</h3>
+  <p>When two rostered volunteers want to trade dates, use <strong>Swap with…</strong> from the action menu. Click the first volunteer's cell, choose Swap with…, and that card is "armed" — it takes a gold border. Then click the cell you want to swap it with.</p>
+
+  <figure>
+    <img src="board-swap-armed.png" alt="A board card armed for swap, with a gold border, waiting for the second card to be picked" class="screenshot">
+    <figcaption>A card armed for swap — its gold border means Rostas is waiting for you to pick the card to swap it with.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="board-swap-confirm.png" alt="Swap these two? confirmation showing both volunteers, roles and dates" class="screenshot-mid">
+    <figcaption>A confirmation shows both volunteers, their roles and dates, so you can check the trade before committing.</figcaption>
+  </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Conflict warnings are advisory, not blocking.</strong> If a swap would clash — say a volunteer is already rostered elsewhere that day — Rostas shows amber warnings on the confirmation, but you can still go ahead. It flags the risk and leaves the decision to you.
+  </div>
+
+  <figure>
+    <img src="board-swap-conflict-warning.png" alt="Swap confirmation showing amber conflict warnings, still allowing the swap" class="screenshot-mid">
+    <figcaption>A swap with conflicts — the amber warnings inform you, but the swap button stays available.</figcaption>
+  </figure>
+
   <h2 class="section-title" id="d-replace">Manual Replacement</h2>
   <p>When you click <strong>Replace</strong>, the replacement panel appears below the action bar showing all available volunteers for that role and date, sorted by priority tier. Each volunteer shows their availability status and how recently they've been rostered.</p>
 
   <figure>
-    <img src="board-replace-dropdown.png" alt="Replacement panel showing tiered volunteer candidates with Select buttons" class="screenshot">
+    <img src="board-replace-panel.png" alt="Replacement panel showing tiered volunteer candidates with Select buttons" class="screenshot">
     <figcaption>The replacement panel — volunteers are grouped by tier. Click Select next to any volunteer to assign them immediately. The original volunteer is released and the new one is notified automatically.</figcaption>
   </figure>
 
@@ -1869,6 +1892,11 @@
 
   <h2 class="section-title" id="d-two-roles">Assigning a Second Role on the Same Date</h2>
   <p>Occasionally a volunteer may need to cover two roles on the same date — for example, stepping in for a missing team member while also serving in their usual role. Rostas supports this but flags it clearly so you're making a deliberate choice rather than an accidental double-booking.</p>
+
+  <figure>
+    <img src="board-second-role.png" alt="Board showing a volunteer assigned to two different roles on the same date" class="screenshot">
+    <figcaption>A volunteer holding two roles on one date — Rostas shows both assignments clearly so it reads as a deliberate choice.</figcaption>
+  </figure>
 
   <div class="step-box">
     <div class="step-label">How to assign a second role</div>
@@ -1900,13 +1928,13 @@
   <p>The request text carries a <strong>4-digit code</strong> rather than a link — NZ networks filter many link-bearing texts, and a code is shorter and cheaper to send. The volunteer enters it at <strong>rostas.app/enter</strong> to reach the accept / decline page. See Part A for the full explanation of code entry.</p>
 
   <figure>
-    <img src="comms-replacement-sms-3.png" alt="Replacement request SMS and confirmation SMS shown in sequence" class="screenshot-mid">
-    <figcaption>The replacement chain in action — the request SMS (left) carries a 4-digit code the volunteer enters at rostas.app/enter. Once they accept, a confirmation SMS is sent immediately (right).</figcaption>
+    <img src="comms-replacement-sms.png" alt="Replacement request SMS bubble showing a plain 4-digit code" class="screenshot-mid">
+    <figcaption>The replacement request SMS — it carries a plain 4-digit code the volunteer enters at rostas.app/enter, rather than a link.</figcaption>
   </figure>
 
   <figure>
-    <img src="comms-replacement-sms-2.png" alt="Volunteer decline page showing Yes find replacement and Actually I can make it buttons" class="screenshot-mid">
-    <figcaption>The volunteer-facing decline page — when a volunteer taps "Can't make it", they see this page with two clear options. If they changed their mind they can immediately reinstate themselves.</figcaption>
+    <img src="comms-confirm-decline-prompt.png" alt="Web page shown after tapping I Can't Make It, with two options" class="screenshot-mid">
+    <figcaption>The page a volunteer reaches after tapping "Can't make it" — two clear options. If they changed their mind they can reinstate themselves on the spot.</figcaption>
   </figure>
 
   <div class="callout callout-info">
@@ -1916,6 +1944,11 @@
 
   <h2 class="section-title" id="d-search">Searching for a Volunteer</h2>
   <p>Use the search field at the top right of the board to find a specific volunteer. As you type, their assignments are highlighted across the entire board — making it easy to see all their upcoming dates at once. Use the ◀ ▶ arrows to step through volunteers alphabetically. The Frequency panel shows how often the current volunteer is rostered and when they last served.</p>
+
+  <figure>
+    <img src="board-search-highlight.png" alt="Typing a volunteer name into the board search bar highlights all their assignments" class="screenshot">
+    <figcaption>Searching a volunteer highlights every one of their assignments across the board, so you can see their whole schedule at a glance.</figcaption>
+  </figure>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
@@ -1939,7 +1972,7 @@
   <p>The <strong>search bar</strong> (top right, "Search settings…") filters the left panel live as you type. It searches across setting names and descriptions simultaneously — so typing "SMS" shows not just the SMS category but any setting whose description mentions SMS, across all categories. Non-matching rows disappear; categories with no matches collapse. Clear the search to restore the full list.</p>
 
   <figure>
-    <img src="Settings-View- With-System-Status-Pill.png" alt="Settings view showing the chip strip navigation across the top with category pills and System Status" class="screenshot">
+    <img src="settings-main.png" alt="Settings view showing the category navigation across the top with System Status" class="screenshot">
     <figcaption>The chip strip across the top of Settings — click any category pill to jump straight to that section. The gold Communications chip opens the message preview. The System Status panel is visible at the top of the left panel.</figcaption>
   </figure>
 
@@ -1975,7 +2008,7 @@
   <p>Treat System Status as your starting point every time you open the Settings page. Before searching for a specific setting or making a planned change, glance at the Warnings column first. If it shows green — "All systems go" — you can proceed. If it shows amber or red, deal with those first, because some warnings mean volunteers aren't receiving messages right now.</p>
 
   <figure>
-    <img src="Settings-System-Status.png" alt="System Status panel showing Warnings, Roster Health and Counts columns in horizontal layout" class="screenshot">
+    <img src="settings-system-status.png" alt="System Status panel showing Warnings, Roster Health and Counts columns in horizontal layout" class="screenshot">
     <figcaption>The System Status panel — three columns showing current warnings, roster health indicators, and message counts. Check this panel if volunteers aren't receiving messages or something seems off.</figcaption>
   </figure>
 
@@ -2049,6 +2082,30 @@
   </ul>
   <p>If volunteers are frequently timing out before responding, consider increasing the normal timer. If you're often scrambling at short notice, reducing the urgent or panic timers gets through the candidate list faster.</p>
 
+  <h3 class="sub-title" id="f-reminder-mode">Reminder SMS mode — controlling reminder texts</h3>
+  <p>The day-before reminder text is the single biggest driver of SMS cost — one text per rostered volunteer, every service. The <strong>Reminder SMS mode</strong> setting decides who actually receives it. (The 3-day reminder <em>email</em> is unaffected and still goes to everyone with an email address.)</p>
+
+  <figure>
+    <img src="settings-reminder-sms-mode.png" alt="Reminder SMS mode setting with Text everyone, Email-first and Text no-one options" class="screenshot">
+    <figcaption>Reminder SMS mode — choose who gets the day-before text.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Mode</th><th>Who gets the day-before text</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Text everyone</strong></td><td>Every rostered volunteer gets a text, even if they already confirmed by email.</td></tr>
+        <tr><td><strong>Email-first (recommended)</strong></td><td>Texts only those who need it: volunteers with no email address, those who haven't confirmed the reminder email, and anyone set to "Always text too". Keeps SMS costs down.</td></tr>
+        <tr><td><strong>Text no-one</strong></td><td>No day-before texts at all. Overrides "Always text too".</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Email-first is the default, and the best value for most churches.</strong> It leans on free email and only spends a text where it'll actually help — someone with no email, or who hasn't confirmed. For the few volunteers who reliably miss email, turn on <a href="#e-detail-contact">"Always text too"</a> on their profile so they still get a text under Email-first.
+  </div>
+
   <h3 class="sub-title" id="f-wording">Message Wording</h3>
   <p>Every SMS template has three protections built in to prevent accidental breakage.</p>
 
@@ -2059,13 +2116,25 @@
 
   <ul>
     <li><strong>Character counter</strong> — SMS messages over 160 characters are split into two by carriers and charged as two texts. The counter below the textarea turns amber at 140 characters and red at 161+. The Save button is disabled when the count is red. The SMS templates are deliberately terse for this reason — when you edit one, the counter is protecting your church's SMS costs, not just formatting.</li>
-    <li><strong>Required placeholders</strong> — — each template has a set of placeholders that must be present for it to work correctly. For example, the replacement request SMS must include [Code] — without it, the volunteer has no code to enter. (The equivalent email templates require [Link] instead.) Missing placeholders are shown in red below the textarea. Save is blocked until all required placeholders are present.</li>
+    <li><strong>Required placeholders</strong> — each template has a set of placeholders that must be present for it to work correctly. For example, the replacement request SMS must include [Code] — without it, the volunteer has no code to enter. (The equivalent email templates require [Link] instead.) Missing placeholders are shown in red below the textarea. Save is blocked until all required placeholders are present.</li>
     <li><strong>Preview SMS</strong> — click this button to see the template rendered with realistic sample values substituted in ([Name] → Sarah, [Role] → Welcome Team, [Date] → today's date, [Code] → a sample 4-digit code such as 4821). This shows you exactly what a volunteer will read, at the correct character count. It does not send a real SMS.</li>
   </ul>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
     All placeholder names use square brackets: [Name], [Role], [Date], [Link], [Code], [OrgName], [Deadline]. Never use curly braces — {name} will not be substituted.
+  </div>
+
+  <p>The Message Wording category holds every message Rostas sends — the SMS templates (availability nudge, day-before reminder, replacement request, replacement confirmed, coordinator escalation) and the email templates (roster notification, availability request, reminder, swap). Edit any of them here; the three protections above apply to each.</p>
+
+  <figure>
+    <img src="settings-sms-templates-list.png" alt="The list of editable SMS and email message templates in Settings" class="screenshot">
+    <figcaption>The message-wording templates — each opens to an editor with its own character counter and required placeholders.</figcaption>
+  </figure>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Two templates here are editable but not currently sent.</strong> The <em>Original volunteer released</em> SMS and the <em>Decline confirmation</em> SMS appear in the list and preview, but Rostas does not currently text the original volunteer when a replacement is found, nor the volunteer who declines. A volunteer who taps "Can't make it" sees a web page — "No problem — we'll find someone else" — rather than a text. You can edit their wording so it's ready, but don't rely on either going out yet.
   </div>
 
   <h3 class="sub-title" id="f-placeholders">Template Placeholders</h3>
@@ -2093,7 +2162,7 @@
 
   <div class="callout callout-tip">
     <span class="callout-icon">🎁</span>
-    <strong>During the beta, SMS credits are free.</strong> Rostas covers the SMS costs for pilot churches, so there's nothing to buy and no balance to manage yet. This section explains how credits will work once billing goes live, so there are no surprises.
+    <strong>During the beta, SMS credits are free.</strong> Rostas covers the SMS costs for pilot churches, so there's nothing to buy and no balance to manage yet — the Buy buttons show a "coming soon" message for now. This section explains how credits will work once billing goes live, so there are no surprises.
   </div>
 
   <figure>

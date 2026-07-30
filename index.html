@@ -671,7 +671,7 @@
 
     <!-- Part D -->
     <div class="toc-part">Part D — The Roster Cycle</div>
-    <a class="toc-item toc-h1" href="#c-dashboard">The Build Dashboard</a>
+    <a class="toc-item toc-h1" href="#c-dashboard">The Builds Dashboard</a>
     <div class="toc-parent" id="parent-c-new">
       <a class="toc-parent-link" href="#c-new-roster">New Roster Wizard</a>
       <button class="toc-toggle" data-target="children-c-new" aria-label="Toggle"><span class="arrow">›</span></button>
@@ -1009,7 +1009,7 @@
 
   <p>When you open Rostas for the first time, the setup wizard runs automatically. It takes about five minutes and covers the essentials — your organisation name, your contact details, and a quick SMS test to make sure everything is working before your first roster build.</p>
 
-  <p>The wizard runs once. After it's complete, Rostas opens directly to the Build Dashboard on every future visit.</p>
+  <p>The wizard runs once. After it's complete, Rostas opens directly to the Builds dashboard on every future visit.</p>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
@@ -1102,12 +1102,12 @@
 
   <figure>
     <img src="setup-step4-done.png" alt="Setup wizard complete — Rostas is ready screen with Go to Build button" class="screenshot">
-    <figcaption>"Rostas is ready" — setup is complete. Click "Go to Build" to open the Build Dashboard and start your first roster cycle.</figcaption>
+    <figcaption>"Rostas is ready" — setup is complete. Click "Go to Build" to open the Builds dashboard and start your first roster cycle.</figcaption>
   </figure>
 
   <p>From here you have two options:</p>
   <ul>
-    <li><strong>Go to Build →</strong> — takes you straight to the Build Dashboard, ready to start your first roster cycle. This is the right choice if your volunteers are already imported.</li>
+    <li><strong>Go to Build →</strong> — takes you straight to the Builds dashboard, ready to start your first roster cycle. This is the right choice if your volunteers are already imported.</li>
     <li><strong>Explore Settings</strong> — opens the Settings view if you want to review or customise anything before your first build.</li>
   </ul>
 
@@ -1371,7 +1371,7 @@
 
   <p>There are two roster wizards in Rostas. The <strong>New Roster Wizard</strong> runs once when you set up a new roster type — it defines the name, roles, season dates, and volunteers. The <strong>Roster Wizard</strong> runs every few weeks to collect availability, build the roster, and send notifications to volunteers.</p>
 
-  <p>Both start from the <strong>Build Dashboard</strong>.</p>
+  <p>Both start from the <strong>Builds dashboard</strong>.</p>
 
   <!-- ══ BUILD DASHBOARD ══ -->
   <h2 class="section-title" id="c-dashboard">The Builds Dashboard</h2>
@@ -1466,11 +1466,11 @@
 
   <figure>
     <img src="new-roster-step0-schedule-2.png" alt="New Roster Wizard Step 1 — name entered and icon selected" class="screenshot">
-    <figcaption>After naming the roster, choose an icon that represents it. The icon appears on the Build Dashboard card and in the coordinator app sidebar tabs.</figcaption>
+    <figcaption>After naming the roster, choose an icon that represents it. The icon appears on the roster's row on the Builds dashboard and beside its name in the app.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="c-new-step2">Step 2 — Roles</h3>
-  <p>Define the roles that need to be filled each time this roster runs. For each role, set a minimum and maximum number of people required.</p>
+  <p>Define the roles that need to be filled each time this roster runs. For each role, set a minimum and maximum number of people required. You can add, rename, or retire roles later from <a href="#c-manage-roles">Managing Roles</a>.</p>
 
   <figure>
     <img src="new-roster-step1-roles.png" alt="New Roster Wizard Step 2 — Roles, showing role rows with min and max fields" class="screenshot">
@@ -1497,9 +1497,10 @@
       </thead>
       <tbody>
         <tr><td><strong>Start date</strong></td><td>The first date this roster will run</td></tr>
-        <tr><td><strong>End date</strong></td><td>The last date of this season — typically end of term, semester, or year</td></tr>
+        <tr><td><strong>End date</strong></td><td>The last date of a fixed-term season (a perpetual roster needs no end date — see Season type below)</td></tr>
         <tr><td><strong>Frequency</strong></td><td>Daily, Weekly, Fortnightly, 1st and 3rd, 2nd and 4th, or Monthly</td></tr>
         <tr><td><strong>Day of week</strong></td><td>Which day the roster runs — e.g. Sunday, Monday</td></tr>
+        <tr><td><strong>Season type</strong></td><td>Fixed term (has a real end date) or Perpetual (ongoing — auto-extends). See <a href="#c-frequency-season-type">Season type</a> for the difference.</td></tr>
         <tr><td><strong>Pause school holidays</strong></td><td>Tick if this roster doesn't run during school holidays</td></tr>
         <tr><td><strong>Pause public holidays</strong></td><td>Tick if this roster doesn't run on public holidays</td></tr>
       </tbody>
@@ -1507,7 +1508,7 @@
   </div>
 
   <h3 class="sub-title" id="c-new-step4">Step 4 — Volunteers</h3>
-  <p>Select which volunteers from your list will serve on this roster. Tick each volunteer you want to include. Only volunteers already in Rostas appear here — if someone is missing, add them in the Volunteers section first then return to this step.</p>
+  <p>Select which volunteers from your list will serve on this roster. Tick each volunteer you want to include. Only volunteers already in Rostas appear here — if someone is missing, add them in <a href="#part-e">Profiles</a> first then return to this step.</p>
 
   <figure>
     <img src="new-roster-step3-volunteers.png" alt="New Roster Wizard Step 4 — volunteer selection with checkboxes" class="screenshot">
@@ -1519,10 +1520,10 @@
 
   <figure>
     <img src="new-roster-step4-review.png" alt="New Roster Wizard Step 5 — Review showing summary of roster setup with Create Roster button" class="screenshot">
-    <figcaption>Step 5 — review your roster setup before confirming. You can go back to any previous step to make changes. Once confirmed, the roster appears on the Build Dashboard.</figcaption>
+    <figcaption>Step 5 — review your roster setup before confirming. You can go back to any previous step to make changes. Once confirmed, the roster appears on the Builds dashboard.</figcaption>
   </figure>
 
-  <p>Click <strong>Confirm &amp; Create Roster</strong> to finish. Your new roster type appears on the Build Dashboard immediately. You're now ready to run your first Roster Wizard for this roster.</p>
+  <p>Click <strong>Confirm &amp; Create Roster</strong> to finish. Your new roster type appears on the Builds dashboard immediately. You're now ready to run your first Roster Wizard for this roster.</p>
 
   <!-- ══ MANAGE ROLES ══ -->
   <h2 class="section-title" id="c-manage-roles">Managing Roles</h2>
@@ -2133,7 +2134,7 @@
         <tr><th>Setting</th><th>What it does</th><th>Default</th></tr>
       </thead>
       <tbody>
-        <tr><td><code>ROSTER_ACTIVE_{Type}</code></td><td>Shows or hides a roster type on the Build Dashboard</td><td>True</td></tr>
+        <tr><td><code>ROSTER_ACTIVE_{Type}</code></td><td>Shows or hides a roster type on the Builds dashboard</td><td>True</td></tr>
         <tr><td><code>SMS_ENABLED</code></td><td>Master switch for all SMS. False = no SMS anywhere in the system</td><td>True</td></tr>
         <tr><td><code>SMS_TEST_MODE</code></td><td>Redirects all SMS to coordinator phone only. Use for testing.</td><td>False</td></tr>
         <tr><td><code>EMAIL_TEST_MODE</code></td><td>Redirects all emails to coordinator email only. Use for testing.</td><td>False</td></tr>

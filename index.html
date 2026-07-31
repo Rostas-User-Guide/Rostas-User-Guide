@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rostas Coordinator Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <link rel="icon" href="favicon.png">
 <style>
@@ -595,7 +595,7 @@
 
 <button id="sidebar-reopen" onclick="expandSidebar()" title="Show navigation">Nav ▶</button>
 <button id="return-btn" onclick="returnToRostas()" title="Close this tab and return to Rostas">
-  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
   Back to Rostas
 </button>
 <div id="return-fallback">Switch back to the Rostas tab in your browser.</div>
@@ -742,8 +742,7 @@
     <a class="toc-item toc-h1" href="#appendix-connectors">Connectors</a>
 
     <div style="padding: 1.2rem 1.2rem 0.5rem; margin-top: 0.5rem; border-top: 1px solid #2e4a6a;">
-      <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf"
-         style="display:flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;text-decoration:none;padding:0.55rem 0.9rem;border-radius:5px;font-size:12px;font-weight:600;letter-spacing:0.04em;">
+      <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf" style="display:flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;text-decoration:none;padding:0.55rem 0.9rem;border-radius:5px;font-size:12px;font-weight:600;letter-spacing:0.04em;">
         <span>⬇</span> Download PDF Guide
       </a>
       <button onclick="openEditor()" style="margin-top:0.5rem;display:flex;align-items:center;gap:0.5rem;background:none;border:1px solid rgba(255,255,255,0.15);color:#a8bdd4;padding:0.45rem 0.9rem;border-radius:5px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;letter-spacing:0.03em;transition:border-color 0.15s,color 0.15s;" onmouseover="this.style.borderColor='rgba(184,147,42,0.5)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='#a8bdd4'">
@@ -792,7 +791,7 @@
         <tr><td>2–3 hours of emails, calls, and chasing</td><td>Under 1 hour via a guided 6-step wizard</td></tr>
         <tr><td>Flat yes/no availability guesswork</td><td>3-state availability + 4-tier role preferences</td></tr>
         <tr><td>Coordinator manually calls around when someone cancels</td><td>Automated SMS replacement chain handles it automatically</td></tr>
-        <tr><td>High risk of volunteer burnout from over-rostering</td><td>Frequency caps and self-serve opt-outs built in</td></tr>
+        <tr><td>More risk of volunteer burnout from over-rostering</td><td>Frequency caps and self-serve opt-outs built in</td></tr>
       </tbody>
     </table>
   </div>
@@ -811,12 +810,12 @@
         <tr><th>Step</th><th>Name</th><th>What happens</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>1</strong></td><td><strong>Confirm Dates &amp; Roles</strong></td><td>Rostas refreshes your seasons calendar, overlays public and school holidays, and confirms your volunteer list is up to date.</td></tr>
-        <tr><td><strong>2</strong></td><td><strong>Role Prefs</strong></td><td>Volunteers set which roles they're willing to perform — Primary, Fillable, or Not for me. Set once, remembered for every future build.</td></tr>
-        <tr><td><strong>3</strong></td><td><strong>Availability</strong></td><td>Rostas emails volunteers asking which upcoming dates they're available. Volunteers tap a link — no login, no app to download.</td></tr>
-        <tr><td><strong>4</strong></td><td><strong>Build Roster</strong></td><td>The engine automatically fills every slot using a four-tier priority system. The build takes about 30 seconds.</td></tr>
-        <tr><td><strong>5</strong></td><td><strong>Check Roster</strong></td><td>You review what Rostas has built using the traffic light system — green filled, amber pending, red unfilled.</td></tr>
-        <tr><td><strong>6</strong></td><td><strong>Notify</strong></td><td>Rostas emails every rostered volunteer their assignment. Automatic reminders follow closer to the date — no further action needed.</td></tr>
+        <tr><td><strong>1</strong></td><td><strong>Confirm Dates &amp; Roles</strong></td><td>Rostas refreshes your seasons calendar, overlays public and school holidays, and confirms your roles list is up to date.</td></tr>
+        <tr><td><strong>2</strong></td><td><strong>Role Prefs</strong></td><td>Volunteers (or the coordinator) set which roles the volunteer is willing to perform — Primary, Fillable, or Not for me. Set once, remembered for every future build - editable in Profile pages.</td></tr>
+        <tr><td><strong>3</strong></td><td><strong>Availability</strong></td><td>Rostas can email each volunteer asking which upcoming dates they're available for or this step can be skipped by the coordinator. Volunteers tap a link in emails or fill or use the code from the text to go to the edit their availability dates.</td></tr>
+        <tr><td><strong>4</strong></td><td><strong>Build Roster</strong></td><td>The engine automatically fills every slot using a four-tier priority system. The build takes 2 or 3 minutes.</td></tr>
+        <tr><td><strong>5</strong></td><td><strong>Check Roster</strong></td><td>You review what Rostas has built using the traffic light system — green filled, amber pending, red unfilled.&nbsp; Coordinator can add replacements or make swaps at this point if required.&nbsp;</td></tr>
+        <tr><td><strong>6</strong></td><td><strong>Notify</strong></td><td>Rostas emails every rostered volunteer their assignments. Automatic reminders follow closer to the date — no further action needed.</td></tr>
       </tbody>
     </table>
   </div>
@@ -830,7 +829,7 @@
   <h2 class="section-title" id="a-key-concepts">Key Concepts</h2>
 
   <h3 class="sub-title" id="a-availability">Availability — Simple for Volunteers</h3>
-  <p>Before each build, Rostas emails your volunteers asking which upcoming dates they're available. Volunteers receive a personalised link — no password, no app — and see a simple calendar of dates. Everything starts as <strong>Available</strong> — volunteers only change the dates they can't make.</p>
+  <p>Before each build, Rostas can email your volunteers asking which upcoming dates they're available for. Volunteers receive a personalised link and see a simple calendar of dates. Everything starts as <strong>Available</strong> — volunteers only change the dates they can't make.</p>
 
   <figure>
     <img src="Rostas_Intelligent_Roster_Assistant-5.png" alt="Frictionless volunteer experience — availability form" class="screenshot">
@@ -854,7 +853,7 @@
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>If a volunteer doesn't respond</strong>, Rostas sends an automatic SMS nudge after a configurable number of days. No manual chasing needed.
+    <strong>If a volunteer doesn't respond</strong>, Rostas can send an automatic SMS nudge after a configurable number of days. No manual chasing needed.
   </div>
 
   <h3 class="sub-title" id="a-engine">The Intelligent Matching Engine</h3>

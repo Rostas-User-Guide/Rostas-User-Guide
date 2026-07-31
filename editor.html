@@ -579,11 +579,12 @@ function renderEditor(html) {
   // Clone so we can modify for display without affecting save
   const display = mainInner.cloneNode(true);
 
-  // Fix image/video paths for display
+  // Fix image/video paths for display — cache-bust so replaced images always show latest
+  const rtCacheBust = Date.now();
   display.querySelectorAll('img').forEach(img => {
     const src = img.getAttribute('src');
     if (src && !src.startsWith('http') && !src.startsWith('data:')) {
-      img.setAttribute('src', RAW + src);
+      img.setAttribute('src', RAW + src + '?t=' + rtCacheBust);
       img.setAttribute('data-orig', src);
     }
   });

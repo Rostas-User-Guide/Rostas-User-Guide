@@ -400,6 +400,31 @@
   }
   .rt-img-width-btn:hover { opacity: 0.9; }
   .rt-img-width-btn.active { opacity: 1; background: var(--gold); }
+  .rt-img-width {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .rt-img-wrap:hover .rt-img-width { opacity: 1; }
+  .rt-img-width-btn {
+    background: rgba(26,46,74,0.88);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.3rem 0.55rem;
+    font-size: 11px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0.55;
+    transition: opacity 0.15s, background 0.15s;
+  }
+  .rt-img-width-btn:hover { opacity: 0.9; }
+  .rt-img-width-btn.active { opacity: 1; background: var(--gold); }
   #editor-content figcaption {
     font-size: 12px;
     color: var(--muted);
@@ -484,7 +509,8 @@
   <button class="tb-btn"        onclick="fmt('insertUnorderedList')" title="Bullet list">• List</button>
   <button class="tb-btn"        onclick="insertCallout('info')"  title="Info callout">📋 Info</button>
   <button class="tb-btn"        onclick="insertCallout('warn')"  title="Warning callout">⚠️ Warn</button>
-  <button class="tb-btn"        onclick="insertCallout('tip')"   title="Tip callout">💡 Tip</button>
+<button class="tb-btn"        onclick="insertCallout('tip')"   title="Tip callout">💡 Tip</button>
+  <button class="tb-btn"        onclick="addImage()"             title="Insert image at cursor">🖼 Add Image</button>
   <div class="tb-sep"></div>
   <button class="tb-btn"        onclick="discardChanges()"      title="Reload from GitHub">↺ Reload</button>
   <div id="status">Not loaded</div>
@@ -536,6 +562,8 @@
 
 <!-- Hidden file input for image replacement -->
 <input type="file" id="rt-img-file-input" accept="image/*" style="display:none">
+<!-- Hidden file input for adding a new image -->
+<input type="file" id="rt-add-img-file-input" accept="image/*" style="display:none">
 
 <script>
 const OWNER  = 'Rostas-User-Guide';
@@ -549,6 +577,34 @@ let currentSha   = '';
 let originalHTML = '';
 let isDirty      = false;
 let loadedDoc    = null;
+let rtSavedRange = null;
+
+const rtWidthClasses = ['screenshot-sm', 'screenshot-mid', 'screenshot'];
+const rtWidthLabels  = { 'screenshot-sm': 'S', 'screenshot-mid': 'M', 'screenshot': 'W' };
+const rtWidthTitles  = { 'screenshot-sm': 'Small (280px)', 'screenshot-mid': 'Medium (480px)', 'screenshot': 'Wide (full column)' };
+
+// Builds the "Replace image" button + S/M/W width toggle for a given <img>.
+// Used both when rendering loaded images and when a new image is inserted.
+function rtBuildImgControls(img) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'rt-img-replace';
+  btn.textContent = '🖼 Replace image';
+
+  const widthGroup = document.createElement('span');
+  widthGroup.className = 'rt-img-width';
+  rtWidthClasses.forEach(cls => {
+    const wbtn = document.createElement('button');
+    wbtn.type = 'button';
+    wbtn.className = 'rt-img-width-btn' + (img.classList.contains(cls) ? ' active' : '');
+    wbtn.dataset.widthClass = cls;
+    wbtn.title = rtWidthTitles[cls];
+    wbtn.textContent = rtWidthLabels[cls];
+    widthGroup.appendChild(wbtn);
+  });
+
+  return { btn, widthGroup };
+}
 
 // ── Token management ──────────────────────────────────────────────────────
 window.addEventListener('load', () => {
@@ -615,32 +671,13 @@ function renderEditor(html) {
   });
 
 // Wrap guide-hosted images with hover controls: "Replace image" + width toggle
-  const rtWidthClasses = ['screenshot-sm', 'screenshot-mid', 'screenshot'];
-  const rtWidthLabels  = { 'screenshot-sm': 'S', 'screenshot-mid': 'M', 'screenshot': 'W' };
-  const rtWidthTitles  = { 'screenshot-sm': 'Small (280px)', 'screenshot-mid': 'Medium (480px)', 'screenshot': 'Wide (full column)' };
   display.querySelectorAll('img[data-orig]').forEach(img => {
     const wrap = document.createElement('span');
     wrap.className = 'rt-img-wrap';
     img.replaceWith(wrap);
     wrap.appendChild(img);
-
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'rt-img-replace';
-    btn.textContent = '🖼 Replace image';
+    const { btn, widthGroup } = rtBuildImgControls(img);
     wrap.appendChild(btn);
-
-    const widthGroup = document.createElement('span');
-    widthGroup.className = 'rt-img-width';
-    rtWidthClasses.forEach(cls => {
-      const wbtn = document.createElement('button');
-      wbtn.type = 'button';
-      wbtn.className = 'rt-img-width-btn' + (img.classList.contains(cls) ? ' active' : '');
-      wbtn.dataset.widthClass = cls;
-      wbtn.title = rtWidthTitles[cls];
-      wbtn.textContent = rtWidthLabels[cls];
-      widthGroup.appendChild(wbtn);
-    });
     wrap.appendChild(widthGroup);
   });
 
@@ -745,6 +782,127 @@ document.getElementById('editor-content').addEventListener('click', function(e) 
   wrap.querySelectorAll('.rt-img-width-btn').forEach(b => b.classList.toggle('active', b === wbtn));
 
   markDirty();
+});
+
+document.getElementById('editor-content').addEventListener('click', function(e) {
+  const wbtn = e.target.closest('.rt-img-width-btn');
+  if (!wbtn) return;
+  e.preventDefault();
+  const wrap = wbtn.closest('.rt-img-wrap');
+  const img = wrap ? wrap.querySelector('img') : null;
+  if (!img) return;
+
+  img.classList.remove('screenshot', 'screenshot-mid', 'screenshot-sm');
+  img.classList.add(wbtn.dataset.widthClass);
+
+  wrap.querySelectorAll('.rt-img-width-btn').forEach(b => b.classList.toggle('active', b === wbtn));
+
+  markDirty();
+});
+
+// ── Add a new image ───────────────────────────────────────────────────────
+function addImage() {
+  const editorEl = document.getElementById('editor-content');
+  const sel = window.getSelection();
+  rtSavedRange = (sel.rangeCount > 0 && editorEl.contains(sel.anchorNode))
+    ? sel.getRangeAt(0).cloneRange()
+    : null;
+
+  const input = document.getElementById('rt-add-img-file-input');
+  input.value = '';
+  input.click();
+}
+
+document.getElementById('rt-add-img-file-input').addEventListener('change', async function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  if (file.size > 1.5 * 1024 * 1024) {
+    toast('That image is over 1.5MB — please compress it and try again.', 'error');
+    rtSavedRange = null;
+    return;
+  }
+
+  toast('Uploading ' + file.name + '…');
+
+  try {
+    const base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+    // Build a safe filename, then make sure it doesn't collide with an existing one
+    let basePath = file.name.toLowerCase().trim()
+      .replace(/[^a-z0-9.\-]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+    if (!basePath) basePath = 'image.png';
+
+    let finalPath = basePath;
+    let suffix = 2;
+    while (true) {
+      const check = await fetch(
+        `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURI(finalPath)}?ref=${BRANCH}`,
+        { headers: { Authorization: `token ${token}` } }
+      );
+      if (check.status === 404) break;
+      const dot = basePath.lastIndexOf('.');
+      finalPath = dot === -1 ? `${basePath}-${suffix}` : `${basePath.slice(0, dot)}-${suffix}${basePath.slice(dot)}`;
+      suffix++;
+    }
+
+    const putResp = await fetch(
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURI(finalPath)}`,
+      {
+        method: 'PUT',
+        headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: `Add image: ${finalPath}`, content: base64, branch: BRANCH })
+      }
+    );
+    if (!putResp.ok) {
+      const err = await putResp.json();
+      throw new Error(err.message || `GitHub error ${putResp.status}`);
+    }
+
+    // Build the new <figure><img>...</figure> block
+    const altText = finalPath.replace(/\.[^./]+$/, '').replace(/[-_]+/g, ' ');
+    const img = document.createElement('img');
+    img.className = 'screenshot';
+    img.setAttribute('data-orig', finalPath);
+    img.setAttribute('src', RAW + finalPath + '?t=' + Date.now());
+    img.setAttribute('alt', altText);
+
+    const wrap = document.createElement('span');
+    wrap.className = 'rt-img-wrap';
+    wrap.appendChild(img);
+    const { btn, widthGroup } = rtBuildImgControls(img);
+    wrap.appendChild(btn);
+    wrap.appendChild(widthGroup);
+
+    const figcap = document.createElement('figcaption');
+    figcap.textContent = 'Caption — click to edit.';
+
+    const figure = document.createElement('figure');
+    figure.appendChild(wrap);
+    figure.appendChild(figcap);
+
+    const editorEl = document.getElementById('editor-content');
+    if (rtSavedRange && editorEl.contains(rtSavedRange.startContainer)) {
+      rtSavedRange.collapse(false);
+      rtSavedRange.insertNode(figure);
+    } else {
+      editorEl.appendChild(figure);
+    }
+
+    markDirty();
+    toast('Image added: ' + finalPath, 'success');
+  } catch (err) {
+    toast('Image upload failed: ' + err.message, 'error');
+  } finally {
+    rtSavedRange = null;
+  }
 });
 
 document.getElementById('rt-img-file-input').addEventListener('change', async function(e) {

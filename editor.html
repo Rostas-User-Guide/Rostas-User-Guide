@@ -375,6 +375,31 @@
     transition: opacity 0.15s;
   }
   .rt-img-wrap:hover .rt-img-replace { opacity: 1; }
+  .rt-img-width {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .rt-img-wrap:hover .rt-img-width { opacity: 1; }
+  .rt-img-width-btn {
+    background: rgba(26,46,74,0.88);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.3rem 0.55rem;
+    font-size: 11px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0.55;
+    transition: opacity 0.15s, background 0.15s;
+  }
+  .rt-img-width-btn:hover { opacity: 0.9; }
+  .rt-img-width-btn.active { opacity: 1; background: var(--gold); }
   #editor-content figcaption {
     font-size: 12px;
     color: var(--muted);
@@ -589,17 +614,34 @@ function renderEditor(html) {
     }
   });
 
-  // Wrap guide-hosted images with a hover "Replace image" button
+// Wrap guide-hosted images with hover controls: "Replace image" + width toggle
+  const rtWidthClasses = ['screenshot-sm', 'screenshot-mid', 'screenshot'];
+  const rtWidthLabels  = { 'screenshot-sm': 'S', 'screenshot-mid': 'M', 'screenshot': 'W' };
+  const rtWidthTitles  = { 'screenshot-sm': 'Small (280px)', 'screenshot-mid': 'Medium (480px)', 'screenshot': 'Wide (full column)' };
   display.querySelectorAll('img[data-orig]').forEach(img => {
     const wrap = document.createElement('span');
     wrap.className = 'rt-img-wrap';
     img.replaceWith(wrap);
     wrap.appendChild(img);
+
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'rt-img-replace';
     btn.textContent = '🖼 Replace image';
     wrap.appendChild(btn);
+
+    const widthGroup = document.createElement('span');
+    widthGroup.className = 'rt-img-width';
+    rtWidthClasses.forEach(cls => {
+      const wbtn = document.createElement('button');
+      wbtn.type = 'button';
+      wbtn.className = 'rt-img-width-btn' + (img.classList.contains(cls) ? ' active' : '');
+      wbtn.dataset.widthClass = cls;
+      wbtn.title = rtWidthTitles[cls];
+      wbtn.textContent = rtWidthLabels[cls];
+      widthGroup.appendChild(wbtn);
+    });
+    wrap.appendChild(widthGroup);
   });
 
   display.querySelectorAll('source').forEach(s => {
@@ -687,6 +729,22 @@ document.getElementById('editor-content').addEventListener('click', function(e) 
   const input = document.getElementById('rt-img-file-input');
   input.value = '';
   input.click();
+});
+
+document.getElementById('editor-content').addEventListener('click', function(e) {
+  const wbtn = e.target.closest('.rt-img-width-btn');
+  if (!wbtn) return;
+  e.preventDefault();
+  const wrap = wbtn.closest('.rt-img-wrap');
+  const img = wrap ? wrap.querySelector('img') : null;
+  if (!img) return;
+
+  img.classList.remove('screenshot', 'screenshot-mid', 'screenshot-sm');
+  img.classList.add(wbtn.dataset.widthClass);
+
+  wrap.querySelectorAll('.rt-img-width-btn').forEach(b => b.classList.toggle('active', b === wbtn));
+
+  markDirty();
 });
 
 document.getElementById('rt-img-file-input').addEventListener('change', async function(e) {

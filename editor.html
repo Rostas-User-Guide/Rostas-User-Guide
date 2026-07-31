@@ -355,8 +355,26 @@
     margin: 1rem 0 0.4rem;
     pointer-events: none; /* prevent drag in edit mode */
   }
-  #editor-content img.screenshot-mid { max-width: 480px; }
+ #editor-content img.screenshot-mid { max-width: 480px; }
   #editor-content img.screenshot-sm  { max-width: 280px; }
+  .rt-img-wrap { position: relative; display: block; }
+  .rt-img-replace {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(26,46,74,0.88);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 12.5px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .rt-img-wrap:hover .rt-img-replace { opacity: 1; }
   #editor-content figcaption {
     font-size: 12px;
     color: var(--muted);
@@ -491,6 +509,9 @@
 <!-- TOAST -->
 <div id="toast"></div>
 
+<!-- Hidden file input for image replacement -->
+<input type="file" id="rt-img-file-input" accept="image/*" style="display:none">
+
 <script>
 const OWNER  = 'Rostas-User-Guide';
 const REPO   = 'Rostas-User-Guide';
@@ -566,6 +587,20 @@ function renderEditor(html) {
       img.setAttribute('data-orig', src);
     }
   });
+
+  // Wrap guide-hosted images with a hover "Replace image" button
+  display.querySelectorAll('img[data-orig]').forEach(img => {
+    const wrap = document.createElement('span');
+    wrap.className = 'rt-img-wrap';
+    img.replaceWith(wrap);
+    wrap.appendChild(img);
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'rt-img-replace';
+    btn.textContent = '🖼 Replace image';
+    wrap.appendChild(btn);
+  });
+
   display.querySelectorAll('source').forEach(s => {
     const src = s.getAttribute('src');
     if (src && !src.startsWith('http')) s.setAttribute('src', RAW + src);
@@ -638,6 +673,86 @@ function insertCallout(type) {
   document.execCommand('insertHTML', false, html);
 }
 
+// ── Image replacement ─────────────────────────────────────────────────────
+let rtPendingReplaceImg = null;
+
+document.getElementById('editor-content').addEventListener('click', function(e) {
+  const btn = e.target.closest('.rt-img-replace');
+  if (!btn) return;
+  e.preventDefault();
+  const wrap = btn.closest('.rt-img-wrap');
+  rtPendingReplaceImg = wrap ? wrap.querySelector('img') : null;
+  if (!rtPendingReplaceImg) return;
+  const input = document.getElementById('rt-img-file-input');
+  input.value = '';
+  input.click();
+});
+
+document.getElementById('rt-img-file-input').addEventListener('change', async function(e) {
+  const file = e.target.files[0];
+  if (!file || !rtPendingReplaceImg) return;
+
+  if (file.size > 1.5 * 1024 * 1024) {
+    toast('That image is over 1.5MB — please compress it and try again.', 'error');
+    return;
+  }
+
+  const path = rtPendingReplaceImg.getAttribute('data-orig');
+  if (!path) {
+    toast('This image isn\u2019t stored in the guide repo, so it can\u2019t be replaced here.', 'error');
+    return;
+  }
+
+  const wrap = rtPendingReplaceImg.closest('.rt-img-wrap');
+  const imgEl = rtPendingReplaceImg;
+  if (wrap) wrap.style.opacity = '0.4';
+  toast('Uploading ' + file.name + '…');
+
+  try {
+    const base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+    let sha;
+    const getResp = await fetch(
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURI(path)}?ref=${BRANCH}`,
+      { headers: { Authorization: `token ${token}` } }
+    );
+    if (getResp.ok) {
+      const info = await getResp.json();
+      sha = info.sha;
+    }
+
+    const putBody = { message: `Replace image: ${path}`, content: base64, branch: BRANCH };
+    if (sha) putBody.sha = sha;
+
+    const putResp = await fetch(
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURI(path)}`,
+      {
+        method: 'PUT',
+        headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(putBody)
+      }
+    );
+
+    if (!putResp.ok) {
+      const err = await putResp.json();
+      throw new Error(err.message || `GitHub error ${putResp.status}`);
+    }
+
+    imgEl.setAttribute('src', RAW + path + '?t=' + Date.now());
+    toast('Image replaced: ' + path, 'success');
+  } catch (err) {
+    toast('Image upload failed: ' + err.message, 'error');
+  } finally {
+    if (wrap) wrap.style.opacity = '1';
+    rtPendingReplaceImg = null;
+  }
+});
+
 // ── Save to GitHub ────────────────────────────────────────────────────────
 async function saveGuide() {
   if (!isDirty) return;
@@ -651,6 +766,12 @@ async function saveGuide() {
     const editorEl = document.getElementById('editor-content');
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = editorEl.innerHTML;
+
+    // Unwrap the editor-only "Replace image" wrapper before saving
+    tempDiv.querySelectorAll('.rt-img-wrap').forEach(wrap => {
+      const img = wrap.querySelector('img');
+      if (img) wrap.replaceWith(img);
+    });
 
     // Restore original image paths
     tempDiv.querySelectorAll('img[data-orig]').forEach(img => {

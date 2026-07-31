@@ -923,7 +923,7 @@
 
 <p>When Rostas needs a reply by text — a replacement request, a manual-roster heads-up, or a cross-roster ask — the message contains a <strong>4-digit code</strong>, not a link. New Zealand mobile networks silently filter many texts that contain web links, so a tappable link in an SMS can't be relied on to arrive. On SMS a short code does double duty: it survives carrier filtering <em>and</em> it's far shorter than a link, keeping each message inside the single-text limit so your church isn't charged for two.</p>
 
-  <p>The volunteer opens <strong>rostas.app/enter</strong> and types the 4-digit code from their text. The code is single-use and expires after a short window, so it can't be reused or forwarded. Once entered, they land on the same accept / decline page they'd have reached from a link.</p>
+  <p>The volunteer opens <b>https://rostas.app/enter</b>&nbsp;and types the 4-digit code from their text. The code is single-use and expires after a short window, so it can't be reused or forwarded. Once entered, they land on the same accept / decline page they'd have reached from a link.</p>
 
   <figure>
     <img src="comms-replacement-sms.png" alt="Example replacement SMS as received on a volunteer's phone" class="screenshot-mid">
@@ -932,12 +932,12 @@
 
   <figure>
     <img src="comms-enter-code.png" alt="The rostas.app/enter page showing four code-entry boxes and a Continue button" class="screenshot-mid">
-    <figcaption>The rostas.app/enter page — the volunteer types the 4-digit code from their text and taps Continue, reaching the same accept / decline page a link would have opened.</figcaption>
+    <figcaption>The rostas.app/enter page — the volunteer types the 4-digit code from their text and taps Continue, reaching the same accept / decline page a link would have opened by email.</figcaption>
   </figure>
 
   <div class="callout callout-info">
     <span class="callout-icon">📧</span>
-    <strong>Email is unchanged.</strong> Email notifications aren't filtered and aren't charged per character, so they still contain ordinary tappable links — only SMS moved to codes. Because the email carries the link and explains the entry page, it's how most volunteers first learn where rostas.app/enter is. They can bookmark it, and your church can link to it from your website behind the Rostas logo so it's always one tap away.
+    <strong>Email is unchanged.</strong> Email notifications aren't filtered and aren't charged per character, so they still contain ordinary tap-able links — only SMS moved to codes in NZ. Because the email carries the link and explains the entry page, it's how most volunteers first learn where rostas.app/enter is. They can bookmark it, and your church can link to it from your website behind the Rostas logo so it's always one tap away.
   </div>
 
   <h3 class="sub-title" id="a-volunteers">Looking After Your Volunteers</h3>
@@ -949,10 +949,10 @@
         <tr><th>Feature</th><th>What it does for your volunteers</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Frequency caps</strong></td><td>Set a maximum number of times each volunteer can be rostered per month. The engine never exceeds this, even if they're always available.</td></tr>
+        <tr><td><strong>Frequency caps</strong></td><td>Set a maximum number of times each volunteer can be rostered per number of weeks. The engine never exceeds this, even if they're always available.</td></tr>
         <tr><td><strong>Quiet hours</strong></td><td>No automated SMS during the quiet window you set in Settings (default 9pm–8am). Volunteers are never disturbed at night.</td></tr>
-        <tr><td><strong>Self-serve opt-out</strong></td><td>Volunteers can pause or opt out of SMS and email at any time using a link in any Rostas message — no need to contact you.</td></tr>
-        <tr><td><strong>Relational rostering</strong></td><td>Rostas tries to schedule family members and preferred buddies on the same dates — making it easier to serve together.</td></tr>
+        <tr><td><strong>Self-serve opt-out</strong></td><td>Volunteers can pause or opt out of SMS and email at any time using a link in any Rostas message — no need to contact you.&nbsp; They may be happy just to print out their roster.&nbsp;</td></tr>
+        <tr><td><strong>Relational rostering</strong></td><td>Rostas tries to schedule family members and preferred buddies on the same dates — making it easier to serve together or share transport.&nbsp;</td></tr>
       </tbody>
     </table>
   </div>
@@ -968,7 +968,7 @@
       </thead>
       <tbody>
         <tr><td><strong>You — the coordinator</strong></td><td>Run the 6-step wizard each cycle, review the built roster, handle exceptions, manage volunteers and settings</td></tr>
-        <tr><td><strong>Your volunteers</strong></td><td>Respond to availability emails, set role preferences once, accept or decline replacement requests by entering a short code or tapping a link</td></tr>
+        <tr><td><strong>Your volunteers</strong></td><td>Respond to availability emails, set role preferences, accept or decline replacement requests by entering a short code from sms or tapping a link in an email.&nbsp;</td></tr>
         <tr><td><strong>Rostas</strong></td><td>Everything in between — building the roster, sending notifications, chasing replacements, sending reminders, enforcing frequency caps</td></tr>
       </tbody>
     </table>
@@ -1060,13 +1060,7 @@
         <tr><td><strong>Your email</strong></td><td>Your email address — receives error alerts and escalation notifications</td></tr>
         <tr><td><strong>Your mobile</strong></td><td>Your mobile number in full international format — e.g. +6421123456. Must include country code.</td></tr>
       </tbody>
-    </table>
-  </div>
-
-  <div class="callout callout-warn">
-    <span class="callout-icon">⚠️</span>
-    <strong>Include your country code in the mobile number.</strong> Enter it as +6421123456, not 021123456. Without the country code SMS delivery will fail.
-  </div>
+    </table></div>
 
   <h3 class="sub-title" id="b-step3">Step 3 — SMS Test</h3>
   <p>Before your first roster build, Rostas verifies that SMS is working. This step sends a real test message to your mobile so you can confirm everything is set up correctly.</p>

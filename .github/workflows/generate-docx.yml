@@ -34,8 +34,9 @@ jobs:
 
       - name: Install LibreOffice
         run: |
+          export DEBIAN_FRONTEND=noninteractive
           sudo apt-get update
-          sudo apt-get install -y libreoffice python3-uno --no-install-recommends
+          sudo apt-get install -y --no-install-recommends libreoffice-writer libreoffice-core python3-uno
 
       - name: Convert DOCX to PDF (with TOC update)
         run: python3 convert_pdf.py

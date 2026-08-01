@@ -40,6 +40,7 @@ jobs:
 
       - name: Convert DOCX to PDF (with TOC update)
         run: python3 convert_pdf.py
+        timeout-minutes: 8
 
       - name: Commit and push files
         run: |

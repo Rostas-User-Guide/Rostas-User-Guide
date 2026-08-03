@@ -1396,7 +1396,7 @@
   <p>The ⋯ menu on the right of each row holds the actions you take on a roster between builds. Click it to open a pop-up of options.</p>
 
   <figure>
-    <img src="builds-row-menu.png" alt="A Builds row with the three-dot menu open, showing Pause roster, Manage Dates, Manage roles, Frequency and Delete roster" class="screenshot-sm">
+    <img src="builds-row-menu.png" alt="A Builds row with the three-dot menu open, showing Pause roster, Manage Dates, Manage roles, Frequency, Reset roster data and Delete roster" class="screenshot-sm">
     <figcaption>The ⋯ menu open on a roster row. When a roster is paused, the top option reads "Resume roster" instead of "Pause roster".</figcaption>
   </figure>
 
@@ -1410,9 +1410,23 @@
         <tr><td><strong>Manage Dates</strong></td><td>Opens the Confirm Dates screen on its own, so you can adjust which dates this roster runs on. Changes apply from the next build onward — dates already built are never changed retroactively.</td></tr>
         <tr><td><strong>Manage roles</strong></td><td>Opens the roles screen for this roster — add, rename, set headcounts, or deactivate roles. Also applies from the next build onward.</td></tr>
         <tr><td><strong>Frequency</strong></td><td>Opens the Frequency page, where you set how often the roster runs and its season type. See Frequency Settings below.</td></tr>
+        <tr><td><strong>Reset roster data</strong></td><td>Clears this roster type's assignments so you can rebuild from scratch, while keeping its roles, volunteer preferences, and settings intact. Use with care — see below.</td></tr>
         <tr><td><strong>Delete roster</strong></td><td>Permanently removes the roster type and everything tied to it. Use with care — see below.</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <h3 class="sub-title" id="c-reset-roster">Resetting roster data</h3>
+  <p><strong>Reset roster data</strong> clears out this roster type's built assignments — so you can start a fresh cycle from scratch — without touching its roles, volunteer preferences, or settings. It's a lighter-weight action than Delete: think of it as wiping the slate for this roster's assignments, not removing the roster type itself.</p>
+
+  <figure>
+    <img src="build-reset-modal.png" alt="Reset roster data confirmation with an amber header, an itemised count of what will be cleared, and a green line showing what's kept" class="screenshot-mid">
+    <figcaption>Resetting a roster asks you to confirm, and lists exactly what will be cleared — assignments for that roster type, with real counts. Its amber header (rather than Delete's red) signals it's less destructive, and a green line spells out what's kept: roles, volunteer preferences, and settings.</figcaption>
+  </figure>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Reset still can't be undone.</strong> Once cleared, that roster type's assignments are gone — Rostas can't bring them back. It's safer than Delete because roles and volunteer preferences survive, but it's still a one-way action. Use it when you genuinely want to rebuild a roster from a clean slate, not as a way to "tidy up" a roster you're still using.
   </div>
 
   <figure>
@@ -1422,7 +1436,7 @@
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <strong>Deleting is permanent.</strong> If you only need to stop a roster for a while — over summer, say — use <strong>Pause</strong> from the ⋯ menu instead. Pausing keeps all the roster's history and settings; deleting removes them for good.
+    <strong>Deleting is permanent.</strong> If you only need to stop a roster for a while — over summer, say — use <strong>Pause</strong> from the ⋯ menu instead. Pausing keeps all the roster's history and settings; deleting removes them for good. If you only need to clear assignments and start the same roster fresh, <strong>Reset roster data</strong> above is the gentler option — it keeps roles and volunteer preferences that Delete would remove.
   </div>
 
   <div class="callout callout-tip">
@@ -1855,6 +1869,19 @@
     <figcaption>A swap with conflicts — the amber warnings inform you, but the swap button stays available.</figcaption>
   </figure>
 
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Only the volunteer moves.</strong> A swap moves the two volunteers between slots — the role, date, and any existing status or timestamps stay put on the slot itself. Nothing else about the two dates changes.
+  </div>
+
+  <h3 class="sub-title" id="d-swap-notify">Who gets notified</h3>
+  <p>Whether a swap triggers a notification depends on each slot individually, not on the swap as a whole. Rostas checks each of the two slots separately: if a slot's roster notification had already gone out before the swap, the volunteer now in that slot gets a swap SMS or email; if it hadn't gone out yet, no notification is needed because the regular roster notification will cover it. This means a swap can notify both volunteers, just one, or neither, depending on which of the two slots had already been sent.</p>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>The swap message is informational only.</strong> Unlike a replacement request, a swap notification doesn't ask the volunteer to respond — it just tells them their date has changed. Never add <code>[Code]</code> to the swap SMS template: there's no code to enter for a swap, and doing so has previously created orphan entries on the Codes tab that were never redeemed.
+  </div>
+
   <h2 class="section-title" id="d-replace">Manual Replacement</h2>
   <p>When you click <strong>Replace</strong>, the replacement panel appears below the action bar showing all available volunteers for that role and date, sorted by priority tier. Each volunteer shows their availability status and how recently they've been rostered.</p>
 
@@ -2041,7 +2068,7 @@
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <p><strong>SMS enabled</strong> — the master kill switch. When this is false, no SMS leaves Rostas at all — not replacements, not reminders, not test sends. The System Status card shows a red warning when this is off. Only disable it deliberately (e.g. during a migration or if your Twilio account lapses).</p>
+    <p><strong>SMS enabled</strong> — the master kill switch. When this is false, no SMS leaves Rostas at all — not replacements, not reminders, not test sends. The System Status card shows a red warning when this is off. Only disable it deliberately (e.g. during a migration or if your SMS provider account lapses).</p>
   </div>
 
   <div class="callout callout-warn">
@@ -2099,10 +2126,10 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
-    All placeholder names use square brackets: [Name], [Role], [Date], [Link], [Code], [OrgName], [Deadline]. Never use curly braces — {name} will not be substituted.
+    All placeholder names use square brackets: [Name], [Role], [Date], [Link], [Code], [OrgName], [Deadline], [ChangeDescription]. Never use curly braces — {name} will not be substituted.
   </div>
 
-  <p>The Message Wording category holds every message Rostas sends — the SMS templates (availability nudge, day-before reminder, replacement request, replacement confirmed, coordinator escalation) and the email templates (roster notification, availability request, reminder, swap). Edit any of them here; the three protections above apply to each.</p>
+  <p>The Message Wording category holds every message Rostas sends — the SMS templates (availability nudge, day-before reminder, replacement request, replacement confirmed, coordinator escalation, swap) and the email templates (roster notification, availability request, reminder, swap). Edit any of them here; the three protections above apply to each.</p>
 
   <figure>
     <img src="settings-sms-templates-list.png" alt="The list of editable SMS and email message templates in Settings" class="screenshot">
@@ -2130,6 +2157,7 @@
         <tr><td><code>[Code]</code></td><td>A single-use 4-digit code the volunteer types at rostas.app/enter. <strong>SMS templates only</strong></td></tr>
         <tr><td><code>[Deadline]</code></td><td>The time by which they need to respond</td></tr>
         <tr><td><code>[OrgName]</code></td><td>Your organisation name from Settings</td></tr>
+        <tr><td><code>[ChangeDescription]</code></td><td>A short auto-written summary of what changed. <strong>Swap template only</strong> — Rostas fills this in itself, so you never need to type it</td></tr>
       </tbody>
     </table>
   </div>
@@ -2285,7 +2313,7 @@
   <ul>
     <li>SMS messages are failing with error messages in the System Status communication failures table</li>
     <li>The web app URL has changed and volunteer links are broken</li>
-    <li>You need to change Twilio or other API credentials</li>
+    <li>You need to change AWS SNS or other API credentials</li>
     <li>Something is producing repeated errors that don't resolve on their own</li>
     <li>You need to add or remove a roster type</li>
     <li>Anything requiring access to the Google Apps Script editor</li>

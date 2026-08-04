@@ -683,16 +683,6 @@
       <a class="toc-item toc-h2" href="#c-new-step4">Step 4 — Volunteers</a>
       <a class="toc-item toc-h2" href="#c-new-step5">Step 5 — Review</a>
     </div>
-    <a class="toc-item toc-h1" href="#c-manage-roles">Managing Roles</a>
-    <div class="toc-parent" id="parent-c-frequency">
-      <a class="toc-parent-link" href="#c-frequency">Frequency &amp; Season Type</a>
-      <button class="toc-toggle" data-target="children-c-frequency" aria-label="Toggle"><span class="arrow">›</span></button>
-    </div>
-    <div class="toc-children" id="children-c-frequency">
-      <a class="toc-item toc-h2" href="#c-frequency-cadence">Roster cadence</a>
-      <a class="toc-item toc-h2" href="#c-frequency-season-type">Season type</a>
-      <a class="toc-item toc-h2" href="#c-frequency-cap">Volunteer frequency cap</a>
-    </div>
     <div class="toc-parent" id="parent-c-rebuild">
       <a class="toc-parent-link" href="#c-rebuild">Roster Wizard</a>
       <button class="toc-toggle" data-target="children-c-rebuild" aria-label="Toggle"><span class="arrow">›</span></button>
@@ -705,7 +695,28 @@
       <a class="toc-item toc-h2" href="#c-rebuild-step5">Step 5 — Check Roster</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step6">Step 6 — Notify</a>
     </div>
-    <a class="toc-item toc-h1" href="#c-season">Confirming Build Dates</a>
+    <a class="toc-item toc-h1" href="#c-menu">The Build Menu</a>
+    <div class="toc-parent" id="parent-c-season">
+      <a class="toc-parent-link" href="#c-season">Confirming Build Dates</a>
+      <button class="toc-toggle" data-target="children-c-season" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-c-season">
+      <a class="toc-item toc-h2" href="#c-season-remove">Removing a date</a>
+      <a class="toc-item toc-h2" href="#c-season-shift">Shifting the boundary</a>
+      <a class="toc-item toc-h2" href="#c-season-add">Adding an extra date</a>
+    </div>
+    <a class="toc-item toc-h1" href="#c-manage-roles">Managing Roles</a>
+    <div class="toc-parent" id="parent-c-frequency">
+      <a class="toc-parent-link" href="#c-frequency">Frequency &amp; Season Type</a>
+      <button class="toc-toggle" data-target="children-c-frequency" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-c-frequency">
+      <a class="toc-item toc-h2" href="#c-frequency-cadence">Roster cadence</a>
+      <a class="toc-item toc-h2" href="#c-frequency-season-type">Season type</a>
+      <a class="toc-item toc-h2" href="#c-frequency-cap">Volunteer frequency cap</a>
+    </div>
+    <a class="toc-item toc-h1" href="#c-reset">Resetting Roster Data</a>
+    <a class="toc-item toc-h1" href="#c-delete">Deleting a Roster</a>
 
     <!-- Part E -->
     <div class="toc-part">Part E — Using the Board</div>
@@ -1349,14 +1360,13 @@
   <div class="part-banner" id="part-c">
     <span class="part-label">Part D</span>
     <span class="part-title">The Roster Cycle</span>
-    <span class="part-sub">New Roster Wizard · Managing Roles · Frequency · Roster Wizard</span>
+    <span class="part-sub">New Roster Wizard · Roster Wizard · The Build Menu</span>
   </div>
 
   <p>There are two roster wizards in Rostas. The <strong>New Roster Wizard</strong> runs once when you set up a new roster type — it defines the name, roles, season dates, and volunteers. The <strong>Roster Wizard</strong> runs every few weeks to collect availability, build the roster, and send notifications to volunteers.</p>
 
   <p>Both start from the <strong>Builds dashboard</strong>.</p>
 
-  <!-- ══ BUILD DASHBOARD ══ -->
   <h2 class="section-title" id="c-dashboard">The Builds Dashboard</h2>
   <p>The Builds dashboard is your home base for all roster activity. Open it by clicking <strong>Builds</strong> in the sidebar. Every roster type appears as a full-width row — one per roster — so you can see the state of your whole operation at a glance and act on any roster without leaving the page.</p>
 
@@ -1392,57 +1402,7 @@
     <strong>These two colours aren't the same as the date bands in the wizard.</strong> On the Builds dashboard, chip colour just means past (blue) or upcoming (green). Inside the Confirm Dates step of a build you'll see a richer set of coloured bands for last build, this build, next build, and excluded dates — that's a different view with a different job.
   </div>
 
-  <h3 class="sub-title" id="c-dashboard-menu">The ⋯ menu</h3>
-  <p>The ⋯ menu on the right of each row holds the actions you take on a roster between builds. Click it to open a pop-up of options.</p>
-
-  <figure>
-    <img src="builds-row-menu.png" alt="A Builds row with the three-dot menu open, showing Pause roster, Manage Dates, Manage roles, Frequency, Reset roster data and Delete roster" class="screenshot-sm">
-    <figcaption>The ⋯ menu open on a roster row. When a roster is paused, the top option reads "Resume roster" instead of "Pause roster".</figcaption>
-  </figure>
-
-  <div class="tbl-wrap">
-    <table>
-      <thead>
-        <tr><th>Option</th><th>What it does</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Pause roster</strong> / <strong>Resume roster</strong></td><td>Temporarily stops all activity for this roster — no builds, reminders, or replacements — without losing any history. The same option resumes it.</td></tr>
-        <tr><td><strong>Manage Dates</strong></td><td>Opens the Build Dates screen on its own, so you can adjust which dates this roster runs on — remove one, shift the build boundary, or add a one-off extra date. See <a href="#c-season">Confirming Build Dates</a> below. Changes apply from the next build onward — dates already built are never changed retroactively.</td></tr>
-        <tr><td><strong>Manage roles</strong></td><td>Opens the roles screen for this roster — add, rename, set headcounts, or deactivate roles. Also applies from the next build onward.</td></tr>
-        <tr><td><strong>Frequency</strong></td><td>Opens the Frequency page, where you set how often the roster runs and its season type. See Frequency Settings below.</td></tr>
-        <tr><td><strong>Reset roster data</strong></td><td>Wipes this roster type's operational data — assignments, availability, replacement history — while keeping the roster shell, its roles, your volunteers, and your settings intact. Use with care — see below.</td></tr>
-        <tr><td><strong>Delete roster</strong></td><td>Permanently removes the roster type and everything tied to it. Use with care — see below.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3 class="sub-title" id="c-dashboard-reset">Resetting roster data</h3>
-  <p><strong>Reset roster data</strong> clears a roster type's operational history — built assignments, availability responses, replacement chains — without touching the roster's setup: its roles, volunteers, and season stay exactly as they are. It's a pick → preview → confirm flow: choose the roster type, review what will be cleared, then confirm.</p>
-
-  <div class="callout callout-tip">
-    <span class="callout-icon">💡</span>
-    <strong>Built for getting started.</strong> This is the tool for wiping sample or test data before a roster goes live — clear out anything built while you were setting up, then start rostering for real without deleting and re-creating the whole roster type.
-  </div>
-
-  <div class="callout callout-warn">
-    <span class="callout-icon">⚠️</span>
-    <strong>Reset vs Delete.</strong> Reset clears history but keeps the roster type itself — its roles and volunteer assignments to it survive. Delete removes the roster type entirely. If you're clearing out test data before going live, Reset is almost always what you want.
-  </div>
-
-  <figure>
-    <img src="build-reset-modal.png" alt="Reset roster data confirmation showing the preview of what will be cleared before confirming" class="screenshot-mid">
-    <figcaption>The Reset roster data confirmation — preview what will be cleared before you commit.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="build-delete-modal.png" alt="Delete roster confirmation listing exactly what will be removed, with a nudge toward pausing instead" class="screenshot-mid">
-    <figcaption>Deleting a roster asks you to confirm, and lists exactly what will be removed — seasons, roles, assignments, and preferences, with real counts. It also nudges you toward pausing instead if you only need a temporary break.</figcaption>
-  </figure>
-
-  <div class="callout callout-warn">
-    <span class="callout-icon">⚠️</span>
-    <strong>Deleting is permanent.</strong> If you only need to stop a roster for a while — over summer, say — use <strong>Pause</strong> from the ⋯ menu instead. Pausing keeps all the roster's history and settings; deleting removes them for good.
-  </div>
+  <p>On the right of each row, the <strong>⋯</strong> menu holds the rest of what you can do with a roster — pausing, adjusting dates and roles, resetting, or deleting. See <a href="#c-menu">The Build Menu</a> below for the full walkthrough.</p>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
@@ -1528,110 +1488,6 @@
   <p>Click <strong>Confirm &amp; Create Roster</strong> to finish. Your new roster type appears on the Builds dashboard immediately. You're now ready to run your first Roster Wizard for this roster.</p>
 
   <!-- ══ MANAGE ROLES ══ -->
-  <h2 class="section-title" id="c-manage-roles">Managing Roles</h2>
-  <p>Once a roster exists, you can add, rename, re-size, or retire its roles at any time. Open the <strong>Builds</strong> dashboard, click the <strong>⋯</strong> menu on the roster's row, and choose <strong>Manage roles</strong>. The page lists every role for that roster with its headcount and an active switch.</p>
-
-  <figure>
-    <img src="build-dashboard-manage-roles.png" alt="The Manage roles page listing each role with its headcount and an Active / Inactive switch" class="screenshot">
-    <figcaption>The Manage roles page — each role shows its <strong>Headcount</strong> (the minimum and maximum people to roster) and an <strong>Active / Inactive</strong> switch. The engine always tries to fill the minimum and never exceeds the maximum.</figcaption>
-  </figure>
-
-  <div class="tbl-wrap">
-    <table>
-      <thead><tr><th>Action</th><th>How</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Add a role</strong></td><td>Use the add option at the bottom of the list; enter the name and its minimum and maximum headcount.</td></tr>
-        <tr><td><strong>Rename a role</strong></td><td>Use <strong>Rename</strong> on the role. The new name appears in future messages to volunteers.</td></tr>
-        <tr><td><strong>Change headcount</strong></td><td>Adjust the minimum and maximum for how many people the role needs each time.</td></tr>
-        <tr><td><strong>Deactivate a role</strong></td><td>Switch it to <strong>Inactive</strong>. It drops out of future builds but keeps its history, and you can reactivate it any time.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="callout callout-info">
-    <span class="callout-icon">ℹ️</span>
-    <strong>Changes apply from your next build onward.</strong> Renaming a role, changing its headcount, switching it active or inactive, or adding a new role all take effect at the next build — dates you've already built keep their original roles and wording. Nothing changes underneath the volunteers you've already notified.
-  </div>
-
-  <div class="callout callout-tip">
-    <span class="callout-icon">💡</span>
-    <strong>Deactivate rather than delete.</strong> Deactivating a role keeps the full history of who served in it; it just stops appearing in new builds. Reach for deactivate unless you're correcting a genuine setup mistake.
-  </div>
-
-  <div class="callout callout-warn">
-    <span class="callout-icon">⚠️</span>
-    <strong>Mind the timing when renaming mid-cycle.</strong> Because a rename only affects messages sent after it, volunteers already notified will have the old name in their earlier email or text. If you rename partway through a cycle, expect a brief mismatch until the next build.
-  </div>
-
-  <!-- ══ FREQUENCY ══ -->
-  <h2 class="section-title" id="c-frequency">Frequency &amp; Season Type</h2>
-  <p>There are two separate frequency ideas in Rostas: how often the <em>roster</em> runs, and how often each <em>volunteer</em> serves. This section covers the roster side — its cadence and whether the season is fixed or ongoing. The per-volunteer cap is set on each person's profile (see <a href="#e-detail-frequency">Frequency on the Profile detail page</a>); the two are explained together at the end.</p>
-
-  <h3 class="sub-title" id="c-frequency-cadence">Roster cadence — how often the roster runs</h3>
-  <p>Not every roster runs weekly. A community meal might run fortnightly, a kids' ministry only on the 1st and 3rd Sunday, a review team monthly. The <strong>Frequency</strong> page sets this cadence per roster type — it decides which dates appear in the season, and therefore which dates Rostas builds for. You reach it two ways: when you first create a roster (in the New Roster Wizard's first step), or any time afterwards from the Builds dashboard — ⋯ — Frequency.</p>
-
-  <figure>
-    <img src="season-freq-type-control.png" alt="The Season Freq page showing the cadence pills (Daily to Monthly) and the Fixed-term / Perpetual season type control" class="screenshot">
-    <figcaption>The Frequency page — cadence pills across the top, and the Season Type control below. Changes apply from your next roster build onward; dates already built keep their original cadence.</figcaption>
-  </figure>
-
-  <div class="tbl-wrap">
-    <table>
-      <thead><tr><th>Option</th><th>When to use it</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Daily</strong></td><td>Roster runs every day it applies — e.g. a hospital-visit or meals roster</td></tr>
-        <tr><td><strong>Weekly</strong></td><td>Roster runs every week — e.g. Sunday service</td></tr>
-        <tr><td><strong>Fortnightly</strong></td><td>Roster runs every two weeks</td></tr>
-        <tr><td><strong>1st and 3rd</strong></td><td>Runs on the 1st and 3rd occurrence of the day each month</td></tr>
-        <tr><td><strong>2nd and 4th</strong></td><td>Runs on the 2nd and 4th occurrence of the day each month</td></tr>
-        <tr><td><strong>Monthly</strong></td><td>Runs once a month — e.g. a quarterly review team</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="callout callout-tip">
-    <span class="callout-icon">💡</span>
-    <strong>Cadence is set once per roster type</strong> and applies to everyone in it. If two groups run on different weeks, set them up as separate roster types.
-  </div>
-
-  <h3 class="sub-title" id="c-frequency-season-type">Season type — fixed-term or perpetual</h3>
-  <p>Below the cadence pills, the <strong>Season Type</strong> control decides whether this roster has an end or simply keeps going:</p>
-
-  <div class="tbl-wrap">
-    <table>
-      <thead><tr><th>Type</th><th>What it means</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Fixed-term</strong></td><td>The season has a real start and end date. Use it for anything with a natural finish — a school term, a set programme, a holiday series.</td></tr>
-        <tr><td><strong>Perpetual (ongoing)</strong></td><td>The roster runs indefinitely with no end date to manage. Rostas keeps enough weeks generated ahead automatically, so a perpetual roster never runs out of dates.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="callout callout-info">
-    <span class="callout-icon">ℹ️</span>
-    <strong>Perpetual seasons roll forward on their own</strong> — the end date is maintained by Rostas, so you never have to extend them. Most ongoing church rosters (Sunday service, welcome team) suit Perpetual. If you later need a perpetual roster to stop on a set date, switch it to Fixed-term and give it an end date.
-  </div>
-
-  <h3 class="sub-title" id="c-frequency-cap">Volunteer frequency cap — how often a person serves</h3>
-  <p>Separate from the roster's cadence, each volunteer has their own cap — how often <em>they</em> personally get rostered — so nobody is used every week just because they're always free. You set it on each person's profile (<a href="#e-detail-frequency">Frequency on the Profile detail page</a>), independently for each roster they serve in. The two settings work together:</p>
-
-  <div class="tbl-wrap">
-    <table>
-      <thead><tr><th>Example</th><th>Roster cadence</th><th>Volunteer cap</th><th>Result</th></tr></thead>
-      <tbody>
-        <tr><td>Sunday team volunteer</td><td>Weekly</td><td>Once every 2wk</td><td>Rostered roughly once a fortnight</td></tr>
-        <tr><td>Sound desk specialist</td><td>Weekly</td><td>No cap</td><td>Rostered most Sundays (willing and able)</td></tr>
-        <tr><td>Occasional helper</td><td>Fortnightly</td><td>Once every 4wk</td><td>Rostered roughly once a month</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="callout callout-tip">
-    <span class="callout-icon">💡</span>
-    <strong>The cap counts distinct service dates</strong>, not individual roles. A volunteer in two roles on the same date counts as one service — so serving twice on one Sunday doesn't use two of their allocation.
-  </div>
-
-  <!-- ══ REBUILD WIZARD ══ -->
   <h2 class="section-title" id="c-rebuild">The Roster Wizard</h2>
   <p>The Roster Wizard is the recurring roster cycle you run every few weeks. Each roster type has its own — the page is headed "[Your roster] Roster Wizard" — and it takes you through the same six named steps every time: Confirm Dates &amp; Roles, Role Prefs, Availability, Build Roster, Check Roster, and Notify. A progress rail across the top shows where you are, marking each step Completed, Skipped, In progress, or still to come.</p>
 
@@ -1747,6 +1603,34 @@
   </div>
 
   <!-- ══ CONFIRM SEASON ══ -->
+  <!-- ══ THE BUILD MENU ══ -->
+  <h2 class="section-title" id="c-menu">The Build Menu</h2>
+  <p>The <strong>⋯</strong> menu on the right of each row on the Builds dashboard holds everything you do with a roster between builds — pausing it, adjusting its dates or roles, changing how often it runs, clearing its data, or deleting it outright. Click it to open a pop-up of options.</p>
+
+  <figure>
+    <img src="builds-row-menu.png" alt="A Builds row with the three-dot menu open, showing Pause roster, Manage Dates, Manage roles, Frequency, Reset roster data and Delete roster" class="screenshot-sm">
+    <figcaption>The ⋯ menu open on a roster row. When a roster is paused, the top option reads "Resume roster" instead of "Pause roster".</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Option</th><th>What it does</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Pause roster</strong> / <strong>Resume roster</strong></td><td>Temporarily stops all activity for this roster — no builds, reminders, or replacements — without losing any history. The same option resumes it. See below.</td></tr>
+        <tr><td><strong>Manage Dates</strong></td><td>Opens the Build Dates screen on its own, so you can adjust which dates this roster runs on — remove one, shift the build boundary, or add a one-off extra date. See <a href="#c-season">Confirming Build Dates</a> below. Changes apply from the next build onward — dates already built are never changed retroactively.</td></tr>
+        <tr><td><strong>Manage roles</strong></td><td>Opens the roles screen for this roster — add, rename, set headcounts, or deactivate roles. See <a href="#c-manage-roles">Managing Roles</a> below. Also applies from the next build onward.</td></tr>
+        <tr><td><strong>Frequency</strong></td><td>Opens the Frequency page, where you set how often the roster runs and its season type. See <a href="#c-frequency">Frequency &amp; Season Type</a> below.</td></tr>
+        <tr><td><strong>Reset roster data</strong></td><td>Wipes this roster type's operational data — assignments, availability, replacement history — while keeping the roster shell, its roles, your volunteers, and your settings intact. See <a href="#c-reset">Resetting Roster Data</a> below.</td></tr>
+        <tr><td><strong>Delete roster</strong></td><td>Permanently removes the roster type and everything tied to it. See <a href="#c-delete">Deleting a Roster</a> below.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title" id="c-menu-pause">Pause / Resume roster</h3>
+  <p>Pausing a roster stops all activity for it immediately — no builds, reminders, or replacement chains run — without losing any history. The menu option and the row's state button both switch to <strong>Resume roster</strong> while paused; click either to pick back up exactly where you left off.</p>
+
   <h2 class="section-title" id="c-season">Confirming Build Dates</h2>
   <p>Before each build you confirm exactly which dates it covers, on the <strong>Build Dates</strong> screen. It lays out your roster's dates in three bands — what's already built, what this build will cover, and what's coming next — and lets you drop a date you don't want, shift the boundary between builds, or add a one-off extra date such as Christmas Day or Good Friday.</p>
 
@@ -1798,7 +1682,144 @@
     <strong>Nothing changes until you click Save.</strong> Removing, shifting, or adding dates only takes effect once you click <strong>Save</strong> at the bottom of the screen — leaving without saving discards your changes. When you open this screen standalone via Manage Dates, saved changes apply from the next build onward; dates already built are never altered.
   </div>
 
-  <!-- ══ PART E ══════════════════════════════════════ -->
+  <!-- ══ MANAGING ROLES ══ -->
+  <h2 class="section-title" id="c-manage-roles">Managing Roles</h2>
+  <p>Once a roster exists, you can add, rename, re-size, or retire its roles at any time. Open the <strong>Builds</strong> dashboard, click the <strong>⋯</strong> menu on the roster's row, and choose <strong>Manage roles</strong>. The page lists every role for that roster with its headcount and an active switch.</p>
+
+  <figure>
+    <img src="build-dashboard-manage-roles.png" alt="The Manage roles page listing each role with its headcount and an Active / Inactive switch" class="screenshot">
+    <figcaption>The Manage roles page — each role shows its <strong>Headcount</strong> (the minimum and maximum people to roster) and an <strong>Active / Inactive</strong> switch. The engine always tries to fill the minimum and never exceeds the maximum.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Action</th><th>How</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Add a role</strong></td><td>Use the add option at the bottom of the list; enter the name and its minimum and maximum headcount.</td></tr>
+        <tr><td><strong>Rename a role</strong></td><td>Use <strong>Rename</strong> on the role. The new name appears in future messages to volunteers.</td></tr>
+        <tr><td><strong>Change headcount</strong></td><td>Adjust the minimum and maximum for how many people the role needs each time.</td></tr>
+        <tr><td><strong>Deactivate a role</strong></td><td>Switch it to <strong>Inactive</strong>. It drops out of future builds but keeps its history, and you can reactivate it any time.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Changes apply from your next build onward.</strong> Renaming a role, changing its headcount, switching it active or inactive, or adding a new role all take effect at the next build — dates you've already built keep their original roles and wording. Nothing changes underneath the volunteers you've already notified.
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Deactivate rather than delete.</strong> Deactivating a role keeps the full history of who served in it; it just stops appearing in new builds. Reach for deactivate unless you're correcting a genuine setup mistake.
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Mind the timing when renaming mid-cycle.</strong> Because a rename only affects messages sent after it, volunteers already notified will have the old name in their earlier email or text. If you rename partway through a cycle, expect a brief mismatch until the next build.
+  </div>
+
+  <!-- ══ FREQUENCY ══ -->
+  <h2 class="section-title" id="c-frequency">Frequency &amp; Season Type</h2>
+  <p>There are two separate frequency ideas in Rostas: how often the <em>roster</em> runs, and how often each <em>volunteer</em> serves. This section covers the roster side — its cadence and whether the season is fixed or ongoing. The per-volunteer cap is set on each person's profile (see <a href="#e-detail-frequency">Frequency on the Profile detail page</a>); the two are explained together at the end.</p>
+
+  <h3 class="sub-title" id="c-frequency-cadence">Roster cadence — how often the roster runs</h3>
+  <p>Not every roster runs weekly. A community meal might run fortnightly, a kids' ministry only on the 1st and 3rd Sunday, a review team monthly. The <strong>Frequency</strong> page sets this cadence per roster type — it decides which dates appear in the season, and therefore which dates Rostas builds for. You reach it two ways: when you first create a roster (in the New Roster Wizard's first step), or any time afterwards from the Builds dashboard — ⋯ — Frequency.</p>
+
+  <figure>
+    <img src="season-freq-type-control.png" alt="The Season Freq page showing the cadence pills (Daily to Monthly) and the Fixed-term / Perpetual season type control" class="screenshot">
+    <figcaption>The Frequency page — cadence pills across the top, and the Season Type control below. Changes apply from your next roster build onward; dates already built keep their original cadence.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Option</th><th>When to use it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Daily</strong></td><td>Roster runs every day it applies — e.g. a hospital-visit or meals roster</td></tr>
+        <tr><td><strong>Weekly</strong></td><td>Roster runs every week — e.g. Sunday service</td></tr>
+        <tr><td><strong>Fortnightly</strong></td><td>Roster runs every two weeks</td></tr>
+        <tr><td><strong>1st and 3rd</strong></td><td>Runs on the 1st and 3rd occurrence of the day each month</td></tr>
+        <tr><td><strong>2nd and 4th</strong></td><td>Runs on the 2nd and 4th occurrence of the day each month</td></tr>
+        <tr><td><strong>Monthly</strong></td><td>Runs once a month — e.g. a quarterly review team</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Cadence is set once per roster type</strong> and applies to everyone in it. If two groups run on different weeks, set them up as separate roster types.
+  </div>
+
+  <h3 class="sub-title" id="c-frequency-season-type">Season type — fixed-term or perpetual</h3>
+  <p>Below the cadence pills, the <strong>Season Type</strong> control decides whether this roster has an end or simply keeps going:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Type</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Fixed-term</strong></td><td>The season has a real start and end date. Use it for anything with a natural finish — a school term, a set programme, a holiday series.</td></tr>
+        <tr><td><strong>Perpetual (ongoing)</strong></td><td>The roster runs indefinitely with no end date to manage. Rostas keeps enough weeks generated ahead automatically, so a perpetual roster never runs out of dates.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Perpetual seasons roll forward on their own</strong> — the end date is maintained by Rostas, so you never have to extend them. Most ongoing church rosters (Sunday service, welcome team) suit Perpetual. If you later need a perpetual roster to stop on a set date, switch it to Fixed-term and give it an end date.
+  </div>
+
+  <h3 class="sub-title" id="c-frequency-cap">Volunteer frequency cap — how often a person serves</h3>
+  <p>Separate from the roster's cadence, each volunteer has their own cap — how often <em>they</em> personally get rostered — so nobody is used every week just because they're always free. You set it on each person's profile (<a href="#e-detail-frequency">Frequency on the Profile detail page</a>), independently for each roster they serve in. The two settings work together:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Example</th><th>Roster cadence</th><th>Volunteer cap</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Sunday team volunteer</td><td>Weekly</td><td>Once every 2wk</td><td>Rostered roughly once a fortnight</td></tr>
+        <tr><td>Sound desk specialist</td><td>Weekly</td><td>No cap</td><td>Rostered most Sundays (willing and able)</td></tr>
+        <tr><td>Occasional helper</td><td>Fortnightly</td><td>Once every 4wk</td><td>Rostered roughly once a month</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>The cap counts distinct service dates</strong>, not individual roles. A volunteer in two roles on the same date counts as one service — so serving twice on one Sunday doesn't use two of their allocation.
+  </div>
+
+  <!-- ══ REBUILD WIZARD ══ -->
+  <!-- ══ RESETTING ROSTER DATA ══ -->
+  <h2 class="section-title" id="c-reset">Resetting Roster Data</h2>
+  <p><strong>Reset roster data</strong> clears a roster type's operational history — built assignments, availability responses, replacement chains — without touching the roster's setup: its roles, volunteers, and season stay exactly as they are. It's a pick → preview → confirm flow: choose the roster type, review what will be cleared, then confirm.</p>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Built for getting started.</strong> This is the tool for wiping sample or test data before a roster goes live — clear out anything built while you were setting up, then start rostering for real without deleting and re-creating the whole roster type.
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Reset vs Delete.</strong> Reset clears history but keeps the roster type itself — its roles and volunteer assignments to it survive. Delete removes the roster type entirely — see <a href="#c-delete">Deleting a Roster</a> below. If you're clearing out test data before going live, Reset is almost always what you want.
+  </div>
+
+  <figure>
+    <img src="build-reset-modal.png" alt="Reset roster data confirmation showing the preview of what will be cleared before confirming" class="screenshot-mid">
+    <figcaption>The Reset roster data confirmation — preview what will be cleared before you commit.</figcaption>
+  </figure>
+
+  <!-- ══ DELETING A ROSTER ══ -->
+  <h2 class="section-title" id="c-delete">Deleting a Roster</h2>
+  <p><strong>Delete roster</strong> permanently removes the roster type — its shell, roles, seasons, build history, and every assignment tied to it. Unlike Reset, there's no going back.</p>
+
+  <figure>
+    <img src="build-delete-modal.png" alt="Delete roster confirmation listing exactly what will be removed, with a nudge toward pausing instead" class="screenshot-mid">
+    <figcaption>Deleting a roster asks you to confirm, and lists exactly what will be removed — seasons, roles, assignments, and preferences, with real counts. It also nudges you toward pausing instead if you only need a temporary break.</figcaption>
+  </figure>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Deleting is permanent.</strong> If you only need to stop a roster for a while — over summer, say — use <strong>Pause</strong> from the ⋯ menu instead. Pausing keeps all the roster's history and settings; deleting removes them for good.
+  </div>
+
   <div class="part-banner" id="part-d">
     <span class="part-label">Part E</span>
     <span class="part-title">Using the Board</span>

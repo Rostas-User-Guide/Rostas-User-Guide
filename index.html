@@ -932,7 +932,27 @@
     <strong>Quiet hours are always respected.</strong> Rostas never sends automated SMS during your quiet hours. If the replacement chain reaches a volunteer during that window, it pauses and resumes automatically once quiet hours end. You set the start and end times in Settings → SMS (the default is 9pm–8am).
   </div>
 
-<p>When Rostas needs a reply by text — a replacement request, a manual-roster heads-up, or a cross-roster ask — the message contains a <strong>4-digit code</strong>, not a link. New Zealand mobile networks silently filter many texts that contain web links, so a tappable link in an SMS can't be relied on to arrive. On SMS a short code does double duty: it survives carrier filtering <em>and</em> it's far shorter than a link, keeping each message inside the single-text limit so your church isn't charged for two.</p>
+  <p>Every reply-seeking message — the automated chain above, Manual Replacement, and a Cross-Roster Ask — decides how to reach the volunteer the same way, in this order:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Tier</th><th>Condition</th><th>What the volunteer gets</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1 — App push</strong></td><td>Has the Rostas app installed with notifications on</td><td>A push notification straight to their phone — tap it, answer Yes/No in the app. No code, no SMS.</td></tr>
+        <tr><td><strong>2 — SMS + email</strong></td><td>No push, but has an email on file</td><td>A short pointer text plus a fuller email, sent together.</td></tr>
+        <tr><td><strong>3 — Code SMS</strong></td><td>No push, no email</td><td>The 4-digit code SMS described below — Rostas' original fallback, still fully supported.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    You can see and edit the wording for every tier — including the app-push text, the SMS pointer, and the email — in Settings → Message Wording.
+  </div>
+
+<p>For a volunteer on Tier 3 — no app, no email on file — the message contains a <strong>4-digit code</strong>, not a link. New Zealand mobile networks silently filter many texts that contain web links, so a tappable link in an SMS can't be relied on to arrive. On SMS a short code does double duty: it survives carrier filtering <em>and</em> it's far shorter than a link, keeping each message inside the single-text limit so your church isn't charged for two.</p>
 
   <p>The volunteer opens <b>https://rostas.app/enter</b>&nbsp;and types the 4-digit code from their text. The code is single-use and expires after a short window, so it can't be reused or forwarded. Once entered, they land on the same accept / decline page they'd have reached from a link.</p>
 
@@ -1327,7 +1347,7 @@
   </figure>
 
   <h2 class="section-title" id="e-volunteer-facing">What Volunteers See</h2>
-  <p>Volunteers interact with Rostas entirely through personalised links or codes sent by email or SMS&nbsp; - currently there is no app to download. There are three volunteer-facing pages:</p>
+  <p>Volunteers interact with Rostas through personalised links, codes, and — if they've installed it — the Rostas app. Installing is entirely optional: nothing is ever gated behind it, and a volunteer who never installs keeps using email, SMS and codes exactly as before. There are three things volunteers are sent:</p>
 
   <div class="tbl-wrap">
     <table>
@@ -1335,9 +1355,9 @@
         <tr><th>Page</th><th>When it's sent</th><th>What volunteers do</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Availability form</strong></td><td>When you run Step 3 of the Roster Wizard</td><td>Mark which dates they're available, not sure, or can't make it</td></tr>
-        <tr><td><strong>Roster notification</strong></td><td>When you send notifications in Step 6</td><td>View their assignments, tap "Can't make it"&nbsp; link, Print roster link.&nbsp;&nbsp;</td></tr>
-        <tr><td><strong>Replacement request</strong></td><td>Automatically during the SMS replacement chain</td><td>Accept or decline a slot via SMS code entered in&nbsp;https://rostas.app/enter</td></tr>
+        <tr><td><strong>Availability form</strong></td><td>When you run Step 3 of the Roster Wizard</td><td>Mark which dates they're available, not sure, or can't make it. In the app, volunteers on more than one roster type see a pill for each and set availability independently.</td></tr>
+        <tr><td><strong>Roster notification</strong></td><td>When you send notifications in Step 6</td><td>View their assignments, confirm a pending slot, tap "Can't make it", print their roster. In the app this opens the native Your Roster screen instead of a browser tab.</td></tr>
+        <tr><td><strong>Replacement request</strong></td><td>Automatically during the SMS replacement chain, Manual Replace, or a Cross-Roster Ask</td><td>Accept or decline a slot — with the app installed, a push notification opens an in-app Yes/No screen with no code needed; otherwise by SMS code at&nbsp;https://rostas.app/enter or an email link</td></tr>
       </tbody>
     </table>
   </div>
@@ -1354,7 +1374,70 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">📱</span>
-    <strong>All volunteer pages are mobile-optimised.</strong> Most volunteers will open them on their phone directly from an email or SMS. code entered in&nbsp;https://rostas.app/enter.&nbsp; You can also see these pages in Settings/communications pill</div>
+    <strong>All volunteer pages are mobile-optimised.</strong> Most volunteers will open them on their phone directly from an email or SMS, whether or not they've installed the app.
+  </div>
+
+  <h2 class="section-title" id="e-volunteer-app">The Rostas App</h2>
+  <p>Beyond the link/code/email flow above, Rostas has an installable app — technically a "Progressive Web App", not something from an app store — at <b>mobile.rostas.app</b>. It's a front end for exactly the same data volunteers already see by link: nothing changes about what Rostas does, only how it's reached.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Screen</th><th>What it shows</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Home</strong></td><td>A greeting, their next assignment, and a notification bell holding their last 10 in-app notifications.</td></tr>
+        <tr><td><strong>Your Roster</strong></td><td>Upcoming assignments. A pending assignment shows an amber <strong>Confirm</strong> pill (tap for a Yes/No sheet); any assignment can be released with the red <strong>Can't make it</strong> pill.</td></tr>
+        <tr><td><strong>Your availability</strong></td><td>The same date-picker as the emailed availability form. Volunteers serving on more than one roster type see a pill per roster and set each independently.</td></tr>
+        <tr><td><strong>Settings</strong></td><td>A push notification toggle, and Install / Remove-app rows.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure>
+    <img src="app-home-screen.png" alt="Rostas app Home screen showing greeting, next assignment card and notification bell" class="screenshot">
+    <figcaption>The app's Home screen — greeting, next assignment, and notification history.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="app-your-roster.png" alt="Rostas app Your Roster screen showing a confirmed assignment and an amber Confirm pill on a pending one" class="screenshot">
+    <figcaption>Your Roster — the amber pill means the assignment is still pending confirmation; tapping it opens a Yes/No sheet.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="app-availability-pills.png" alt="Rostas app availability screen showing roster-type pills for a volunteer on two rosters" class="screenshot">
+    <figcaption>A volunteer serving on both Sunday and Nourish sees a pill for each — availability is set independently per roster.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="e-volunteer-app-install">How volunteers install it</h3>
+  <p>Every volunteer email carries a permanent "Get the app" card in the footer — automatic, not something you configure per email. Installing looks different depending on the volunteer's phone:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Platform</th><th>How they install</th><th>What they get</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Android</strong></td><td>An install prompt appears automatically in the app after a little use; one tap installs it, the same way any Chrome "Add to Home screen" app installs.</td><td>Full value — push notifications genuinely replace SMS for that volunteer, saving your church a text every time one would otherwise be sent.</td></tr>
+        <tr><td><strong>iPhone / iPad</strong></td><td>No automatic prompt — Apple only allows this manually, from Safari's Share sheet → "Add to Home Screen".</td><td>Convenience only. iOS push is never fully relied on alone, so those volunteers still get SMS/email alongside any push — installing just gives one-tap access instead of hunting for the link.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>The iOS guidance above reflects the locked design, not yet a real-device screenshot pass.</strong> If a volunteer reports anything odd installing on an iPhone, flag it — this is the newest, least-tested part of the app.
+  </div>
+
+  <figure>
+    <img src="app-install-prompt-android.png" alt="Android Chrome install prompt card inside the Rostas app" class="screenshot">
+    <figcaption>The Android install prompt — one tap installs the app, no app store involved.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="comms-email-app-footer.png" alt="Volunteer email footer showing the Get the app install card" class="screenshot">
+    <figcaption>Every volunteer email carries this footer card automatically.</figcaption>
+  </figure>
 
   <!-- ══ PART D ══════════════════════════════════════ -->
   <div class="part-banner" id="part-c">
@@ -1933,6 +2016,14 @@
     <strong>The replacement volunteer is notified automatically.</strong> Once you click Select, Rostas sends them an SMS and email with their assignment details. You don't need to contact them separately.
   </div>
 
+  <h3 class="sub-title" id="d-cross-roster">Asking a volunteer from another roster</h3>
+  <p>If nobody suitable turns up in the replacement panel's usual tiers, look for a collapsible <strong>"From another roster — contact first"</strong> section near the bottom of the list. It surfaces volunteers who serve on a different roster type but aren't part of this one — a Nourish volunteer showing up as an option for a Sunday gap, for example.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>This is a one-off ask, not an addition to the roster.</strong> Selecting someone here sends them a one-off request for this single date — the same tiered app/SMS/email delivery as everywhere else — but doesn't add them to the roster type permanently. Use it for genuine gap-filling, and it's worth a heads-up to the volunteer's usual coordinator since it crosses roster boundaries.
+  </div>
+
   <h2 class="section-title" id="d-two-roles">Assigning a Second Role on the Same Date</h2>
   <p>Occasionally a volunteer may need to cover two roles on the same date — for example, stepping in for a missing team member while also serving in their usual role. Rostas supports this but flags it clearly so you're making a deliberate choice rather than an accidental double-booking.</p>
 
@@ -2101,7 +2192,7 @@
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <p><strong>SMS enabled</strong> — the master kill switch. When this is false, no SMS leaves Rostas at all — not replacements, not reminders, not test sends. The System Status card shows a red warning when this is off. Only disable it deliberately (e.g. during a migration or if your Twilio account lapses).</p>
+    <p><strong>SMS enabled</strong> — the master kill switch. When this is false, no SMS leaves Rostas at all — not replacements, not reminders, not test sends. The System Status card shows a red warning when this is off. Only disable it deliberately (e.g. during a migration or if you need to pause sending temporarily).</p>
   </div>
 
   <div class="callout callout-warn">
@@ -2152,7 +2243,7 @@
   </figure>
 
   <ul>
-    <li><strong>Character counter</strong> — SMS messages over 160 characters are split into two by carriers and charged as two texts. The counter below the textarea turns amber at 140 characters and red at 161+. The Save button is disabled when the count is red. The SMS templates are deliberately terse for this reason — when you edit one, the counter is protecting your church's SMS costs, not just formatting.</li>
+    <li><strong>Character counter</strong> — SMS messages over 160 characters are split into two by carriers and charged as two texts. The counter below the textarea turns amber at 140 characters and red at 161+. The Save button is disabled when the count is red. The SMS templates are deliberately terse for this reason — when you edit one, the counter is protecting your church's SMS costs, not just formatting. One thing the counter can't see: curly quotes, em dashes and other characters outside standard GSM-7 text count double towards that 160-character limit, so a message that looks short can still split into two texts. Stick to plain straight quotes and hyphens when editing SMS wording.</li>
     <li><strong>Required placeholders</strong> — each template has a set of placeholders that must be present for it to work correctly. For example, the replacement request SMS must include [Code] — without it, the volunteer has no code to enter. (The equivalent email templates require [Link] instead.) Missing placeholders are shown in red below the textarea. Save is blocked until all required placeholders are present.</li>
     <li><strong>Preview SMS</strong> — click this button to see the template rendered with realistic sample values substituted in ([Name] → Sarah, [Role] → Welcome Team, [Date] → today's date, [Code] → a sample 4-digit code such as 4821). This shows you exactly what a volunteer will read, at the correct character count. It does not send a real SMS.</li>
   </ul>
@@ -2345,7 +2436,7 @@
   <ul>
     <li>SMS messages are failing with error messages in the System Status communication failures table</li>
     <li>The web app URL has changed and volunteer links are broken</li>
-    <li>You need to change Twilio or other API credentials</li>
+    <li>You need to change SMS provider or other API credentials</li>
     <li>Something is producing repeated errors that don't resolve on their own</li>
     <li>You need to add or remove a roster type</li>
     <li>Anything requiring access to the Google Apps Script editor</li>

@@ -720,7 +720,7 @@ async function main() {
         properties: { page: { size: { width: PAGE_W, height: PAGE_H },
             margin: { top: MARGIN, right: MARGIN, bottom: MARGIN, left: MARGIN } } },
         footers: { default: footer },
-        children: [...tocParas, ...buildSlides(imgs), ...content],
+        children: [...tocParas, ...content],
       },
     ],
   });

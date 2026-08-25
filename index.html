@@ -667,7 +667,14 @@
       <a class="toc-item toc-h2" href="#e-detail-availability">Next roster availability</a>
       <a class="toc-item toc-h2" href="#e-detail-add-roster">Adding to a new roster</a>
     </div>
-    <a class="toc-item toc-h1" href="#e-volunteer-facing">What Volunteers See</a>
+    <div class="toc-parent" id="parent-e-volunteer-facing">
+      <a class="toc-parent-link" href="#e-volunteer-facing">What Volunteers See</a>
+      <button class="toc-toggle" data-target="children-e-volunteer-facing" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-e-volunteer-facing">
+      <a class="toc-item toc-h2" href="#e-volunteer-app">The Rostas App</a>
+      <a class="toc-item toc-h2" href="#e-volunteer-app-install">How volunteers install it</a>
+    </div>
 
     <!-- Part D -->
     <div class="toc-part">Part D — The Roster Cycle</div>
@@ -722,7 +729,13 @@
     <div class="toc-part">Part E — Using the Board</div>
     <a class="toc-item toc-h1" href="#d-reading">Reading the Board</a>
     <a class="toc-item toc-h1" href="#d-actions">Taking Action on a Cell</a>
-    <a class="toc-item toc-h1" href="#d-replace">Manual Replacement</a>
+    <div class="toc-parent" id="parent-d-replace">
+      <a class="toc-parent-link" href="#d-replace">Manual Replacement</a>
+      <button class="toc-toggle" data-target="children-d-replace" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-d-replace">
+      <a class="toc-item toc-h2" href="#d-cross-roster">Asking a volunteer from another roster</a>
+    </div>
     <a class="toc-item toc-h1" href="#d-sms-chain">The SMS Replacement Chain</a>
     <a class="toc-item toc-h1" href="#d-search">Searching for a Volunteer</a>
 
@@ -1217,7 +1230,7 @@
   <p>Click any volunteer in the list to open their profile. This is where you manage everything about that person — their contact details, which rosters they serve in, the roles they do, how often they serve, who they serve alongside, and their availability. The left panel holds their contact details and a tab pill per roster type; the right panel holds the settings for whichever roster tab is selected, so each roster a volunteer serves in has its own independent setup.</p>
 
   <h3 class="sub-title" id="e-detail-contact">Contact details &amp; toggles</h3>
-  <p>The left panel shows the volunteer's name, phone, email, and status, with four toggles that control how Rostas treats them:</p>
+  <p>The left panel shows the volunteer's name, phone, email, and status, with four toggles that control how Rostas treats them, plus an automatic App Installed indicator described below:</p>
 
   <figure>
     <img src="vol-detail-always-sms.png" alt="Profile left panel showing the four toggles: Active, Email, SMS and Always text too" class="screenshot-sm">
@@ -1234,6 +1247,12 @@
         <tr><td><strong>Always text&nbsp;</strong></td><td>Opts this volunteer in to the day-before reminder text even when the reminder mode would otherwise skip them (see Settings — reminder mode). Useful for volunteers who reliably miss email.&nbsp; In settings&nbsp;<span style="color: rgb(55, 65, 81); font-family: &quot;DM Sans&quot;, system-ui, sans-serif; font-size: 16px; background-color: rgb(247, 249, 251);">Text non-responders (recommended) texts only volunteers with no email, those who haven't confirmed the reminder email, and anyone set to "Always text" in this profile details page.&nbsp;</span></td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">📱</span>
+    <strong>App installed</strong> — beneath the toggles, a red or green dot shows whether this volunteer has the Rostas mobile app on their phone. Unlike the four toggles above, this isn't something you set — Rostas detects it automatically and turns it green once the volunteer has opened the app within the last 90 days. There's nothing to configure and no action required; it's simply information.
+    <p style="margin:0.5rem 0 0;">It's a handy way to spot who's worth encouraging toward the app: a red dot is your cue to mention it next time you see that volunteer. Getting more volunteers onto the app pays off twice over — it makes it easier for them to check and adjust their own roster, and every reminder the app can deliver in place of a text is one less SMS your organisation pays for.</p>
   </div>
 
   <h3 class="sub-title" id="e-detail-roles">Roles — what they do</h3>
@@ -1377,8 +1396,8 @@
     <strong>All volunteer pages are mobile-optimised.</strong> Most volunteers will open them on their phone directly from an email or SMS, whether or not they've installed the app.
   </div>
 
-  <h2 class="section-title" id="e-volunteer-app">The Rostas App</h2>
-  <p>Beyond the link/code/email flow above, Rostas has an installable app — technically a "Progressive Web App", not something from an app store — at <b>mobile.rostas.app</b>. It's a front end for exactly the same data volunteers already see by link: nothing changes about what Rostas does, only how it's reached.</p>
+  <h3 class="sub-title" id="e-volunteer-app">The Rostas App</h3>
+  <p>Rostas has an installable app — technically a "Progressive Web App", not something from an app store — at <b>mobile.rostas.app</b>. It's a front end for exactly the same data volunteers already see by link: nothing changes about what Rostas does, only how it's reached.</p>
 
   <div class="tbl-wrap">
     <table>
@@ -1395,17 +1414,17 @@
   </div>
 
   <figure>
-    <img src="app-home-screen.png" alt="Rostas app Home screen showing greeting, next assignment card and notification bell" class="screenshot-mid">
+    <img src="app-home-screen.png" alt="Rostas app Home screen showing greeting, next assignment card and notification bell" class="screenshot">
     <figcaption>The app's Home screen — greeting, next assignment, and notification history.</figcaption>
   </figure>
 
   <figure>
-    <img src="app-your-roster.png" alt="Rostas app Your Roster screen showing a confirmed assignment and an amber Confirm pill on a pending one" class="screenshot-mid">
+    <img src="app-your-roster.png" alt="Rostas app Your Roster screen showing a confirmed assignment and an amber Confirm pill on a pending one" class="screenshot">
     <figcaption>Your Roster — the amber pill means the assignment is still pending confirmation; tapping it opens a Yes/No sheet.</figcaption>
   </figure>
 
   <figure>
-    <img src="app-availability-pills.png" alt="Rostas app availability screen showing roster-type pills for a volunteer on two rosters" class="screenshot-mid">
+    <img src="app-availability-pills.png" alt="Rostas app availability screen showing roster-type pills for a volunteer on two rosters" class="screenshot">
     <figcaption>A volunteer serving on both Sunday and Nourish sees a pill for each — availability is set independently per roster.</figcaption>
   </figure>
 
@@ -1430,12 +1449,12 @@
   </div>
 
   <figure>
-    <img src="app-install-prompt-android.png" alt="Android Chrome install prompt card inside the Rostas app" class="screenshot-mid">
+    <img src="app-install-prompt-android.png" alt="Android Chrome install prompt card inside the Rostas app" class="screenshot">
     <figcaption>The Android install prompt — one tap installs the app, no app store involved.</figcaption>
   </figure>
 
   <figure>
-    <img src="comms-email-app-footer.png" alt="Volunteer email footer showing the Get the app install card" class="screenshot-mid">
+    <img src="comms-email-app-footer.png" alt="Volunteer email footer showing the Get the app install card" class="screenshot">
     <figcaption>Every volunteer email carries this footer card automatically.</figcaption>
   </figure>
 

@@ -676,6 +676,8 @@
       <a class="toc-item toc-h2" href="#e-volunteer-app-install">How volunteers install it</a>
     </div>
 
+    <a class="toc-item toc-h1" href="#e-insights">Insights</a>
+
     <!-- Part D -->
     <div class="toc-part">Part D — The Roster Cycle</div>
     <a class="toc-item toc-h1" href="#c-dashboard">The Builds Dashboard</a>
@@ -1313,12 +1315,17 @@
   </div>
 
   <h3 class="sub-title" id="e-detail-relational">Relational rostering — serving together</h3>
-  <p>Relational rostering asks Rostas to place people <em>together</em> on the same dates — a <strong>Buddy</strong> they like to serve alongside, or a <strong>Household</strong> so family members share the same rota. Turn on "Serves With" and pick who.</p>
+  <p>Relational rostering asks Rostas to place people <em>together</em> on the same dates — a <strong>Buddy</strong> they like to serve alongside, or a <strong>Household</strong> so family members share the same rota. Turn on "Serves With" and pick who, then choose how closely they should be linked: the same date, or the same role too.</p>
 
   <figure>
-    <img src="profile-relational-rostering.png" alt="Relational Rostering section with Buddy and Household Serves With toggles" class="screenshot">
-    <figcaption>Relational rostering — Buddy and Household "Serves With" settings, so people who want to serve together are scheduled together.</figcaption>
+    <img src="profile-relational-rostering-samerole.png" alt="Relational Rostering section with Buddy and Household Serves With toggles on, each with a Same role together checkbox" class="screenshot">
+    <figcaption>Relational rostering — Buddy and Household "Serves With" settings, each now carrying a "Same role together" checkbox. Household is ticked here, linking two family members to the identical role every time.</figcaption>
   </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">📌</span>
+    <strong>Two ways to serve together.</strong> Left unticked, a Buddy or Household pair just needs to be rostered on the <em>same date</em> — any role each of them is capable of is fine. This suits people who want to travel in together or simply be there on the same Sunday. Tick <strong>"Same role together"</strong> when one person is mentoring or training the other — this asks Rostas to put them on the <em>same role</em>, together, every time. Because that's a tighter constraint, a same-role pair is held back more often, and only placed once a slot exists that fits them both.
+  </div>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
@@ -1458,6 +1465,87 @@
     <img src="comms-email-app-footer.png" alt="Volunteer email footer showing the Get the app install card" class="screenshot">
     <figcaption>Every volunteer email carries this footer card automatically.</figcaption>
   </figure>
+
+    <h2 class="section-title" id="e-insights">Insights</h2>
+  <p>Insights is your at-a-glance health check for an upcoming roster — reachable any time from the <strong>Insights</strong> item in the side nav (it sits right below Profiles), or via the "Insights" shortcut buttons on Profiles and a volunteer's own detail page. Unlike most pages in Rostas, Insights is never cached: it always reflects your current forecast, so it's worth a look between builds, not just when something's already gone wrong.</p>
+
+  <figure>
+    <img src="sidebar-insights-nav.png" alt="Side navigation showing the Insights item highlighted below Profiles" class="screenshot">
+    <figcaption>Insights lives in the side nav, right below Profiles.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="e-insights-overview">The overview table</h3>
+  <p>Pick a roster type along the top (Sunday, Music, Nourish, Lock Up, and so on) and Insights shows every one of its roles against your next unbuilt window of dates. Two separate numbers matter for each role:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Column</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td><strong>People</strong></td><td>How many volunteers currently hold this role.</td></tr>
+        <tr><td><strong>Must-fill (Min)</strong></td><td>The fewest people needed for the role to actually function, across the whole build window.</td></tr>
+        <tr><td><strong>Ideal (Max)</strong></td><td>The full complement you'd like, across the same window.</td></tr>
+        <tr><td><strong>Min status / Max status</strong></td><td>Whether the forecast reaches each of those numbers — "OK", or "short by N slots".</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure>
+    <img src="insights-overview-table.png" alt="Insights overview table showing Role, People, Must-fill (Min), Ideal (Max), Min status and Max status columns" class="screenshot">
+    <figcaption>The overview table for Sunday's next build window. Baking for Morning Tea is short on both Min and Max; Serving Morning Tea meets its minimum but is short of the ideal.</figcaption>
+  </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Min and Max are different questions.</strong> A role can be "Min OK" — enough people to function — while still short of "Ideal (Max)", the fuller complement you'd rather have. Watch Min status first; it's the number that actually stops a service running short-handed.
+  </div>
+
+  <h3 class="sub-title" id="e-insights-role-detail">Digging into a role</h3>
+  <p>Click a role's name to jump to its detail card further down the page. Each card repeats that role's numbers, then lists every volunteer linked to it with a pill showing their current frequency cap — and, where it would genuinely help, a second pill suggesting a change.</p>
+
+  <figure>
+    <img src="insights-role-detail-recruit.png" alt="Serving Morning Tea role card showing headcount pills, a typical-other-roles note, an Add volunteer suggestion, and a volunteer list" class="screenshot">
+    <figcaption>A role's detail card — headcount pills at top, then a suggestion (here, recruiting a new volunteer) and the full volunteer list below.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Pill</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dark "Nwk current"</strong></td><td>This volunteer's actual frequency cap right now (see <a href="#e-detail-frequency">Frequency</a> on their profile).</td></tr>
+        <tr><td><strong>Amber "Nwk · fills N"</strong></td><td>Loosening this volunteer's cap to every N weeks would fill that many extra slots. Change it from their profile.</td></tr>
+        <tr><td><strong>Amber "Reactivating fills N spot(s)"</strong></td><td>Shown on an inactive volunteer (red row) — bringing them back would fill that many slots.</td></tr>
+        <tr><td><strong>Gold "Add volunteer · fills about N slot(s)"</strong></td><td>Shown when nothing on the current list closes the gap — recruiting one new person to the role would probably fill about that many.</td></tr>
+        <tr><td><em>No second pill</em></td><td>Correct, not a gap — that volunteer genuinely can't take on more of this role right now.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure>
+    <img src="insights-volunteer-list-pills.png" alt="Scrollable volunteer list with current-cap pills and amber loosen-cap suggestion pills" class="screenshot">
+    <figcaption>Most volunteers just show their current cap. A few carry an amber suggestion too — loosening their cap would fill the number of slots shown.</figcaption>
+  </figure>
+
+  <p>You'll also see a line like "People who do this role typically also do about 0.8 other roles" — a reminder that many of your volunteers are shared across roles, which is exactly what the fill-order effect below is about.</p>
+
+  <h3 class="sub-title" id="e-insights-reorder">Reordering roles</h3>
+  <p>Some shortfalls aren't about headcount at all — they're about <strong>fill order</strong>. Rostas fills roles top-to-bottom in the order they're listed on <a href="#c-manage-roles">Managing Roles</a>: once a volunteer is placed in one role for a date, they're not considered for any role further down the list that same date. A role near the bottom can end up short simply because every volunteer who could have filled it was claimed by an earlier role first.</p>
+
+  <p>Where moving a short role earlier in that order would help, its card shows a distinct suggestion:</p>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Example reorder suggestion:</strong> "Moving this role to the 1st position would fill 2 of 3 slots. Cost: Serving Morning Tea loses 2 slot(s)." with an <strong>Open Manage Roles</strong> link.
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Always a trade, never free capacity.</strong> Moving a role earlier redistributes an existing shared volunteer — it doesn't create a new one. Whatever slots the short role gains, another role loses, and Insights always names which one and by how much before you act. If nothing else would get worse, it says so plainly ("No other role gets worse").
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Insights tells you, it doesn't do it for you.</strong> Every suggestion on this page is informational. Reactivating a volunteer, loosening a cap, recruiting someone new, or reordering roles are all things you choose to do yourself — from a Profile, or from <a href="#c-manage-roles">Managing Roles</a>. Insights just points you at what's worth trying.
+  </div>
 
   <!-- ══ PART D ══════════════════════════════════════ -->
   <div class="part-banner" id="part-c">
@@ -1814,6 +1902,16 @@
         <tr><td><strong>Deactivate a role</strong></td><td>Switch it to <strong>Inactive</strong>. It drops out of future builds but keeps its history, and you can reactivate it any time.</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <h3 class="sub-title" id="c-manage-roles-fillorder">Fill order — which role gets first pick</h3>
+  <p>Rostas fills roles <strong>top-to-bottom</strong> in the order they're listed here — locking each one in fully before moving to the next. If a volunteer is capable of more than one role on a roster, whichever role sits higher in this list gets first claim on them for that date.</p>
+
+  <p>Use the <strong>Fill Order</strong> control on any role — <strong>Move to top / Move up / Move down / Move to bottom</strong> — to change where it sits. This matters most for a role with a thin, shared bench: putting it higher gives it first pick of your multi-capable volunteers instead of leftovers.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Reordering redistributes, it doesn't create capacity.</strong> Moving a role up can close its own shortfall, but only by taking a shared volunteer away from whatever role used to get them first. See <a href="#e-insights">Insights</a> for exactly which role would carry that cost before you decide.
   </div>
 
   <div class="callout callout-info">

@@ -676,10 +676,14 @@
       <a class="toc-item toc-h2" href="#e-volunteer-app-install">How volunteers install it</a>
     </div>
 
-    <a class="toc-item toc-h1" href="#e-insights">Insights</a>
-
     <!-- Part D -->
-    <div class="toc-part">Part D — The Roster Cycle</div>
+    <div class="toc-part">Part D — Insights</div>
+    <a class="toc-item toc-h1" href="#d-overview">The overview table</a>
+    <a class="toc-item toc-h1" href="#d-role-detail">Digging into a role</a>
+    <a class="toc-item toc-h1" href="#d-reorder">Reordering roles</a>
+
+    <!-- Part E -->
+    <div class="toc-part">Part E — The Roster Cycle</div>
     <a class="toc-item toc-h1" href="#c-dashboard">The Builds Dashboard</a>
     <div class="toc-parent" id="parent-c-new">
       <a class="toc-parent-link" href="#c-new-roster">New Roster Wizard</a>
@@ -727,8 +731,8 @@
     <a class="toc-item toc-h1" href="#c-reset">Resetting Roster Data</a>
     <a class="toc-item toc-h1" href="#c-delete">Deleting a Roster</a>
 
-    <!-- Part E -->
-    <div class="toc-part">Part E — Using the Board</div>
+    <!-- Part F -->
+    <div class="toc-part">Part F — Using the Board</div>
     <a class="toc-item toc-h1" href="#d-reading">Reading the Board</a>
     <a class="toc-item toc-h1" href="#d-actions">Taking Action on a Cell</a>
     <div class="toc-parent" id="parent-d-replace">
@@ -741,8 +745,8 @@
     <a class="toc-item toc-h1" href="#d-sms-chain">The SMS Replacement Chain</a>
     <a class="toc-item toc-h1" href="#d-search">Searching for a Volunteer</a>
 
-    <!-- Part F -->
-    <div class="toc-part">Part F — Settings &amp; Troubleshooting</div>
+    <!-- Part G -->
+    <div class="toc-part">Part G — Settings &amp; Troubleshooting</div>
     <a class="toc-item toc-h1" href="#f-settings">The Settings View</a>
     <a class="toc-item toc-h1" href="#f-system-status">Using System Status</a>
     <a class="toc-item toc-h1" href="#f-categories">Settings Categories</a>
@@ -1151,7 +1155,7 @@
   </ul>
 
   <h2 class="section-title" id="b-whats-next">What's Next</h2>
-  <p>Rostas is set up. Next, get your volunteers in: head to <strong>Part C — Profiles</strong> to import or add them and set up how each one serves. Once your profiles are in, <strong>Part D — The Roster Cycle</strong> walks you through building your first roster.</p>
+  <p>Rostas is set up. Next, get your volunteers in: head to <strong>Part C — Profiles</strong> to import or add them and set up how each one serves. Once your profiles are in, <strong>Part E — The Roster Cycle</strong> walks you through building your first roster.</p>
 
   <div class="callout callout-info">
     <span class="callout-icon">📋</span>
@@ -1466,7 +1470,13 @@
     <figcaption>Every volunteer email carries this footer card automatically.</figcaption>
   </figure>
 
-    <h2 class="section-title" id="e-insights">Insights</h2>
+    <!-- ══ PART D ══════════════════════════════════════ -->
+  <div class="part-banner" id="part-d-insights">
+    <span class="part-label">Part D</span>
+    <span class="part-title">Insights</span>
+    <span class="part-sub">Forecast health check · Suggestion pills · Fill order</span>
+  </div>
+
   <p>Insights is your at-a-glance health check for an upcoming roster — reachable any time from the <strong>Insights</strong> item in the side nav (it sits right below Profiles), or via the "Insights" shortcut buttons on Profiles and a volunteer's own detail page. Unlike most pages in Rostas, Insights is never cached: it always reflects your current forecast, so it's worth a look between builds, not just when something's already gone wrong.</p>
 
   <figure>
@@ -1474,7 +1484,7 @@
     <figcaption>Insights lives in the side nav, right below Profiles.</figcaption>
   </figure>
 
-  <h3 class="sub-title" id="e-insights-overview">The overview table</h3>
+  <h2 class="section-title" id="d-overview">The overview table</h2>
   <p>Pick a roster type along the top (Sunday, Music, Nourish, Lock Up, and so on) and Insights shows every one of its roles against your next unbuilt window of dates. Two separate numbers matter for each role:</p>
 
   <div class="tbl-wrap">
@@ -1499,7 +1509,7 @@
     <strong>Min and Max are different questions.</strong> A role can be "Min OK" — enough people to function — while still short of "Ideal (Max)", the fuller complement you'd rather have. Watch Min status first; it's the number that actually stops a service running short-handed.
   </div>
 
-  <h3 class="sub-title" id="e-insights-role-detail">Digging into a role</h3>
+  <h2 class="section-title" id="d-role-detail">Digging into a role</h2>
   <p>Click a role's name to jump to its detail card further down the page. Each card repeats that role's numbers, then lists every volunteer linked to it with a pill showing their current frequency cap — and, where it would genuinely help, a second pill suggesting a change.</p>
 
   <figure>
@@ -1527,7 +1537,7 @@
 
   <p>You'll also see a line like "People who do this role typically also do about 0.8 other roles" — a reminder that many of your volunteers are shared across roles, which is exactly what the fill-order effect below is about.</p>
 
-  <h3 class="sub-title" id="e-insights-reorder">Reordering roles</h3>
+  <h2 class="section-title" id="d-reorder">Reordering roles</h2>
   <p>Some shortfalls aren't about headcount at all — they're about <strong>fill order</strong>. Rostas fills roles top-to-bottom in the order they're listed on <a href="#c-manage-roles">Managing Roles</a>: once a volunteer is placed in one role for a date, they're not considered for any role further down the list that same date. A role near the bottom can end up short simply because every volunteer who could have filled it was claimed by an earlier role first.</p>
 
   <p>Where moving a short role earlier in that order would help, its card shows a distinct suggestion:</p>
@@ -1547,9 +1557,9 @@
     <strong>Insights tells you, it doesn't do it for you.</strong> Every suggestion on this page is informational. Reactivating a volunteer, loosening a cap, recruiting someone new, or reordering roles are all things you choose to do yourself — from a Profile, or from <a href="#c-manage-roles">Managing Roles</a>. Insights just points you at what's worth trying.
   </div>
 
-  <!-- ══ PART D ══════════════════════════════════════ -->
+  <!-- ══ PART E ══════════════════════════════════════ -->
   <div class="part-banner" id="part-c">
-    <span class="part-label">Part D</span>
+    <span class="part-label">Part E</span>
     <span class="part-title">The Roster Cycle</span>
     <span class="part-sub">New Roster Wizard · Roster Wizard · The Build Menu</span>
   </div>
@@ -1911,7 +1921,7 @@
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <strong>Reordering redistributes, it doesn't create capacity.</strong> Moving a role up can close its own shortfall, but only by taking a shared volunteer away from whatever role used to get them first. See <a href="#e-insights">Insights</a> for exactly which role would carry that cost before you decide.
+    <strong>Reordering redistributes, it doesn't create capacity.</strong> Moving a role up can close its own shortfall, but only by taking a shared volunteer away from whatever role used to get them first. See <a href="#d-reorder">Insights</a> for exactly which role would carry that cost before you decide.
   </div>
 
   <div class="callout callout-info">
@@ -2032,7 +2042,7 @@
   </div>
 
   <div class="part-banner" id="part-d">
-    <span class="part-label">Part E</span>
+    <span class="part-label">Part F</span>
     <span class="part-title">Using the Board</span>
     <span class="part-sub">Day-to-day management · Replacements · Manual swaps</span>
   </div>
@@ -2203,7 +2213,7 @@
 
   <!-- ══ PART F ══════════════════════════════════════ -->
   <div class="part-banner" id="part-f">
-    <span class="part-label">Part F</span>
+    <span class="part-label">Part G</span>
     <span class="part-title">Settings &amp; Troubleshooting</span>
     <span class="part-sub">Configuration · SMS templates · Common problems · System status</span>
   </div>

@@ -335,11 +335,12 @@
   .tick { color: var(--green); font-weight: 700; }
   .dash { color: var(--text-muted); }
 
-  .tl-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; margin: 1rem 0; }
+  .tl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
   .tl-card { border-radius: 6px; padding: 0.8rem 1rem; font-size: 13px; line-height: 1.4; }
   .tl-green { background: var(--green-light); border-top: 3px solid var(--green); }
   .tl-amber { background: var(--amber-light); border-top: 3px solid var(--amber); }
   .tl-red   { background: var(--red-light);   border-top: 3px solid var(--red); }
+  .tl-blue  { background: #e4eefa;            border-top: 3px solid #1e4a7a; }
   .tl-card .tl-label { font-weight: 700; margin-bottom: 3px; font-size: 13.5px; }
 
   .screenshot {
@@ -638,14 +639,16 @@
     <div class="toc-part">Part B — Setting Up Rostas</div>
     <a class="toc-item toc-h1" href="#b-wizard">The Setup Wizard</a>
     <div class="toc-parent" id="parent-b-steps">
-      <a class="toc-parent-link" href="#b-step1">Setup Steps</a>
+      <a class="toc-parent-link" href="#b-licence">Setup Steps</a>
       <button class="toc-toggle" data-target="children-b-steps" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-b-steps">
-      <a class="toc-item toc-h2" href="#b-step1">Step 1 — Your Organisation</a>
-      <a class="toc-item toc-h2" href="#b-step2">Step 2 — Your Details</a>
-      <a class="toc-item toc-h2" href="#b-step3">Step 3 — SMS Test</a>
-      <a class="toc-item toc-h2" href="#b-step4">Step 4 — Done</a>
+      <a class="toc-item toc-h2" href="#b-licence">Step 1 — Licence</a>
+      <a class="toc-item toc-h2" href="#b-step1">Step 2 — Your Organisation</a>
+      <a class="toc-item toc-h2" href="#b-step2">Step 3 — Your Details</a>
+      <a class="toc-item toc-h2" href="#b-step3">Step 4 — SMS Test</a>
+      <a class="toc-item toc-h2" href="#b-step4">Step 5 — Done</a>
+      <a class="toc-item toc-h2" href="#b-coord-link">Your coordinator link</a>
     </div>
     <a class="toc-item toc-h1" href="#b-whats-next">What's Next</a>
 
@@ -745,6 +748,7 @@
     </div>
     <a class="toc-item toc-h1" href="#d-sms-chain">The SMS Replacement Chain</a>
     <a class="toc-item toc-h1" href="#d-search">Searching for a Volunteer</a>
+    <a class="toc-item toc-h1" href="#d-print">Printing the roster</a>
 
     <!-- Part G -->
     <div class="toc-part">Part G — Settings &amp; Troubleshooting</div>
@@ -795,7 +799,7 @@
   </div>
 
   <div id="cover">
-    <div class="eyebrow">Rostas Coordinator Guide · June 2026</div>
+    <div class="eyebrow">Rostas Coordinator Guide · September 2026</div>
     <h1>Rostas Coordinator Guide</h1>
     <p class="subtitle">Fair, automatic, kind rostering for churches and volunteer organisations.</p>
   </div>
@@ -909,7 +913,7 @@
     </table>
   </div>
 
-  <p>Within each tier, Rostas selects the volunteer who has been rostered least recently — keeping things fair automatically over time without any manual tracking.</p>
+  <p>Within each tier, Rostas picks the volunteer who has served least in recent weeks (counting all their roles), then whoever did this particular role longest ago — keeping things fair automatically over time without any manual tracking.</p>
 
   <h3 class="sub-title" id="a-board">The Roster Board</h3>
   <p>The Board is your day-to-day view of the current roster. It shows every slot, every date, and every volunteer assignment at a glance. A traffic light colour system tells you instantly what's filled, what's pending, and what needs attention.</p>
@@ -922,11 +926,15 @@
   <div class="tl-grid">
     <div class="tl-card tl-green">
       <div class="tl-label">🟢 Filled</div>
-      Volunteer confirmed. No action needed.
+      Rostered, and they marked themselves available. (Confirming is separate: the volunteer taps “Yes, I'll be there”.)
     </div>
     <div class="tl-card tl-amber">
       <div class="tl-label">🟡 Pending</div>
       Provisionally assigned (volunteer marked Not sure). Monitor for confirmation.
+    </div>
+    <div class="tl-card tl-blue">
+      <div class="tl-label">🔵 SMS Chain</div>
+      The replacement chain is running — Rostas is asking backup volunteers. The card says “In chain”.
     </div>
     <div class="tl-card tl-red">
       <div class="tl-label">🔴 Unfilled</div>
@@ -949,7 +957,7 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">🌙</span>
-    <strong>Quiet hours are always respected.</strong> Rostas never sends automated SMS during your quiet hours. If the replacement chain reaches a volunteer during that window, it pauses and resumes automatically once quiet hours end. You set the start and end times in Settings → SMS (the default is 9pm–8am).
+    <strong>Quiet hours are always respected.</strong> Rostas never sends automated SMS during your quiet hours. If the replacement chain reaches a volunteer during that window, it pauses and resumes automatically once quiet hours end. You set the start and end times in Settings → Timing &amp; behaviour (the default is 9pm–8am).
   </div>
 
   <p>Every reply-seeking message — the automated chain above, Manual Replacement, and a Cross-Roster Ask — decides how to reach the volunteer the same way, in this order:</p>
@@ -968,7 +976,7 @@
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    You can see and edit the wording for every tier — including the app-push text and the SMS — in Settings → Message Wording.
+    You can see and edit the wording for every tier — including the app-push text and the SMS — in Settings: text wording is under <strong>SMS</strong>, app-notification wording under <strong>App</strong>, and email wording under <strong>Email wording</strong>.
   </div>
 
 <p>The Tier 2 message contains a <strong>personalised link</strong> straight to the volunteer's accept / decline page. There's nothing to type and no separate entry page to visit — they just tap the link in the text.</p>
@@ -1006,7 +1014,7 @@
       </thead>
       <tbody>
         <tr><td><strong>You — the coordinator</strong></td><td>Run the 6-step wizard each cycle, review the built roster, handle exceptions, manage volunteers and settings</td></tr>
-        <tr><td><strong>Your volunteers</strong></td><td>Respond to availability emails, set role preferences, accept or decline replacement requests by entering a short code from sms or tapping a link in an email.&nbsp;</td></tr>
+        <tr><td><strong>Your volunteers</strong></td><td>Respond to availability emails, set role preferences, accept or decline replacement requests by tapping the link in a text or email, or answering in the app.</td></tr>
         <tr><td><strong>Rostas</strong></td><td>Everything in between — building the roster, sending notifications, chasing replacements, sending reminders, enforcing frequency caps</td></tr>
       </tbody>
     </table>
@@ -1019,7 +1027,7 @@
 
   <!-- ══ WHERE TO START ══ -->
   <h2 class="section-title" id="a-next-steps">Where to Start</h2>
-  <p>The guide is organised into six parts. Jump to the section that matches where you are right now:</p>
+  <p>The guide is organised into seven parts and an appendix. Jump to the section that matches where you are right now:</p>
 
   <div class="tbl-wrap">
     <table>
@@ -1030,9 +1038,10 @@
         <tr><td><strong>A</strong></td><td>Introducing Rostas</td><td>You're here ✓</td></tr>
         <tr><td><strong>B</strong></td><td>Setting Up Rostas</td><td>Rostas is brand new at your organisation and needs initial configuration</td></tr>
         <tr><td><strong>C</strong></td><td>Profiles</td><td>Your volunteers aren't in Rostas yet, or you need to add, import, or edit them</td></tr>
-        <tr><td><strong>D</strong></td><td>The Roster Cycle</td><td>Your volunteers are in and you're ready to build a roster</td></tr>
-        <tr><td><strong>E</strong></td><td>Using the Board</td><td>You need to manage replacements or make changes between builds</td></tr>
-        <tr><td><strong>F</strong></td><td>Settings &amp; Troubleshooting</td><td>You need to change a setting or something isn't working as expected</td></tr>
+        <tr><td><strong>D</strong></td><td>Insights</td><td>You want to see whether an upcoming roster has enough people, and what would help</td></tr>
+        <tr><td><strong>E</strong></td><td>The Roster Cycle</td><td>Your volunteers are in and you're ready to build a roster</td></tr>
+        <tr><td><strong>F</strong></td><td>Using the Board</td><td>You need to manage replacements, make changes between builds, or print the roster</td></tr>
+        <tr><td><strong>G</strong></td><td>Settings &amp; Troubleshooting</td><td>You need to change a setting or something isn't working as expected</td></tr>
       </tbody>
     </table>
   </div>
@@ -1050,18 +1059,21 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
-    <strong>Before you start:</strong> Your Rostas coordinator needs to have set up the system and given you the link to open it. If you don't have a link yet, ask them for it.
+    <strong>Before you start:</strong> have your Rostas licence key ready — it's in your Rostas welcome email. If someone else at your organisation has already set Rostas up, you don't need this wizard: ask them to forward you the coordinator link (see <a href="#b-coord-link">Your coordinator link</a>).
   </div>
 
   <h2 class="section-title" id="b-wizard">The Setup Wizard</h2>
-  <p>The wizard has four steps shown across the top of the screen. You can see at a glance how far through you are and what's coming next.</p>
+  <p>The wizard has five steps — Licence, Organisation, Your Details, SMS and Done — shown across the top of the screen. You can see at a glance how far through you are and what's coming next.</p>
 
-  <h3 class="sub-title" id="b-step1">Step 1 — Your Organisation</h3>
+  <h3 class="sub-title" id="b-licence">Step 1 — Licence</h3>
+  <p>Enter the licence key from your Rostas welcome email (it looks like <strong>RSTS-XXXX-XXXX-XXXX</strong>; you can also find it in your account at rostas.app) and click <strong>Validate →</strong>. Rostas checks it and moves you on to your organisation's details. If the key isn't accepted, check it for typos, then contact support@rostas.app.</p>
+
+  <h3 class="sub-title" id="b-step1">Step 2 — Your Organisation</h3>
   <p>The first step establishes your organisation's identity. The name you enter here appears in every message sent to volunteers — availability emails, roster notifications, and SMS reminders.</p>
 
   <figure>
-    <img src="setup-step1-org.png" alt="Setup wizard Step 1 — Your Organisation, showing organisation name, timezone and country code fields" class="screenshot-mid">
-    <figcaption>Step 1 — enter your organisation name, timezone, and country code. The name appears in every volunteer-facing message Rostas sends.</figcaption>
+    <img src="setup-step1-org.png" alt="Setup wizard Step 2 — Your Organisation, showing organisation name, timezone and country code fields" class="screenshot-mid">
+    <figcaption>Step 2 — enter your organisation name, timezone, and country code. The name appears in every volunteer-facing message Rostas sends.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
@@ -1080,12 +1092,12 @@
 
   <p>Click <strong>Next →</strong> when all required fields are filled. The button stays disabled until everything is valid.</p>
 
-  <h3 class="sub-title" id="b-step2">Step 2 — Your Details</h3>
-  <p>Step 2 captures the primary coordinator's contact details. These are used for SMS test sends, coordinator escalation alerts when the replacement chain is exhausted, and the bottom of the coordinator app sidebar.</p>
+  <h3 class="sub-title" id="b-step2">Step 3 — Your Details</h3>
+  <p>Step 3 captures the primary coordinator's contact details. These are used for the SMS test send, error alerts, and the bottom of the coordinator app sidebar.</p>
 
   <figure>
-    <img src="setup-step2-details.png" alt="Setup wizard Step 2 — Your Details, showing name, email and mobile fields" class="screenshot-mid">
-    <figcaption>Step 2 — enter your name, email address, and mobile number. Your mobile must include the country code.</figcaption>
+    <img src="setup-step2-details.png" alt="Setup wizard Step 3 — Your Details, showing name, email and mobile fields" class="screenshot-mid">
+    <figcaption>Step 3 — enter your name, email address, and mobile number. Your mobile must include the country code.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
@@ -1095,39 +1107,39 @@
       </thead>
       <tbody>
         <tr><td><strong>Your name</strong></td><td>Your full name as coordinator — e.g. "Sarah Mitchell"</td></tr>
-        <tr><td><strong>Your email</strong></td><td>Your email address — receives error alerts and escalation notifications</td></tr>
+        <tr><td><strong>Your email</strong></td><td>Your email address — receives error alerts. (The “no replacement found” email goes to the Organisation email in Settings — see <a href="#d-sms-chain">The SMS Replacement Chain</a>.)</td></tr>
         <tr><td><strong>Your mobile</strong></td><td>Your mobile number in full international format — e.g. +6421123456. Must include country code.</td></tr>
       </tbody>
     </table></div>
 
-  <h3 class="sub-title" id="b-step3">Step 3 — SMS Test</h3>
+  <h3 class="sub-title" id="b-step3">Step 4 — SMS Test</h3>
   <p>Before your first roster build, Rostas verifies that SMS is working. This step sends a real test message to your mobile so you can confirm everything is set up correctly.</p>
 
   <figure>
-    <img src="setup-step3-sms-test-form.png" alt="Setup wizard Step 3 — SMS test, showing send test SMS button" class="screenshot-mid">
-    <figcaption>Step 3 — your mobile number is pre-filled from Step 2. Tap "Send test SMS" to send a real test message to your phone.</figcaption>
+    <img src="setup-step3-sms-test-form.png" alt="Setup wizard Step 4 — SMS test, showing send test SMS button" class="screenshot-mid">
+    <figcaption>Step 4 — your mobile number is pre-filled from Step 3. Tap "Send test SMS" to send a real test message to your phone.</figcaption>
   </figure>
 
   <div class="step-box">
-    <div class="step-label">How to complete Step 3</div>
-    <p>Your mobile number is pre-filled from Step 2. Tap <strong>Send test SMS →</strong> and wait for the message to arrive on your phone — usually within 30 seconds. Once received, a green confirmation appears and the Next button enables.</p>
+    <div class="step-label">How to complete Step 4</div>
+    <p>Your mobile number is pre-filled from Step 3. Tap <strong>Send test SMS →</strong> and wait for the message to arrive on your phone — usually within 30 seconds. Once received, a green confirmation appears and the Next button enables.</p>
   </div>
 
   <figure>
-    <img src="setup-step3-sms-received.png" alt="Setup wizard Step 3 — SMS confirmed received, showing green Message received banner" class="screenshot-mid">
+    <img src="setup-step3-sms-received.png" alt="Setup wizard Step 4 — SMS confirmed received, showing green Message received banner" class="screenshot-mid">
     <figcaption>When the test message arrives, a green "Message received — SMS is ready" confirmation appears. Tap Next to continue.</figcaption>
   </figure>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>If the test message doesn't arrive</strong> within a minute, check that your mobile number. You can edit the number in the field and try again. If it still fails, email support@rostas.app — SMS sending is set up by Rostas, not something you configure yourself.
+    <strong>If the test message doesn't arrive</strong> within a minute, check that your mobile number is correct. You can edit the number in the field and try again. If it still fails, email support@rostas.app — SMS sending is set up by Rostas, not something you configure yourself.
   </div>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
-    <strong>If SMS isn't set up on your copy yet</strong>, Step 3 shows a "SMS isn't set up yet" screen instead of the test send, with a link to support@rostas.app and a <strong>Continue without SMS</strong> button. You can finish setup and start using Rostas by email — SMS replacement requests and reminders begin working once SMS is switched on.&nbsp; Rostas uses Prepay SMS packs which you will soon be able to purchase.</div>
+    <strong>If SMS isn't set up on your copy yet</strong>, Step 4 shows a "SMS isn't set up yet" screen instead of the test send, with a link to support@rostas.app and a <strong>Continue without SMS</strong> button. You can finish setup and start using Rostas by email — SMS replacement requests and reminders begin working once SMS is switched on.&nbsp; Your first 20 SMS credits are free; after that, texts use prepaid credit packs (see <a href="#f-credits">SMS Credits</a>).</div>
 
- <h3 class="sub-title" id="b-step4">Step 4 — Done</h3>
+ <h3 class="sub-title" id="b-step4">Step 5 — Done</h3>
   <p>Once SMS is confirmed, the wizard completes and Rostas is ready to use.</p>
 
   <figure>
@@ -1138,8 +1150,13 @@
   <p>From here you have two options:</p>
   <ul>
     <li><strong>Go to Build →</strong> — takes you straight to the Builds dashboard, ready to start your first roster cycle. This is the right choice if your volunteers are already imported.</li>
-    <li><strong>Explore Settings</strong> — opens the Settings view if you want to review or customise anything before you import volunteers or do your first first build.</li>
+    <li><strong>Explore Settings</strong> — opens the Settings view if you want to review or customise anything before you import volunteers or do your first build.</li>
   </ul>
+
+  <h3 class="sub-title" id="b-coord-link">Your coordinator link</h3>
+  <p>When set-up finishes, Rostas emails you a <strong>coordinator link</strong> (to the Organisation email, or your own email if that's blank). This link is how you open Rostas from now on — <strong>bookmark it</strong> on every computer you use. It works like a password for the coordinator screens, so don't forward it to volunteers or post it anywhere.</p>
+  <p>If you open Rostas without it, you'll see a <strong>Coordinator sign-in</strong> box: paste your coordinator link there, or click <strong>Email me the coordinator link</strong> to have it sent again. A device you've signed in on remembers you, so this is usually only needed once per device.</p>
+
 
   <h2 class="section-title" id="b-whats-next">What's Next</h2>
   <p>Rostas is set up. Next, get your volunteers in: head to <strong>Part C — Profiles</strong> to import or add them and set up how each one serves. Once your profiles are in, <strong>Part E — The Roster Cycle</strong> walks you through building your first roster.</p>
@@ -1227,7 +1244,7 @@
   <p>The left panel shows the volunteer's name, phone, email, and status, with four toggles that control how Rostas treats them, plus an automatic App Installed indicator described below:</p>
 
   <figure>
-    <img src="vol-detail-always-sms.png" alt="Profile left panel showing the four toggles: Active, Email, SMS and Always text too" class="screenshot-sm">
+    <img src="vol-detail-always-sms.png" alt="Profile left panel showing the four toggles: Active, Email, SMS and Always text" class="screenshot-sm">
     <figcaption>The left panel's toggles. "Always text" is the last — it opts a volunteer in to reminder texts even when they'd normally be reached by email.</figcaption>
   </figure>
 
@@ -1307,7 +1324,7 @@
     </table>
   </div>
 
-  <p>Linked roles are ringed on the profile so you can see the relationship at a glance.</p><p>A <strong>gold drop-shadow</strong> marks the dominant role, a <strong>grey drop-shadow</strong> its shadow pairing.&nbsp;</p><p></p><figure><img class="screenshot" src="screenshot-2026-08-01-10.33.49-am.png" alt="screenshot 2026 08 01 10.33.49 am"><figcaption>Gold drop-shadow and grey drop-shadow&nbsp; pairing</figcaption></figure><p></p><p>A highlighted g<strong>reen circle boarder&nbsp;</strong>marks paired roles in profile settings.&nbsp;</p><p></p><figure><img class="screenshot" src="screenshot-2026-08-01-10.48.19-am.png" alt="screenshot 2026 08 01 10.48.19 am"><figcaption>Caption — click to edit.</figcaption></figure><br><p></p><p>On the Board, the matching assignment cards carry the same colours.</p>
+  <p>Linked roles are ringed on the profile so you can see the relationship at a glance.</p><p>A <strong>gold drop-shadow</strong> marks the dominant role, a <strong>grey drop-shadow</strong> its shadow pairing.&nbsp;</p><p></p><figure><img class="screenshot" src="screenshot-2026-08-01-10.33.49-am.png" alt="screenshot 2026 08 01 10.33.49 am"><figcaption>Gold drop-shadow and grey drop-shadow&nbsp; pairing</figcaption></figure><p></p><p>A highlighted g<strong>reen circle border&nbsp;</strong>marks paired roles in profile settings.&nbsp;</p><p></p><figure><img class="screenshot" src="screenshot-2026-08-01-10.48.19-am.png" alt="screenshot 2026 08 01 10.48.19 am"><figcaption>Paired roles are marked with a green border on the profile.</figcaption></figure><br><p></p><p>On the Board, the matching assignment cards carry the same colours.</p>
 
   <figure>
     <img src="board-dominant-shadow-cards.png" alt="Board cards for a linked role pair, with matching ring colours" class="screenshot">
@@ -1320,11 +1337,11 @@
   </div>
 
   <h3 class="sub-title" id="e-detail-frequency">Frequency — how often they serve</h3>
-  <p>The Frequency control — labelled <strong>ONCE EVERY</strong> — caps how often this volunteer is rostered in this roster, so nobody is over-used even when they're always available. Tap a pill: <strong>No cap</strong>, or once every <strong>1wk</strong> through <strong>12wk</strong>.</p>
+  <p>The Frequency control — labelled <strong>ONCE EVERY</strong> — caps how often this volunteer is rostered in this roster, so nobody is over-used even when they're always available. Tap a pill: once every <strong>1wk</strong>, <strong>2wk</strong>, and so on up to <strong>12wk</strong>. If none is set, Rostas uses once every 4 weeks.</p>
 
   <figure>
-    <img src="profile-roster-frequency.png" alt="Frequency ONCE EVERY control showing No cap and 1wk to 12wk pills" class="screenshot">
-    <figcaption>The Frequency control. "No cap" lets the engine roster them as often as needed; "4wk" means at most once every four weeks, and so on.</figcaption>
+    <img src="profile-roster-frequency.png" alt="Frequency ONCE EVERY control showing 1wk to 12wk pills" class="screenshot">
+    <figcaption>The Frequency control. "1wk" means they can be rostered every week; "4wk" means at most once every four weeks, and so on.</figcaption>
   </figure>
 
   <div class="callout callout-info">
@@ -1366,7 +1383,7 @@
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <strong>If the season's dates aren't confirmed yet</strong>, an yellow banner appears at the bottom of this section — It is good to get season dates confirmed . Adding or deleting dates helps volunteers accurately know dates for the next roster.</div>
+    <strong>If the season's dates aren't confirmed yet</strong>, a yellow banner appears at the bottom of this section — it's good to get season dates confirmed. Adding or deleting dates helps volunteers accurately know dates for the next roster.</div>
 
   <figure>
     <img src="profile-season-dates-unconfirmed-banner.png" alt="Amber banner warning that season dates are not yet confirmed" class="screenshot">
@@ -1392,7 +1409,7 @@
   </figure>
 
   <h2 class="section-title" id="e-volunteer-facing">What Volunteers See</h2>
-  <p>Volunteers interact with Rostas through personalised links, and — if they've installed it — the Rostas app. Installing is entirely optional: nothing is ever gated behind it, and a volunteer who never installs keeps using email and SMS links exactly as before. There are three things volunteers are sent:</p>
+  <p>Volunteers interact with Rostas through personalised links, and — if they've installed it — the Rostas app. Installing is entirely optional: nothing is ever gated behind it, and a volunteer who never installs keeps using email and SMS links exactly as before. These are the main things volunteers are sent:</p>
 
   <div class="tbl-wrap">
     <table>
@@ -1403,6 +1420,8 @@
         <tr><td><strong>Availability form</strong></td><td>When you run Step 3 of the Roster Wizard</td><td>Mark which dates they're available, not sure, or can't make it. In the app, volunteers on more than one roster type see a pill for each and set availability independently.</td></tr>
         <tr><td><strong>Roster notification</strong></td><td>When you send notifications in Step 6</td><td>View their assignments, confirm a pending slot, tap "Can't make it", print their roster. In the app this opens the native Your Roster screen instead of a browser tab.</td></tr>
         <tr><td><strong>Replacement request</strong></td><td>Automatically during the SMS replacement chain, Manual Replace, or a Cross-Roster Ask</td><td>Accept or decline a slot — with the app installed, a push notification opens an in-app Yes/No screen; otherwise a direct link by SMS</td></tr>
+        <tr><td><strong>Reminder</strong></td><td>Automatically before each service they're rostered for</td><td>An email a few days before (3 by default), then on the day before an app notification or, depending on your settings, a text. Tap “Yes, I'll be there” or “Sorry, I can't make it”.</td></tr>
+        <tr><td><strong>Role preferences</strong></td><td>When you send them in Step 2 of the Roster Wizard (optional)</td><td>Choose, for each role, “Yes, I do this”, “Happy to fill in” or “Not for me”.</td></tr>
       </tbody>
     </table>
   </div>
@@ -1464,7 +1483,7 @@
       </thead>
       <tbody>
         <tr><td><strong>Android</strong></td><td>They tap their link, then tap the <strong>Install Rostas</strong> card on the app's Home screen (or Chrome's <strong>⋮</strong> menu → <strong>Install app</strong>). The new icon opens already set up.</td><td>Full value — once a notification is confirmed delivered, no text is sent, saving your church a text every time one would otherwise go.</td></tr>
-        <tr><td><strong>iPhone</strong></td><td>They tap their link. Rostas opens in Safari on a <strong>"First, put Rostas on your Home Screen"</strong> page with a <strong>Show me how</strong> button, which walks them through Safari's five taps one picture at a time: <strong>⋯</strong> → <strong>Share</strong> → <strong>View More</strong> → <strong>Add to Home Screen</strong> → <strong>Add</strong>. The new icon opens already set up — nothing to copy or paste.</td><td>Day-before reminders arrive as a notification only, with no text, unless the notification fails. Replacement requests arrive as a notification first, and a text usually follows a few minutes later unless they've already replied in the app.</td></tr>
+        <tr><td><strong>iPhone</strong></td><td>They tap their link. Rostas opens in Safari on a <strong>"First, put Rostas on your Home Screen"</strong> page with a <strong>Show me how</strong> button, which walks them through Safari's five taps one picture at a time: <strong>⋯</strong> → <strong>Share</strong> → <strong>View More</strong> → <strong>Add to Home Screen</strong> → <strong>Add</strong>. The new icon opens already set up — nothing to copy or paste.</td><td>Day-before reminders arrive as a notification only, with no text, unless the notification fails. Replacement requests arrive the same way: a notification, with no text unless the notification fails — the same as Android.</td></tr>
         <tr><td><strong>iPad</strong></td><td>Safari's <strong>Share</strong> button (top of the screen) → <strong>Add to Home Screen</strong> → <strong>Add</strong>. The app shows these steps in one line; the picture guide is iPhone only.</td><td>Same as iPhone.</td></tr>
       </tbody>
     </table>
@@ -1498,7 +1517,7 @@
     <span class="part-sub">Forecast health check · Suggestion pills · Fill order</span>
   </div>
 
-  <p>Insights is your at-a-glance health check for an upcoming roster — reachable any time from the <strong>Insights</strong> item in the side navigation&nbsp; (it sits right below Profiles), or via the "Insights" shortcut buttons on Profiles and a volunteer's own detail page. Unlike most pages in Rostas, Insights is never cached: it always reflects your current forecast, so it's worth a look between builds, not just when something's already gone wrong.</p>
+  <p>Insights is your at-a-glance health check for an upcoming roster — reachable any time from the <strong>Insights</strong> item in the side navigation&nbsp; (it sits right below Profiles), or via the "Insights" shortcut buttons on Profiles and a volunteer's own detail page. Insights refreshes whenever the roster, your volunteers or Settings change, so it always reflects your current forecast. It's worth a look between builds, not just when something's already gone wrong.</p>
 
   <figure>
     <img src="sidebar-insights-nav.png" alt="Side navigation showing the Insights item highlighted below Profiles" class="screenshot-sm">
@@ -1506,7 +1525,7 @@
   </figure>
 
   <h2 class="section-title" id="d-overview">The overview table</h2>
-  <p>Pick a roster type along the top (Sunday, Music,, Lock Up, and so on) and Insights shows every one of its roles against your next unbuilt window of dates. Two separate numbers matter for each role:</p>
+  <p>Pick a roster type along the top (Sunday, Music, Lock Up, and so on) and Insights shows every one of its roles against your next unbuilt window of dates. Two separate numbers matter for each role:</p>
 
   <div class="tbl-wrap">
     <table>
@@ -1707,7 +1726,7 @@
     <figcaption>Step 5 — review your roster setup before confirming. You can go back to any previous step to make changes. Once confirmed, the roster appears on the Builds dashboard.</figcaption>
   </figure>
 
-  <p>Click <strong>Confirm &amp; Create Roster</strong> to finish. Your new roster type appears on the Builds dashboard immediately. You're now ready to run your first Roster Wizard for this roster.</p>
+  <p>Click <strong>Create Roster →</strong> to finish. Your new roster type appears on the Builds dashboard immediately. You're now ready to run your first Roster Wizard for this roster.</p>
 
   <!-- ══ MANAGE ROLES ══ -->
   <h2 class="section-title" id="c-rebuild">The Roster Wizard</h2>
@@ -1747,7 +1766,7 @@
   </div>
 
   <h3 class="sub-title" id="c-rebuild-step3">Step 3 — Availability</h3>
-  <p>Rostas emails all active volunteers asking which upcoming dates they're available. Each volunteer receives a personalised link — no login required. They tap their dates, mark any they can't make, and save.</p>
+  <p>Rostas emails every active volunteer on this roster, asking which upcoming dates they're available. Each volunteer receives a personalised link — no login required. They tap their dates, mark any they can't make, and save.</p>
 
   <figure>
     <img src="roster-wizard-step3-availability.png" alt="Roster Wizard Step 3 — Send Availability button and response stats" class="screenshot">
@@ -1785,6 +1804,18 @@
   <h3 class="sub-title" id="c-rebuild-step5">Step 5 — Check Roster</h3>
   <p>Before anything is sent to volunteers, you review what Rostas has built. Clicking <strong>Open Roster Board</strong> opens the board in review mode — you can see every assignment, make any manual changes, and return to the wizard. The Communications Preview in Settings lets you see exactly what each volunteer will receive before you send.</p>
 
+  <p>Step 5 also has two ways to build again if you've made changes — for example after more availability replies come in, or after adjusting roles or dates:</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Button</th><th>What it does</th><th>Use it when</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Refill Roster</strong></td><td>Fills only the empty slots, using your latest changes. Everything already placed — including your manual changes — stays as it is.</td><td>You're happy with the roster but some slots are still unfilled.</td></tr>
+        <tr><td><strong>Complete Rebuild</strong></td><td>Clears every assignment that hasn't been sent to volunteers yet and decides the whole roster again.</td><td>You've changed something big (roles, dates, lots of availability) and want a fresh roster.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
   <figure>
     <img src="roster-wizard-step5-check-roster.png" alt="Roster Wizard Step 5 — Check Roster, with Open Roster Board and ready-to-notify options" class="screenshot">
     <figcaption>Step 5 — open the board to review assignments, or use the Communications Preview to check what volunteers will receive. When you're happy, mark it reviewed to proceed.</figcaption>
@@ -1798,11 +1829,15 @@
   <div class="tl-grid">
     <div class="tl-card tl-green">
       <div class="tl-label">🟢 Filled</div>
-      Volunteer confirmed. Notification ready to send.
+      Rostered and marked available. Notification ready to send.
     </div>
     <div class="tl-card tl-amber">
       <div class="tl-label">🟡 Pending</div>
       Provisionally assigned (volunteer marked Not sure). Will receive a confirm/decline message.
+    </div>
+    <div class="tl-card tl-blue">
+      <div class="tl-label">🔵 SMS Chain</div>
+      A replacement is being found for this slot.
     </div>
     <div class="tl-card tl-red">
       <div class="tl-label">🔴 Unfilled</div>
@@ -1827,8 +1862,8 @@
     <span class="callout-icon">📬</span>
     <strong>What happens automatically after Step 6:</strong>
     <ul style="margin:0.5rem 0 0 0;padding-left:1.2rem;">
-      <li>Email reminder sent 3 days before each service date</li>
-      <li>Depending on Settings SMS reminder can be sent 1 day before each service date</li>
+      <li>Reminder email sent 3 days before each service date (change this in Settings → Timing &amp; behaviour → Reminder days before service)</li>
+      <li>The day before, an app notification — or a text, depending on Settings → Timing &amp; behaviour → Day-before reminder texts</li>
       <li>If a volunteer taps "Can't make it" — the SMS replacement chain starts automatically</li>
     </ul>
     No further action needed until the next roster cycle.
@@ -1965,7 +2000,7 @@
   <p>There are two separate frequency ideas in Rostas: how often the <em>roster</em> runs, and how often each <em>volunteer</em> serves. This section covers the roster side — its cadence and whether the season is fixed or ongoing. The per-volunteer cap is set on each person's profile (see <a href="#e-detail-frequency">Frequency on the Profile detail page</a>); the two are explained together at the end.</p>
 
   <h3 class="sub-title" id="c-frequency-cadence">Roster cadence — how often the roster runs</h3>
-  <p>Not every roster runs weekly. A community meal might run fortnightly, a kids' ministry only on the 1st and 3rd Sunday, a review team monthly. The <strong>Frequency</strong> page sets this cadence per roster type — it decides which dates appear in the season, and therefore which dates Rostas builds for. You reach it two ways: when you first create a roster (in the New Roster Wizard's first step), or any time afterwards from the Builds dashboard — ⋯ — Frequency.</p>
+  <p>Not every roster runs weekly. A community meal might run fortnightly, a kids' ministry only on the 1st and 3rd Sunday, a review team monthly. The <strong>Frequency</strong> page sets this cadence per roster type — it decides which dates appear in the season, and therefore which dates Rostas builds for. You reach it two ways: when you first create a roster (the Season step of the New Roster Wizard), or any time afterwards from the Builds dashboard — ⋯ — Frequency.</p>
 
   <figure>
     <img src="season-freq-type-control.png" alt="The Season Freq page showing the cadence pills (Daily to Monthly) and the Fixed-term / Perpetual season type control" class="screenshot">
@@ -1981,7 +2016,7 @@
         <tr><td><strong>Fortnightly</strong></td><td>Roster runs every two weeks</td></tr>
         <tr><td><strong>1st and 3rd</strong></td><td>Runs on the 1st and 3rd occurrence of the day each month</td></tr>
         <tr><td><strong>2nd and 4th</strong></td><td>Runs on the 2nd and 4th occurrence of the day each month</td></tr>
-        <tr><td><strong>Monthly</strong></td><td>Runs once a month — e.g. a quarterly review team</td></tr>
+        <tr><td><strong>Monthly</strong></td><td>Runs once a month — e.g. a monthly working bee</td></tr>
       </tbody>
     </table>
   </div>
@@ -2017,7 +2052,7 @@
       <thead><tr><th>Example</th><th>Roster cadence</th><th>Volunteer cap</th><th>Result</th></tr></thead>
       <tbody>
         <tr><td>Sunday team volunteer</td><td>Weekly</td><td>Once every 2wk</td><td>Rostered roughly once a fortnight</td></tr>
-        <tr><td>Sound desk specialist</td><td>Weekly</td><td>No cap</td><td>Rostered most Sundays (willing and able)</td></tr>
+        <tr><td>Sound desk specialist</td><td>Weekly</td><td>Once every 1wk</td><td>Can be rostered every Sunday (willing and able)</td></tr>
         <tr><td>Occasional helper</td><td>Fortnightly</td><td>Once every 4wk</td><td>Rostered roughly once a month</td></tr>
       </tbody>
     </table>
@@ -2084,7 +2119,7 @@
         <tr><th>Colour</th><th>Status</th><th>What it means</th></tr>
       </thead>
       <tbody>
-        <tr><td><span style="background:#e8f5ee;border:1px solid #2d7a4f;padding:2px 10px;border-radius:4px;font-size:12px;">Green</span></td><td><strong>Filled</strong></td><td>Volunteer confirmed and rostered. No action needed.</td></tr>
+        <tr><td><span style="background:#e8f5ee;border:1px solid #2d7a4f;padding:2px 10px;border-radius:4px;font-size:12px;">Green</span></td><td><strong>Filled</strong></td><td>Rostered, and marked available. (Confirming is separate: the volunteer taps “Yes, I'll be there”.)</td></tr>
         <tr><td><span style="background:#fef3c7;border:1px solid #d97706;padding:2px 10px;border-radius:4px;font-size:12px;">Amber</span></td><td><strong>Pending</strong></td><td>Volunteer marked Not sure — provisionally assigned, awaiting confirmation.</td></tr>
         <tr><td><span style="background:#e8f0fb;border:1px solid #4a7cd4;padding:2px 10px;border-radius:4px;font-size:12px;">Blue</span></td><td><strong>SMS Chain</strong></td><td>Replacement chain active — Rostas is texting backup volunteers automatically.</td></tr>
         <tr><td><span style="background:#fdecea;border:1px solid #c0392b;padding:2px 10px;border-radius:4px;font-size:12px;">Red</span></td><td><strong>Unfilled</strong></td><td>No volunteer assigned. Needs attention.</td></tr>
@@ -2099,7 +2134,12 @@
   </div>
 
   <h3 class="sub-title" id="d-legend">Legend and Frequency</h3>
-  <p>The legend row at the top of the board shows the five cell states. To the right, the <strong>volunteer search</strong> (with ◀ ▶ navigation arrows) lets you find a specific person and step through volunteers one by one. The <strong>Frequency</strong> panel shows how often the currently searched volunteer is rostered and when they were last assigned.</p>
+  <p>The legend row at the top of the board shows the four colours (white excluded dates have no chip of their own). To the right, the <strong>volunteer search</strong> (with ◀ ▶ navigation arrows) lets you find a specific person and step through volunteers one by one. The <strong>Frequency</strong> panel shows how often the currently searched volunteer is rostered and when they were last assigned.</p>
+
+  <h3 class="sub-title" id="d-print">Printing the roster</h3>
+  <p>Under the search box is a <strong>Print / save as PDF</strong> button. It opens the roster you're looking at in a new tab: every date on the board as a row and every role as a column, with everyone's names — ready to print for a noticeboard or hand out. Weeks with no service say so, and people who declined are left out.</p>
+  <p>Click <strong>Print / save as PDF</strong> at the top of that page. It prints on A4 landscape, and the column headings repeat on every page. To make a PDF instead, choose <strong>Save as PDF</strong> as the printer.</p>
+
 
   <h2 class="section-title" id="d-actions">Taking Action on a Cell</h2>
   <p>Click any cell on the board to select it. The selected cell gets a navy border and a sticky action bar appears above the green roles headings — showing the volunteer's name, role, date, and current status, with action buttons on the right.</p>
@@ -2152,7 +2192,7 @@
 
   <figure>
     <img src="board-replace-panel.png" alt="Replacement panel showing tiered volunteer candidates with Select buttons" class="screenshot">
-    <figcaption>The replacement panel — volunteers are grouped by tier. Click Select next to any volunteer to assign them immediately. The original volunteer is released and the new one is notified automatically.</figcaption>
+    <figcaption>The replacement panel — volunteers are grouped by tier. Click Select next to any volunteer to assign them immediately. The original volunteer is released. The new one is told automatically once this roster's notifications have gone out.</figcaption>
   </figure>
 
   <div class="callout callout-tip">
@@ -2162,7 +2202,7 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">📬</span>
-    <strong>The replacement volunteer is notified automatically.</strong> Once you click Select, Rostas sends them an SMS and email with their assignment details. You don't need to contact them separately.
+    <strong>The replacement volunteer is notified automatically.</strong> If this roster's notifications have already gone out, Rostas tells them straight away — an app notification if they have the app, otherwise a text and an email. If you haven't sent notifications yet, they're simply included when you do (Step 6). Either way, you don't need to contact them separately.
   </div>
 
   <h3 class="sub-title" id="d-cross-roster">Asking a volunteer from another roster</h3>
@@ -2194,10 +2234,10 @@
         <tr><th>What happens</th><th>Timing</th></tr>
       </thead>
       <tbody>
-        <tr><td>Rostas identifies the next eligible volunteer and sends them an SMS</td><td>Immediately (within quiet hours)</td></tr>
+        <tr><td>Rostas identifies the next eligible volunteer and asks them — an app notification if they have the app, otherwise a text with a link</td><td>Immediately (within quiet hours)</td></tr>
         <tr><td>If they accept — slot is filled, original volunteer released</td><td>As soon as they reply</td></tr>
         <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal) or 30 min (urgent, within 24hrs of service)</td></tr>
-        <tr><td>If no one accepts — coordinator receives an escalation SMS</td><td>After list is exhausted</td></tr>
+        <tr><td>If no one accepts — Rostas emails your Organisation email (Settings → Organisation) so you can arrange someone yourself. Make sure that email is set.</td><td>After list is exhausted</td></tr>
       </tbody>
     </table>
   </div>
@@ -2216,7 +2256,7 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">🌙</span>
-    <strong>Quiet hours apply to the SMS chain.</strong> Messages are never sent during your quiet hours (set in Settings → SMS, default 9pm–8am). If the chain reaches a volunteer inside that window it pauses automatically and resumes once quiet hours end. You can monitor progress on the board — cells in the SMS chain state show in blue.
+    <strong>Quiet hours apply to the SMS chain.</strong> Messages are never sent during your quiet hours (set in Settings → Timing &amp; behaviour, default 9pm–8am). If the chain reaches a volunteer inside that window it pauses automatically and resumes once quiet hours end. You can monitor progress on the board — cells in the SMS chain state show in blue.
   </div>
 
   <h2 class="section-title" id="d-search">Searching for a Volunteer</h2>
@@ -2245,7 +2285,7 @@
 
   <h3 class="sub-title" id="f-navigation">Finding your way around</h3>
   <p>The Settings view has two parts that work together.</p>
-  <p>The <strong>chip strip</strong> runs across the top and lets you jump directly to any category — Org, Contacts, SMS, Wording, Timing, Controls, System Status, and Advanced. Clicking a chip scrolls the left panel to that section instantly. The <strong>Communications</strong> chip (gold, with an arrow) opens the Communications Preview in place of Settings — use it to see how your message templates look before sending.</p>
+  <p>The <strong>chip strip</strong> runs across the top and lets you jump directly to any category — Org, Contacts, SMS, App, Email, Timing, Controls, Advanced and Status. Clicking a chip scrolls the left panel to that section instantly. The gold <strong>Comms</strong> chip (with an arrow) opens the Communications Preview in place of Settings — use it to see how your message templates look before sending.</p>
   <p>The <strong>search bar</strong> (top right, "Search settings…") filters the left panel live as you type. It searches across setting names and descriptions simultaneously — so typing "SMS" shows not just the SMS category but any setting whose description mentions SMS, across all categories. Non-matching rows disappear; categories with no matches collapse. Clear the search to restore the full list.</p>
 
   <figure>
@@ -2298,9 +2338,10 @@
         <tr><th>You see this warning</th><th>Search for this</th><th>Setting to change</th></tr>
       </thead>
       <tbody>
-        <tr><td>SMS is disabled</td><td><code>SMS enabled</code></td><td>SMS → SMS enabled → turn on</td></tr>
-        <tr><td>SMS test mode is ON</td><td><code>test mode</code></td><td>SMS → SMS test mode → turn off</td></tr>
+        <tr><td>SMS is disabled</td><td><code>SMS enabled</code></td><td>Quick Controls → SMS enabled → turn on</td></tr>
+        <tr><td>SMS test mode is ON</td><td><code>test mode</code></td><td>Quick Controls → SMS test mode → turn off</td></tr>
         <tr><td>Email test mode is ON</td><td><code>test mode</code></td><td>Quick Controls → Email test mode → turn off</td></tr>
+        <tr><td>App push test mode is ON</td><td><code>test mode</code></td><td>Quick Controls → App push test mode → turn off</td></tr>
         <tr><td>SMS is not set up yet</td><td><span class="dash">—</span></td><td>Contact support@rostas.app — this one can't be fixed from Settings, as SMS sending is provisioned by Rostas</td></tr>
         <tr><td>Web app URL not set</td><td><code>web app</code></td><td>Advanced → Web app URL</td></tr>
       </tbody>
@@ -2327,13 +2368,14 @@
 
   <h2 class="section-title" id="f-categories">Settings Categories</h2>
   <ul>
-    <li><strong>Organisation</strong> — your organisation's name, tagline, timezone, country calling code, contact email, website, and volunteer-facing logo. The organisation name is the most important field: it appears in every SMS and email sent to volunteers as [OrgName]. Get this right first.</li>
-    <li><strong>Coordinator Contacts</strong> — your name, email, and mobile, plus per-roster coordinator contacts for Sunday, Music, Nourish, and any other roster types you've added. The per-roster contacts receive escalation alerts when a replacement chain is exhausted with no one found.</li>
-    <li><strong>SMS</strong> — the SMS kill switch, test mode toggle, quiet hours, and replacement timers. See <a href="#f-sms-templates">SMS settings in detail</a> below.</li>
-    <li><strong>Message Wording</strong> — every SMS template and email text block that Rostas sends to volunteers. SMS templates show a live character counter and required placeholder checker. See <a href="#f-wording">Message wording</a> below.</li>
-    <li><strong>Timing &amp; Behaviour</strong> — how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
-    <li><strong>Quick Controls</strong> — per-roster active toggles and email test mode. Useful for temporarily hiding a roster from the Build wizard without deleting it, or for switching email test mode on and off quickly.</li>
-    <li><strong>Advanced</strong> — settings that affect system internals (web app URL, roster type list, AWS SMS keys). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
+    <li><strong>Organisation</strong> — your organisation's name, tagline, timezone, country calling code, contact email, website, volunteer-facing logo, and the logo shown at the top of reminder emails (Email logo URL). The organisation name is the most important field: it appears in every SMS and email sent to volunteers as [OrgName]. Get this right first.</li>
+    <li><strong>Coordinator Contacts</strong> — your name, email and mobile, plus optional contacts for individual roster types. (The “no replacement found” email goes to the <strong>Organisation email</strong> under Organisation.)</li>
+    <li><strong>SMS</strong> — the wording of every text Rostas sends (replacement request, manual replacement, cross-roster ask, swap, availability nudge, reminder). Each has a live character counter and a placeholder check. See <a href="#f-wording">Message wording</a> below.</li>
+    <li><strong>App</strong> — the wording of the app notifications that stand in for those texts when a volunteer has the app.</li>
+    <li><strong>Email wording</strong> — the text blocks in roster, reminder and swap emails (intro, arrival note, sign-offs).</li>
+    <li><strong>Timing &amp; Behaviour</strong> — how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing and day-before reminder texts, SMS quiet hours, replacement timers, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
+    <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard.</li>
+    <li><strong>Advanced</strong> — settings that affect system internals (web app URL, licence key, roster type list, Infoodle and AWS SMS keys). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
   </ul>
 
   <h2 class="section-title" id="f-sms-templates">SMS Settings in Detail</h2>
@@ -2341,17 +2383,17 @@
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <p><strong>SMS enabled</strong> — the master kill switch. When this is false, no SMS leaves Rostas at all — not replacements, not reminders, not test sends. The System Status card shows a red warning when this is off. Only disable it deliberately (e.g. during a migration or if you need to pause sending temporarily).</p>
+    <p><strong>SMS enabled</strong> (Quick Controls) — the master kill switch. When this is false, no SMS leaves Rostas at all — not replacements, not reminders, not test sends. The System Status card shows a red warning when this is off. Only disable it deliberately (e.g. during a migration or if you need to pause sending temporarily).</p>
   </div>
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <p><strong>SMS test mode</strong> — when true, every SMS that would go to a volunteer is redirected to the coordinator mobile instead. The message is prefixed with [TEST - would go to candidate]. Use this while setting up or testing replacement chains. Turn it off before your first real roster cycle. The System Status card shows an amber warning when test mode is on.</p>
+    <p><strong>SMS test mode</strong> (Quick Controls) — when true, every SMS that would go to a volunteer is redirected to the coordinator mobile instead. The message is prefixed with [TEST - would go to candidate]. Use this while setting up or testing replacement chains. Turn it off before your first real roster cycle. The System Status card shows an amber warning when test mode is on.</p>
   </div>
 
-  <p><strong>Quiet hours</strong> — SMS quiet hours start and end are set as 24-hour values (e.g. 21 = 9pm, 8 = 8am). Rostas will not send any SMS outside this window, including replacement chain advances. If a replacement request hits quiet hours, it waits until the quiet period ends before texting the next candidate. The default is 9pm–8am.</p>
+  <p><strong>Quiet hours</strong> — SMS quiet hours start and end (Settings → Timing &amp; behaviour) are set as times of day, e.g. 9:00 PM and 8:00 AM. Rostas will not send any SMS outside this window, including replacement chain advances. If a replacement request hits quiet hours, it waits until the quiet period ends before texting the next candidate. The default is 9pm–8am.</p>
 
-  <p><strong>Replacement timers</strong> — three escalation speeds:</p>
+  <p><strong>Replacement timers</strong> (Settings → Timing &amp; behaviour) — three escalation speeds:</p>
   <ul>
     <li><strong>Normal</strong> (default 120 min) — used when the service is more than 24 hours away</li>
     <li><strong>Urgent</strong> (default 30 min) — used when the service is within 24 hours</li>
@@ -2360,10 +2402,10 @@
   <p>If volunteers are frequently timing out before responding, consider increasing the normal timer. If you're often scrambling at short notice, reducing the urgent or panic timers gets through the candidate list faster.</p>
 
   <h3 class="sub-title" id="f-reminder-mode">Reminder SMS mode — controlling reminder texts</h3>
-  <p>The day-before reminder text is the single biggest driver of SMS cost — one text per rostered volunteer, every service. The <strong>Reminder SMS mode</strong> setting decides who actually receives it. (The 3-day reminder <em>email</em> is unaffected and still goes to everyone with an email address.)</p>
+  <p>The day-before reminder text is the single biggest driver of SMS cost — one text per rostered volunteer, every service. The <strong>Day-before reminder texts</strong> setting (Settings → Timing &amp; behaviour) decides who actually receives it. (The 3-day reminder <em>email</em> is unaffected and still goes to everyone with an email address.)</p>
 
   <figure>
-    <img src="settings-reminder-sms-mode.png" alt="Reminder SMS mode setting with Text everyone, Email-first and Text no-one options" class="screenshot">
+    <img src="settings-reminder-sms-mode.png" alt="Day-before reminder texts setting with Text everyone, Text non-responders and Text no-one options" class="screenshot">
     <figcaption>Reminder SMS mode — choose who gets the day-before text.</figcaption>
   </figure>
 
@@ -2372,18 +2414,18 @@
       <thead><tr><th>Mode</th><th>Who gets the day-before text</th></tr></thead>
       <tbody>
         <tr><td><strong>Text everyone</strong></td><td>Every rostered volunteer gets a text, even if they already confirmed by email.</td></tr>
-        <tr><td><strong>Email-first (recommended)</strong></td><td>Texts only those who need it: volunteers with no email address, those who haven't confirmed the reminder email, and anyone set to "Always text too". Keeps SMS costs down.</td></tr>
-        <tr><td><strong>Text no-one</strong></td><td>No day-before texts at all. Overrides "Always text too".</td></tr>
+        <tr><td><strong>Text non-responders (recommended)</strong></td><td>Texts only those who need it: volunteers with no email address, those who haven't confirmed the reminder email, and anyone set to "Always text". Keeps SMS costs down.</td></tr>
+        <tr><td><strong>Text no-one</strong></td><td>No day-before texts at all. Overrides "Always text".</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>Email-first is the default, and the best value for most churches.</strong> It leans on free email and only spends a text where it'll actually help — someone with no email, or who hasn't confirmed. For the few volunteers who reliably miss email, turn on <a href="#e-detail-contact">"Always text too"</a> on their profile so they still get a text under Email-first.
+    <strong>Text non-responders is the default, and the best value for most churches.</strong> It leans on free email and only spends a text where it'll actually help — someone with no email, or who hasn't confirmed. For the few volunteers who reliably miss email, turn on <a href="#e-detail-contact">"Always text"</a> on their profile so they still get a text under Text non-responders.
   </div>
 
-  <h3 class="sub-title" id="f-wording">Message Wording</h3>
+  <h3 class="sub-title" id="f-wording">Message wording</h3>
   <p>Every SMS template has three protections built in to prevent accidental breakage.</p>
 
   <figure>
@@ -2402,17 +2444,12 @@
     All placeholder names use square brackets: [Name], [Role], [Date], [Link], [OrgName], [Deadline]. Never use curly braces — {name} will not be substituted.
   </div>
 
-  <p>The Message Wording category holds every message Rostas sends — the SMS templates (availability nudge, day-before reminder, replacement request, replacement confirmed, coordinator escalation) and the email templates (roster notification, availability request, reminder, swap). Edit any of them here; the three protections above apply to each.</p>
+  <p>Message wording lives in three categories: <strong>SMS</strong> (replacement request, manual replacement, cross-roster ask, swap, availability nudge, reminder), <strong>App</strong> (the matching app notifications), and <strong>Email wording</strong> (roster email intro, arrival note and sign-off; reminder email opening, can't-make-it text and sign-off; swap email). The protections above apply to every text template.</p>
 
   <figure>
     <img src="settings-sms-templates-list.png" alt="The list of editable SMS and email message templates in Settings" class="screenshot">
     <figcaption>The message-wording templates — each opens to an editor with its own character counter and required placeholders.</figcaption>
   </figure>
-
-  <div class="callout callout-warn">
-    <span class="callout-icon">⚠️</span>
-    <strong>Two templates here are editable but not currently sent.</strong> The <em>Original volunteer released</em> SMS and the <em>Decline confirmation</em> SMS appear in the list and preview, but Rostas does not currently text the original volunteer when a replacement is found, nor the volunteer who declines. A volunteer who taps "Can't make it" sees a web page — "No problem — we'll find someone else" — rather than a text. You can edit their wording so it's ready, but don't rely on either going out yet.
-  </div>
 
   <h3 class="sub-title" id="f-placeholders">Template Placeholders</h3>
   <p>SMS and email templates use placeholders in square brackets that Rostas replaces with real values when sending. Never remove a required placeholder — if a required one is missing, the Save button is blocked.</p>
@@ -2438,7 +2475,7 @@
 
   <div class="callout callout-tip">
     <span class="callout-icon">🎁</span>
-    <strong>During the beta, SMS credits are free.</strong> Rostas covers the SMS costs for pilot churches, so there's nothing to buy and no balance to manage yet — the Buy buttons show a "coming soon" message for now. This section explains how credits will work once billing goes live, so there are no surprises.
+    <strong>Your first 20 SMS credits are free.</strong> Every new Rostas subscription starts with 20 credits so you can try texts straight away. After that, texts use prepaid credits: buy a pack from the Buy SMS Credits page whenever your balance runs low.
   </div>
 
   <figure>
@@ -2479,17 +2516,18 @@
         <tr><th>Setting</th><th>What it does</th><th>Default</th></tr>
       </thead>
       <tbody>
-        <tr><td><code>ROSTER_ACTIVE_{Type}</code></td><td>Shows or hides a roster type on the Builds dashboard</td><td>True</td></tr>
-        <tr><td><code>SMS_ENABLED</code></td><td>Master switch for all SMS. False = no SMS anywhere in the system</td><td>True</td></tr>
-        <tr><td><code>SMS_TEST_MODE</code></td><td>Redirects all SMS to coordinator phone only. Use for testing.</td><td>False</td></tr>
-        <tr><td><code>EMAIL_TEST_MODE</code></td><td>Redirects all emails to coordinator email only. Use for testing.</td><td>False</td></tr>
+        <tr><td>Roster active (one per roster type)</td><td>Shows or hides a roster type on the Builds dashboard</td><td>On</td></tr>
+        <tr><td>SMS enabled</td><td>Master switch for all SMS. Off = no SMS anywhere in the system</td><td>On</td></tr>
+        <tr><td>SMS test mode</td><td>Sends every text to the coordinator's phone instead of the volunteer. Use for testing.</td><td>Off</td></tr>
+        <tr><td>Email test mode</td><td>Sends every volunteer email to the coordinator instead. Use for testing.</td><td>Off</td></tr>
+        <tr><td>App push test mode</td><td>Sends every app notification to the coordinator's own app instead. Use for testing.</td><td>Off</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <strong>Always check test modes are OFF before sending a real roster.</strong> If <code>SMS_TEST_MODE</code> or <code>EMAIL_TEST_MODE</code> is True, volunteers will not receive any messages — only you will.
+    <strong>Always check test modes are OFF before sending a real roster.</strong> While a test mode is on, that channel's messages come to you instead of volunteers: SMS test mode redirects texts, Email test mode redirects emails, and App push test mode redirects app notifications.
   </div>
 
   <h2 class="section-title" id="f-advanced">Advanced Settings</h2>
@@ -2501,7 +2539,7 @@
     <figcaption>Advanced settings are collapsed by default and each row shows a lock icon. Click "Unlock to edit" in the right panel to make changes — only do this if you're confident about what you're changing.</figcaption>
   </figure>
 
-  <p>The most common reason a coordinator needs the Advanced section is after redeploying Rostas — the <strong>Web app URL</strong> must be updated to match the new deployment URL. If short links in SMS stop working after a redeployment, this is almost always the cause.</p>
+  <p>You'll rarely need the Advanced section. Only change the <strong>Web app URL</strong> if Rostas support asks you to — if it's wrong, the links in texts and emails stop working.</p>
 
   <div class="callout callout-warn">
     <span class="callout-icon">🔒</span>
@@ -2509,7 +2547,7 @@
   </div>
 
   <h2 class="section-title" id="f-checklist">Setup Checklist</h2>
-  <p>After the initial setup wizard completes, a checklist card appears at the top of the Settings view. It shows which setup tasks are done and which still need attention before going live. The checklist covers eleven items — click any incomplete item to jump straight to the relevant setting.</p>
+  <p>After the initial setup wizard completes, a checklist card appears at the top of the Settings view. It shows which setup tasks are done and which still need attention before going live. The checklist covers twelve items — click any incomplete item to jump straight to the relevant setting.</p>
 
   <figure>
     <img src="settings-checklist.png" alt="Settings setup checklist card showing ticked and unticked items across setup tasks" class="screenshot">
@@ -2526,12 +2564,14 @@
         <tr><td>Coordinator contact set</td><td><code>COORDINATOR_NAME</code>, <code>ORG_EMAIL</code>, <code>COORDINATOR_PHONE</code> are present</td></tr>
         <tr><td>SMS verified</td><td>SMS sending is provisioned and <code>SMS_ENABLED</code> is on</td></tr>
         <tr><td>Logo added</td><td><code>VOLUNTEER_LOGO_URL</code> is set</td></tr>
-        <tr><td>Coordinator contacts per roster type</td><td>At least one per-roster coordinator key is set</td></tr>
+        <tr><td>Per-roster coordinator contacts set</td><td>At least one per-roster coordinator key is set</td></tr>
         <tr><td>SMS test mode off</td><td><code>SMS_TEST_MODE</code> is not true</td></tr>
         <tr><td>Email test mode off</td><td><code>EMAIL_TEST_MODE</code> is not true</td></tr>
+        <tr><td>App push test mode off</td><td><code>PUSH_TEST_MODE</code> is not true</td></tr>
         <tr><td>Web app URL configured</td><td><code>WEBAPP_URL</code> is not blank</td></tr>
         <tr><td>Public holidays fetched</td><td><code>PUBLIC_HOLIDAYS_LAST_FETCHED</code> is present</td></tr>
         <tr><td>First season confirmed</td><td>At least one roster type has a confirmed season</td></tr>
+        <tr><td>Code-entry widget added to your website</td><td>Left over from an older way of replying to texts. You can ignore it; it's being removed.</td></tr>
       </tbody>
     </table>
   </div>
@@ -2566,7 +2606,7 @@
   <ul>
     <li>Check that enough volunteers have responded to the availability email</li>
     <li>Check that volunteers have role preferences set — without preferences set, the engine can't assign them to specific roles</li>
-    <li>Check frequency caps — volunteers who've hit their monthly cap won't be assigned further</li>
+    <li>Check frequency caps — volunteers who've reached their frequency cap (once every N weeks) won't be assigned again until it allows</li>
     <li>Consider rebuilding after more availability responses come in</li>
     <li>Use manual replacement on the Board to fill remaining slots</li>
   </ul>
@@ -2575,7 +2615,7 @@
   <ul>
     <li>Check quiet hours — chain pauses between 9pm and 8am and resumes automatically</li>
     <li>Check <strong>SMS_ENABLED</strong> is True</li>
-    <li>Check there are eligible volunteers left on the backup list — if the list is exhausted you'll receive an escalation SMS</li>
+    <li>Check there are eligible volunteers left on the backup list — if the list is exhausted, Rostas emails your Organisation email (set it in Settings → Organisation)</li>
     <li>Use manual replacement on the Board to assign someone directly</li>
   </ul>
 
@@ -2586,7 +2626,6 @@
     <li>The web app URL has changed and volunteer links are broken</li>
     <li>You need to change SMS provider or other API credentials</li>
     <li>Something is producing repeated errors that don't resolve on their own</li>
-    <li>You need to add or remove a roster type</li>
     <li>Anything requiring access to the Google Apps Script editor</li>
   </ul>
 
@@ -2629,7 +2668,7 @@
   </div>
 
   <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">
-  <p style="font-size:12px;color:var(--text-muted);text-align:center;">Rostas Coordinator Guide · June 2026</p>
+  <p style="font-size:12px;color:var(--text-muted);text-align:center;">Rostas Coordinator Guide · September 2026</p>
   <div style="text-align:center;margin-top:1rem;display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;">
     <a href="#part-a" style="display:inline-block;padding:0.4rem 0.9rem;background:var(--navy);color:#fff;border-radius:4px;text-decoration:none;font-size:12px;">↑ Back to top</a>
   </div>

@@ -850,7 +850,7 @@
         <tr><td><strong>2</strong></td><td><strong>Role Prefs</strong></td><td>Volunteers (or the coordinator) set which roles the volunteer is willing to perform — Primary, Fillable, or Not for me. Set once, remembered for every future build - editable in Profile pages.</td></tr>
         <tr><td><strong>3</strong></td><td><strong>Availability</strong></td><td>Rostas can email each volunteer asking which upcoming dates they're available for or this step can be skipped by the coordinator. Volunteers tap a link in the email or text to go to their availability form.</td></tr>
         <tr><td><strong>4</strong></td><td><strong>Build Roster</strong></td><td>The engine automatically fills every slot using a four-tier priority system. The build takes 2 or 3 minutes.</td></tr>
-        <tr><td><strong>5</strong></td><td><strong>Check Roster</strong></td><td>You review what Rostas has built using the traffic light system — green filled, amber pending, red unfilled.&nbsp; Coordinator can add replacements or make swaps at this point if required.&nbsp;</td></tr>
+        <tr><td><strong>5</strong></td><td><strong>Check Roster</strong></td><td>You review what Rostas has built using the colour key — green filled, amber pending, blue replacement under way, red unfilled.&nbsp; Coordinator can add replacements or make swaps at this point if required.&nbsp;</td></tr>
         <tr><td><strong>6</strong></td><td><strong>Notify</strong></td><td>Rostas emails every rostered volunteer their assignments. Automatic reminders follow closer to the date — no further action needed.</td></tr>
       </tbody>
     </table>
@@ -1051,7 +1051,7 @@
   <div class="part-banner" id="part-b">
     <span class="part-label">Part B</span>
     <span class="part-title">Setting Up Rostas</span>
-    <span class="part-sub">First-run setup wizard · Adding volunteers · Your first roster type</span>
+    <span class="part-sub">First-run setup wizard · Your coordinator link · What's next</span>
   </div>
 
   <p>When you open Rostas for the first time, the setup wizard runs automatically. It takes about five minutes and covers the essentials — your organisation name, your contact details, and a quick SMS test to make sure everything is working before your first roster build.</p>
@@ -1671,7 +1671,7 @@
   </div>
 
   <h3 class="sub-title" id="c-new-step1">Step 1 — Name &amp; Icon</h3>
-  <p>Give your roster a short name and choose an icon. The name appears in SMS messages, emails, and the coordinator app — so keep it brief and clear.</p>
+  <p>Give your roster a short name and choose an icon. The name appears in SMS messages, emails, and the coordinator app — so keep it brief and clear. A few words are kept for Rostas's own settings and can't be used as a roster name: Name, Email, Phone, ID, Key and Role.</p>
 
   <figure>
     <img src="new-roster-step0-schedule.png" alt="New Roster Wizard Step 1 — Name your roster, showing a text field" class="screenshot">
@@ -1907,7 +1907,7 @@
   </div>
 
   <h3 class="sub-title" id="c-menu-pause">Pause / Resume roster</h3>
-  <p>Pausing a roster stops all activity for it immediately — no builds, reminders, or replacement chains run — without losing any history. The menu option and the row's state button both switch to <strong>Resume roster</strong> while paused; click either to pick back up exactly where you left off.</p>
+  <p>Pausing a roster stops all automatic activity for it straight away — no builds, no reminder emails or texts, no availability emails or nudges, and no replacement chains (a chain already running stops asking people) — without losing any history. Anything that falls due while it's paused is skipped, not saved up for later. The menu option and the row's state button both switch to <strong>Resume roster</strong> while paused; click either to pick back up exactly where you left off.</p>
 
   <h2 class="section-title" id="c-season">Confirming Build Dates</h2>
   <p>Before each build you confirm exactly which dates it covers, on the <strong>Build Dates</strong> screen. It lays out your roster's dates in three bands — what's already built, what this build will cover, and what's coming next — and lets you drop a date you don't want, shift the boundary between builds, or add a one-off extra date such as Christmas Day or Good Friday.</p>
@@ -2132,7 +2132,7 @@
       <tbody>
         <tr><td><span style="background:#e8f5ee;border:1px solid #2d7a4f;padding:2px 10px;border-radius:4px;font-size:12px;">Green</span></td><td><strong>Filled</strong></td><td>Rostered, and marked available. (Confirming is separate: the volunteer taps “Yes, I'll be there”.)</td></tr>
         <tr><td><span style="background:#fef3c7;border:1px solid #d97706;padding:2px 10px;border-radius:4px;font-size:12px;">Amber</span></td><td><strong>Pending</strong></td><td>Volunteer marked Not sure — provisionally assigned, awaiting confirmation.</td></tr>
-        <tr><td><span style="background:#e8f0fb;border:1px solid #4a7cd4;padding:2px 10px;border-radius:4px;font-size:12px;">Blue</span></td><td><strong>SMS Chain</strong></td><td>Replacement chain active — Rostas is texting backup volunteers automatically.</td></tr>
+        <tr><td><span style="background:#e8f0fb;border:1px solid #4a7cd4;padding:2px 10px;border-radius:4px;font-size:12px;">Blue</span></td><td><strong>SMS Chain</strong></td><td>Replacement chain active — Rostas is asking backup volunteers automatically (app notification, or a text).</td></tr>
         <tr><td><span style="background:#fdecea;border:1px solid #c0392b;padding:2px 10px;border-radius:4px;font-size:12px;">Red</span></td><td><strong>Unfilled</strong></td><td>No volunteer assigned. Needs attention.</td></tr>
         <tr><td><span style="background:#ffffff;border:1px solid #d0d0d0;padding:2px 10px;border-radius:4px;font-size:12px;">White</span></td><td><strong>Excluded</strong></td><td>Date was excluded from this roster during confirmation. Not a gap to fill — nothing needs doing.</td></tr>
       </tbody>
@@ -2141,7 +2141,7 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
-    <strong>White isn't the same as Red.</strong> A red cell is an unfilled slot that needs a volunteer. A white column is a date you deliberately excluded — usually in the <a href="#c-rebuild-step1">Confirm Dates &amp; Roles</a> step, turning a chip pink there. The Board just carries that decision through: the column stays blank on purpose, so it doesn't get mistaken for a gap. White columns aren't clickable — there's no assignment to act on.
+    <strong>White isn't the same as Red.</strong> A red cell is an unfilled slot that needs a volunteer. A white row is a date you deliberately excluded — usually in the <a href="#c-rebuild-step1">Confirm Dates &amp; Roles</a> step, turning a chip pink there. The Board just carries that decision through: the row stays blank on purpose, so it doesn't get mistaken for a gap. White rows aren't clickable — there's no assignment to act on.
   </div>
 
   <h3 class="sub-title" id="d-legend">Legend and Frequency</h3>
@@ -2251,7 +2251,7 @@
       <tbody>
         <tr><td>Rostas identifies the next eligible volunteer and asks them — an app notification if they have the app, otherwise a text with a link</td><td>Immediately (within quiet hours)</td></tr>
         <tr><td>If they accept — slot is filled, original volunteer released</td><td>As soon as they reply</td></tr>
-        <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal) or 30 min (urgent, within 24hrs of service)</td></tr>
+        <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal), 30 min (urgent, within 24 hours of the service) or 10 min (within 2 hours) — counted from when the request went out</td></tr>
         <tr><td>If no one accepts — Rostas emails that roster's own coordinator if it has one (see <a href="#f-roster-coordinator">A different coordinator for one roster</a>); otherwise your Organisation email (Settings → Organisation), or your own Coordinator email if that's blank.</td><td>After list is exhausted</td></tr>
       </tbody>
     </table>
@@ -2337,7 +2337,7 @@
 
   <h2 class="section-title" id="f-system-status">Using System Status</h2>
   <p>The System Status card and the settings list below it are designed to work together. The card tells you what's wrong; the settings list is where you fix it.</p>
-  <p>Treat System Status as your starting point every time you open the Settings page. Before searching for a specific setting or making a planned change, glance at the Warnings column first. If it shows green — "All systems go" — you can proceed. If it shows amber or red, deal with those first, because some warnings mean volunteers aren't receiving messages right now.</p>
+  <p>Treat System Status as your starting point every time you open the Settings page. Before searching for a specific setting or making a planned change, glance at the Warnings column first. If it says "No warnings", you can proceed. If it shows amber or red, deal with those first, because some warnings mean volunteers aren't receiving messages right now.</p>
 
   <figure>
     <img src="settings-system-status.png" alt="System Status panel showing Warnings, Roster Health and Counts columns in horizontal layout" class="screenshot">
@@ -2345,25 +2345,25 @@
   </figure>
 
   <h3 class="sub-title" id="f-status-fix">Following a warning to its fix</h3>
-  <p>Every warning in the System Status card maps directly to one or more settings in the list below. Rather than hunting through categories manually, use the search bar — the warning text itself usually contains the keyword you need:</p>
+  <p>Each warning in the System Status card says in plain words what's wrong, and most carry their own button that takes you straight to the setting that fixes it:</p>
 
   <div class="tbl-wrap">
     <table>
       <thead>
-        <tr><th>You see this warning</th><th>Search for this</th><th>Setting to change</th></tr>
+        <tr><th>You see this warning</th><th>Its button</th><th>What to do</th></tr>
       </thead>
       <tbody>
-        <tr><td>SMS is disabled</td><td><code>SMS enabled</code></td><td>Quick Controls → SMS enabled → turn on</td></tr>
-        <tr><td>SMS test mode is ON</td><td><code>test mode</code></td><td>Quick Controls → SMS test mode → turn off</td></tr>
-        <tr><td>Email test mode is ON</td><td><code>test mode</code></td><td>Quick Controls → Email test mode → turn off</td></tr>
-        <tr><td>App push test mode is ON</td><td><code>test mode</code></td><td>Quick Controls → App push test mode → turn off</td></tr>
-        <tr><td>SMS is not set up yet</td><td><span class="dash">—</span></td><td>Contact support@rostas.app — this one can't be fixed from Settings, as SMS sending is provisioned by Rostas</td></tr>
-        <tr><td>Web app URL not set</td><td><code>web app</code></td><td>Advanced → Web app URL</td></tr>
+        <tr><td>Texts to volunteers are turned off…</td><td>Turn on SMS</td><td>Switch SMS enabled back on (Quick Controls)</td></tr>
+        <tr><td>SMS test mode is on…</td><td>Turn off test mode</td><td>Switch SMS test mode off (Quick Controls)</td></tr>
+        <tr><td>Email test mode is on…</td><td>Turn off test mode</td><td>Switch Email test mode off (Quick Controls)</td></tr>
+        <tr><td>App push test mode is on…</td><td>Turn off test mode</td><td>Switch App push test mode off (Quick Controls)</td></tr>
+        <tr><td>SMS isn't switched on for your account yet…</td><td><span class="dash">—</span></td><td>Email support@rostas.app — SMS sending is set up by Rostas, so this can't be fixed from Settings</td></tr>
+        <tr><td>Your web app link isn't set…</td><td>Fix in Advanced settings</td><td>Only if Rostas support asks you to: Advanced → Web app URL</td></tr>
       </tbody>
     </table>
   </div>
 
-  <p>The typical workflow is: see the warning → type the keyword into the search bar → click the matching row → fix it in the right panel → save. The whole thing takes under a minute once you know the pattern.</p>
+  <p>The typical workflow is: read the warning → click its button → save the setting that opens. If a warning has no button, the search bar above the settings list finds the setting by name.</p>
 
   <h3 class="sub-title" id="f-status-refresh">After making a change, check the card again</h3>
   <p>The System Status card doesn't update automatically when you save a setting — it loaded when you opened Settings and reflects that moment in time. After fixing a warning, click <strong>Refresh</strong> in the System Status card header to reload it and confirm the warning has cleared.</p>
@@ -2383,13 +2383,13 @@
 
   <h2 class="section-title" id="f-categories">Settings Categories</h2>
   <ul>
-    <li><strong>Organisation</strong> — your organisation's name, tagline, timezone, country calling code, contact email, website, volunteer-facing logo, and the logo shown at the top of reminder emails (Email logo URL). The organisation name is the most important field: it appears in every SMS and email sent to volunteers as [OrgName]. Get this right first.</li>
+    <li><strong>Organisation</strong> — your organisation's name, tagline, timezone, country calling code, contact email, website, volunteer-facing logo, and the logo shown at the top of reminder emails (Email logo URL). The organisation name is the most important field: it appears in every SMS and email sent to volunteers as [OrgName]. Every email Rostas sends also comes from this name. Get this right first.</li>
     <li><strong>Coordinator Contacts</strong> — your name, email and mobile, plus an optional coordinator for each roster (see <a href="#f-roster-coordinator">A different coordinator for one roster</a>). The “no replacement found” email goes to the <strong>Organisation email</strong> under Organisation, unless the roster has its own coordinator.</li>
     <li><strong>SMS</strong> — the wording of every text Rostas sends (replacement request, manual replacement, cross-roster ask, swap, availability nudge, reminder). Each has a live character counter and a placeholder check. See <a href="#f-wording">Message wording</a> below.</li>
     <li><strong>App</strong> — the wording of the app notifications that stand in for those texts when a volunteer has the app.</li>
     <li><strong>Email wording</strong> — the text blocks in roster, reminder and swap emails (intro, arrival note, sign-offs).</li>
     <li><strong>Timing &amp; Behaviour</strong> — how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing and day-before reminder texts, SMS quiet hours, replacement timers, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
-    <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard.</li>
+    <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard and the Board. Hiding a roster doesn't stop its reminders; to stop everything for a while, use <strong>Pause roster</strong> (Builds → ⋯).</li>
     <li><strong>Advanced</strong> — settings that affect system internals (web app URL, licence key, roster type list, Infoodle and AWS SMS keys). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
   </ul>
 
@@ -2504,7 +2504,7 @@
   </div>
 
   <h2 class="section-title" id="f-credits">SMS Credits</h2>
-  <p>Sending SMS costs money — unlike email, every text has a real per-message cost from the mobile networks. Rostas covers this with a simple prepaid credit system: <strong>one credit sends one text.</strong> Credits are used for reminders, replacement requests, and availability nudges, and they never expire — you top up whenever your balance runs low.</p>
+  <p>Sending SMS costs money — unlike email, every text has a real per-message cost from the mobile networks. Rostas covers this with a simple prepaid credit system: <strong>one credit sends one text.</strong> Every text uses them — reminders, replacement requests (automatic, manual and cross-roster), roster-change texts and availability nudges — and they never expire — you top up whenever your balance runs low.</p>
 
   <div class="callout callout-tip">
     <span class="callout-icon">🎁</span>
@@ -2549,10 +2549,10 @@
         <tr><th>Setting</th><th>What it does</th><th>Default</th></tr>
       </thead>
       <tbody>
-        <tr><td>Roster active (one per roster type)</td><td>Shows or hides a roster type on the Builds dashboard</td><td>On</td></tr>
+        <tr><td>Roster active (one per roster type)</td><td>Shows or hides a roster type on the Builds dashboard and the Board. Doesn't stop its reminders — use Pause roster for that.</td><td>On</td></tr>
         <tr><td>SMS enabled</td><td>Master switch for all SMS. Off = no SMS anywhere in the system</td><td>On</td></tr>
         <tr><td>SMS test mode</td><td>Sends every text to the coordinator's phone instead of the volunteer. Use for testing.</td><td>Off</td></tr>
-        <tr><td>Email test mode</td><td>Sends every volunteer email to the coordinator instead. Use for testing.</td><td>Off</td></tr>
+        <tr><td>Email test mode</td><td>Sends every volunteer email to you instead (your Coordinator email, or the Organisation email if that's blank). Use for testing.</td><td>Off</td></tr>
         <tr><td>App push test mode</td><td>Sends every app notification to the coordinator's own app instead. Use for testing.</td><td>Off</td></tr>
       </tbody>
     </table>
@@ -2580,11 +2580,11 @@
   </div>
 
   <h2 class="section-title" id="f-checklist">Setup Checklist</h2>
-  <p>After the initial setup wizard completes, a checklist card appears at the top of the Settings view. It shows which setup tasks are done and which still need attention before going live. The checklist covers twelve items — click any incomplete item to jump straight to the relevant setting.</p>
+  <p>After the initial setup wizard completes, a checklist card appears at the top of the Settings view. It shows which setup tasks are done and which still need attention before going live. The checklist covers ten items — click any incomplete item to jump straight to the relevant setting.</p>
 
   <figure>
     <img src="settings-checklist.png" alt="Settings setup checklist card showing ticked and unticked items across setup tasks" class="screenshot">
-    <figcaption>The setup checklist — ticked items are confirmed complete by reading the current Config values, open circles need attention. Click any item to open the relevant setting. Dismiss the checklist once every item is ticked.</figcaption>
+    <figcaption>The setup checklist — ticked items are confirmed complete by reading the current Config values, open circles need attention. Click any item to open the relevant setting. The card disappears by itself once every item is ticked.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
@@ -2594,8 +2594,8 @@
       </thead>
       <tbody>
         <tr><td>Organisation name set</td><td><code>ORGANISATION_NAME</code> is not blank</td></tr>
-        <tr><td>Coordinator contact set</td><td><code>COORDINATOR_NAME</code>, <code>ORG_EMAIL</code>, <code>COORDINATOR_PHONE</code> are present</td></tr>
-        <tr><td>SMS verified</td><td>SMS sending is provisioned and <code>SMS_ENABLED</code> is on</td></tr>
+        <tr><td>Coordinator contact set</td><td>Your name and mobile are set, and an email (yours or the Organisation email)</td></tr>
+        <tr><td>SMS verified</td><td>SMS is set up for your organisation (by Rostas) and SMS enabled is on</td></tr>
         <tr><td>Logo added</td><td><code>VOLUNTEER_LOGO_URL</code> is set</td></tr>
         <tr><td>SMS test mode off</td><td><code>SMS_TEST_MODE</code> is not true</td></tr>
         <tr><td>Email test mode off</td><td><code>EMAIL_TEST_MODE</code> is not true</td></tr>
@@ -2609,7 +2609,7 @@
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>The checklist stays visible until you dismiss it.</strong> Once every item is ticked, click Dismiss to clear it. It won't appear again. If you dismiss it with items still incomplete, you can still fix them through the normal settings list — the checklist is a guide, not a gate.
+    <strong>The checklist goes away by itself once every item is ticked.</strong> To hide it sooner, click Dismiss; it won't appear again. If you dismiss it with items still incomplete, you can still fix them through the normal settings list — the checklist is a guide, not a gate.
   </div>
 
   <h2 class="section-title" id="f-troubleshooting">Troubleshooting</h2>
@@ -2617,17 +2617,17 @@
 
   <h3 class="sub-title" id="f-no-sms">Volunteers aren't receiving SMS messages</h3>
   <ul>
-    <li>Check <strong>Settings → Quick Controls → SMS_ENABLED</strong> is True</li>
-    <li>Check <strong>SMS_TEST_MODE</strong> is False — if True, all messages go to the coordinator only</li>
+    <li>Check <strong>Settings → Quick Controls → SMS enabled</strong> is on</li>
+    <li>Check <strong>SMS test mode</strong> is off — while it's on, every text goes to the coordinator instead</li>
     <li>Check the volunteer's SMS toggle is On in their detail page</li>
-    <li>Check quiet hours — SMS won't send between 9pm and 8am</li>
+    <li>Check quiet hours — no texts go out during your quiet hours (Settings → Timing &amp; behaviour; 9pm–8am unless you've changed it)</li>
     <li>Check the volunteer's mobile number is in correct international format (+64...)</li>
     <li>Check the System Status communication failures table for error messages on the relevant date</li>
   </ul>
 
   <h3 class="sub-title" id="f-no-email">Volunteers aren't receiving emails</h3>
   <ul>
-    <li>Check <strong>EMAIL_TEST_MODE</strong> is False in Quick Controls</li>
+    <li>Check <strong>Email test mode</strong> is off in Quick Controls</li>
     <li>Check the volunteer's Email toggle is On in their detail page</li>
     <li>Ask the volunteer to check their spam/junk folder</li>
     <li>Confirm their email address is correct in their volunteer detail page</li>
@@ -2644,8 +2644,8 @@
 
   <h3 class="sub-title" id="f-replacement-stuck">SMS replacement chain isn't progressing</h3>
   <ul>
-    <li>Check quiet hours — chain pauses between 9pm and 8am and resumes automatically</li>
-    <li>Check <strong>SMS_ENABLED</strong> is True</li>
+    <li>Check quiet hours — the chain waits during your quiet hours and carries on automatically when they end</li>
+    <li>Check <strong>SMS enabled</strong> is on, and that the roster isn't paused (Builds → ⋯)</li>
     <li>Check there are eligible volunteers left on the backup list — if the list is exhausted, Rostas emails that roster's own coordinator if it has one, otherwise your Organisation email (set it in Settings → Organisation)</li>
     <li>Use manual replacement on the Board to assign someone directly</li>
   </ul>
@@ -2654,7 +2654,7 @@
   <p>Contact your tech support person if:</p>
   <ul>
     <li>SMS messages are failing with error messages in the System Status communication failures table</li>
-    <li>The web app URL has changed and volunteer links are broken</li>
+    <li>Volunteer links have stopped working (they open an error or a sign-in page)</li>
     <li>You need to change SMS provider or other API credentials</li>
     <li>Something is producing repeated errors that don't resolve on their own</li>
     <li>Anything requiring access to the Google Apps Script editor</li>

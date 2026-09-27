@@ -755,6 +755,7 @@
     <a class="toc-item toc-h1" href="#f-settings">The Settings View</a>
     <a class="toc-item toc-h1" href="#f-system-status">Using System Status</a>
     <a class="toc-item toc-h1" href="#f-categories">Settings Categories</a>
+    <a class="toc-item toc-h1" href="#f-roster-coordinator">A different coordinator for one roster</a>
     <a class="toc-item toc-h1" href="#f-sms-templates">SMS Settings</a>
     <a class="toc-item toc-h1" href="#f-credits">SMS Credits</a>
     <a class="toc-item toc-h1" href="#f-quick-controls">Quick Controls</a>
@@ -1107,7 +1108,7 @@
       </thead>
       <tbody>
         <tr><td><strong>Your name</strong></td><td>Your full name as coordinator — e.g. "Sarah Mitchell"</td></tr>
-        <tr><td><strong>Your email</strong></td><td>Your email address — receives error alerts. (The “no replacement found” email goes to the Organisation email in Settings — see <a href="#d-sms-chain">The SMS Replacement Chain</a>.)</td></tr>
+        <tr><td><strong>Your email</strong></td><td>Your email address — receives error alerts. (The “no replacement found” email goes to the Organisation email in Settings, or to a roster's own coordinator if it has one — see <a href="#d-sms-chain">The SMS Replacement Chain</a>.)</td></tr>
         <tr><td><strong>Your mobile</strong></td><td>Your mobile number in full international format — e.g. +6421123456. Must include country code.</td></tr>
       </tbody>
     </table></div>
@@ -2237,7 +2238,7 @@
         <tr><td>Rostas identifies the next eligible volunteer and asks them — an app notification if they have the app, otherwise a text with a link</td><td>Immediately (within quiet hours)</td></tr>
         <tr><td>If they accept — slot is filled, original volunteer released</td><td>As soon as they reply</td></tr>
         <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal) or 30 min (urgent, within 24hrs of service)</td></tr>
-        <tr><td>If no one accepts — Rostas emails your Organisation email (Settings → Organisation) so you can arrange someone yourself. Make sure that email is set.</td><td>After list is exhausted</td></tr>
+        <tr><td>If no one accepts — Rostas emails that roster's own coordinator if it has one (see <a href="#f-roster-coordinator">A different coordinator for one roster</a>); otherwise your Organisation email (Settings → Organisation), or your own Coordinator email if that's blank.</td><td>After list is exhausted</td></tr>
       </tbody>
     </table>
   </div>
@@ -2369,7 +2370,7 @@
   <h2 class="section-title" id="f-categories">Settings Categories</h2>
   <ul>
     <li><strong>Organisation</strong> — your organisation's name, tagline, timezone, country calling code, contact email, website, volunteer-facing logo, and the logo shown at the top of reminder emails (Email logo URL). The organisation name is the most important field: it appears in every SMS and email sent to volunteers as [OrgName]. Get this right first.</li>
-    <li><strong>Coordinator Contacts</strong> — your name, email and mobile, plus optional contacts for individual roster types. (The “no replacement found” email goes to the <strong>Organisation email</strong> under Organisation.)</li>
+    <li><strong>Coordinator Contacts</strong> — your name, email and mobile, plus an optional coordinator for each roster (see <a href="#f-roster-coordinator">A different coordinator for one roster</a>). The “no replacement found” email goes to the <strong>Organisation email</strong> under Organisation, unless the roster has its own coordinator.</li>
     <li><strong>SMS</strong> — the wording of every text Rostas sends (replacement request, manual replacement, cross-roster ask, swap, availability nudge, reminder). Each has a live character counter and a placeholder check. See <a href="#f-wording">Message wording</a> below.</li>
     <li><strong>App</strong> — the wording of the app notifications that stand in for those texts when a volunteer has the app.</li>
     <li><strong>Email wording</strong> — the text blocks in roster, reminder and swap emails (intro, arrival note, sign-offs).</li>
@@ -2377,6 +2378,20 @@
     <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard.</li>
     <li><strong>Advanced</strong> — settings that affect system internals (web app URL, licence key, roster type list, Infoodle and AWS SMS keys). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
   </ul>
+
+  <h2 class="section-title" id="f-roster-coordinator">A different coordinator for one roster</h2>
+  <p>You (the main coordinator) look after every roster unless you say otherwise. If one roster is run by someone else — say your music director runs the Music roster — give that roster its own coordinator:</p>
+  <ol>
+    <li>Go to <strong>Settings → Coordinator Contacts</strong>.</li>
+    <li>Find that roster's tiles, e.g. <strong>Music coordinator name</strong>, <strong>Music coordinator email</strong> and <strong>Music coordinator mobile</strong>.</li>
+    <li>Fill in at least the name and email. Anything left blank uses your details.</li>
+  </ol>
+  <p>From then on, for that roster only:</p>
+  <ul>
+    <li>the <strong>“no replacement found”</strong> email goes to them;</li>
+    <li>volunteer emails for that roster (roster, reminder, availability, role preference and swap emails) say “get in touch with” them and are signed off with their name.</li>
+  </ul>
+  <p>Everything else stays with you: emails that cover more than one roster, your coordinator link, and the test modes. Give each roster its own coordinator, or just the one or two that need it. To hand a roster back to yourself, clear its name and email.</p>
 
   <h2 class="section-title" id="f-sms-templates">SMS Settings in Detail</h2>
   <p>Three settings here are worth understanding before you go live.</p>
@@ -2564,14 +2579,12 @@
         <tr><td>Coordinator contact set</td><td><code>COORDINATOR_NAME</code>, <code>ORG_EMAIL</code>, <code>COORDINATOR_PHONE</code> are present</td></tr>
         <tr><td>SMS verified</td><td>SMS sending is provisioned and <code>SMS_ENABLED</code> is on</td></tr>
         <tr><td>Logo added</td><td><code>VOLUNTEER_LOGO_URL</code> is set</td></tr>
-        <tr><td>Per-roster coordinator contacts set</td><td>At least one per-roster coordinator key is set</td></tr>
         <tr><td>SMS test mode off</td><td><code>SMS_TEST_MODE</code> is not true</td></tr>
         <tr><td>Email test mode off</td><td><code>EMAIL_TEST_MODE</code> is not true</td></tr>
         <tr><td>App push test mode off</td><td><code>PUSH_TEST_MODE</code> is not true</td></tr>
         <tr><td>Web app URL configured</td><td><code>WEBAPP_URL</code> is not blank</td></tr>
         <tr><td>Public holidays fetched</td><td><code>PUBLIC_HOLIDAYS_LAST_FETCHED</code> is present</td></tr>
         <tr><td>First season confirmed</td><td>At least one roster type has a confirmed season</td></tr>
-        <tr><td>Code-entry widget added to your website</td><td>Left over from an older way of replying to texts. You can ignore it; it's being removed.</td></tr>
       </tbody>
     </table>
   </div>
@@ -2615,7 +2628,7 @@
   <ul>
     <li>Check quiet hours — chain pauses between 9pm and 8am and resumes automatically</li>
     <li>Check <strong>SMS_ENABLED</strong> is True</li>
-    <li>Check there are eligible volunteers left on the backup list — if the list is exhausted, Rostas emails your Organisation email (set it in Settings → Organisation)</li>
+    <li>Check there are eligible volunteers left on the backup list — if the list is exhausted, Rostas emails that roster's own coordinator if it has one, otherwise your Organisation email (set it in Settings → Organisation)</li>
     <li>Use manual replacement on the Board to assign someone directly</li>
   </ul>
 

@@ -2372,10 +2372,19 @@
   <h3 class="sub-title" id="f-status-rhythm">Understanding your roster's rhythm</h3>
   <p>Once warnings are clear, the lower sections of the card give you a different kind of visibility — not problems to fix, but patterns to understand. Two of them are worth checking regularly.</p>
   <ul>
-    <li><strong>Recent Activity</strong> — a running list of the last twenty things Rostas did, newest first, across every level (routine actions, warnings, and errors). This is your first-stop diagnostic: if a volunteer says they didn't get a message, or you're not sure whether a job ran, this list shows what actually happened and when. A steady stream of recent entries means Rostas is ticking over normally; a list whose newest entry is days old may mean the daily triggers have stopped running.</li>
+    <li><strong>Message Logs</strong> — a table of what Rostas did today, oldest first: every reminder, replacement ask, swap and roster message, with who it went to, how it was sent and how they answered. Use the date picker to look at an earlier day, and tick <strong>Show system events too</strong> to include behind-the-scenes events such as volunteer syncs and roster builds. Click <strong>Key: what the colours and labels mean</strong> above the table for a full explanation. In short: a pale red row means something failed and a pale yellow row is a warning (both always shown); in the Response column, green means the volunteer said yes, gold means still waiting, amber means no reply in time, and red means declined or not sent. This is your first-stop diagnostic: if a volunteer says they didn't get a message, pick that day and look for them.</li>
     <li><strong>Communication Failures</strong> — the most direct troubleshooting tool, shown in the Warnings column. When all is well it reads "No comms failures"; otherwise it lists recent send errors and warnings. If a volunteer tells you they never received a replacement SMS, check here for an entry on the date in question. If you see nothing at all for that date, the message may have been suppressed before sending — check SMS enabled, test mode, and quiet hours.</li>
   </ul>
-  <p>The card also shows activity and communications counts over the past seven days, plus replacement outcomes once you've run a few cycles. A high replacement-timeout rate can mean your replacement timers are too short for how quickly your volunteers reply, or that quiet hours are limiting the available sending window.</p>
+  <p>Below Message Logs are three charts:</p>
+  <figure>
+    <img src="settings-status-charts.png" alt="System Status charts: Activity (7 days), Communications Sent (7 days) and Replacement Outcomes, each with a coloured-dot key" class="screenshot">
+    <figcaption>The System Status charts. Each has a key of coloured dots underneath.</figcaption>
+  </figure>
+  <ul>
+    <li><strong>Activity (7 days)</strong> — one bar per day. The number is how many log entries Rostas wrote that day. The colour is the worst thing that happened: green for no problems, amber for at least one warning, red for at least one error. For a red or amber day, pick that day in Message Logs to see what went wrong.</li>
+    <li><strong>Communications Sent (7 days)</strong> — how many emails (navy) and texts (gold) went to volunteers each day.</li>
+    <li><strong>Replacement Outcomes</strong> — of the volunteers asked to cover a slot, how many accepted (green), declined (red) or didn't reply in time (amber). A high timed-out share can mean your replacement timers are too short for how quickly your volunteers reply, or that quiet hours are limiting the available sending window.</li>
+  </ul>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>

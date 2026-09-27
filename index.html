@@ -1714,6 +1714,7 @@
         <tr><td><strong>End date</strong></td><td>The last date of a fixed-term season (a perpetual roster needs no end date — see Season type below)</td></tr>
         <tr><td><strong>Frequency</strong></td><td>Daily, Weekly, Fortnightly, 1st and 3rd, 2nd and 4th, or Monthly</td></tr>
         <tr><td><strong>Day of week</strong></td><td>Which day the roster runs — e.g. Sunday, Monday</td></tr>
+        <tr><td><strong>Service starts at</strong></td><td>The time the service or event usually starts — e.g. 10:00 AM. Rostas uses it to judge how close the day is when it's finding a replacement (see The SMS Replacement Chain). You can change it later in Settings → Timing &amp; behaviour.</td></tr>
         <tr><td><strong>Season type</strong></td><td>Fixed term (has a real end date) or Perpetual (ongoing — auto-extends). See <a href="#c-frequency-season-type">Season type</a> for the difference.</td></tr>
         <tr><td><strong>Pause school holidays</strong></td><td>Tick if this roster doesn't run during school holidays</td></tr>
         <tr><td><strong>Pause public holidays</strong></td><td>Tick if this roster doesn't run on public holidays</td></tr>
@@ -2251,7 +2252,7 @@
       <tbody>
         <tr><td>Rostas identifies the next eligible volunteer and asks them — an app notification if they have the app, otherwise a text with a link</td><td>Immediately (within quiet hours)</td></tr>
         <tr><td>If they accept — slot is filled, original volunteer released</td><td>As soon as they reply</td></tr>
-        <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal), 30 min (urgent, within 24 hours of the service) or 10 min (within 2 hours) — counted from when the request went out</td></tr>
+        <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal), 30 min (urgent, within 24 hours of the service) or 10 min (within 2 hours) — counted from when the request went out, and measured against the roster's start time (Settings → Timing &amp; behaviour → <em>Roster</em> — service starts at)</td></tr>
         <tr><td>If no one accepts — Rostas emails that roster's own coordinator if it has one (see <a href="#f-roster-coordinator">A different coordinator for one roster</a>); otherwise your Organisation email (Settings → Organisation), or your own Coordinator email if that's blank.</td><td>After list is exhausted</td></tr>
       </tbody>
     </table>
@@ -2388,7 +2389,7 @@
     <li><strong>SMS</strong> — the wording of every text Rostas sends (replacement request, manual replacement, cross-roster ask, swap, availability nudge, reminder). Each has a live character counter and a placeholder check. See <a href="#f-wording">Message wording</a> below.</li>
     <li><strong>App</strong> — the wording of the app notifications that stand in for those texts when a volunteer has the app.</li>
     <li><strong>Email wording</strong> — the text blocks in roster, reminder and swap emails (intro, arrival note, sign-offs).</li>
-    <li><strong>Timing &amp; Behaviour</strong> — how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing and day-before reminder texts, SMS quiet hours, replacement timers, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
+    <li><strong>Timing &amp; Behaviour</strong> — each roster's service start time, how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing and day-before reminder texts, SMS quiet hours, replacement timers, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
     <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard and the Board. Hiding a roster doesn't stop its reminders; to stop everything for a while, use <strong>Pause roster</strong> (Builds → ⋯).</li>
     <li><strong>Advanced</strong> — settings that affect system internals (web app URL, licence key, roster type list, Infoodle and AWS SMS keys). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
   </ul>

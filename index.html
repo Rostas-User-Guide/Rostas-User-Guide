@@ -650,6 +650,7 @@
       <a class="toc-item toc-h2" href="#b-step3">Step 4 — SMS Test</a>
       <a class="toc-item toc-h2" href="#b-step4">Step 5 — Done</a>
       <a class="toc-item toc-h2" href="#b-coord-link">Your coordinator link</a>
+      <a class="toc-item toc-h2" href="#b-desktop-app">Put Rostas on your desktop</a>
     </div>
     <a class="toc-item toc-h1" href="#b-whats-next">What's Next</a>
 
@@ -772,6 +773,7 @@
       <a class="toc-item toc-h2" href="#f-no-email">No email received</a>
       <a class="toc-item toc-h2" href="#f-unfilled">Unfilled slots</a>
       <a class="toc-item toc-h2" href="#f-replacement-stuck">Replacement chain stuck</a>
+      <a class="toc-item toc-h2" href="#f-unable-to-open">"Unable to open the file"</a>
       <a class="toc-item toc-h2" href="#f-contact">Contact tech support</a>
     </div>
 
@@ -1065,6 +1067,11 @@
     <strong>Before you start:</strong> have your Rostas licence key ready — it's in your Rostas welcome email. If someone else at your organisation has already set Rostas up, you don't need this wizard: ask them to forward you the coordinator link (see <a href="#b-coord-link">Your coordinator link</a>).
   </div>
 
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Signed in to more than one Google account?</strong> If your browser is signed in to two Google accounts at once (for example your personal Gmail and the church account), the setup page won't open: you'll see <strong>"Sorry, unable to open the file at this time"</strong>. This is a Google limitation, not a fault in your copy. The simplest fix is to make a <strong>Church</strong> browser profile with only the church account in it, and do the setup there. It takes two minutes. See <a href="#b-desktop-app">Put Rostas on your desktop</a>. For a quick one-off, you can also open the setup link in a private window (Chrome: <strong>Ctrl+Shift+N</strong> on Windows, <strong>⌘+Shift+N</strong> on a Mac).
+  </div>
+
   <h2 class="section-title" id="b-wizard">The Setup Wizard</h2>
   <p>The wizard has five steps — Licence, Organisation, Your Details, SMS and Done — shown across the top of the screen. You can see at a glance how far through you are and what's coming next.</p>
 
@@ -1169,6 +1176,47 @@
   <h3 class="sub-title" id="b-coord-link">Your coordinator link</h3>
   <p>When set-up finishes, Rostas emails you a <strong>coordinator link</strong> (to the Organisation email, or your own email if that's blank). This link is how you open Rostas from now on — <strong>bookmark it</strong> on every computer you use. It works like a password for the coordinator screens, so don't forward it to volunteers or post it anywhere.</p>
   <p>If you open Rostas without it, you'll see a <strong>Coordinator sign-in</strong> box: paste your coordinator link there, or click <strong>Email me the coordinator link</strong> to have it sent again. A device you've signed in on remembers you, so this is usually only needed once per device.</p>
+
+  <h3 class="sub-title" id="b-desktop-app">Put Rostas on your desktop</h3>
+  <p>Most coordinators use Rostas on a computer that's also signed in to their personal Google account. Google can't open Rostas when a browser has two Google accounts signed in, so the best setup is a separate <strong>Church</strong> profile in Chrome with only the church account in it, and a Rostas icon that always opens there. You do this once, and from then on you just click the icon.</p>
+
+  <div class="step-box">
+    <div class="step-label">Part 1 — Make a Church profile in Chrome</div>
+    <ol>
+      <li>Open Chrome as normal.</li>
+      <li>Click your <strong>profile picture</strong> at the top right, just left of the three dots (if you have no picture, it's a small round person outline).</li>
+      <li>Click <strong>Add</strong> (some versions say <strong>Add Chrome profile</strong>).</li>
+      <li>In the new window, click <strong>Sign in</strong> and sign in with the <strong>church Google account only</strong>, the one that owns your copy of Rostas. Don't add any other accounts to this profile.</li>
+      <li>If Chrome asks <strong>"Turn on sync?"</strong>, either answer is fine.</li>
+      <li>Name the profile <strong>Church</strong> and pick a different colour, so you can tell its windows apart, then click <strong>Done</strong>.</li>
+    </ol>
+  </div>
+
+  <div class="step-box">
+    <div class="step-label">Part 2 — Install Rostas as an app</div>
+    <ol>
+      <li>In the <strong>Church</strong> window (check the name and colour at the top right), open your coordinator link and wait for Rostas to load.</li>
+      <li>Click the <strong>three dots</strong> (top right) → <strong>Cast, save and share</strong> → <strong>Install page as app…</strong></li>
+      <li>Name it <strong>Rostas</strong> and click <strong>Install</strong>. Rostas opens in its own window, with the Rostas <strong>R</strong> as its icon.</li>
+    </ol>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Computer</th><th>Where the Rostas icon goes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Windows</strong></td><td>On your desktop. To keep it handy, right-click the Rostas icon on the taskbar at the bottom of the screen → <strong>Pin to taskbar</strong>.</td></tr>
+        <tr><td><strong>Mac</strong></td><td>In <strong>Launchpad</strong> and in Finder → Applications → Chrome Apps. While it's open, right-click its icon in the Dock → <strong>Options</strong> → <strong>Keep in Dock</strong>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Always open Rostas from the icon.</strong> It always opens in your Church profile, so it works even while your normal Chrome is signed in to other Google accounts, and it keeps working after a restart. If you ever click a Rostas link elsewhere and see "Sorry, unable to open the file", close that tab and use the icon instead.
+  </div>
 
 
   <h2 class="section-title" id="b-whats-next">What's Next</h2>
@@ -2704,6 +2752,14 @@
     <li>Check <strong>SMS enabled</strong> is on, and that the roster isn't paused (Builds → ⋯)</li>
     <li>Check there are eligible volunteers left on the backup list — if the list is exhausted, Rostas emails that roster's own coordinator if it has one, otherwise your Organisation email (set it in Settings → Organisation)</li>
     <li>Use manual replacement on the Board to assign someone directly</li>
+  </ul>
+
+  <h3 class="sub-title" id="f-unable-to-open">"Sorry, unable to open the file at this time"</h3>
+  <p>This Google message almost always means your browser is signed in to <strong>more than one Google account</strong>. Google can't tell which account should open Rostas, and you may see <code>u/1/</code> in the address bar. Rostas itself is fine.</p>
+  <ul>
+    <li><strong>Every day:</strong> open Rostas from its icon in your Church profile (see <a href="#b-desktop-app">Put Rostas on your desktop</a>). That profile has only the church account in it, so the problem can't happen.</li>
+    <li><strong>Right now, as a one-off:</strong> open the link in a private window (Chrome: <strong>Ctrl+Shift+N</strong> on Windows, <strong>⌘+Shift+N</strong> on a Mac) and paste the address there.</li>
+    <li>Deleting <code>u/1/</code> from the address doesn't help: Chrome puts it straight back. Signing in to the church account first doesn't help either.</li>
   </ul>
 
   <h3 class="sub-title" id="f-contact">When to contact tech support</h3>

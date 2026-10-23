@@ -672,6 +672,7 @@
       <a class="toc-item toc-h2" href="#e-detail-relational">Relational rostering</a>
       <a class="toc-item toc-h2" href="#e-detail-availability">Next roster availability</a>
       <a class="toc-item toc-h2" href="#e-detail-add-roster">Adding to a new roster</a>
+      <a class="toc-item toc-h2" href="#e-detail-remove-roster">Taking someone off a roster</a>
     </div>
     <div class="toc-parent" id="parent-e-volunteer-facing">
       <a class="toc-parent-link" href="#e-volunteer-facing">What Volunteers See</a>
@@ -1496,6 +1497,33 @@
     <img src="vol-detail-add-roster.png" alt="Add to roster confirmation dialog showing roster name and Confirm and Cancel buttons" class="screenshot">
     <figcaption>Clicking an inactive roster tab shows a confirmation before adding the volunteer. Once confirmed they appear in that roster's volunteer pool at the next build.</figcaption>
   </figure>
+
+  <h3 class="sub-title" id="e-detail-remove-roster">Taking a Volunteer Off a Roster</h3>
+  <p>When someone stops serving on a roster, open their profile and click that roster's navy pill under <strong>Roster Types</strong> (for example <em>Sunday</em>). A box opens asking <em>Remove from Sunday?</em>. If they're on any upcoming dates, a yellow line at the top says how many.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Choice</th><th>What happens</th><th>Use it when</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Finishing this cycle</strong></td><td>They keep the dates they're already rostered on and serve them. They're not sent the next availability email and are left out of the next roster build.</td><td>They're stepping down but will see out the current roster.</td></tr>
+        <tr><td><strong>Remove from roster</strong></td><td>They're off the roster straight away: no more availability emails, and they're left out of builds. Their upcoming dates stay as they are unless you tick <em>Release their upcoming assignments</em>.</td><td>They've stopped now.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Release their upcoming assignments</strong> takes them off every upcoming date on that roster (today's service is left alone; change that on the Board). What happens to each date depends on whether that date's roster has gone out to volunteers yet:</p>
+  <ul>
+    <li><strong>Roster already sent:</strong> they're sent a message (in the app, or by text) saying they're no longer rostered for that date, and replacement requests go out automatically, just as if they had tapped <em>Can't make it</em>. On the Board the card turns blue (<em>SMS Chain</em>) until someone says yes.</li>
+    <li><strong>Roster not sent yet:</strong> the card becomes an empty gap (a red dashed <em>Unfilled</em> card) and the date's count drops, for example from 10/10 to 9/10. Nobody is messaged, because nobody has seen that roster. The next roster build fills the gap, or you can fill it yourself on the Board.</li>
+    <li><strong>Roster paused:</strong> no requests can go out, so the card becomes a gap.</li>
+  </ul>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Changed your mind?</strong> Click the same roster pill on their profile and choose <em>Add to Sunday roster</em> (or whichever roster it is). Dates you released aren't given back to them; put them back on a date from the Board if you need to.
+  </div>
 
   <h2 class="section-title" id="e-volunteer-facing">What Volunteers See</h2>
   <p>Volunteers interact with Rostas through personalised links, and — if they've installed it — the Rostas app. Installing is entirely optional: nothing is ever gated behind it, and a volunteer who never installs keeps using email and SMS links exactly as before. These are the main things volunteers are sent:</p>

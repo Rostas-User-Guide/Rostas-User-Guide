@@ -679,6 +679,7 @@
       <button class="toc-toggle" data-target="children-e-volunteer-facing" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-e-volunteer-facing">
+      <a class="toc-item toc-h2" href="#e-volunteer-old-links">When an old link no longer applies</a>
       <a class="toc-item toc-h2" href="#e-volunteer-app">The Rostas App</a>
       <a class="toc-item toc-h2" href="#e-volunteer-app-install">How volunteers install it</a>
       <a class="toc-item toc-h2" href="#e-send-app-link">Sending a volunteer their app link</a>
@@ -742,12 +743,20 @@
     <!-- Part F -->
     <div class="toc-part">Part F — Using the Board</div>
     <a class="toc-item toc-h1" href="#d-reading">Reading the Board</a>
-    <a class="toc-item toc-h1" href="#d-actions">Taking Action on a Cell</a>
+    <div class="toc-parent" id="parent-d-actions">
+      <a class="toc-parent-link" href="#d-actions">Taking Action on a Cell</a>
+      <button class="toc-toggle" data-target="children-d-actions" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-d-actions">
+      <a class="toc-item toc-h2" href="#d-decline">Saving someone as declined</a>
+      <a class="toc-item toc-h2" href="#d-live">When the roster changes</a>
+    </div>
     <div class="toc-parent" id="parent-d-replace">
       <a class="toc-parent-link" href="#d-replace">Manual Replacement</a>
       <button class="toc-toggle" data-target="children-d-replace" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-d-replace">
+      <a class="toc-item toc-h2" href="#d-replace-search">Finding someone by name</a>
       <a class="toc-item toc-h2" href="#d-cross-roster">Asking a volunteer from another roster</a>
     </div>
     <a class="toc-item toc-h1" href="#d-sms-chain">The SMS Replacement Chain</a>
@@ -759,6 +768,7 @@
     <a class="toc-item toc-h1" href="#f-settings">The Settings View</a>
     <a class="toc-item toc-h1" href="#f-system-status">Using System Status</a>
     <a class="toc-item toc-h1" href="#f-categories">Settings Categories</a>
+    <a class="toc-item toc-h1" href="#f-app-content">News and podcasts in the app</a>
     <a class="toc-item toc-h1" href="#f-roster-coordinator">A different coordinator for one roster</a>
     <a class="toc-item toc-h1" href="#f-sms-templates">SMS Settings</a>
     <a class="toc-item toc-h1" href="#f-credits">SMS Credits</a>
@@ -1501,6 +1511,11 @@
   <h3 class="sub-title" id="e-detail-remove-roster">Taking a Volunteer Off a Roster</h3>
   <p>When someone stops serving on a roster, open their profile and click that roster's navy pill under <strong>Roster Types</strong> (for example <em>Sunday</em>). A box opens asking <em>Remove from Sunday?</em>. If they're on any upcoming dates, a yellow line at the top says how many.</p>
 
+  <figure>
+    <img src="vol-remove-from-roster.png" alt="Remove from Sunday? pop-up: 2 upcoming assignments affected, Finishing this cycle, Remove from roster with two unticked boxes Release their upcoming assignments and Let them know they're no longer rostered, and Cancel" class="screenshot-mid">
+    <figcaption>The pop-up when you click a roster pill. Both tick boxes under Remove from roster start unticked.</figcaption>
+  </figure>
+
   <div class="tbl-wrap">
     <table>
       <thead>
@@ -1561,8 +1576,32 @@
     <strong>All volunteer pages are mobile-optimised.</strong> Most volunteers will open them on their phone directly from an email or SMS, whether or not they've installed the app.
   </div>
 
+  <h3 class="sub-title" id="e-volunteer-old-links">When an old link no longer applies</h3>
+  <p>Volunteers sometimes tap a link in an older email or text after things have moved on: you've replaced them on the Board, or they've already said they can't make it. Rostas checks every answer against the roster as it is now, so an old link can never undo a change you've made or put back someone who has been replaced. Instead of changing anything, the volunteer sees a plain explanation:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>What happened</th><th>What the volunteer sees</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>They were replaced or taken off that date</td><td>"This roster has changed. You're no longer down for [role] on [date]. Nothing has been changed." They're asked to contact their coordinator if that's unexpected.</td></tr>
+        <tr><td>They declined, then tapped Confirm or "Yes, I'll be there" in an older message</td><td>A note that they told us they can't make it and that Rostas is already asking others to cover. If they can come after all, they're asked to contact their coordinator, so two people don't turn up.</td></tr>
+        <tr><td>They tap "Can't make it" again</td><td>A note that Rostas is already finding someone.</td></tr>
+        <tr><td>They decline while the roster is paused</td><td>A request to let their coordinator know, because Rostas can't ask anyone else while the roster is paused.</td></tr>
+        <tr><td>They say Yes to a replacement request after the slot was filled or removed</td><td>A thank-you and a note that someone else has already stepped in. Nothing on the roster changes.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    If a volunteer calls to say they can make it after all, put them back from the Board: <strong>Undo decline</strong> on a Declined card, or <strong>Keep [name], stop requests</strong> while Rostas is still looking. See <a href="#d-actions">Taking Action on a Cell</a>.
+  </div>
+
   <h3 class="sub-title" id="e-volunteer-app">The Rostas App</h3>
   <p>Rostas has an installable app — technically a "Progressive Web App", not something from an app store — at <b>mobile.rostas.app</b>. It's a front end for exactly the same data volunteers already see by link: nothing changes about what Rostas does, only how it's reached.</p>
+  <p>Across the top of every screen is a navy header: the <strong>R</strong> button (tap it from anywhere to go back to Home), your <strong>church name</strong>, and a three-line <strong>Menu</strong> button on the right. The Menu holds <strong>News</strong>, <strong>Podcasts</strong> and <strong>Settings</strong>; News and Podcasts only appear once your church has filled in their addresses (see <a href="#f-app-content">News and podcasts in the app</a>).</p>
 
   <div class="tbl-wrap">
     <table>
@@ -1573,7 +1612,9 @@
         <tr><td><strong>Home</strong></td><td>A greeting; their latest notification shown as a message bubble with a one-tap <strong>Respond</strong> when it's a replacement request awaiting their answer; their next assignments under <strong>My Roster</strong>, each with a one-tap <strong>Can't make it</strong>; and a <strong>Future availability</strong> strip of upcoming weeks to scroll through.</td></tr>
         <tr><td><strong>Your Roster</strong></td><td>Upcoming assignments. A pending assignment shows an amber <strong>Confirm</strong> pill (tap for a Yes/No sheet); any assignment can be released with the red <strong>Can't make it</strong> pill.</td></tr>
         <tr><td><strong>Your availability</strong></td><td>The same date-picker as the emailed availability form. Volunteers serving on more than one roster type see a pill per roster and set each independently.</td></tr>
-        <tr><td><strong>Settings</strong></td><td>A push notification toggle, and Install / Remove-app rows.</td></tr>
+        <tr><td><strong>News</strong> (Menu)</td><td>This week's church news sheet, with the date it's for. The <em>In this Update</em> links at the top jump down the sheet; outside links open in the phone's browser.</td></tr>
+        <tr><td><strong>Podcasts</strong> (Menu)</td><td><em>Sunday messages</em>: your latest recorded sermons, newest first, each with its title, speaker, date, approximate file size and a <strong>Play</strong> button. One plays at a time, with play and pause on the lock screen; leaving the Podcasts screen stops it. Nothing downloads until Play is tapped, and each file is large, so Wi-Fi is best.</td></tr>
+        <tr><td><strong>Settings</strong> (Menu)</td><td>A push notification toggle, and Install / Remove-app rows.</td></tr>
       </tbody>
     </table>
   </div>
@@ -1587,6 +1628,21 @@
     <img src="app-your-roster.png" alt="Rostas app Your Roster screen showing a confirmed assignment and an amber Confirm pill on a pending one" class="screenshot-mid">
     <figcaption>Your Roster — the amber pill means the assignment is still pending confirmation; tapping it opens a Yes/No sheet.</figcaption>
   </figure>
+
+  <figure>
+    <img src="app-news.png" alt="Rostas app News sheet screen for Sunday 1 November, with the church banner and an In this Update list of links" class="screenshot-mid">
+    <figcaption>News — this week's news sheet. Tap a line under In this Update to jump to it.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="app-podcasts.png" alt="Rostas app Podcasts screen titled Sunday messages, listing three sermons with speaker, date, size and a Play button" class="screenshot-mid">
+    <figcaption>Podcasts — Sunday messages with a Play button and the file size. A speaker's photo shows top right when your podcast page has one.</figcaption>
+  </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">⚡</span>
+    <strong>The app opens instantly, then checks for changes.</strong> Home, Your Roster, Availability, News and Podcasts show what the phone last saw straight away, with "Checking for changes…" at the top. The answer buttons (Can't make it, Confirm, Respond and the date cards) stay greyed out until the fresh copy arrives a moment later, so nobody acts on out-of-date information. With no signal, the screen says when it was last correct.
+  </div>
 
   <figure>
     <img src="app-availability-pills.png" alt="Rostas app availability screen showing roster-type pills for a volunteer on two rosters" class="screenshot-mid">
@@ -2360,27 +2416,59 @@
 
 
   <h2 class="section-title" id="d-actions">Taking Action on a Cell</h2>
-  <p>Click any cell on the board to select it. The selected cell gets a navy border and a sticky action bar appears above the green roles headings — showing the volunteer's name, role, date, and current status, with action buttons on the right.</p>
+  <p>Click any card on the Board to select it. The card gets a navy border and an action bar appears above the green role headings, showing who is on the card, their frequency and any recent change, with buttons on the right. The buttons depend on the card: a Filled card has nothing to confirm, so it shows no fill button at all.</p>
 
   <figure>
-    <img src="board-replace-panel.png" alt="Board with a cell selected showing the full-width action bar and replacement panel below it" class="screenshot">
-    <figcaption>Clicking a cell opens the sticky action bar across the top, showing who is assigned, their role, date, and status.&nbsp;</figcaption>
+    <img src="board-action-bar-filled.png" alt="Roster Board with a Filled card selected and the navy action bar showing Save as declined, Replace, Swap with and Close" class="screenshot">
+    <figcaption>A Filled card selected. The action bar shows Save as declined, Replace and Swap with…; there's no fill button because the card is already Filled.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
     <table>
       <thead>
-        <tr><th>Action</th><th>What it does</th><th>When to use it</th></tr>
+        <tr><th>Button</th><th>Shows on</th><th>What it does</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Save as filled</strong></td><td>Confirms the assignment — changes cell to green</td><td>When a pending volunteer has confirmed verbally or you want to lock in an assignment</td></tr>
-        <tr><td><strong>Save as declined</strong></td><td>Marks the volunteer as declined and starts the automated SMS replacement chain</td><td>When a volunteer tells you they can't make it and you want Rostas to find a replacement automatically</td></tr>
-        <tr><td><strong>Replace</strong></td><td>Opens the replacement panel showing tiered candidates with Select buttons</td><td>When you want to pick the replacement yourself rather than let the SMS chain run</td></tr>
-        <tr><td><strong>Swap with…</strong></td><td>Swaps this assignment with another volunteer's slot — both move at once. Rostas flags any clashes as amber warnings, but they're advisory: you can always proceed.</td><td>When two rostered volunteers want to trade dates</td></tr>
-        <tr><td><strong>Close</strong></td><td>Deselects the cell without making any changes</td><td>When you clicked the wrong cell or want to exit</td></tr>
+        <tr><td><strong>Confirm</strong></td><td>Pending cards</td><td>Marks the card Filled for the person already on it. Use it when they've confirmed in person or by phone. Sends nothing.</td></tr>
+        <tr><td><strong>Undo decline</strong></td><td>Declined cards</td><td>Puts the person back on the card as Filled. Use it when they declined by mistake or have changed their mind. Sends nothing.</td></tr>
+        <tr><td><strong>Keep [name], stop requests</strong></td><td>Cards in an SMS chain (blue)</td><td>Keeps the original person on and stops the replacement requests. Use it when they've told you they can come after all. Sends nothing.</td></tr>
+        <tr><td><strong>Save as declined</strong></td><td>Filled, Pending and Declined cards</td><td>Asks you to confirm, then marks the person declined and starts the automated SMS replacement chain. See <a href="#d-decline">Saving someone as declined</a>.</td></tr>
+        <tr><td><strong>Replace</strong></td><td>Any card with someone on it</td><td>Opens the replacement panel so you choose who covers. See <a href="#d-replace">Manual Replacement</a>.</td></tr>
+        <tr><td><strong>Assign volunteer</strong></td><td>Unfilled cards (red dashed)</td><td>Opens the same panel so you can fill the gap.</td></tr>
+        <tr><td><strong>Swap with…</strong></td><td>Any card with someone on it</td><td>Swaps this assignment with another volunteer's slot — both move at once. Rostas flags any clashes as amber warnings, but they're advisory: you can always proceed.</td></tr>
+        <tr><td><strong>Close</strong></td><td>Every card</td><td>Deselects the card without making any changes.</td></tr>
       </tbody>
     </table>
   </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Confirm, Undo decline and Keep [name] also close open requests.</strong> If Rostas had already asked other volunteers to cover that slot, those requests are closed. Anyone who says Yes later is told someone else has already stepped in, so two people don't turn up. (On a card with any other status the same button reads <strong>Save as filled</strong>.)
+  </div>
+
+  <h3 class="sub-title" id="d-decline">Saving someone as declined</h3>
+  <p>When a volunteer tells you they can't make it, click their card and choose <strong>Save as declined</strong>. A confirm step opens under the action bar before anything changes. Click <strong>Save as declined</strong> again to go ahead, or <strong>Cancel</strong>.</p>
+
+  <figure>
+    <img src="board-decline-confirm.png" alt="Board confirm step: Save Daniel as declined? Rostas will start asking others to cover, with a ticked box Let Daniel know they're no longer rostered" class="screenshot">
+    <figcaption>The decline confirm step. "Let [Name] know they're no longer rostered" is ticked to start with.</figcaption>
+  </figure>
+
+  <ul>
+    <li><strong>Let [Name] know they're no longer rostered</strong> starts ticked. If that date's roster has already gone out, Rostas sends them an app notification, or a text with a link to their roster if they don't have the app. Untick it if you've already spoken to them.</li>
+    <li>If the roster for that date hasn't gone out yet, nothing is sent and the Board tells you so. They simply won't be on the roster when it's sent.</li>
+    <li>Rostas then starts the <a href="#d-sms-chain">SMS replacement chain</a> to find someone to cover. If the roster is paused, the card waits for you instead.</li>
+  </ul>
+
+  <h3 class="sub-title" id="d-live">When the roster changes while the Board is open</h3>
+  <p>Volunteers answer texts and emails at any time, and other coordinators may be working on the same roster, so the Board keeps itself up to date:</p>
+  <ul>
+    <li><strong>It refreshes by itself.</strong> Every 30 seconds, and whenever you come back to the tab, the Board checks for changes (a volunteer's Yes, a decline, another coordinator's change) and redraws in place.</li>
+    <li><strong>If you have a card open</strong>, it doesn't redraw under you. A bar at the top says <em>"The roster has changed since you opened the Board"</em> with a <strong>Reload</strong> button.</li>
+    <li><strong>Each card is checked when you click it.</strong> If it changed since the Board loaded, a red note says what it shows now and the buttons are greyed out; reload the Board first. If Rostas is in the middle of asking someone to cover it, a yellow note says who and when their reply is due.</li>
+    <li><strong>Saves never undo a volunteer's answer.</strong> If someone said Yes to that slot after your Board loaded, your change is refused and the Board reloads so you can see who's on it now.</li>
+  </ul>
+  <p>The coloured messages the Board shows after a save stay up for 10 seconds.</p>
 
   <h3 class="sub-title" id="d-swap">Swapping two volunteers</h3>
   <p>When two rostered volunteers want to trade dates, use <strong>Swap with…</strong> from the action menu. Click the first volunteer's cell, choose Swap with…, and that card is "armed" — it takes a gold border. Then click the cell you want to swap it with.</p>
@@ -2406,29 +2494,55 @@
   </figure>
 
   <h2 class="section-title" id="d-replace">Manual Replacement</h2>
-  <p>When you click <strong>Replace</strong>, the replacement panel appears below the action bar showing all available volunteers for that role and date, sorted by priority tier. Each volunteer shows their availability status and how recently they've been rostered.</p>
+  <p>When you click <strong>Replace</strong> (or <strong>Assign volunteer</strong> on an Unfilled card), the replacement panel opens below the action bar. It shows everyone who could cover that role on that date, grouped into coloured bands down the left, best fit first. Each card shows the person's name and how recently they've been rostered. Click a person to choose them.</p>
 
   <figure>
-    <img src="board-replace-panel.png" alt="Replacement panel showing tiered volunteer candidates with Select buttons" class="screenshot">
-    <figcaption>The replacement panel — volunteers are grouped by tier. Click Select next to any volunteer to assign them immediately. The original volunteer is released. The new one is told automatically once this roster's notifications have gone out.</figcaption>
+    <img src="board-replace-panel.png" alt="Replacement panel for Baking and Morning Tea on 1 November with a Search names box and bands for Best fit, Other options, Another roster and Already on today" class="screenshot">
+    <figcaption>The replacement panel. The bands down the left say why each person is offered; click a person to choose them. Up to seven cards fit across a band, then they wrap onto a new row.</figcaption>
   </figure>
 
-  <div class="callout callout-tip">
-    <span class="callout-icon">💡</span>
-    <strong>The tiers match the engine.</strong> Tier 1 volunteers are available and have this as a primary role — the ideal replacement. Lower tiers are less ideal but still valid options. Pick the best fit for the situation.
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Band</th><th>Who's in it</th><th>Choosing them</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Best fit</strong> · Primary role</td><td>Available, and this is a role they do</td><td>Puts them on the card</td></tr>
+        <tr><td><strong>Best fit</strong> · Fillable role</td><td>Available, and they're happy to fill in for this role</td><td>Puts them on the card</td></tr>
+        <tr><td><strong>Unsure</strong> · Primary / Fillable role</td><td>Said they're not sure about that date</td><td>Puts them on the card as Pending</td></tr>
+        <tr><td><strong>Other options</strong> · Bends a usual rule</td><td>Could do it, but it bends one of their rules, for example serving more often than their usual frequency</td><td>Puts them on the card</td></tr>
+        <tr><td><strong>No role set</strong> · On this roster (tan)</td><td>On this roster, but with no role marked for this one</td><td>Puts them on the card</td></tr>
+        <tr><td><strong>Another roster</strong> · Contact first</td><td>Serve on a different roster, not this one</td><td>Sends a one-off request for this date (see below)</td></tr>
+        <tr><td><strong>Already on today</strong> · Would be a 2nd role</td><td>Already rostered in another role that day</td><td>Gives them a second role (see <a href="#d-two-roles">below</a>)</td></tr>
+        <tr><td><strong>No roster</strong> · Contact first (purple)</td><td>In Profiles, but with no roster ticked at all</td><td>Sends a one-off request for this date</td></tr>
+      </tbody>
+    </table>
   </div>
+
+  <figure>
+    <img src="board-replace-bands.png" alt="Lower part of the replacement panel for an Unfilled card showing the No role set, Another roster, Already on today and No roster bands" class="screenshot">
+    <figcaption>Further down the panel: No role set (tan), Another roster, Already on today and No roster (purple).</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="d-replace-search">Finding someone by name</h3>
+  <p>The <strong>Search names</strong> box at the top of the panel narrows the cards as you type. Bands with nobody matching are hidden, and if nobody matches at all the panel says "No one by that name." Clear the box with its ✕ to see everyone again.</p>
+
+  <figure>
+    <img src="board-replace-search.png" alt="Replacement panel with Sarah typed in the Search names box, leaving only two Sarah Mitchell cards" class="screenshot">
+    <figcaption>Typing "Sarah" leaves just the matching cards, still in their bands.</figcaption>
+  </figure>
 
   <div class="callout callout-info">
     <span class="callout-icon">📬</span>
-    <strong>The replacement volunteer is notified automatically.</strong> If this roster's notifications have already gone out, Rostas tells them straight away — an app notification if they have the app, otherwise a text and an email. If you haven't sent notifications yet, they're simply included when you do (Step 6). Either way, you don't need to contact them separately.
+    <strong>Both people are told automatically.</strong> If this roster's notifications have already gone out, Rostas tells the new person straight away (an app notification if they have the app, otherwise a text and an email). The person you took off is told they're no longer rostered (an app notification, or a text with a link to their roster). If you haven't sent notifications yet, nobody is messaged; the roster simply shows the new person when you send it (Step 6).
   </div>
 
   <h3 class="sub-title" id="d-cross-roster">Asking a volunteer from another roster</h3>
-  <p>If nobody suitable turns up in the replacement panel's usual tiers, look for a collapsible <strong>"From another roster — contact first"</strong> section near the bottom of the list. It surfaces volunteers who serve on a different roster type but aren't part of this one — a Nourish volunteer showing up as an option for a Sunday gap, for example.</p>
+  <p>The <strong>Another roster</strong> and <strong>No roster</strong> bands, both marked <em>Contact first</em>, offer people who aren't part of this roster: a Music volunteer showing up for a Sunday gap, for example, or someone in Profiles with no roster ticked.</p>
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <strong>This is a one-off ask, not an addition to the roster.</strong> Selecting someone here sends them a one-off request for this single date — the same tiered app/SMS/email delivery as everywhere else — but doesn't add them to the roster type permanently. Use it for genuine gap-filling, and it's worth a heads-up to the volunteer's usual coordinator since it crosses roster boundaries.
+    <strong>This is a one-off ask, not an addition to the roster.</strong> Choosing someone in these bands sends them a one-off request for this single date — the same app/SMS/email delivery as everywhere else — but doesn't add them to the roster. Use it for genuine gap-filling, and it's worth a heads-up to the volunteer (and their usual coordinator) first, since it crosses roster boundaries.
   </div>
 
   <h2 class="section-title" id="d-two-roles">Assigning a Second Role on the Same Date</h2>
@@ -2497,18 +2611,18 @@
     <span class="part-sub">Configuration · SMS templates · Common problems · System status</span>
   </div>
 
-  <p>The Settings view is where you configure how Rostas behaves — your organisation's identity, SMS credentials, message wording, timing rules, and more. Open it by clicking <strong>Settings</strong> in the left sidebar.</p>
+  <p>The Settings view is where you configure how Rostas behaves — your organisation's identity, SMS credentials, message wording, timing rules, and more. Open it by clicking <strong>Settings</strong> in the left sidebar. It opens on the <strong>Status</strong> page, so you see straight away whether anything needs attention (see <a href="#f-system-status">Using System Status</a>). Click any category chip to get to the settings themselves.</p>
 
   <h2 class="section-title" id="f-settings">The Settings View</h2>
 
   <h3 class="sub-title" id="f-navigation">Finding your way around</h3>
   <p>The Settings view has two parts that work together.</p>
-  <p>The <strong>chip strip</strong> runs across the top and lets you jump directly to any category — Org, Contacts, SMS, App, Email, Timing, Controls, Advanced and Status. Clicking a chip scrolls the left panel to that section instantly. The gold <strong>Comms</strong> chip (with an arrow) opens the Communications Preview in place of Settings — use it to see how your message templates look before sending.</p>
+  <p>The <strong>chip strip</strong> runs across the top and lets you jump directly to any category — Org, Contacts, SMS, App, Email, Timing, Controls, Advanced and Status. Clicking a chip scrolls the left panel to that section instantly; <strong>Status</strong> takes you back to the Status page. The gold <strong>Comms</strong> chip (with an arrow) opens the Communications Preview in place of Settings — use it to see how your message templates look before sending.</p>
   <p>The <strong>search bar</strong> (top right, "Search settings…") filters the left panel live as you type. It searches across setting names and descriptions simultaneously — so typing "SMS" shows not just the SMS category but any setting whose description mentions SMS, across all categories. Non-matching rows disappear; categories with no matches collapse. Clear the search to restore the full list.</p>
 
   <figure>
     <img src="settings-main.png" alt="Settings view showing the category navigation across the top with System Status" class="screenshot">
-    <figcaption>The chip strip across the top of Settings — click any category pill to jump straight to that section. The gold Communications chip opens the message preview. The System Status panel is visible at the top of the left panel.</figcaption>
+    <figcaption>The chip strip across the top of Settings — click any category pill to jump straight to that section. The gold Communications chip opens the message preview. Any warnings show in a yellow strip above the list, with an <em>Open System Status</em> link.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="f-layout">The two-column layout</h3>
@@ -2539,12 +2653,25 @@
   </ol>
 
   <h2 class="section-title" id="f-system-status">Using System Status</h2>
-  <p>The System Status card and the settings list below it are designed to work together. The card tells you what's wrong; the settings list is where you fix it.</p>
-  <p>Treat System Status as your starting point every time you open the Settings page. Before searching for a specific setting or making a planned change, glance at the Warnings column first. If it says "No warnings", you can proceed. If it shows amber or red, deal with those first, because some warnings mean volunteers aren't receiving messages right now.</p>
+  <p>Settings opens on the Status page, so it's the first thing you see every time. Read it from the top down:</p>
+  <ol>
+    <li><strong>The verdict</strong> — one line at the top. Green means nothing needs a look; amber or red says how many things do.</li>
+    <li><strong>Three charts</strong> for the last seven days: Activity, Communications Sent and Replacement Outcomes (see <a href="#f-status-rhythm">below</a>).</li>
+    <li><strong>Message Logs</strong> — what Rostas sent today and how people answered.</li>
+    <li><strong>Warnings, Roster Health and Counts</strong> — the three columns at the bottom.</li>
+  </ol>
 
   <figure>
-    <img src="settings-system-status.png" alt="System Status panel showing Warnings, Roster Health and Counts columns in horizontal layout" class="screenshot">
-    <figcaption>The System Status panel — three columns showing current warnings, roster health indicators, and message counts. Check this panel if volunteers aren't receiving messages or something seems off.</figcaption>
+    <img src="settings-opens-on-status.png" alt="Settings opened on the Status page: a verdict line, then the Activity, Communications Sent and Replacement Outcomes charts, then Message Logs" class="screenshot">
+    <figcaption>Settings opens on Status: the verdict, the three 7-day charts, then Message Logs.</figcaption>
+  </figure>
+
+  <p>Settings opens on the settings list instead when you arrive at a particular setting (for example from a warning's button or a Comms link), or while the set-up checklist is still showing for a new church.</p>
+  <p>If the verdict is green, carry on with whatever you came to do. If it shows amber or red, deal with those first, because some warnings mean volunteers aren't receiving messages right now.</p>
+
+  <figure>
+    <img src="settings-system-status.png" alt="Status page Warnings, Roster Health and Counts columns" class="screenshot">
+    <figcaption>The three columns at the bottom of Status — current warnings with their fix buttons, roster health indicators, and counts. (This demo church has its test modes on, so it shows several warnings.)</figcaption>
   </figure>
 
   <h3 class="sub-title" id="f-status-fix">Following a warning to its fix</h3>
@@ -2569,41 +2696,62 @@
   <p>The typical workflow is: read the warning → click its button → save the setting that opens. If a warning has no button, the search bar above the settings list finds the setting by name.</p>
 
   <h3 class="sub-title" id="f-status-refresh">After making a change, check the card again</h3>
-  <p>The System Status card doesn't update automatically when you save a setting — it loaded when you opened Settings and reflects that moment in time. After fixing a warning, click <strong>Refresh</strong> in the System Status card header to reload it and confirm the warning has cleared.</p>
+  <p>The Status page doesn't update automatically when you save a setting — it loaded when you opened Settings and reflects that moment in time. After fixing a warning, click the <strong>Status</strong> chip, then <strong>Refresh</strong> in the System Status header, to confirm the warning has cleared.</p>
 
   <h3 class="sub-title" id="f-status-rhythm">Understanding your roster's rhythm</h3>
-  <p>Once warnings are clear, the lower sections of the card give you a different kind of visibility — not problems to fix, but patterns to understand. Two of them are worth checking regularly.</p>
+  <p>Once warnings are clear, the rest of the page gives you a different kind of visibility — not problems to fix, but patterns to understand. Start with the three charts at the top:</p>
+  <figure>
+    <img src="settings-status-charts.png" alt="System Status charts: Activity (7 days), Communications Sent (7 days) with Email, SMS and App in its key, and Replacement Outcomes" class="screenshot">
+    <figcaption>The three 7-day charts at the top of Status. Each has a key of coloured dots underneath.</figcaption>
+  </figure>
+  <ul>
+    <li><strong>Activity (7 days)</strong> — one bar per day. The number is how many log entries Rostas wrote that day. The colour is the worst thing that happened: green for no problems, amber for at least one warning, red for at least one error. For a red or amber day, pick that day in Message Logs to see what went wrong.</li>
+    <li><strong>Communications Sent (7 days)</strong> — how many messages went to volunteers each day: emails (navy), texts (gold) and app notifications (green). An app notification counts as App only when it was delivered; if it fell back to a text, it counts as SMS.</li>
+    <li><strong>Replacement Outcomes</strong> — of the volunteers asked to cover a slot, how many accepted (green), declined (red) or didn't reply in time (amber). A high timed-out share can mean your replacement timers are too short for how quickly your volunteers reply, or that quiet hours are limiting the available sending window.</li>
+  </ul>
+  <p>Below the charts, two things are worth checking regularly:</p>
   <ul>
     <li><strong>Message Logs</strong> — a table of what Rostas did today, oldest first: every reminder, replacement ask, swap and roster message, with who it went to, how it was sent and how they answered. Use the date picker to look at an earlier day, and tick <strong>Show system events too</strong> to include behind-the-scenes events such as volunteer syncs and roster builds. Click <strong>Key: what the colours and labels mean</strong> above the table for a full explanation. In short: a pale red row means something failed and a pale yellow row is a warning (both always shown); in the Response column, green means the volunteer said yes, gold means still waiting, amber means no reply in time, and red means declined or not sent. This is your first-stop diagnostic: if a volunteer says they didn't get a message, pick that day and look for them.</li>
     <li><strong>Communication Failures</strong> — the most direct troubleshooting tool, shown in the Warnings column. When all is well it reads "No comms failures"; otherwise it lists recent send errors and warnings. If a volunteer tells you they never received a replacement SMS, check here for an entry on the date in question. If you see nothing at all for that date, the message may have been suppressed before sending — check SMS enabled, test mode, and quiet hours.</li>
   </ul>
-  <p>Below Message Logs are three charts:</p>
-  <figure>
-    <img src="settings-status-charts.png" alt="System Status charts: Activity (7 days), Communications Sent (7 days) and Replacement Outcomes, each with a coloured-dot key" class="screenshot">
-    <figcaption>The System Status charts. Each has a key of coloured dots underneath.</figcaption>
-  </figure>
-  <ul>
-    <li><strong>Activity (7 days)</strong> — one bar per day. The number is how many log entries Rostas wrote that day. The colour is the worst thing that happened: green for no problems, amber for at least one warning, red for at least one error. For a red or amber day, pick that day in Message Logs to see what went wrong.</li>
-    <li><strong>Communications Sent (7 days)</strong> — how many emails (navy) and texts (gold) went to volunteers each day.</li>
-    <li><strong>Replacement Outcomes</strong> — of the volunteers asked to cover a slot, how many accepted (green), declined (red) or didn't reply in time (amber). A high timed-out share can mean your replacement timers are too short for how quickly your volunteers reply, or that quiet hours are limiting the available sending window.</li>
-  </ul>
-
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    A coordinator who builds this habit — open Settings, check System Status, fix any warnings, then do what you came to do — will catch problems before volunteers notice them rather than after.
+    Settings opening on Status makes this a habit without trying: glance at the verdict, fix any warnings, then do what you came to do. You'll catch problems before volunteers notice them rather than after.
   </div>
 
   <h2 class="section-title" id="f-categories">Settings Categories</h2>
   <ul>
     <li><strong>Organisation</strong> — your organisation's name, tagline, timezone, country calling code, contact email, website, volunteer-facing logo, and the logo shown at the top of reminder emails (Email logo URL). The organisation name is the most important field: it appears in every SMS and email sent to volunteers as [OrgName]. Every email Rostas sends also comes from this name. Get this right first.</li>
     <li><strong>Coordinator Contacts</strong> — your name, email and mobile, plus an optional coordinator for each roster (see <a href="#f-roster-coordinator">A different coordinator for one roster</a>). The “no replacement found” email goes to the <strong>Organisation email</strong> under Organisation, unless the roster has its own coordinator.</li>
-    <li><strong>SMS</strong> — the wording of every text Rostas sends (replacement request, manual replacement, cross-roster ask, swap, availability nudge, reminder). Each has a live character counter and a placeholder check. See <a href="#f-wording">Message wording</a> below.</li>
-    <li><strong>App</strong> — the wording of the app notifications that stand in for those texts when a volunteer has the app.</li>
+    <li><strong>SMS</strong> — the wording of every text Rostas sends (replacement request, manual replacement, taken off the roster, cross-roster ask, swap, availability nudge, reminder). Each has a live character counter and a placeholder check. See <a href="#f-wording">Message wording</a> below.</li>
+    <li><strong>App</strong> — what volunteers see in the Rostas app. At the top are two addresses: <strong>News sheet address</strong> and <strong>Podcast address</strong> (see <a href="#f-app-content">News and podcasts in the app</a>). Below them is the wording of the app notifications that stand in for texts when a volunteer has the app.</li>
     <li><strong>Email wording</strong> — the text blocks in roster, reminder and swap emails (intro, arrival note, sign-offs).</li>
     <li><strong>Timing &amp; Behaviour</strong> — each roster's service start time, how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing and day-before reminder texts, SMS quiet hours, replacement timers, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
     <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard and the Board. Hiding a roster doesn't stop its reminders; to stop everything for a while, use <strong>Pause roster</strong> (Builds → ⋯).</li>
     <li><strong>Advanced</strong> — settings that affect system internals (web app URL, licence key, roster type list, Infoodle and AWS SMS keys). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
   </ul>
+
+  <h3 class="sub-title" id="f-app-content">News and podcasts in the app</h3>
+  <p>The Rostas app can show your church's weekly news sheet and your recorded Sunday messages, as well as rosters. Each one is switched on by filling in an address under <strong>Settings → App</strong>:</p>
+
+  <figure>
+    <img src="settings-app-news-address.png" alt="Settings App section with News sheet address selected, showing its description, example and the https address field" class="screenshot">
+    <figcaption>Settings → App. News sheet address and Podcast address sit at the top, above the app notification wording.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Setting</th><th>What to put in it</th><th>What volunteers get</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>News sheet address</strong></td><td>The web address the app reads your weekly news sheet from. It must start with https://. Rostas support can help you set it up.</td><td>A <strong>News</strong> row in the app's Menu showing this week's sheet.</td></tr>
+        <tr><td><strong>Podcast address</strong></td><td>Your podcast feed, or the web page that lists your recorded sermons. It must start with https://.</td><td>A <strong>Podcasts</strong> row in the app's Menu listing your latest Sunday messages to play.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Leave an address blank and that page simply doesn't appear in the app. A changed address takes effect straight away for anyone who opens the page; volunteers' phones pick up a newly added Menu row within about three hours.</p>
 
   <h2 class="section-title" id="f-roster-coordinator">A different coordinator for one roster</h2>
   <p>You (the main coordinator) look after every roster unless you say otherwise. If one roster is run by someone else — say your music director runs the Music roster — give that roster its own coordinator:</p>
@@ -2689,12 +2837,15 @@
     All placeholder names use square brackets: [Name], [Role], [Date], [Link], [OrgName], [Deadline]. Never use curly braces — {name} will not be substituted.
   </div>
 
-  <p>Message wording lives in three categories: <strong>SMS</strong> (replacement request, manual replacement, cross-roster ask, swap, availability nudge, reminder), <strong>App</strong> (the matching app notifications), and <strong>Email wording</strong> (roster email intro, arrival note and sign-off; reminder email opening, can't-make-it text and sign-off; swap email). The protections above apply to every text template.</p>
+  <p>Message wording lives in three categories: <strong>SMS</strong> (replacement request, manual replacement, taken off the roster, cross-roster ask, swap, availability nudge, reminder), <strong>App</strong> (the matching app notifications), and <strong>Email wording</strong> (roster email intro, arrival note and sign-off; reminder email opening, can't-make-it text and sign-off; swap email). The protections above apply to every text template.</p>
 
   <figure>
     <img src="settings-sms-templates-list.png" alt="The list of editable SMS and email message templates in Settings" class="screenshot">
-    <figcaption>The message-wording templates — each opens to an editor with its own character counter and required placeholders.</figcaption>
+    <figcaption>The SMS wording templates, including <strong>Taken off the roster SMS</strong> — each opens to an editor with its own character counter and required placeholders.</figcaption>
   </figure>
+
+  <p><strong>Taken off the roster SMS</strong> (and <strong>Taken off the roster (app)</strong> under App) is the message a volunteer gets when you replace them on the Board, save them as declined with the tick box on, or take them off a roster with <em>Let them know</em> ticked — but only for dates whose roster had already gone out.</p>
+
 
   <h3 class="sub-title" id="f-placeholders">Template Placeholders</h3>
   <p>SMS and email templates use placeholders in square brackets that Rostas replaces with real values when sending. Never remove a required placeholder — if a required one is missing, the Save button is blocked.</p>

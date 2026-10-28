@@ -802,6 +802,9 @@
     <!-- Appendix -->
     <div class="toc-part">Appendix</div>
     <a class="toc-item toc-h1" href="#appendix-connectors">Connectors</a>
+    <a class="toc-item toc-h2" href="#appendix-volunteer-database">Choosing your volunteer database</a>
+    <a class="toc-item toc-h2" href="#appendix-infoodle">Infoodle</a>
+    <a class="toc-item toc-h2" href="#appendix-planning-center">Planning Center</a>
 
     <div style="padding: 1.2rem 1.2rem 0.5rem; margin-top: 0.5rem; border-top: 1px solid #2e4a6a;">
       <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf" style="display:flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;text-decoration:none;padding:0.55rem 0.9rem;border-radius:5px;font-size:12px;font-weight:600;letter-spacing:0.04em;">
@@ -2748,7 +2751,7 @@
     <li><strong>App</strong> — what volunteers see in the Rostas app. At the top are two addresses: <strong>News sheet address</strong> and <strong>Podcast address</strong> (see <a href="#f-app-content">News and podcasts in the app</a>). Below them is the wording of the app notifications that stand in for texts when a volunteer has the app.</li>
     <li><strong>Email wording</strong> — the text blocks in roster, reminder and swap emails (intro, arrival note, sign-offs).</li>
     <li><strong>Timing &amp; Behaviour</strong> — each roster's service start time, how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing and day-before reminder texts, SMS quiet hours, replacement timers, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
-    <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard and the Board. Hiding a roster doesn't stop its reminders; to stop everything for a while, use <strong>Pause roster</strong> (Builds → ⋯).</li>
+    <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard and the Board. It also holds the <strong>Volunteer database</strong> row, where you connect Infoodle or Planning Center (see <a href="#appendix-volunteer-database">Choosing your volunteer database</a>). Hiding a roster doesn't stop its reminders; to stop everything for a while, use <strong>Pause roster</strong> (Builds → ⋯).</li>
     <li><strong>Advanced</strong> — settings that affect system internals (web app URL, licence key, roster type list, Infoodle and AWS SMS keys). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
   </ul>
 
@@ -3072,22 +3075,111 @@
     <strong>Connectors sync identity only.</strong> A connector brings across each person's <em>name, mobile, and email</em> — nothing more. Everything about <em>how</em> they serve — which rosters they're in, the roles they do, their frequency, who they serve with — is set up and lives entirely inside Rostas. Your other system stays the source of truth for contact details; Rostas stays the source of truth for rostering.
   </div>
 
-  <h2 class="section-title" id="appendix-infoodle">Infoodle</h2>
-  <p>Infoodle is the first connector available in Rostas. Once it's connected, new and updated contacts flow in on their own — a volunteer added in Infoodle appears in your Profiles list without a re-import, and a changed phone number or email updates itself.</p>
+  <h2 class="section-title" id="appendix-volunteer-database">Choosing your volunteer database</h2>
+  <p>Everything to do with connectors is in one place: <strong>Settings → Controls → Volunteer database</strong>. It is the last row in the Quick controls list. Click it and the panel opens on the right.</p>
 
-  <p>When someone is removed in Infoodle, Rostas doesn't delete them out from under you. Instead it flags them with a <strong>"Deleted in Infoodle"</strong> marker in the Profiles list, so you can confirm they should go and remove them here deliberately — protecting you from losing a volunteer's history by accident.</p>
+  <p>At the top of the panel, <strong>Get volunteers from</strong> has three choices:</p>
+  <ul>
+    <li><strong>No database</strong> — you add volunteers by hand or from a CSV file. Nothing syncs at night. This is where every new Rostas starts.</li>
+    <li><strong>Infoodle</strong> — see <a href="#appendix-infoodle">Infoodle</a> below.</li>
+    <li><strong>Planning Center</strong> — see <a href="#appendix-planning-center">Planning Center</a> below.</li>
+  </ul>
+  <p>Only one database is used at a time. The line under the choice shows what is in use now and when it last synced, for example <em>In use now: Infoodle · last synced …</em>.</p>
 
-  <div class="callout callout-tip">
-    <span class="callout-icon">🔌</span>
-    <strong>Setting up the Infoodle connector is done with Rostas, not self-serve.</strong> The connection uses credentials that are provisioned for your church rather than entered by a coordinator — so if you'd like Infoodle sync switched on, contact <a href="mailto:support@rostas.app">support@rostas.app</a> and it'll be set up for you.
-  </div>
+  <figure>
+    <img src="settings-volunteer-database-none.png" alt="Volunteer database panel with No database chosen, explaining that volunteers are added by hand or from a CSV file" class="screenshot">
+    <figcaption>Settings → Controls → Volunteer database with <strong>No database</strong> chosen. The line under the choice shows what is in use now.</figcaption>
+  </figure>
 
-  <h2 class="section-title" id="appendix-more-connectors">Other connectors</h2>
-  <p>Infoodle is the first of a growing family of connectors. Support for other church and volunteer platforms — such as Planning Center and Elvanto — is planned, so more organisations can sync rather than import over time.</p>
+  <h3 class="sub-title" id="appendix-switching">Switching database</h3>
+  <p>Pick a different database, set it up (the steps are under each one below), then press the button that appears under the panel — <strong>Use Infoodle for volunteers</strong>, <strong>Use Planning Center for volunteers</strong>, or <strong>Stop syncing volunteers</strong>. Rostas asks you to confirm in a yellow box inside the panel before it changes anything, and tells you if the database you are switching to isn't connected yet.</p>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
-    <strong>Not on the list yet?</strong> These connectors are on the roadmap rather than available today, and CSV import works with every system in the meantime — most spreadsheets and databases can export a CSV. If a connector for your platform would help, let your Rostas contact know; it helps prioritise what's built next.
+    <strong>Switching never deletes volunteers.</strong> Everyone already in Rostas stays exactly as they are, with their roles, frequency and history. From the switch onwards, names and contact details are updated from the new database every night and whenever you press <strong>Sync now</strong>.
+  </div>
+
+  <h3 class="sub-title" id="appendix-sync-status">The sync status at the top of Settings</h3>
+  <p>Across the top of Settings, a small <strong>Volunteers</strong> strip shows whether the connection is healthy and when it last synced, with a <strong>Sync now</strong> button to run a sync straight away. If no database is chosen it reads <strong>Not connected</strong> with a <strong>Set up</strong> button; if Planning Center needs attention it shows <strong>Connect</strong> or <strong>Reconnect</strong>. Each of those simply opens the Volunteer database panel.</p>
+
+  <h2 class="section-title" id="appendix-infoodle">Infoodle</h2>
+  <p>Once Infoodle is connected, new and updated contacts flow in on their own — a volunteer added in Infoodle appears in your Profiles list without a re-import, and a changed phone number or email updates itself.</p>
+
+  <h3 class="sub-title" id="appendix-infoodle-details">Where to find your Infoodle details</h3>
+  <p>Rostas needs three things to connect: the <strong>address</strong> of your Infoodle site, a <strong>Client ID</strong> and a <strong>Client secret</strong>. You find all three in Infoodle itself — you don't need to contact Rostas or Infoodle support. In many churches the Rostas coordinator and the person who administers Infoodle are the same person; if that's not you, ask that person to follow these steps (or to sit with you while you do).</p>
+  <ul>
+    <li><strong>Infoodle address</strong> — the web address you use to log in to Infoodle, followed by <code>/apiv2</code>. For example, if you log in at <code>https://yourchurch.infoodle.com</code>, the address to enter is <code>https://yourchurch.infoodle.com/apiv2</code>.</li>
+    <li><strong>Client ID</strong> — the <strong>username you normally log in to Infoodle with</strong>.</li>
+    <li><strong>Client secret</strong> — a code Infoodle creates for your login. To make it:
+      <ol>
+        <li>Log in to Infoodle with the login you want Rostas to use.</li>
+        <li>On your <strong>Dashboard</strong>, choose <strong>My Account</strong>. (To do this for someone else's login, open that person's own profile, click the settings cog and choose <strong>Settings</strong>.)</li>
+        <li>Scroll to <strong>API Credentials</strong> at the bottom of the page and generate your secret. Infoodle shows a warning first — read it, then continue.</li>
+        <li><strong>Copy the secret somewhere safe straight away.</strong> It gives access to your church's Infoodle data, so keep it private and don't email it around.</li>
+        <li>When you're back on the My Account page, the <strong>Client secret</strong> box now holds the number. Select <strong>Authorise</strong> to finish.</li>
+      </ol>
+    </li>
+  </ul>
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Good to know</strong>
+    <ul>
+      <li>There is <strong>one secret per Infoodle login</strong>, and Rostas can see only what that login is allowed to see in Infoodle. Use a login that can see the groups your volunteers are in.</li>
+      <li>Consider creating a separate Infoodle login just for Rostas, rather than using one person's own login. That way the connection doesn't break if that person leaves, changes role or changes their password.</li>
+      <li>If the connection ever stops working — for example after the secret is changed in Infoodle — enter the current details in Rostas and press <strong>Save and test connection</strong> again.</li>
+    </ul>
+  </div>
+
+  <h3 class="sub-title" id="appendix-infoodle-setup">Connecting Infoodle</h3>
+  <ol>
+    <li>Open <strong>Settings → Controls → Volunteer database</strong> and choose <strong>Infoodle</strong>.</li>
+    <li>Fill in <strong>Infoodle address</strong> (it must start with <code>https://</code>), <strong>Client ID</strong> and <strong>Client secret</strong>, using the details from <a href="#appendix-infoodle-details">Where to find your Infoodle details</a> above.</li>
+    <li>Press <strong>Save and test connection</strong>. Rostas saves the details and signs in to Infoodle to check them. A green message confirms it worked; a red one says what went wrong.</li>
+    <li>Press <strong>Use Infoodle for volunteers</strong> and confirm.</li>
+  </ol>
+  <p>If the test fails, <strong>nothing is saved</strong> — the previous details are put back — so a typo can never break a sync that was already working. Once the secret is saved, the box shows <em>Saved — leave blank to keep it</em>; you only retype it to change it.</p>
+
+  <figure>
+    <img src="settings-volunteer-database-infoodle.png" alt="Volunteer database panel with Infoodle chosen, showing the address, client ID and client secret boxes and a green connected message after Save and test connection" class="screenshot">
+    <figcaption>The Infoodle panel after <strong>Save and test connection</strong>. The green message confirms Rostas could sign in. The secret box reads “Saved — leave blank to keep it” once a secret has been stored.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="appendix-infoodle-groups">Which people are synced</h3>
+  <p>Rostas syncs the people in your Infoodle <strong>groups with “Roster” in the name</strong> — for example “Sunday Roster” or “Music Roster”. To add someone to Rostas, add them to one of those groups in Infoodle. If you press <em>Save and test connection</em> and no group has “Roster” in its name yet, Rostas tells you to rename the groups your volunteers belong to, and then press Sync now.</p>
+  <p>If your church was set up with a fixed list of group numbers (under <strong>Advanced → Infoodle group IDs</strong>), Rostas keeps using exactly that list, and the panel says so. Clear that setting if you would rather use the “Roster” name rule.</p>
+
+  <p>When someone is removed in Infoodle, Rostas doesn't delete them out from under you. Instead it flags them with a <strong>"Deleted in Infoodle"</strong> marker in the Profiles list, so you can confirm they should go and remove them here deliberately — protecting you from losing a volunteer's history by accident.</p>
+
+  <h2 class="section-title" id="appendix-planning-center">Planning Center</h2>
+  <p>Planning Center connects by signing in to your Planning Center account — there are no codes or keys to copy.</p>
+
+  <h3 class="sub-title" id="appendix-pco-setup">Connecting Planning Center</h3>
+  <ol>
+    <li>Open <strong>Settings → Controls → Volunteer database</strong> and choose <strong>Planning Center</strong>. The panel shows <em>Not connected yet</em>.</li>
+    <li>Press <strong>Connect Planning Center</strong>. The button changes to <strong>Open Planning Center sign-in</strong> — click it. Planning Center opens in a new tab.</li>
+    <li>Sign in to Planning Center and approve the connection, then return to the Rostas tab. The panel says <em>Waiting for you to sign in…</em> and changes to <strong>Connected to</strong> your organisation's name as soon as you finish.</li>
+    <li>Press <strong>Use Planning Center for volunteers</strong> and confirm.</li>
+  </ol>
+  <p>Your church needs its Rostas licence key in place before the sign-in will work; if the panel says so, contact <a href="mailto:support@rostas.app">support@rostas.app</a>.</p>
+
+  <figure>
+    <img src="settings-volunteer-database-planning-center.png" alt="Volunteer database panel with Planning Center chosen and connected, showing a Disconnect button and a Use Planning Center for volunteers button" class="screenshot">
+    <figcaption>The Planning Center panel once connected. Pressing <strong>Use Planning Center for volunteers</strong> switches over (after a confirmation); <strong>Disconnect</strong> removes the connection.</figcaption>
+  </figure>
+
+  <h3 class="sub-title" id="appendix-pco-groups">Which people are synced</h3>
+  <p>As with Infoodle, Rostas syncs the people in your Planning Center <strong>groups with “Roster” in the name</strong> (archived groups are ignored). Someone who leaves all of those groups is marked inactive in Rostas rather than deleted, so their history is kept.</p>
+
+  <h3 class="sub-title" id="appendix-pco-reconnect">Reconnecting or disconnecting</h3>
+  <p>If Planning Center stops accepting the connection — for example the sign-in has expired or was revoked — the strip at the top of Settings turns red and reads <strong>Planning Center needs reconnecting</strong>. Press <strong>Reconnect</strong> and sign in again; volunteers aren't affected in the meantime, they just stop updating.</p>
+  <p>To stop using Planning Center, open the panel and press <strong>Disconnect</strong>. Rostas asks you to confirm, and reminds you that volunteers already in Rostas stay exactly as they are.</p>
+
+  <h2 class="section-title" id="appendix-more-connectors">Other connectors</h2>
+  <p>Infoodle and Planning Center are the connectors available today. Support for other church and volunteer platforms — such as Elvanto — is planned, so more organisations can sync rather than import over time.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Not on the list yet?</strong> CSV import works with every system in the meantime — most spreadsheets and databases can export a CSV. If a connector for your platform would help, let your Rostas contact know; it helps prioritise what's built next.
   </div>
 
   <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">

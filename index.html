@@ -860,17 +860,23 @@
       <button class="toc-toggle" data-target="children-f-trouble" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-f-trouble">
-      <a class="toc-item toc-h2" href="#f-no-sms">No SMS received</a>
-      <a class="toc-item toc-h2" href="#f-no-email">No email received</a>
-      <a class="toc-item toc-h2" href="#f-unfilled">Unfilled slots</a>
-      <a class="toc-item toc-h2" href="#f-replacement-stuck">Replacement chain stuck</a>
+      <a class="toc-item toc-h2" href="#f-no-sms">A volunteer never got a text</a>
+      <a class="toc-item toc-h2" href="#f-no-sms-anyone">Nobody is getting texts</a>
+      <a class="toc-item toc-h2" href="#f-text-reply">Replied to a text, nothing happened</a>
+      <a class="toc-item toc-h2" href="#f-no-email">Never got the roster email</a>
+      <a class="toc-item toc-h2" href="#f-link-broken">Link says the roster changed</a>
+      <a class="toc-item toc-h2" href="#f-wrong-date">Rostered on a date they can't do</a>
+      <a class="toc-item toc-h2" href="#f-unfilled">Red slots after the build</a>
+      <a class="toc-item toc-h2" href="#f-replacement-stuck">Stuck “In chain”</a>
+      <a class="toc-item toc-h2" href="#f-not-asked">Why wasn't someone asked?</a>
       <a class="toc-item toc-h2" href="#f-unable-to-open">"Unable to open the file"</a>
       <a class="toc-item toc-h2" href="#f-contact">Contact tech support</a>
     </div>
 
     <!-- Appendix -->
     <div class="toc-part">Appendix</div>
-    <a class="toc-item toc-h1" href="#appendix-connectors">Connectors</a>
+    <a class="toc-item toc-h1" href="#appendix-glossary">Glossary</a>
+    <a class="toc-item toc-h1" href="#appendix-connectors-intro">Connectors</a>
     <a class="toc-item toc-h2" href="#appendix-volunteer-database">Choosing your volunteer database</a>
     <a class="toc-item toc-h2" href="#appendix-infoodle">Infoodle</a>
     <a class="toc-item toc-h2" href="#appendix-planning-center">Planning Center</a>
@@ -975,6 +981,16 @@
         <li><a href="#c-new-roster" data-job>Set up a new roster</a></li>
         <li><a href="#c-manage-roles" data-job>Add or change a role</a></li>
         <li><a href="#f-credits" data-job>Buy more text credits</a></li>
+      </ul>
+    </div>
+    <div class="howdoi-group">
+      <div class="howdoi-label">Something's not right</div>
+      <ul>
+        <li><a href="#f-no-sms" data-job>A volunteer never got a text</a></li>
+        <li><a href="#f-text-reply" data-job>A volunteer replied to a text</a></li>
+        <li><a href="#f-unfilled" data-job>Red slots after a build</a></li>
+        <li><a href="#f-troubleshooting" data-job>Something else went wrong</a></li>
+        <li><a href="#appendix-glossary" data-job>Look up a word (Glossary)</a></li>
       </ul>
     </div>
   </div>
@@ -3284,44 +3300,76 @@
   </div>
 
   <h2 class="section-title" id="f-troubleshooting">Troubleshooting</h2>
-  <p>Most issues in Rostas fall into a small number of categories. Work through this list before contacting tech support.</p>
+  <p>Start from what you've been told or what you can see. Each problem lists the checks in order, most likely first, so you can usually stop after the first one or two.</p>
 
-  <h3 class="sub-title" id="f-no-sms">Volunteers aren't receiving SMS messages</h3>
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Look at System Status first.</strong> Settings opens on it. If something is switched off, in test mode or out of credits, it says so there, with a button that fixes it. See <a href="#f-status-fix">Following a warning to its fix</a>.
+  </div>
+
+  <h3 class="sub-title" id="f-no-sms">“A volunteer says they never got a text”</h3>
+  <ol>
+    <li><strong>Did they get an app notification instead?</strong> If the volunteer has the Rostas app with notifications on, Rostas sends an app notification and only texts if that doesn't arrive. Ask them to look in the app.</li>
+    <li><strong>Was it a day-before reminder?</strong> With the recommended reminder mode, <em>Text non-responders</em>, anyone who already confirmed the reminder email doesn't get the text. That's by design. Turn on <strong>Always text</strong> on their profile if they'd rather have one every time. See <a href="#f-reminder-mode">Reminder SMS mode</a>.</li>
+    <li><strong>Was it during quiet hours?</strong> No texts go out overnight (9pm–8am unless you've changed it). A replacement request waits and goes in the morning.</li>
+    <li><strong>Is their SMS toggle on?</strong> Open their profile. If <strong>SMS</strong> is off, they (or someone) opted them out of texts. Turn it back on only if they ask you to.</li>
+    <li><strong>Is their mobile number right?</strong> Check it on their profile, digit by digit. It should be a full mobile number, such as <code>+64 21 123 4567</code>.</li>
+    <li><strong>Is SMS test mode on?</strong> While it is, every text goes to your phone instead, starting <code>[TEST</code>.</li>
+    <li><strong>Still a mystery?</strong> Look for that volunteer and date in the communication failures table in <a href="#f-system-status">System Status</a>. It says why a text didn't send.</li>
+  </ol>
+
+  <h3 class="sub-title" id="f-no-sms-anyone">“Nobody is getting texts”</h3>
+  <ol>
+    <li><strong>Are you out of credits?</strong> System Status says “You're out of SMS credits”. Buy a pack; texts start again straight away. See <a href="#f-credits">SMS Credits</a>.</li>
+    <li><strong>Is SMS turned off, or SMS test mode on?</strong> Both show in System Status and in <a href="#f-quick-controls">Quick Controls</a>.</li>
+    <li><strong>Is it quiet hours?</strong> Texts resume when they end.</li>
+    <li><strong>Is your subscription paid?</strong> If a payment has failed, texts pause until it's sorted. Emails and app notifications keep working throughout.</li>
+  </ol>
+
+  <h3 class="sub-title" id="f-text-reply">“A volunteer replied to the text and nothing happened”</h3>
+  <p>Rostas doesn't read replies to its texts, so a reply goes nowhere. Ask the volunteer to <strong>tap the link</strong> in the text instead: it opens a page where they answer Yes or No. If you already know their answer, record it yourself on the Board (<a href="#d-decline">Save as declined</a>, or <a href="#d-replace">choose a replacement</a>).</p>
+
+  <h3 class="sub-title" id="f-no-email">“A volunteer never got their roster email”</h3>
+  <ol>
+    <li><strong>Has the roster been sent?</strong> Volunteers hear nothing until you click <strong>Send notifications</strong> in Step 6 of the roster cycle. See <a href="#c-rebuild-step6">Step 6 — Notify</a>.</li>
+    <li><strong>Is it in their spam or junk folder?</strong> Ask them to look, and to mark it “not spam”.</li>
+    <li><strong>Is their email address right,</strong> and is their <strong>Email</strong> toggle on? Both are on their profile.</li>
+    <li><strong>Is Email test mode on?</strong> While it is, emails go to you instead.</li>
+  </ol>
+
+  <h3 class="sub-title" id="f-link-broken">“My link says the roster has changed” or “my link doesn't work”</h3>
   <ul>
-    <li>Check <strong>Settings → Quick Controls → SMS enabled</strong> is on</li>
-    <li>Check <strong>SMS test mode</strong> is off — while it's on, every text goes to the coordinator instead</li>
-    <li>Check the volunteer's SMS toggle is On in their detail page</li>
-    <li>Check quiet hours — no texts go out during your quiet hours (Settings → Timing &amp; behaviour; 9pm–8am unless you've changed it)</li>
-    <li>Check the volunteer's mobile number is in correct international format (+64...)</li>
-    <li>Check the System Status communication failures table for error messages on the relevant date</li>
+    <li><strong>“This roster has changed” or “someone else has already stepped in”</strong> is Rostas working properly: they tapped an older message after things moved on. Nothing was changed. See <a href="#e-volunteer-old-links">When an old link no longer applies</a>.</li>
+    <li><strong>The link stopped working altogether</strong> (an error or a sign-in page): if you recently issued them a new link, their old ones stop on purpose. Their next email or text carries the new one. See <a href="#e-detail-new-link">Issuing a new link</a>. If it's happening to several volunteers, contact support.</li>
   </ul>
 
-  <h3 class="sub-title" id="f-no-email">Volunteers aren't receiving emails</h3>
-  <ul>
-    <li>Check <strong>Email test mode</strong> is off in Quick Controls</li>
-    <li>Check the volunteer's Email toggle is On in their detail page</li>
-    <li>Ask the volunteer to check their spam/junk folder</li>
-    <li>Confirm their email address is correct in their volunteer detail page</li>
-  </ul>
+  <h3 class="sub-title" id="f-wrong-date">“I was rostered on a date I said I couldn't do”</h3>
+  <ol>
+    <li><strong>Did they mark the date after the build?</strong> Availability given after a build doesn't move anyone already placed. Before you send, <strong>Rebuild roster</strong> picks it up. After you send, click their card and use <a href="#d-decline">Save as declined</a>: Rostas then finds a replacement.</li>
+    <li><strong>Did they mark it Not sure</strong> rather than Can't make it? Then they're Pending (amber) and can say no from their link or the app.</li>
+    <li>Check their availability on their profile to see what Rostas has on record. See <a href="#e-detail-availability">Availability on the profile</a>.</li>
+  </ol>
 
-  <h3 class="sub-title" id="f-unfilled">Roster has unfilled slots after building</h3>
-  <ul>
-    <li>Check that enough volunteers have responded to the availability email</li>
-    <li>Check that volunteers have role preferences set — without preferences set, the engine can't assign them to specific roles</li>
-    <li>Check frequency caps — volunteers who've reached their frequency cap (once every N weeks) won't be assigned again until it allows</li>
-    <li>Consider rebuilding after more availability responses come in</li>
-    <li>Use manual replacement on the Board to fill remaining slots</li>
-  </ul>
+  <h3 class="sub-title" id="f-unfilled">“There are still red (unfilled) slots after the build”</h3>
+  <ol>
+    <li><strong>Have late availability replies come in?</strong> Click <strong>Refill roster</strong> on the Board. It fills only the empty slots and leaves everyone else where they are.</li>
+    <li><strong>Do enough people do that role?</strong> Only volunteers who ticked a role are rostered in it. <a href="#part-d-insights">Insights</a> shows which roles are short.</li>
+    <li><strong>Are frequency caps holding people back?</strong> Someone who has reached their cap isn't used again until it allows. See <a href="#c-frequency-cap">Frequency cap</a>.</li>
+    <li>Fill the rest by hand: <a href="#d-replace">choose someone yourself</a>, or <a href="#d-cross-roster">ask someone from another roster</a>.</li>
+  </ol>
 
-  <h3 class="sub-title" id="f-replacement-stuck">SMS replacement chain isn't progressing</h3>
-  <ul>
-    <li>Check quiet hours — the chain waits during your quiet hours and carries on automatically when they end</li>
-    <li>Check <strong>SMS enabled</strong> is on, and that the roster isn't paused (Builds → ⋯)</li>
-    <li>Check there are eligible volunteers left on the backup list — if the list is exhausted, Rostas emails that roster's own coordinator if it has one, otherwise your Organisation email (set it in Settings → Organisation)</li>
-    <li>Use manual replacement on the Board to assign someone directly</li>
-  </ul>
+  <h3 class="sub-title" id="f-replacement-stuck">“A card has said ‘In chain’ for ages”</h3>
+  <ol>
+    <li><strong>Is it quiet hours?</strong> The chain waits overnight and carries on in the morning.</li>
+    <li><strong>Is the roster paused, or SMS turned off?</strong> Check Builds → ⋯ and System Status.</li>
+    <li><strong>Has everyone been asked?</strong> When the list runs out, Rostas emails that roster's coordinator (or your Organisation email). Check your inbox.</li>
+    <li>Don't wait: click the card and choose <strong>Pick replacement</strong> (see <a href="#d-replace">Choosing a replacement yourself</a>). Once the slot is filled, the chain stops. If the original volunteer can come after all, choose <strong>Keep [name], stop requests</strong>.</li>
+  </ol>
 
-  <h3 class="sub-title" id="f-unable-to-open">"Sorry, unable to open the file at this time"</h3>
+  <h3 class="sub-title" id="f-not-asked">“Why wasn't [name] asked to cover?”</h3>
+  <p>Rostas only asks volunteers who have <strong>ticked that role</strong> on their profile, and leaves out anyone who marked themselves <strong>unavailable for that date</strong>. Frequency caps also apply. If you know they'd happily do it, tick the role on their profile, or <a href="#d-replace">choose them yourself</a> on the Board.</p>
+
+  <h3 class="sub-title" id="f-unable-to-open">“Sorry, unable to open the file at this time”</h3>
   <p>This Google message almost always means your browser is signed in to <strong>more than one Google account</strong>. Google can't tell which account should open Rostas, and you may see <code>u/1/</code> in the address bar. Rostas itself is fine.</p>
   <ul>
     <li><strong>Every day:</strong> open Rostas from its icon in your Church profile (see <a href="#b-desktop-app">Put Rostas on your desktop</a>). That profile has only the church account in it, so the problem can't happen.</li>
@@ -3333,8 +3381,8 @@
   <p>Contact your tech support person if:</p>
   <ul>
     <li>SMS messages are failing with error messages in the System Status communication failures table</li>
-    <li>Volunteer links have stopped working (they open an error or a sign-in page)</li>
-    <li>You need to change SMS provider or other API credentials</li>
+    <li>Volunteer links have stopped working for several people (they open an error or a sign-in page)</li>
+    <li>System Status says SMS isn't switched on for your account</li>
     <li>Something is producing repeated errors that don't resolve on their own</li>
     <li>Anything requiring access to the Google Apps Script editor</li>
   </ul>
@@ -3348,7 +3396,42 @@
   <div class="part-banner" id="appendix-connectors">
     <span class="part-label">Appendix</span>
     <span class="part-title">Appendix</span>
-    <span class="part-sub">Connectors, integrations, and extras</span>
+    <span class="part-sub">Glossary · Connectors · Integrations</span>
+  </div>
+
+  <h2 class="section-title" id="appendix-glossary">Glossary</h2>
+  <p>The words Rostas uses on screen and in this guide, in plain English. Each one links to where it's explained in full.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Word</th><th>What it means</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Availability</strong></td><td>Which dates a volunteer can serve. Every date starts as Available; volunteers only mark the ones they can't make (or aren't sure about). See <a href="#a-availability">Availability</a>.</td></tr>
+        <tr><td><strong>Board</strong></td><td>The Roster Board: every date down the left, every role across the top, one card per slot. Where you check, swap and replace. See <a href="#d-reading">Reading the Board</a>.</td></tr>
+        <tr><td><strong>Build</strong></td><td>Rostas filling a stretch of dates with volunteers in one go, using availability, roles and fairness rules. A build covers only the dates in the <em>This Build</em> band; nothing is sent to volunteers until you click Send notifications. See <a href="#c-rebuild">Run a roster cycle</a>.</td></tr>
+        <tr><td><strong>Chain</strong> (SMS replacement chain)</td><td>What happens when someone can't make it: Rostas asks suitable volunteers one at a time (an app notification, or a text with a link) until someone says yes. While it's running the card is blue and says “In chain”. See <a href="#d-sms-chain">The SMS Replacement Chain</a>.</td></tr>
+        <tr><td><strong>Credits</strong></td><td>Prepaid texts. One credit sends one text; emails and app notifications are free. See <a href="#f-credits">SMS Credits</a>.</td></tr>
+        <tr><td><strong>Cycle</strong> (roster cycle)</td><td>One round of: confirm dates, ask about roles and availability, build, check, send. You run one each time a roster needs its next stretch of dates. See <a href="#c-rebuild">Run a roster cycle</a>.</td></tr>
+        <tr><td><strong>Declined</strong></td><td>A volunteer has said they can't make a date they were rostered for, either themselves or because you clicked Save as declined. This usually starts a chain. See <a href="#d-decline">Saving someone as declined</a>.</td></tr>
+        <tr><td><strong>Excluded</strong></td><td>A date you've taken out of a build on purpose (pink on the Build Dates screen, a white row on the Board). Not a gap to fill. See <a href="#c-season-remove">Removing a date</a>.</td></tr>
+        <tr><td><strong>Filled</strong></td><td>A green card: someone is rostered and marked themselves available.</td></tr>
+        <tr><td><strong>Fillable role</strong></td><td>A role a volunteer is “happy to fill in” on, as opposed to their primary role. Rostas uses primary roles first. See <a href="#a-engine">The Intelligent Matching Engine</a>.</td></tr>
+        <tr><td><strong>Frequency cap</strong></td><td>The most often one volunteer can be rostered, such as once every three weeks. Rostas never goes past it. See <a href="#c-frequency-cap">How often a roster runs</a>.</td></tr>
+        <tr><td><strong>Not sure</strong></td><td>An availability answer meaning “maybe”. Rostas only uses Not sure volunteers when no one who is Available fits, and their card shows as Pending.</td></tr>
+        <tr><td><strong>Paused</strong></td><td>A roster you've stopped for a while from Builds → ⋯. Nothing is built and no replacements are asked for while it's paused. See <a href="#c-menu-pause">Pausing a roster</a>.</td></tr>
+        <tr><td><strong>Pending</strong></td><td>An amber card: the volunteer said they were Not sure about that date, so they're rostered provisionally until they confirm. In the app they see an amber <strong>Confirm</strong> pill. (The wizard's step circles also use “Pending” for a step you haven't reached yet.)</td></tr>
+        <tr><td><strong>Quiet hours</strong></td><td>The overnight window (9pm–8am unless you change it) when Rostas sends no texts. A chain waits and carries on when quiet hours end. Set in Settings → Timing &amp; behaviour.</td></tr>
+        <tr><td><strong>Rebuild</strong></td><td>A button on the Board before you send: clears every assignment that hasn't been sent yet and works the whole roster out again. Your swaps and replacements on those dates are lost; dates already sent are never touched. Use it after a big change. See <a href="#c-rebuild-check">Checking the roster on the Board</a>.</td></tr>
+        <tr><td><strong>Refill</strong></td><td>A button on the Board before you send: fills only the empty slots, using the latest availability. Everyone already placed stays put, including your swaps. Use it after late availability replies. See <a href="#c-rebuild-check">Checking the roster on the Board</a>.</td></tr>
+        <tr><td><strong>Replacement</strong></td><td>Someone covering a slot for a volunteer who can't make it. Rostas finds one through the chain, or you choose one yourself. See <a href="#d-replace">Choosing a replacement yourself</a>.</td></tr>
+        <tr><td><strong>Roster</strong></td><td>One kind of rota, such as Sunday Service or Welcome Team, with its own roles, dates and volunteers. Each appears as a row on the Builds dashboard and a tab on the Board.</td></tr>
+        <tr><td><strong>Season</strong></td><td>The whole span of dates a roster runs for. <strong>Fixed term</strong> seasons have an end date; <strong>Perpetual</strong> ones roll forward with no end. Each build covers the next part of the season. See <a href="#c-frequency-season-type">Season type</a>.</td></tr>
+        <tr><td><strong>Test mode</strong></td><td>A switch (SMS, Email and App push each have one) that sends every message to you instead of to volunteers, so you can try things safely. See <a href="#f-quick-controls">Quick Controls</a>.</td></tr>
+        <tr><td><strong>Unfilled</strong></td><td>A red card: no one could be found for that slot. It needs you.</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <h2 class="section-title" id="appendix-connectors-intro">Connectors</h2>

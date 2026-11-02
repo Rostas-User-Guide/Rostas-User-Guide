@@ -133,6 +133,11 @@
       "box": [326, 240, 1896, 887],
       "highlights": [[1604, 417, 1860, 459], [1825, 545, 1850, 569]]
     },
+    "roster-wizard-step3-role-prefs-options": {
+      "src": "roster-wizard-step3-role-prefs-options.png",
+      "box": [470, 95, 1148, 648],
+      "highlights": []
+    },
     "roster-wizard-step3-role-prefs-sent": {
       "src": "roster-wizard-step3-role-prefs-sent.png",
       "box": [770, 310, 1450, 620],

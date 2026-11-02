@@ -105,28 +105,28 @@
     },
     "new-roster-step0-schedule-2": {
       "src": "new-roster-step0-schedule-2.png",
-      "box": [228, 60, 932, 798],
-      "highlights": [[266, 258, 666, 301], [266, 416, 580, 678]]
+      "box": [326, 250, 1282, 944],
+      "highlights": [[370, 359, 920, 419], [592, 874, 652, 934]]
     },
     "new-roster-step1-roles": {
       "src": "new-roster-step1-roles.png",
-      "box": [220, 60, 902, 562],
-      "highlights": [[257, 355, 886, 431], [257, 452, 411, 488]]
+      "box": [326, 220, 1282, 810],
+      "highlights": [[370, 493, 1236, 599], [370, 628, 582, 677]]
     },
     "new-roster-step2-season": {
       "src": "new-roster-step2-season.png",
-      "box": [30, 124, 1292, 1187],
-      "highlights": [[466, 597, 637, 644], [54, 955, 1210, 1152]]
+      "box": [326, 220, 1530, 1630],
+      "highlights": [[823, 939, 1011, 991], [370, 1336, 1482, 1590]]
     },
     "new-roster-step3-volunteers": {
       "src": "new-roster-step3-volunteers.png",
-      "box": [222, 100, 914, 872],
-      "highlights": [[256, 418, 477, 453], [256, 214, 886, 350]]
+      "box": [326, 220, 1282, 1290],
+      "highlights": [[370, 661, 672, 707], [370, 384, 1237, 564]]
     },
     "new-roster-step4-review": {
       "src": "new-roster-step4-review.png",
-      "box": [222, 160, 914, 796],
-      "highlights": [[361, 728, 540, 768], [852, 385, 892, 695]]
+      "box": [326, 220, 1282, 1156],
+      "highlights": [[514, 1058, 760, 1112], [1196, 525, 1242, 1010]]
     },
     "roster-wizard-step1-dates": {
       "src": "roster-wizard-step1-dates.png",

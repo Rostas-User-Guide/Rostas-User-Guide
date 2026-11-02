@@ -234,6 +234,10 @@ function calloutBox(paras, barCol, bgCol) {
   });
 }
 
+// Lists inside callouts get their own numbering instances (kept clear of
+// the main content's by starting high).
+let blockOlInstance = 1000;
+
 function blockChildren($, node) {
   const out = [];
   for (const ch of (node.children || [])) {
@@ -247,8 +251,9 @@ function blockChildren($, node) {
         children: inlineRuns($, li), spacing: { before: 40, after: 40 },
       })));
     } else if (t === 'ol') {
+      const instance = ++blockOlInstance;
       $(ch).children('li').each((_,li) => out.push(new Paragraph({
-        numbering: { reference: 'numbers', level: 0 },
+        numbering: { reference: 'numbers', level: 0, instance },
         children: inlineRuns($, li), spacing: { before: 40, after: 40 },
       })));
     }
@@ -405,6 +410,8 @@ async function buildContent($, imgs) {
   const out = [];
   let firstSection = true;
 
+  let olInstance = 0;
+
   async function processEl(el) {
     const $el = $(el);
     const tag = (el.name || '').toLowerCase();
@@ -512,10 +519,18 @@ async function buildContent($, imgs) {
       return;
     }
     if (tag === 'ol') {
-      $el.children('li').each((_,li) => out.push(new Paragraph({
-        numbering: { reference: 'numbers', level: 0 },
-        children: inlineRuns($, li), spacing: { before: 40, after: 40 },
-      })));
+      // Each list restarts at 1 (its own numbering instance). A screenshot
+      // inside a step (<ol class="steps">) follows that step's text.
+      const instance = ++olInstance;
+      for (const li of $el.children('li').toArray()) {
+        const $text = $(li).clone();
+        $text.find('figure').remove();
+        out.push(new Paragraph({
+          numbering: { reference: 'numbers', level: 0, instance },
+          children: inlineRuns($, $text[0]), spacing: { before: 40, after: 40 },
+        }));
+        for (const fig of $(li).children('figure').toArray()) await processEl(fig);
+      }
       return;
     }
 

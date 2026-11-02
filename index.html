@@ -282,6 +282,22 @@
     color: var(--navy-mid);
   }
 
+  /* Numbered how-to steps: one action per step, exact button label in bold */
+  ol.steps { list-style: none; counter-reset: step; margin: 0.8rem 0 1.2rem; padding: 0; }
+  ol.steps > li {
+    counter-increment: step; position: relative;
+    padding-left: 2.4rem; margin-bottom: 0.75rem; min-height: 1.7rem;
+  }
+  ol.steps > li::before {
+    content: counter(step); position: absolute; left: 0; top: 0.05rem;
+    width: 1.65rem; height: 1.65rem; border-radius: 50%;
+    background: var(--navy); color: #fff; font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  ol.steps figure { margin: 0.5rem 0 0.3rem; }
+  ol.steps .screenshot, ol.steps .screenshot-mid, ol.steps .screenshot-sm { margin: 0.5rem 0 0.4rem; }
+  ol.steps figcaption { margin-bottom: 0.4rem; }
+
   .step-box {
     background: var(--gold-pale);
     border-left: 4px solid var(--gold);
@@ -1309,35 +1325,52 @@
 
   <h2 class="section-title" id="e-import">Importing your volunteers from CSV</h2>
   <p>The quickest way to get your volunteers into Rostas is to import a spreadsheet — from a previous roster system, a church database, or even a simple contact list. This is how most organisations start. If your volunteers already live in another system, you may be able to sync them automatically instead — see the <a href="#appendix-connectors">Connector Appendix</a>.</p>
-  <p>Open the <strong>Profiles</strong> list and click <strong>Import Volunteer CSV</strong> on the toolbar. The import runs in three steps.</p>
-
-  <figure>
-    <img src="crops/vol-import-csv-upload.png" data-full="vol-import-csv-upload.png" alt="CSV import step 1 — choose your spreadsheet file" class="screenshot crop" width="911" height="638" loading="lazy" decoding="async">
-    <figcaption>Step 1 — choose the spreadsheet file to import.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="crops/vol-import-csv-preview.png" data-full="vol-import-csv-preview.png" alt="CSV import step 2 — column mapping and preview" class="screenshot crop" width="802" height="619" loading="lazy" decoding="async">
-    <figcaption>Step 2 — Rostas matches the columns it recognises automatically; review the rest, map any it wasn't sure about, and check the preview before committing.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="crops/vol-import-csv-success.png" data-full="vol-import-csv-success.png" alt="CSV import step 3 — success confirmation" class="screenshot crop" width="825" height="641" loading="lazy" decoding="async">
-    <figcaption>Step 3 — a confirmation of how many volunteers were imported. They appear in the Profiles list straight away.</figcaption>
-  </figure>
+  <ol class="steps">
+    <li>Open <strong>Profiles</strong> and click <strong>Import Volunteer CSV</strong> on the toolbar.</li>
+    <li>Click <strong>Choose a file</strong> and pick your spreadsheet, or drag the file onto the page.
+      <figure>
+        <img src="crops/vol-import-csv-upload.png" data-full="vol-import-csv-upload.png" alt="CSV import step 1 — choose your spreadsheet file" class="screenshot crop" width="911" height="638" loading="lazy" decoding="async">
+        <figcaption>Pick your spreadsheet file.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Continue to matching</strong>.</li>
+    <li>Check how each of your columns has been matched, and change any that look wrong.
+      <figure>
+        <img src="crops/vol-import-csv-preview.png" data-full="vol-import-csv-preview.png" alt="CSV import step 2 — column mapping and preview" class="screenshot crop" width="802" height="619" loading="lazy" decoding="async">
+        <figcaption>Rostas matches the columns it recognises. Check the Confidence column and change any match that looks wrong.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Preview [N] volunteers</strong> and look over the list.</li>
+    <li>Click <strong>Check for duplicates</strong>.</li>
+    <li>If anyone is already in Rostas, choose <strong>Skip duplicates</strong> (recommended) or <strong>Update existing records</strong>.</li>
+    <li>Click <strong>Import [N] volunteers</strong>. A summary shows how many were added. They're in the Profiles list straight away.
+      <figure>
+        <img src="crops/vol-import-csv-success.png" data-full="vol-import-csv-success.png" alt="CSV import step 3 — success confirmation" class="screenshot crop" width="825" height="641" loading="lazy" decoding="async">
+        <figcaption>The summary: how many were imported, skipped as duplicates, or couldn't be imported.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Set roster types now</strong> to put the new volunteers on their rosters, or <strong>View all volunteers</strong> to do it later.</li>
+  </ol>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>Your CSV needs at minimum a name and a mobile number.</strong> Email is strongly recommended so volunteers can receive availability requests and notifications. If your spreadsheet has a column for roster type, map it during the import and volunteers are assigned to the right rosters automatically. Phone numbers missing a country code are corrected for you.
+    <strong>Only a name is required.</strong> Include mobile numbers and emails if you have them, so volunteers can get texts, availability requests and notifications. If your spreadsheet has a column for roster type, map it during the import and volunteers are assigned to the right rosters automatically. Phone numbers missing a country code are corrected for you.
   </div>
 
   <h2 class="section-title" id="e-add">Adding a volunteer manually</h2>
-  <p>For one-offs — a single new volunteer between imports — click <strong>Add Volunteer</strong> on the Profiles toolbar. Fill in their details and save; they appear in the list immediately and can be included in your next build.</p>
-
-  <figure>
-    <img src="vol-add-form.png" alt="Add volunteer form showing name, phone, email and roster type fields" class="screenshot" width="564" height="494" loading="lazy" decoding="async">
-    <figcaption>The Add Volunteer form — name, mobile, email, and which roster types they serve in.</figcaption>
-  </figure>
+  <p>For one new volunteer between imports:</p>
+  <ol class="steps">
+    <li>Open <strong>Profiles</strong> and click <strong>Add Volunteer</strong> on the toolbar.</li>
+    <li>Type their <strong>Full name</strong> and <strong>Mobile phone</strong>. A local number such as 021 123 4567 is converted for you.</li>
+    <li>Type their <strong>Email</strong>, if they have one.</li>
+    <li>Under <strong>Roster types</strong>, click each roster they serve in.</li>
+    <li>Click <strong>Save volunteer</strong>. They appear in the list straight away and are included in your next build.
+      <figure>
+        <img src="vol-add-form.png" alt="Add volunteer form showing name, phone, email and roster type fields" class="screenshot" width="564" height="494" loading="lazy" decoding="async">
+        <figcaption>The Add Volunteer form.</figcaption>
+      </figure>
+    </li>
+  </ol>
 
   <div class="tbl-wrap">
     <table>
@@ -2534,15 +2567,21 @@
   </figure>
 
   <h3 class="sub-title" id="d-decline">Saving someone as declined</h3>
-  <p>When a volunteer tells you they can't make it, click their card and choose <strong>Save as declined</strong>. A confirm step opens under the action bar before anything changes. Click <strong>Save as declined</strong> again to go ahead, or <strong>Cancel</strong>.</p>
-
-  <figure>
-    <img src="crops/board-decline-confirm.png" data-full="board-decline-confirm.png" alt="Board confirm step: Save Daniel as declined? Rostas will start asking others to cover, with a ticked box Let Daniel know they're no longer rostered" class="screenshot crop" width="882" height="195" loading="lazy" decoding="async">
-    <figcaption>The decline confirm step. "Let [Name] know they're no longer rostered" is ticked to start with.</figcaption>
-  </figure>
-
+  <p>When a volunteer tells you they can't make it:</p>
+  <ol class="steps">
+    <li>Click their card on the Board.</li>
+    <li>Click <strong>Save as declined</strong>. A confirm step opens under the action bar.</li>
+    <li>Leave <strong>Let [Name] know they're no longer rostered</strong> ticked, or untick it if you've already spoken to them.
+      <figure>
+        <img src="crops/board-decline-confirm.png" data-full="board-decline-confirm.png" alt="Board confirm step: Save Daniel as declined? Rostas will start asking others to cover, with a ticked box Let Daniel know they're no longer rostered" class="screenshot crop" width="882" height="195" loading="lazy" decoding="async">
+        <figcaption>The decline confirm step. "Let [Name] know they're no longer rostered" is ticked to start with.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Save as declined</strong> again. (Click <strong>Cancel</strong> to change nothing.)</li>
+  </ol>
+  <p>What happens next:</p>
   <ul>
-    <li><strong>Let [Name] know they're no longer rostered</strong> starts ticked. If that date's roster has already gone out, Rostas sends them an app notification, or a text with a link to their roster if they don't have the app. Untick it if you've already spoken to them.</li>
+    <li>If that date's roster has already gone out and the box was ticked, Rostas tells them: an app notification, or a text with a link to their roster if they don't have the app.</li>
     <li>If the roster for that date hasn't gone out yet, nothing is sent and the Board tells you so. They simply won't be on the roster when it's sent.</li>
     <li>Rostas then starts the <a href="#d-sms-chain">SMS replacement chain</a> to find someone to cover. If the roster is paused, the card waits for you instead.</li>
   </ul>
@@ -2558,17 +2597,23 @@
   <p>The coloured messages the Board shows after a save stay up for 10 seconds.</p>
 
   <h3 class="sub-title" id="d-swap">Swapping two volunteers</h3>
-  <p>When two rostered volunteers want to trade dates, use <strong>Swap with…</strong> from the action menu. Click the first volunteer's cell, choose Swap with…, and that card is "armed" — it takes a gold border. Then click the cell you want to swap it with.</p>
-
-  <figure>
-    <img src="crops/board-swap-armed.png" data-full="board-swap-armed.png" alt="A board card armed for swap, with a gold border, waiting for the second card to be picked" class="screenshot crop" width="1224" height="212" loading="lazy" decoding="async">
-    <figcaption>A card armed for swap — its gold border means Rostas is waiting for you to pick the card to swap it with.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="crops/board-swap-confirm.png" data-full="board-swap-confirm.png" alt="Swap these two? confirmation showing both volunteers, roles and dates" class="screenshot crop" width="454" height="282" loading="lazy" decoding="async">
-    <figcaption>A confirmation shows both volunteers, their roles and dates, so you can check the trade before committing.</figcaption>
-  </figure>
+  <p>When two rostered volunteers want to trade dates:</p>
+  <ol class="steps">
+    <li>Click the first volunteer's card on the Board.</li>
+    <li>Click <strong>Swap with…</strong>. The card gets a gold border while Rostas waits for the second card. (Click <strong>Cancel</strong> in the bar to stop.)
+      <figure>
+        <img src="crops/board-swap-armed.png" data-full="board-swap-armed.png" alt="A board card armed for swap, with a gold border, waiting for the second card to be picked" class="screenshot crop" width="1224" height="212" loading="lazy" decoding="async">
+        <figcaption>A card armed for swap. The bar at the top shows who you picked.</figcaption>
+      </figure>
+    </li>
+    <li>Click the card you want to swap it with. A confirmation shows both people, their roles and dates.
+      <figure>
+        <img src="crops/board-swap-confirm.png" data-full="board-swap-confirm.png" alt="Swap these two? confirmation showing both volunteers, roles and dates" class="screenshot crop" width="454" height="282" loading="lazy" decoding="async">
+        <figcaption>Check both people, roles and dates before you click Swap.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Swap</strong>. Both volunteers get an email and a text about their new date.</li>
+  </ol>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>

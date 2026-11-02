@@ -135,13 +135,18 @@
     },
     "roster-wizard-step3-role-prefs-options": {
       "src": "roster-wizard-step3-role-prefs-options.png",
-      "box": [470, 95, 1148, 648],
+      "box": [466, 52, 1150, 650],
       "highlights": []
     },
     "roster-wizard-step3-role-prefs-sent": {
       "src": "roster-wizard-step3-role-prefs-sent.png",
       "box": [770, 310, 1450, 620],
       "highlights": [[810, 400, 1420, 500], [817, 542, 1154, 582]]
+    },
+    "roster-wizard-step4-availability-options": {
+      "src": "roster-wizard-step4-availability-options.png",
+      "box": [466, 265, 1150, 650],
+      "highlights": []
     },
     "roster-wizard-step4-availability-waiting": {
       "src": "roster-wizard-step4-availability-waiting.png",

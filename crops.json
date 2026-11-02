@@ -160,8 +160,8 @@
     },
     "wizard-build-failed": {
       "src": "wizard-build-failed.png",
-      "box": [400, 254, 1248, 502],
-      "highlights": [[417, 323, 1224, 419], [417, 445, 540, 481]]
+      "box": [466, 238, 1150, 410],
+      "highlights": [[486, 282, 1130, 342], [486, 364, 582, 391]]
     },
     "roster-wizard-step5-board": {
       "src": "roster-wizard-step5-board.png",

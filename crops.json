@@ -20,8 +20,8 @@
     },
     "roster-wizard-step2-roles": {
       "src": "roster-wizard-step2-roles.png",
-      "box": [440, 104, 1164, 966],
-      "highlights": [[966, 168, 1116, 213], [488, 820, 1116, 914]]
+      "box": [740, 330, 1490, 990],
+      "highlights": [[1275, 396, 1427, 443], [1068, 511, 1275, 580]]
     },
     "vol-list": {
       "src": "vol-list.png",
@@ -130,23 +130,23 @@
     },
     "roster-wizard-step1-dates": {
       "src": "roster-wizard-step1-dates.png",
-      "box": [18, 236, 1592, 886],
-      "highlights": [[1296, 417, 1553, 465], [1512, 684, 1548, 714]]
+      "box": [326, 240, 1896, 887],
+      "highlights": [[1604, 417, 1860, 459], [1825, 545, 1850, 569]]
     },
     "roster-wizard-step3-role-prefs-sent": {
       "src": "roster-wizard-step3-role-prefs-sent.png",
-      "box": [596, 322, 1012, 681],
-      "highlights": [[630, 512, 975, 582]]
+      "box": [770, 310, 1450, 620],
+      "highlights": [[810, 400, 1420, 500], [817, 542, 1154, 582]]
     },
     "roster-wizard-step4-availability-waiting": {
       "src": "roster-wizard-step4-availability-waiting.png",
-      "box": [414, 326, 1194, 696],
-      "highlights": [[440, 435, 800, 496], [441, 581, 798, 621]]
+      "box": [706, 310, 1516, 710],
+      "highlights": [[745, 400, 1480, 500], [750, 581, 1357, 621]]
     },
     "roster-wizard-step5-build": {
       "src": "roster-wizard-step5-build.png",
-      "box": [336, 312, 1272, 862],
-      "highlights": [[385, 542, 848, 581], [385, 782, 848, 822]]
+      "box": [625, 310, 1598, 915],
+      "highlights": [[693, 561, 1155, 600], [693, 801, 1155, 840]]
     },
     "wizard-build-failed": {
       "src": "wizard-build-failed.png",
@@ -160,13 +160,13 @@
     },
     "roster-wizard-step6-notify-sending": {
       "src": "roster-wizard-step6-notify-sending.png",
-      "box": [328, 318, 1276, 668],
-      "highlights": [[360, 554, 1244, 636]]
+      "box": [625, 310, 1599, 770],
+      "highlights": [[668, 642, 1555, 730], [668, 575, 922, 615]]
     },
     "roster-wizard-step6-notify-done": {
       "src": "roster-wizard-step6-notify-done.png",
-      "box": [0, 62, 1600, 612],
-      "highlights": [[22, 76, 1580, 200], [374, 548, 565, 588]]
+      "box": [326, 62, 1900, 620],
+      "highlights": [[340, 75, 1880, 212], [795, 522, 985, 560]]
     },
     "builds-row-menu": {
       "src": "builds-row-menu.png",
@@ -180,8 +180,8 @@
     },
     "wizard-excluded-dates": {
       "src": "wizard-excluded-dates.png",
-      "box": [26, 210, 1614, 804],
-      "highlights": [[1012, 647, 1194, 712]]
+      "box": [326, 393, 1896, 887],
+      "highlights": [[1484, 551, 1658, 621]]
     },
     "build-dashboard-manage-roles": {
       "src": "build-dashboard-manage-roles.png",
@@ -285,8 +285,8 @@
     },
     "settings-panel-standard-3": {
       "src": "settings-panel-standard-3.png",
-      "box": [0, 0, 1464, 272],
-      "highlights": [[818, 58, 864, 82], [901, 158, 982, 186]]
+      "box": [303, 370, 1920, 781],
+      "highlights": [[303, 427, 1273, 516], [1302, 629, 1362, 664]]
     },
     "settings-advanced": {
       "src": "settings-advanced.png",

@@ -1,0 +1,32 @@
+{
+  "style": {
+    "colour": "#b8932a",
+    "stroke": 4,
+    "halo": 2,
+    "pad": 6,
+    "radius": 10,
+    "display_scale": 0.75
+  },
+  "crops": {
+    "settings-main-chips": {
+      "src": "settings-main.png",
+      "box": [0, 0, 1642, 196],
+      "highlights": [[24, 10, 1506, 58], [410, 80, 812, 130]]
+    },
+    "board-swap-armed": {
+      "src": "board-swap-armed.png",
+      "box": [0, 150, 1632, 432],
+      "highlights": [[10, 164, 538, 210], [800, 280, 954, 346]]
+    },
+    "roster-wizard-step2-roles": {
+      "src": "roster-wizard-step2-roles.png",
+      "box": [440, 104, 1164, 966],
+      "highlights": [[966, 168, 1116, 213], [488, 820, 1116, 914]]
+    },
+    "vol-list": {
+      "src": "vol-list.png",
+      "box": [390, 108, 1802, 588],
+      "highlights": [[942, 125, 1408, 178], [1116, 205, 1770, 258]]
+    }
+  }
+}

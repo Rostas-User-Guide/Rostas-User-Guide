@@ -379,6 +379,35 @@
     max-width: 100%;
   }
 
+  /* Cropped screenshots: shown near natural size, never wider than the column */
+  .screenshot.crop { width: auto; max-width: 100%; }
+  .screenshot, .screenshot-sm, .screenshot-mid { cursor: zoom-in; }
+
+  /* Click any screenshot to see the full-size original */
+  #lightbox {
+    display: none; position: fixed; inset: 0; z-index: 10000;
+    background: rgba(26,46,74,0.92); overflow: auto;
+    -webkit-overflow-scrolling: touch; cursor: zoom-out;
+  }
+  #lightbox.open { display: flex; align-items: flex-start; justify-content: center; }
+  #lightbox img {
+    max-width: calc(100vw - 2rem); height: auto; margin: 3.5rem 1rem 1rem;
+    border-radius: 6px; background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    cursor: zoom-in;
+  }
+  /* Tap the picture to see it at actual size (scroll to look around) */
+  #lightbox.zoomed { display: block; }
+  #lightbox.zoomed img { max-width: none; cursor: zoom-out; }
+  #lightbox-close {
+    position: fixed; top: 0.6rem; right: 0.8rem; width: 2.6rem; height: 2.6rem;
+    border: 0; border-radius: 50%; background: #fff; color: var(--navy);
+    font-size: 1.6rem; line-height: 1; cursor: pointer;
+  }
+  #lightbox-cap {
+    position: fixed; top: 0.9rem; left: 1rem; right: 4rem; color: #fff;
+    font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
   figcaption, .img-caption {
     font-size: 12px;
     color: var(--text-muted);
@@ -436,6 +465,7 @@
     #sidebar { display: none; }
     #main { max-width: 100%; padding: 1rem; }
     .screenshot, .screenshot-mid, .screenshot-sm { box-shadow: none; }
+    #lightbox { display: none !important; }
   }
 
   /* Search */
@@ -1323,7 +1353,7 @@
   <p>Once your volunteers are in, the Profiles list shows everyone — name, roster types, phone, and email — in one place. Search by name, email, or phone, or filter by Roster Type at the top of the page, or Active, Inactive, or All using the chips below the search bar. Click any row to open that volunteer's profile.</p>
 
   <figure>
-    <img src="vol-list.png" alt="The Profiles list showing volunteers with name, roster types, phone and email" class="screenshot" width="1916" height="928" loading="lazy" decoding="async">
+    <img src="crops/vol-list.png" data-full="vol-list.png" alt="The Profiles list showing volunteers with name, roster types, phone and email" class="screenshot crop" width="1059" height="360" loading="lazy" decoding="async">
     <figcaption>The Profiles list — everyone in one place. The toolbar holds Import Volunteer CSV and Add Volunteer; click any row to open a profile.</figcaption>
   </figure>
 
@@ -2009,7 +2039,7 @@
   <p>There's no separate Save button: any change you make is saved when you leave the step, whether by Back, Continue, or clicking a circle at the top.</p>
 
   <figure>
-    <img src="roster-wizard-step2-roles.png" alt="Roster Wizard Step 2 — the Edit Roles card listing each role with Min and Max headcount and an Active tick box, with a blank new role row at the bottom" class="screenshot" width="1600" height="974" loading="lazy" decoding="async">
+    <img src="crops/roster-wizard-step2-roles.png" data-full="roster-wizard-step2-roles.png" alt="Roster Wizard Step 2 — the Edit Roles card listing each role with Min and Max headcount and an Active tick box, with a blank new role row at the bottom" class="screenshot crop" width="543" height="646" loading="lazy" decoding="async">
     <figcaption>Step 2 — Roles. Set the minimum and maximum people each role needs, or untick a role you don't need. <strong>+ Add a role</strong> adds a blank row at the bottom: type the new role's name and set its headcount.</figcaption>
   </figure>
 
@@ -2517,7 +2547,7 @@
   <p>When two rostered volunteers want to trade dates, use <strong>Swap with…</strong> from the action menu. Click the first volunteer's cell, choose Swap with…, and that card is "armed" — it takes a gold border. Then click the cell you want to swap it with.</p>
 
   <figure>
-    <img src="board-swap-armed.png" alt="A board card armed for swap, with a gold border, waiting for the second card to be picked" class="screenshot" width="1632" height="683" loading="lazy" decoding="async">
+    <img src="crops/board-swap-armed.png" data-full="board-swap-armed.png" alt="A board card armed for swap, with a gold border, waiting for the second card to be picked" class="screenshot crop" width="1224" height="212" loading="lazy" decoding="async">
     <figcaption>A card armed for swap — its gold border means Rostas is waiting for you to pick the card to swap it with.</figcaption>
   </figure>
 
@@ -2664,7 +2694,7 @@
   <p>The <strong>search bar</strong> (top right, "Search settings…") filters the left panel live as you type. It searches across setting names and descriptions simultaneously — so typing "SMS" shows not just the SMS category but any setting whose description mentions SMS, across all categories. Non-matching rows disappear; categories with no matches collapse. Clear the search to restore the full list.</p>
 
   <figure>
-    <img src="settings-main.png" alt="Settings view showing the category navigation across the top with System Status" class="screenshot" width="1642" height="968" loading="lazy" decoding="async">
+    <img src="crops/settings-main-chips.png" data-full="settings-main.png" alt="Settings view showing the category chips across the top and the Search settings box" class="screenshot crop" width="1232" height="147" loading="lazy" decoding="async">
     <figcaption>The chip strip across the top of Settings — click any category pill to jump straight to that section. The gold Communications chip opens the message preview. Any warnings show in a yellow strip above the list, with an <em>Open System Status</em> link.</figcaption>
   </figure>
 
@@ -3217,7 +3247,50 @@
 </div>
 </main>
 
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Full-size screenshot">
+  <div id="lightbox-cap">Tap the picture to zoom · Esc or × to close</div>
+  <button id="lightbox-close" type="button" aria-label="Close">&times;</button>
+  <img id="lightbox-img" alt="">
+</div>
+
 <script>
+  // Click any screenshot to open the full-size original (crops point at it via data-full)
+  (function() {
+    var box = document.getElementById('lightbox');
+    var big = document.getElementById('lightbox-img');
+    var lastFocus = null;
+    function openBox(img) {
+      lastFocus = img;
+      big.src = img.getAttribute('data-full') || img.getAttribute('src');
+      big.alt = img.alt;
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('lightbox-close').focus();
+    }
+    function closeBox() {
+      if (!box.classList.contains('open')) return;
+      box.classList.remove('open', 'zoomed');
+      big.removeAttribute('src');
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+    var shots = document.querySelectorAll('img.screenshot, img.screenshot-sm, img.screenshot-mid');
+    Array.prototype.forEach.call(shots, function(img) {
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute('title', 'Click to enlarge');
+      img.addEventListener('click', function() { openBox(img); });
+      img.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openBox(img); }
+      });
+    });
+    box.addEventListener('click', function(e) {
+      if (e.target === big) box.classList.toggle('zoomed');
+      else closeBox();
+    });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeBox(); });
+  })();
+
   // Collapsible TOC
   document.querySelectorAll('.toc-toggle').forEach(function(btn) {
     btn.addEventListener('click', function() {

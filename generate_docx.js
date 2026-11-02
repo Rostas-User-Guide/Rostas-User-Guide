@@ -64,11 +64,14 @@ const C = {
 function dxaToEmu(dxa) { return Math.round(dxa * 96 / 1440); }
 
 // Scale image to fit max width, preserving real aspect ratio
-function imgSize(cls, imgW, imgH) {
+// Cropped screenshots (class "crop") use their HTML width attribute as the cap,
+// so a small crop isn't blown up to full page width.
+function imgSize(cls, imgW, imgH, attrW) {
   let maxW;
   if (cls.includes('screenshot-mid')) maxW = Math.round(CONTENT_W * 0.56);
   else if (cls.includes('screenshot-sm'))  maxW = Math.round(CONTENT_W * 0.38);
   else maxW = CONTENT_W;
+  if (cls.includes('crop') && attrW > 0) maxW = Math.min(maxW, Math.round(attrW * 15));
   // Use actual aspect ratio if we have real dimensions
   if (imgW && imgH && imgH > 0) {
     const w = maxW;
@@ -106,6 +109,13 @@ function buildLocalMap(dir) {
     map[f.toLowerCase()]                  = full;
     map[f.replace(/_/g,'-').toLowerCase()] = full;
     map[f.replace(/-/g,'_').toLowerCase()] = full;
+  }
+  // Cropped screenshots live in crops/ and are referenced as "crops/<name>"
+  const cropDir = path.join(dir, 'crops');
+  if (fs.existsSync(cropDir)) {
+    for (const f of fs.readdirSync(cropDir)) {
+      if (/\.(png|jpe?g)$/i.test(f)) map[('crops/' + f).toLowerCase()] = path.join(cropDir, f);
+    }
   }
   return map;
 }
@@ -516,7 +526,7 @@ async function buildContent($, imgs) {
       const src = img.attr('src') || '';
       const cls = img.attr('class') || '';
       if (src && imgs[src]) {
-        const { w, h } = imgSize(cls, imgs[src].w, imgs[src].h);
+        const { w, h } = imgSize(cls, imgs[src].w, imgs[src].h, +img.attr('width'));
         out.push(spacer(100));
         out.push(new Paragraph({
           alignment: AlignmentType.CENTER,
@@ -545,7 +555,7 @@ async function buildContent($, imgs) {
       const src = $el.attr('src') || '';
       const cls = $el.attr('class') || '';
       if (src && !src.startsWith('slide-') && imgs[src]) {
-        const { w, h } = imgSize(cls, imgs[src].w, imgs[src].h);
+        const { w, h } = imgSize(cls, imgs[src].w, imgs[src].h, +$el.attr('width'));
         out.push(new Paragraph({
           alignment: AlignmentType.CENTER,
           children: [new ImageRun({ data: imgs[src].data, type: imgs[src].type,

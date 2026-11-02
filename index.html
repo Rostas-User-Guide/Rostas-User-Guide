@@ -282,6 +282,19 @@
     color: var(--navy-mid);
   }
 
+  /* How do I…? page: everyday jobs in groups, each a link to its steps */
+  .howdoi { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1.6rem; margin: 1rem 0 2rem; }
+  .howdoi-label {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin: 0.6rem 0 0.3rem;
+  }
+  .howdoi ul { list-style: none; margin: 0; padding: 0; }
+  .howdoi li { margin: 0; border-bottom: 1px solid var(--border); }
+  .howdoi a { display: block; padding: 0.45rem 0.2rem; color: var(--navy); text-decoration: none; font-size: 14.5px; }
+  .howdoi a::after { content: " →"; color: var(--gold); }
+  .howdoi a:hover { background: var(--gold-pale); }
+  @media (max-width: 900px) { .howdoi { grid-template-columns: 1fr; } }
+
   /* Numbered how-to steps: one action per step, exact button label in bold */
   ol.steps { list-style: none; counter-reset: step; margin: 0.8rem 0 1.2rem; padding: 0; }
   ol.steps > li {
@@ -676,6 +689,7 @@
     <!-- Part A -->
     <div class="toc-part">Part A — Introducing Rostas</div>
     <a class="toc-item toc-h1" href="#a-intro">What is Rostas?</a>
+    <a class="toc-item toc-h1" href="#how-do-i">How do I…?</a>
     <a class="toc-item toc-h1" href="#a-how-it-works">How Rostas Works</a>
     <div class="toc-parent" id="parent-a-concepts">
       <a class="toc-parent-link" href="#a-key-concepts">Key Concepts</a>
@@ -726,7 +740,7 @@
       <a class="toc-item toc-h2" href="#e-detail-frequency">Frequency</a>
       <a class="toc-item toc-h2" href="#e-detail-relational">Relational rostering</a>
       <a class="toc-item toc-h2" href="#e-detail-availability">Next roster availability</a>
-      <a class="toc-item toc-h2" href="#e-detail-add-roster">Adding to a new roster</a>
+      <a class="toc-item toc-h2" href="#e-detail-add-roster">Putting a volunteer on another roster</a>
       <a class="toc-item toc-h2" href="#e-detail-remove-roster">Taking someone off a roster</a>
     </div>
     <div class="toc-parent" id="parent-e-volunteer-facing">
@@ -777,9 +791,9 @@
       <a class="toc-item toc-h2" href="#c-rebuild-step5">Step 5 — Build &amp; Check</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step6">Step 6 — Notify</a>
     </div>
-    <a class="toc-item toc-h1" href="#c-menu">The Build Menu</a>
+    <a class="toc-item toc-h1" href="#c-menu">Pausing, re-dating or removing a roster (the ⋯ menu)</a>
     <div class="toc-parent" id="parent-c-season">
-      <a class="toc-parent-link" href="#c-season">Confirming Build Dates</a>
+      <a class="toc-parent-link" href="#c-season">Choosing which dates to build</a>
       <button class="toc-toggle" data-target="children-c-season" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-c-season">
@@ -787,9 +801,9 @@
       <a class="toc-item toc-h2" href="#c-season-shift">Shifting the boundary</a>
       <a class="toc-item toc-h2" href="#c-season-add">Adding an extra date</a>
     </div>
-    <a class="toc-item toc-h1" href="#c-manage-roles">Managing Roles</a>
+    <a class="toc-item toc-h1" href="#c-manage-roles">Adding and changing roles</a>
     <div class="toc-parent" id="parent-c-frequency">
-      <a class="toc-parent-link" href="#c-frequency">Season Length &amp; Season Type</a>
+      <a class="toc-parent-link" href="#c-frequency">How often a roster runs</a>
       <button class="toc-toggle" data-target="children-c-frequency" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-c-frequency">
@@ -797,14 +811,14 @@
       <a class="toc-item toc-h2" href="#c-frequency-season-type">Season type</a>
       <a class="toc-item toc-h2" href="#c-frequency-cap">Volunteer frequency cap</a>
     </div>
-    <a class="toc-item toc-h1" href="#c-reset">Resetting Roster Data</a>
+    <a class="toc-item toc-h1" href="#c-reset">Clearing a roster's test data</a>
     <a class="toc-item toc-h1" href="#c-delete">Deleting a Roster</a>
 
     <!-- Part F -->
     <div class="toc-part">Part F — Using the Board</div>
     <a class="toc-item toc-h1" href="#d-reading">Reading the Board</a>
     <div class="toc-parent" id="parent-d-actions">
-      <a class="toc-parent-link" href="#d-actions">Taking Action on a Cell</a>
+      <a class="toc-parent-link" href="#d-actions">Changing a card on the Board</a>
       <button class="toc-toggle" data-target="children-d-actions" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-d-actions">
@@ -813,7 +827,7 @@
       <a class="toc-item toc-h2" href="#d-live">When the roster changes</a>
     </div>
     <div class="toc-parent" id="parent-d-replace">
-      <a class="toc-parent-link" href="#d-replace">Manual Replacement</a>
+      <a class="toc-parent-link" href="#d-replace">Choosing a replacement yourself</a>
       <button class="toc-toggle" data-target="children-d-replace" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-d-replace">
@@ -821,7 +835,7 @@
       <a class="toc-item toc-h2" href="#d-cross-roster">Asking a volunteer from another roster</a>
     </div>
     <a class="toc-item toc-h1" href="#d-sms-chain">The SMS Replacement Chain</a>
-    <a class="toc-item toc-h1" href="#d-search">Searching for a Volunteer</a>
+    <a class="toc-item toc-h1" href="#d-search">Seeing all of a volunteer's dates</a>
     <a class="toc-item toc-h1" href="#d-print">Printing the roster</a>
 
     <!-- Part G -->
@@ -831,9 +845,9 @@
     <a class="toc-item toc-h1" href="#f-categories">Settings Categories</a>
     <a class="toc-item toc-h1" href="#f-app-content">News and podcasts in the app</a>
     <a class="toc-item toc-h1" href="#f-roster-coordinator">A different coordinator for one roster</a>
-    <a class="toc-item toc-h1" href="#f-sms-templates">SMS Settings</a>
+    <a class="toc-item toc-h1" href="#f-sms-templates">Texts and their wording</a>
     <a class="toc-item toc-h1" href="#f-credits">SMS Credits</a>
-    <a class="toc-item toc-h1" href="#f-quick-controls">Quick Controls</a>
+    <a class="toc-item toc-h1" href="#f-quick-controls">Switching rosters and test modes on or off (Quick Controls)</a>
     <a class="toc-item toc-h1" href="#f-advanced">Advanced Settings</a>
     <a class="toc-item toc-h1" href="#f-checklist">Setup Checklist</a>
     <div class="toc-parent" id="parent-f-trouble">
@@ -909,6 +923,55 @@
         <tr><td>More risk of volunteer burnout from over-rostering</td><td>Frequency caps and self-serve opt-outs built in</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <h2 class="section-title" id="how-do-i">How do I…?</h2>
+  <p>The everyday jobs, each linked to its steps. Use the search box for anything else.</p>
+  <div class="howdoi">
+    <div class="howdoi-group">
+      <div class="howdoi-label">On the Board, week to week</div>
+      <ul>
+        <li><a href="#d-swap" data-job>Swap two volunteers</a></li>
+        <li><a href="#d-decline" data-job>Someone can't make it</a></li>
+        <li><a href="#d-replace" data-job>Choose who covers a gap yourself</a></li>
+        <li><a href="#d-cross-roster" data-job>Ask someone from another roster to cover</a></li>
+        <li><a href="#d-search" data-job>See all of one volunteer's dates</a></li>
+        <li><a href="#d-print" data-job>Print the roster</a></li>
+      </ul>
+    </div>
+    <div class="howdoi-group">
+      <div class="howdoi-label">Volunteers</div>
+      <ul>
+        <li><a href="#e-add" data-job>Add one new volunteer</a></li>
+        <li><a href="#e-import" data-job>Import a list of volunteers</a></li>
+        <li><a href="#e-detail-add-roster" data-job>Put a volunteer on another roster</a></li>
+        <li><a href="#e-detail-remove-roster" data-job>Take a volunteer off a roster</a></li>
+        <li><a href="#e-detail-frequency" data-job>Change how often someone serves</a></li>
+        <li><a href="#e-detail-relational" data-job>Make two people serve together (or never together)</a></li>
+        <li><a href="#e-send-app-link" data-job>Send a volunteer their app link</a></li>
+        <li><a href="#e-detail-new-link" data-job>Give a volunteer a new link</a></li>
+      </ul>
+    </div>
+    <div class="howdoi-group">
+      <div class="howdoi-label">Each roster cycle</div>
+      <ul>
+        <li><a href="#c-rebuild" data-job>Start the next roster</a></li>
+        <li><a href="#c-rebuild-step4" data-job>Ask volunteers when they're free</a></li>
+        <li><a href="#c-rebuild-check" data-job>Fill empty slots after a build</a></li>
+        <li><a href="#c-rebuild-check" data-job>Send the roster to volunteers</a></li>
+        <li><a href="#c-season-add" data-job>Add an extra date (Christmas Eve, Good Friday)</a></li>
+        <li><a href="#c-season-remove" data-job>Skip a date</a></li>
+        <li><a href="#c-menu-pause" data-job>Pause a roster for a while</a></li>
+      </ul>
+    </div>
+    <div class="howdoi-group">
+      <div class="howdoi-label">Set-up and settings</div>
+      <ul>
+        <li><a href="#c-new-roster" data-job>Set up a new roster</a></li>
+        <li><a href="#c-manage-roles" data-job>Add or change a role</a></li>
+        <li><a href="#f-credits" data-job>Buy more text credits</a></li>
+      </ul>
+    </div>
   </div>
 
   <h2 class="section-title" id="a-how-it-works">How Rostas Works — The Big Picture</h2>
@@ -1612,7 +1675,7 @@
     <figcaption>The profile top bar — step between volunteers with the arrows, and widen the search to all rosters with the scope toggle.</figcaption>
   </figure>
 
-  <h3 class="sub-title" id="e-detail-add-roster">Adding a Volunteer to a New Roster</h3>
+  <h3 class="sub-title" id="e-detail-add-roster">Putting a volunteer on another roster</h3>
   <p>When a volunteer starts serving on another roster:</p>
   <ol class="steps">
     <li>Open their profile.</li>
@@ -1723,7 +1786,7 @@
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    If a volunteer calls to say they can make it after all, put them back from the Board: <strong>Undo decline</strong> on a Declined card, or <strong>Keep [name], stop requests</strong> while Rostas is still looking. See <a href="#d-actions">Taking Action on a Cell</a>.
+    If a volunteer calls to say they can make it after all, put them back from the Board: <strong>Undo decline</strong> on a Declined card, or <strong>Keep [name], stop requests</strong> while Rostas is still looking. See <a href="#d-actions">Changing a card on the Board</a>.
   </div>
 
   <h2 class="section-title" id="e-volunteer-app">The Rostas App</h2>
@@ -1927,7 +1990,7 @@
   <p>You'll also see a line like "People who do this role typically also do about 0.8 other roles" — a reminder that many of your volunteers are shared across roles, which is exactly what the fill-order effect below is about.</p>
 
   <h2 class="section-title" id="d-reorder">Reordering roles</h2>
-  <p>Some shortfalls aren't about headcount at all — they're about <strong>fill order</strong>. Rostas fills roles top-to-bottom in the order they're listed on <a href="#c-manage-roles">Managing Roles</a>: once a volunteer is placed in one role for a date, they're not considered for any role further down the list that same date. A role near the bottom can end up short simply because every volunteer who could have filled it was claimed by an earlier role first.</p>
+  <p>Some shortfalls aren't about headcount at all — they're about <strong>fill order</strong>. Rostas fills roles top-to-bottom in the order they're listed on <a href="#c-manage-roles">Adding and changing roles</a>: once a volunteer is placed in one role for a date, they're not considered for any role further down the list that same date. A role near the bottom can end up short simply because every volunteer who could have filled it was claimed by an earlier role first.</p>
 
   <p>Where moving a short role earlier in that order would help, its card shows a distinct suggestion:</p>
 
@@ -1943,14 +2006,14 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
-    <strong>Insights tells you, it doesn't do it for you.</strong> Every suggestion on this page is informational. Reactivating a volunteer, loosening a cap, recruiting someone new, or reordering roles are all things you choose to do yourself — from a Profile, or from <a href="#c-manage-roles">Managing Roles</a>. Insights just points you at what's worth trying.
+    <strong>Insights tells you, it doesn't do it for you.</strong> Every suggestion on this page is informational. Reactivating a volunteer, loosening a cap, recruiting someone new, or reordering roles are all things you choose to do yourself — from a Profile, or from <a href="#c-manage-roles">Adding and changing roles</a>. Insights just points you at what's worth trying.
   </div>
 
   <!-- ══ PART E ══════════════════════════════════════ -->
   <div class="part-banner" id="part-c">
     <span class="part-label">Part E</span>
     <span class="part-title">The Roster Cycle</span>
-    <span class="part-sub">New Roster Wizard · Roster Wizard · The Build Menu</span>
+    <span class="part-sub">New Roster Wizard · Roster Wizard · The ⋯ menu</span>
   </div>
 
   <p>There are two roster wizards in Rostas. The <strong>New Roster Wizard</strong> runs once when you set up a new roster type — it defines the name, roles, season dates, and volunteers. The <strong>Roster Wizard</strong> runs every few weeks to collect availability, build the roster, and send notifications to volunteers.</p>
@@ -1995,7 +2058,7 @@
     <strong>These two colours aren't the same as the date bands in the wizard.</strong> On the Builds dashboard, chip colour just means past (blue) or upcoming (green). On the Build Dates screen you'll see a richer set of coloured bands for last build, this build, next build, and excluded dates. That's a different view with a different job.
   </div>
 
-  <p>Beside the state button, the <strong>⋯</strong> menu holds the rest of what you can do with a roster: pausing, adjusting dates, roles and season length, resetting, or deleting. See <a href="#c-menu">The Build Menu</a> below for the full walkthrough.</p>
+  <p>Beside the state button, the <strong>⋯</strong> menu holds the rest of what you can do with a roster: pausing, adjusting dates, roles and season length, resetting, or deleting. See <a href="#c-menu">the ⋯ menu</a> below for the full walkthrough.</p>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
@@ -2020,7 +2083,7 @@
   </figure>
 
   <h3 class="sub-title" id="c-new-step2">Step 2 — Roles</h3>
-  <p>Define the roles that need to be filled each time this roster runs. For each role, set a minimum and maximum number of people required. You can add, rename, or retire roles later from <a href="#c-manage-roles">Managing Roles</a>.</p>
+  <p>Define the roles that need to be filled each time this roster runs. For each role, set a minimum and maximum number of people required. You can add, rename, or retire roles later from <a href="#c-manage-roles">Adding and changing roles</a>.</p>
 
   <figure>
     <img src="crops/new-roster-step1-roles.png" data-full="new-roster-step1-roles.png" alt="New Roster Wizard Step 2 — Roles, showing role rows with min and max fields" class="screenshot crop" width="512" height="376" loading="lazy" decoding="async">
@@ -2087,7 +2150,7 @@
   <p>Directly under the circles is one bar that stays in the same place on every step: <strong>← Back</strong> on the left, "Step N of 6" in the middle, and the main button (for example <strong>Continue to Role Prefs →</strong>) on the right. Some steps have their own buttons inside the card instead, and then the right-hand button is hidden.</p>
 
   <h3 class="sub-title" id="c-rebuild-step1">Step 1 — Confirm Dates</h3>
-  <p>The wizard opens on the <strong>Build Dates</strong> screen, where you confirm which dates this build covers. A small box at the top reminds you how it works: <strong>clicking a date</strong> removes it from the build, and <strong>clicking the blue arrow</strong> makes the build longer or shorter. You can also add a one-off date with <strong>+ Add Date</strong>. All of this is explained in <a href="#c-season">Confirming Build Dates</a> below.</p>
+  <p>The wizard opens on the <strong>Build Dates</strong> screen, where you confirm which dates this build covers. A small box at the top reminds you how it works: <strong>clicking a date</strong> removes it from the build, and <strong>clicking the blue arrow</strong> makes the build longer or shorter. You can also add a one-off date with <strong>+ Add Date</strong>. All of this is explained in <a href="#c-season">Choosing which dates to build</a> below.</p>
   <p>When the dates look right, click <strong>Continue to Roles →</strong> on the Build Dates title row. That saves the dates and takes you to the next step.</p>
 
   <figure>
@@ -2279,7 +2342,7 @@
 
   <!-- ══ CONFIRM SEASON ══ -->
   <!-- ══ THE BUILD MENU ══ -->
-  <h2 class="section-title" id="c-menu">The Build Menu</h2>
+  <h2 class="section-title" id="c-menu">Pausing, re-dating or removing a roster (the ⋯ menu)</h2>
   <p>The <strong>⋯</strong> menu beside each row's state button on the Builds dashboard holds everything you do with a roster between builds — pausing it, adjusting its dates or roles, changing its season length, clearing its data, or deleting it outright. Click it to open a pop-up of options.</p>
 
   <figure>
@@ -2294,10 +2357,10 @@
       </thead>
       <tbody>
         <tr><td><strong>Pause roster</strong> / <strong>Resume roster</strong></td><td>Temporarily stops all activity for this roster — no builds, reminders, or replacements — without losing any history. The same option resumes it. See below.</td></tr>
-        <tr><td><strong>Manage Dates</strong></td><td>Opens the Build Dates screen on its own, so you can adjust which dates this roster runs on — remove one, shift the build boundary, or add a one-off extra date. See <a href="#c-season">Confirming Build Dates</a> below. Changes apply from the next build onward — dates already built are never changed retroactively.</td></tr>
-        <tr><td><strong>Manage roles</strong></td><td>Opens the roles screen for this roster — add, rename, set headcounts, or deactivate roles. See <a href="#c-manage-roles">Managing Roles</a> below. Also applies from the next build onward.</td></tr>
-        <tr><td><strong>Season Length</strong></td><td>Opens the Season Length page, where you set how often the roster runs and whether its season is fixed-term or ongoing. See <a href="#c-frequency">Season Length &amp; Season Type</a> below.</td></tr>
-        <tr><td><strong>Reset roster data</strong></td><td>Wipes this roster type's operational data — assignments, availability, replacement history — while keeping the roster shell, its roles, your volunteers, and your settings intact. See <a href="#c-reset">Resetting Roster Data</a> below.</td></tr>
+        <tr><td><strong>Manage Dates</strong></td><td>Opens the Build Dates screen on its own, so you can adjust which dates this roster runs on — remove one, shift the build boundary, or add a one-off extra date. See <a href="#c-season">Choosing which dates to build</a> below. Changes apply from the next build onward — dates already built are never changed retroactively.</td></tr>
+        <tr><td><strong>Manage roles</strong></td><td>Opens the roles screen for this roster — add, rename, set headcounts, or deactivate roles. See <a href="#c-manage-roles">Adding and changing roles</a> below. Also applies from the next build onward.</td></tr>
+        <tr><td><strong>Season Length</strong></td><td>Opens the Season Length page, where you set how often the roster runs and whether its season is fixed-term or ongoing. See <a href="#c-frequency">How often a roster runs</a> below.</td></tr>
+        <tr><td><strong>Reset roster data</strong></td><td>Wipes this roster type's operational data — assignments, availability, replacement history — while keeping the roster shell, its roles, your volunteers, and your settings intact. See <a href="#c-reset">Clearing a roster's test data</a> below.</td></tr>
         <tr><td><strong>Delete roster</strong></td><td>Permanently removes the roster type and everything tied to it. See <a href="#c-delete">Deleting a Roster</a> below.</td></tr>
       </tbody>
     </table>
@@ -2306,7 +2369,7 @@
   <h3 class="sub-title" id="c-menu-pause">Pause / Resume roster</h3>
   <p>Pausing a roster stops all automatic activity for it straight away — no builds, no reminder emails or texts, no availability emails or nudges, and no replacement chains (a chain already running stops asking people) — without losing any history. Anything that falls due while it's paused is skipped, not saved up for later. The menu option and the row's state button both switch to <strong>Resume roster</strong> while paused; click either to pick back up exactly where you left off.</p>
 
-  <h2 class="section-title" id="c-season">Confirming Build Dates</h2>
+  <h2 class="section-title" id="c-season">Choosing which dates to build</h2>
   <p>Before each build you confirm exactly which dates it covers, on the <strong>Build Dates</strong> screen. It lays out your roster's dates in three bands — what's already built, what this build will cover, and what's coming next — and lets you drop a date you don't want, shift the boundary between builds, or add a one-off extra date such as Christmas Day or Good Friday.</p>
 
   <p>You reach it two ways: as the first step of a build (<a href="#c-rebuild-step1">Confirm Dates</a>), or on its own from the Builds dashboard — <strong>⋯</strong> — <strong>Manage Dates</strong>. A small box at the top of the screen sums up the two main controls: clicking a date removes it from the build, and clicking the blue arrow makes the build longer or shorter.</p>
@@ -2354,7 +2417,7 @@
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>Confirm early.</strong> Ideally do this a few weeks before the dates arrive, so there's time to collect availability and build. A <strong>perpetual</strong> roster rolls forward on its own, so each cycle you're simply confirming the next stretch of dates; a <strong>fixed-term</strong> roster is confirmed up to its end date. (See Frequency &amp; Season Type for the difference.)
+    <strong>Confirm early.</strong> Ideally do this a few weeks before the dates arrive, so there's time to collect availability and build. A <strong>perpetual</strong> roster rolls forward on its own, so each cycle you're simply confirming the next stretch of dates; a <strong>fixed-term</strong> roster is confirmed up to its end date. (See <a href="#c-frequency-season-type">Season type</a> for the difference.)
   </div>
 
   <div class="callout callout-info">
@@ -2363,7 +2426,7 @@
   </div>
 
   <!-- ══ MANAGING ROLES ══ -->
-  <h2 class="section-title" id="c-manage-roles">Managing Roles</h2>
+  <h2 class="section-title" id="c-manage-roles">Adding and changing roles</h2>
   <p>Once a roster exists, you can add, rename, re-size, reorder or retire its roles at any time:</p>
   <ol class="steps">
     <li>Open <strong>Builds</strong>.</li>
@@ -2417,7 +2480,7 @@
   </div>
 
   <!-- ══ FREQUENCY ══ -->
-  <h2 class="section-title" id="c-frequency">Season Length &amp; Season Type</h2>
+  <h2 class="section-title" id="c-frequency">How often a roster runs</h2>
   <p>There are two separate frequency ideas in Rostas: how often the <em>roster</em> runs, and how often each <em>volunteer</em> serves. This section covers the roster side — its cadence and whether the season is fixed or ongoing. The per-volunteer cap is set on each person's profile (see <a href="#e-detail-frequency">Frequency on the Profile detail page</a>); the two are explained together at the end.</p>
 
   <h3 class="sub-title" id="c-frequency-cadence">Roster cadence — how often the roster runs</h3>
@@ -2486,7 +2549,7 @@
 
   <!-- ══ REBUILD WIZARD ══ -->
   <!-- ══ RESETTING ROSTER DATA ══ -->
-  <h2 class="section-title" id="c-reset">Resetting Roster Data</h2>
+  <h2 class="section-title" id="c-reset">Clearing a roster's test data</h2>
   <p><strong>Reset roster data</strong> clears a roster type's operational history — built assignments, availability responses, replacement chains — without touching the roster's setup: its roles, volunteers, and season stay exactly as they are. </p>
   <ol class="steps">
     <li>Open <strong>Builds</strong>.</li>
@@ -2587,7 +2650,7 @@
   </ol>
 
 
-  <h2 class="section-title" id="d-actions">Taking Action on a Cell</h2>
+  <h2 class="section-title" id="d-actions">Changing a card on the Board</h2>
   <p>Click any card on the Board to select it. The card gets a navy border and an action bar appears above the green role headings, showing who is on the card, their frequency and any recent change, with buttons on the right. The buttons depend on the card: a Filled card has nothing to confirm, so it shows no fill button at all.</p>
 
   <figure>
@@ -2615,7 +2678,7 @@
         <tr><td><strong>Undo decline</strong></td><td>Declined cards</td><td>Puts the person back on the card as Filled. Use it when they declined by mistake or have changed their mind. Sends nothing.</td></tr>
         <tr><td><strong>Keep [name], stop requests</strong></td><td>Cards in an SMS chain (blue)</td><td>Keeps the original person on and stops the replacement requests. Use it when they've told you they can come after all. Sends nothing.</td></tr>
         <tr><td><strong>Save as declined</strong></td><td>Filled, Pending and Declined cards</td><td>Asks you to confirm, then marks the person declined and starts the automated SMS replacement chain. See <a href="#d-decline">Saving someone as declined</a>.</td></tr>
-        <tr><td><strong>Replace</strong></td><td>Any card with someone on it (reads <strong>Pick replacement</strong> on a card in an SMS chain)</td><td>Opens the replacement panel so you choose who covers. See <a href="#d-replace">Manual Replacement</a>.</td></tr>
+        <tr><td><strong>Replace</strong></td><td>Any card with someone on it (reads <strong>Pick replacement</strong> on a card in an SMS chain)</td><td>Opens the replacement panel so you choose who covers. See <a href="#d-replace">Choosing a replacement yourself</a>.</td></tr>
         <tr><td><strong>Assign volunteer</strong></td><td>Unfilled cards (red dashed)</td><td>Opens the same panel so you can fill the gap.</td></tr>
         <tr><td><strong>Swap with…</strong></td><td>Any card with someone on it</td><td>Swaps this assignment with another volunteer's slot — both move at once. Rostas flags any clashes as amber warnings, but they're advisory: you can always proceed.</td></tr>
         <tr><td><strong>Close</strong></td><td>Every card</td><td>Deselects the card without making any changes.</td></tr>
@@ -2705,7 +2768,7 @@
     <figcaption>A swap with conflicts — the amber warnings inform you, but the swap button stays available.</figcaption>
   </figure>
 
-  <h2 class="section-title" id="d-replace">Manual Replacement</h2>
+  <h2 class="section-title" id="d-replace">Choosing a replacement yourself</h2>
   <p>To choose who covers a slot yourself:</p>
   <ol class="steps">
     <li>Click the card on the Board.</li>
@@ -2764,7 +2827,7 @@
     <strong>This is a one-off ask, not an addition to the roster.</strong> Choosing someone in these bands sends them a one-off request for this single date — the same app/SMS/email delivery as everywhere else — but doesn't add them to the roster. Use it for genuine gap-filling, and it's worth a heads-up to the volunteer (and their usual coordinator) first, since it crosses roster boundaries.
   </div>
 
-  <h2 class="section-title" id="d-two-roles">Assigning a Second Role on the Same Date</h2>
+  <h2 class="section-title" id="d-two-roles">Giving someone two roles on one date</h2>
   <p>Occasionally a volunteer may need to cover two roles on the same date — for example, stepping in for a missing team member while also serving in their usual role. Rostas supports this but flags it clearly so you're making a deliberate choice rather than an accidental double-booking.</p>
 
   <figure>
@@ -2810,7 +2873,7 @@
     <strong>Quiet hours apply to the SMS chain.</strong> Messages are never sent during your quiet hours (set in Settings → Timing &amp; behaviour, default 9pm–8am). If the chain reaches a volunteer inside that window it pauses automatically and resumes once quiet hours end. You can monitor progress on the board — cells in the SMS chain state show in blue.
   </div>
 
-  <h2 class="section-title" id="d-search">Searching for a Volunteer</h2>
+  <h2 class="section-title" id="d-search">Seeing all of a volunteer's dates</h2>
   <p>To see all of one volunteer's upcoming dates at once:</p>
   <ol class="steps">
     <li>Type their name in the <strong>Search volunteer…</strong> box at the top right of the Board. Their assignments are highlighted across the whole Board.
@@ -3004,7 +3067,7 @@
   </ul>
   <p>Everything else stays with you: emails that cover more than one roster, your coordinator link, and the test modes. Give each roster its own coordinator, or just the one or two that need it. To hand a roster back to yourself, clear its name and email.</p>
 
-  <h2 class="section-title" id="f-sms-templates">SMS Settings in Detail</h2>
+  <h2 class="section-title" id="f-sms-templates">Texts and their wording</h2>
   <p>Three settings here are worth understanding before you go live.</p>
 
   <div class="callout callout-warn">
@@ -3131,7 +3194,7 @@
     <strong>Keeping SMS costs down.</strong> Reminders are the biggest driver of SMS use — one text per rostered volunteer before every service. If you'd like to stretch your credits further, email reminders cost nothing, and you can rely on SMS mainly for the time-sensitive replacement chain. Your Rostas contact can help you tune this.
   </div>
 
-  <h2 class="section-title" id="f-quick-controls">Quick Controls</h2>
+  <h2 class="section-title" id="f-quick-controls">Switching rosters and test modes on or off (Quick Controls)</h2>
   <p>Quick Controls contains the most commonly needed on/off switches. Check these if something isn't behaving as expected.</p>
 
   <figure>
@@ -3528,6 +3591,15 @@
       }
 
       sections.push({ id: h.id, title: h.textContent.trim(), part: partLabel, body: body.slice(0, 400), fullBody: body });
+    });
+
+    // The "How do I…?" jobs are searchable too, so "swap" or "can't make it"
+    // offers the job and jumps straight to its steps.
+    Array.prototype.forEach.call(document.querySelectorAll('a[data-job]'), function(a) {
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      var goesTo = 'Steps: ' + (target ? target.textContent.trim() : '');
+      sections.push({ id: id, title: a.textContent.trim(), part: 'How do I…?', body: goesTo, fullBody: goesTo });
     });
 
     var fuse = new Fuse(sections, {

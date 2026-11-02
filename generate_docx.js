@@ -29,6 +29,7 @@ const {
   TableOfContents, HeadingLevel, BorderStyle, WidthType, ShadingType,
   PageNumber, PageBreak, UnderlineType, Tab,
   TabStopType, LeaderType,
+  Bookmark, InternalHyperlink,
 } = require('docx');
 
 // ─── Config ───────────────────────────────────────────────────────────────────
@@ -62,6 +63,9 @@ const C = {
 
 // docx-js ImageRun.transformation takes pixels (96dpi). 1 inch = 1440 DXA = 96px.
 function dxaToEmu(dxa) { return Math.round(dxa * 96 / 1440); }
+
+// Word bookmark name for an HTML heading id (letters, digits, underscore only)
+function bookmarkName(id) { return 'h_' + id.replace(/[^A-Za-z0-9]/g, '_').slice(0, 38); }
 
 // Scale image to fit max width, preserving real aspect ratio
 // Cropped screenshots (class "crop") use their HTML width attribute as the cap,
@@ -192,6 +196,10 @@ function inlineRuns($, node, style = {}) {
         const href = $(n).attr('href') || '';
         if (href.startsWith('http')) {
           runs.push(new ExternalHyperlink({ link: href,
+            children: [new TextRun({ text: $(n).text(), style: 'Hyperlink' })] }));
+        } else if (href.startsWith('#') && href.length > 1 && $('[id="' + href.slice(1) + '"]').is('h2,h3')) {
+          // In-guide link to a heading: jump to its bookmark in Word too
+          runs.push(new InternalHyperlink({ anchor: bookmarkName(href.slice(1)),
             children: [new TextRun({ text: $(n).text(), style: 'Hyperlink' })] }));
         } else ch.forEach(c => walk(c, s));
         break;
@@ -421,9 +429,10 @@ async function buildContent($, imgs) {
 
     // h2 → Heading 1 (page break before, except first)
     if (tag === 'h2' && $el.hasClass('section-title')) {
+      const run = new TextRun({ text: $el.text().trim(), bold: true, color: C.heading });
       out.push(new Paragraph({
         heading: HeadingLevel.HEADING_1,
-        children: [new TextRun({ text: $el.text().trim(), bold: true, color: C.heading })],
+        children: [$el.attr('id') ? new Bookmark({ id: bookmarkName($el.attr('id')), children: [run] }) : run],
         spacing: { before: firstSection ? 0 : 400, after: 140 },
         pageBreakBefore: !firstSection,
       }));
@@ -433,9 +442,10 @@ async function buildContent($, imgs) {
 
     // h3 → Heading 2
     if (tag === 'h3') {
+      const run = new TextRun({ text: $el.text().trim(), bold: true, color: C.heading });
       out.push(new Paragraph({
         heading: HeadingLevel.HEADING_2,
-        children: [new TextRun({ text: $el.text().trim(), bold: true, color: C.heading })],
+        children: [$el.attr('id') ? new Bookmark({ id: bookmarkName($el.attr('id')), children: [run] }) : run],
         spacing: { before: 220, after: 80 },
       }));
       return;
@@ -578,6 +588,15 @@ async function buildContent($, imgs) {
           spacing: { before: 100, after: 100 },
         }));
       }
+      return;
+    }
+
+    // "How do I…?" group label
+    if ($el.hasClass('howdoi-label')) {
+      out.push(new Paragraph({
+        children: [new TextRun({ text: $el.text().trim(), bold: true, color: C.heading })],
+        spacing: { before: 160, after: 40 },
+      }));
       return;
     }
 

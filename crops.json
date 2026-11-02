@@ -285,8 +285,8 @@
     },
     "settings-panel-sms": {
       "src": "settings-panel-sms.png",
-      "box": [1098, 236, 1672, 800],
-      "highlights": [[1114, 568, 1664, 608], [1114, 615, 1249, 650]]
+      "box": [1010, 294, 1522, 762],
+      "highlights": [[1360, 524, 1502, 544], [1032, 703, 1318, 722]]
     },
     "buy-credits": {
       "src": "buy-credits.png",

@@ -1257,7 +1257,7 @@
 
   <div class="step-box">
     <div class="step-label">Part 1 — Make a Church profile in Chrome</div>
-    <ol>
+    <ol class="steps">
       <li>Open Chrome as normal.</li>
       <li>Click your <strong>profile picture</strong> at the top right, just left of the three dots (if you have no picture, it's a small round person outline).</li>
       <li>Click <strong>Add</strong> (some versions say <strong>Add Chrome profile</strong>).</li>
@@ -1269,7 +1269,7 @@
 
   <div class="step-box">
     <div class="step-label">Part 2 — Install Rostas as an app</div>
-    <ol>
+    <ol class="steps">
       <li>In the <strong>Church</strong> window (check the name and colour at the top right), open your coordinator link and wait for Rostas to load.</li>
       <li>Click the <strong>three dots</strong> (top right) → <strong>Cast, save and share</strong> → <strong>Install page as app…</strong></li>
       <li>Name it <strong>Rostas</strong> and click <strong>Install</strong>. Rostas opens in its own window, with the Rostas <strong>R</strong> as its icon.</li>
@@ -1399,7 +1399,7 @@
   <h3 class="sub-title" id="e-no-roles">Finding volunteers with no roles set</h3>
   <p>A volunteer who is ticked for a roster but hasn't been given any roles on it is left out of that roster's builds — Rostas has nothing to place them in. The <strong>No roles set</strong> button finds these people so you can set their roles in one sitting.</p>
 
-  <ol>
+  <ol class="steps">
     <li>Pick a roster using the pills at the top of the Profiles page. The <strong>No roles set</strong> button next to Insights shows how many volunteers on that roster still have no roles.</li>
     <li>Click the button. The list narrows to just those volunteers, and the button turns gold. Click it again to see everyone.</li>
     <li>Click a name to open their profile. A bar at the top shows <em>No roles set</em>, the roster, and where you are in the list (for example "volunteer 2 of 3").</li>
@@ -1454,12 +1454,19 @@
   </div>
 
   <h3 class="sub-title" id="e-detail-new-link">Issuing a volunteer a new link</h3>
-  <p>Every volunteer's emails, texts and app carry a link that is private to them. Anyone holding that link can see their roster, reply for them and set up the app as them, so treat it like a key. If a link may have got into the wrong hands, give the volunteer a new one: open their profile, click the <strong>⋯</strong> button beside <strong>Edit contact details</strong>, and choose <strong>Issue new link</strong>.</p>
+  <p>Every volunteer's emails, texts and app carry a link that is private to them. Anyone holding that link can see their roster, reply for them and set up the app as them, so treat it like a key. If a link may have got into the wrong hands, give the volunteer a new one:</p>
+  <ol class="steps">
+    <li>Open their profile.</li>
+    <li>Click the <strong>⋯</strong> button beside <strong>Edit contact details</strong>.
+      <figure>
+        <img src="vol-more-menu.png" alt="A volunteer profile with the ⋯ menu open beside Edit contact details, showing Deactivate, Issue new link and Delete volunteer" class="screenshot-sm" width="381" height="503" loading="lazy" decoding="async">
+        <figcaption>The ⋯ button beside <strong>Edit contact details</strong> opens this menu.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Issue new link</strong>.</li>
+    <li>Click <strong>OK</strong> to confirm. Their old links stop working straight away, and the app on their phone signs out. Their next email or text carries the new link, and they set the app up again from it.</li>
+  </ol>
 
-  <figure>
-    <img src="vol-more-menu.png" alt="A volunteer profile with the ⋯ menu open beside Edit contact details, showing Deactivate, Issue new link and Delete volunteer" class="screenshot-sm" width="381" height="503" loading="lazy" decoding="async">
-    <figcaption>The ⋯ button beside <strong>Edit contact details</strong> opens this menu. <strong>Issue new link</strong> is the middle option.</figcaption>
-  </figure>
 
   <p>Use it when:</p>
   <ul>
@@ -1489,17 +1496,25 @@
   </figure>
 
   <h3 class="sub-title" id="e-detail-role-linking">Linking roles together</h3>
-  <p>Sometimes two roles should travel together — Say a worship leader always also&nbsp; plays an acoustic guitar.&nbsp; &nbsp;Role linking handles this. Both roles must be set to <strong>Does This</strong> first; then click the link icon (🔗) on a role card to open a dropdown of roles you can link it to, and choose the link type.</p>
+  <p>Sometimes two roles should travel together — Say a worship leader always also&nbsp; plays an acoustic guitar.&nbsp; &nbsp;Role linking handles this.</p>
+  <ol class="steps">
+    <li>On the volunteer's profile, set both roles to <strong>Does This</strong>.</li>
+    <li>Click the link icon (🔗) on one of the two role cards. A list of the roles you can link it to opens.
+      <figure>
+        <img src="profile-role-link-dropdown.png" alt="Dropdown of linkable roles after clicking a role card link icon" class="screenshot" width="524" height="278" loading="lazy" decoding="async">
+        <figcaption>The roles this one can be linked to.</figcaption>
+      </figure>
+    </li>
+    <li>Click the other role.</li>
+    <li>Choose the link type: <strong>Dominant — Shadow</strong> or <strong>Equal Pairing</strong> (see the table below).
+      <figure>
+        <img src="profile-role-link-type-dialog.png" alt="Dialog to choose Dominant-Shadow or Equal Pairing link type" class="screenshot" width="524" height="278" loading="lazy" decoding="async">
+        <figcaption>Choose the link type.</figcaption>
+      </figure>
+    </li>
+  </ol>
 
-  <figure>
-    <img src="profile-role-link-dropdown.png" alt="Dropdown of linkable roles after clicking a role card link icon" class="screenshot" width="524" height="278" loading="lazy" decoding="async">
-    <figcaption>Clicking a role's link icon lists the other roles it can be linked to.</figcaption>
-  </figure>
 
-  <figure>
-    <img src="profile-role-link-type-dialog.png" alt="Dialog to choose Dominant-Shadow or Equal Pairing link type" class="screenshot" width="524" height="278" loading="lazy" decoding="async">
-    <figcaption>After picking a role, choose the link type —&nbsp; Equal Paired or Dominant—Shadow.</figcaption>
-  </figure>
 
   <div class="tbl-wrap">
     <table>
@@ -1598,20 +1613,35 @@
   </figure>
 
   <h3 class="sub-title" id="e-detail-add-roster">Adding a Volunteer to a New Roster</h3>
-  <p>If a volunteer starts serving in an additional roster type, click the inactive roster tab on their detail page. A confirmation dialog appears — confirm to add them to that roster. Their settings for the new roster start fresh and can be configured from the right panel.</p>
+  <p>When a volunteer starts serving on another roster:</p>
+  <ol class="steps">
+    <li>Open their profile.</li>
+    <li>Under <strong>Roster Types</strong>, click the white pill for the new roster (for example <em>Music</em>).</li>
+    <li>Click <strong>Add to [roster] roster</strong>. They're included in that roster's next build.
+      <figure>
+        <img src="vol-detail-add-roster.png" alt="Add to roster confirmation dialog showing roster name and Confirm and Cancel buttons" class="screenshot" width="826" height="262" loading="lazy" decoding="async">
+        <figcaption>The confirmation before Rostas adds them.</figcaption>
+      </figure>
+    </li>
+    <li>Set their roles, frequency and partners for the new roster. These start fresh.</li>
+  </ol>
 
-  <figure>
-    <img src="vol-detail-add-roster.png" alt="Add to roster confirmation dialog showing roster name and Confirm and Cancel buttons" class="screenshot" width="826" height="262" loading="lazy" decoding="async">
-    <figcaption>Clicking an inactive roster tab shows a confirmation before adding the volunteer. Once confirmed they appear in that roster's volunteer pool at the next build.</figcaption>
-  </figure>
 
   <h3 class="sub-title" id="e-detail-remove-roster">Taking a Volunteer Off a Roster</h3>
-  <p>When someone stops serving on a roster, open their profile and click that roster's navy pill under <strong>Roster Types</strong> (for example <em>Sunday</em>). A box opens asking <em>Remove from Sunday?</em>. If they're on any upcoming dates, a yellow line at the top says how many.</p>
+  <p>When someone stops serving on a roster:</p>
+  <ol class="steps">
+    <li>Open their profile.</li>
+    <li>Under <strong>Roster Types</strong>, click that roster's navy pill (for example <em>Sunday</em>). A box asks <em>Remove from Sunday?</em>. If they're on any upcoming dates, a yellow line at the top says how many.
+      <figure>
+        <img src="vol-remove-from-roster.png" alt="Remove from Sunday? pop-up: 2 upcoming assignments affected, Finishing this cycle, Remove from roster with two unticked boxes Release their upcoming assignments and Let them know they're no longer rostered, and Cancel" class="screenshot-mid" width="578" height="733" loading="lazy" decoding="async">
+        <figcaption>Both tick boxes under Remove from roster start unticked.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Finishing this cycle</strong> if they'll serve the dates they already have. Then you're done.</li>
+    <li>Or, to take them off now, first tick whichever boxes you want under it: <strong>Release their upcoming assignments</strong> and <strong>Let them know they're no longer rostered</strong> (both explained below).</li>
+    <li>Click <strong>Remove from roster</strong>.</li>
+  </ol>
 
-  <figure>
-    <img src="vol-remove-from-roster.png" alt="Remove from Sunday? pop-up: 2 upcoming assignments affected, Finishing this cycle, Remove from roster with two unticked boxes Release their upcoming assignments and Let them know they're no longer rostered, and Cancel" class="screenshot-mid" width="578" height="733" loading="lazy" decoding="async">
-    <figcaption>The pop-up when you click a roster pill. Both tick boxes under Remove from roster start unticked.</figcaption>
-  </figure>
 
   <div class="tbl-wrap">
     <table>
@@ -1784,17 +1814,19 @@
   </figure>
 
   <h3 class="sub-title" id="e-send-app-link">Sending a volunteer their app link</h3>
-  <p>You don't have to wait for the next roster email. From the <strong>Profiles</strong> list you can send any volunteer their own app link straight away, by text or by email. Click the <strong>⋯</strong> button at the right-hand end of their row and choose one of the two <strong>Install App</strong> options.</p>
+  <p>You don't have to wait for the next roster email. You can send any volunteer their own app link straight away, by text or by email:</p>
+  <ol class="steps">
+    <li>Open <strong>Profiles</strong>.</li>
+    <li>Click the <strong>⋯</strong> button at the right-hand end of their row.
+      <figure>
+        <img src="crops/vol-list-install-menu.png" data-full="vol-list-install-menu.png" alt="The Profiles list with the ⋯ menu open on a volunteer's row, showing Install App TXT, Install App Email, Deactivate and Delete volunteer" class="screenshot crop" width="627" height="332" loading="lazy" decoding="async">
+        <figcaption>The two <strong>Install App</strong> options are at the top of the menu.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Install App TXT</strong> or <strong>Install App Email</strong>.</li>
+  </ol>
 
-  <figure>
-    <img src="crops/vol-list-install-menu.png" data-full="vol-list-install-menu.png" alt="The Profiles list with the ⋯ menu open on a volunteer's row, showing Install App TXT, Install App Email, Deactivate and Delete volunteer" class="screenshot crop" width="627" height="332" loading="lazy" decoding="async">
-    <figcaption>The ⋯ button at the end of each row opens this menu. The two <strong>Install App</strong> options are at the top.</figcaption>
-  </figure>
 
-  <figure>
-    <img src="vol-install-menu-options.png" alt="The row menu: Install App TXT, Install App Email, Deactivate, Delete volunteer" class="screenshot-sm" width="255" height="240" loading="lazy" decoding="async">
-    <figcaption>The menu close up.</figcaption>
-  </figure>
 
   <div class="tbl-wrap">
     <table>
@@ -2118,12 +2150,20 @@
     </table>
   </div>
 
-  <p>Sending takes about a minute ("Sending availability requests…"). Once the poll has gone, the step shows how it was sent (for example "Availability requests sent to 30 (30 by email)") and who has <strong>Responded</strong> and who has <strong>Not yet</strong>, with a progress bar. Click <strong>Nudge the N who have not answered</strong> to chase the rest. The nudge goes by the app or email straight away, and anyone still silent two hours later gets one text (never during quiet hours). When you're ready, click <strong>Continue to Build Roster</strong>.</p>
+  <p>To send the poll:</p>
+  <ol class="steps">
+    <li>Choose <strong>Send an availability poll</strong>.</li>
+    <li>Click <strong>Send the poll</strong>. Sending takes about a minute.</li>
+    <li>Watch the <strong>Responded</strong> and <strong>Not yet</strong> counts as replies come in. The step also says how the poll went out (for example "Availability requests sent to 30 (30 by email)").
+      <figure>
+        <img src="crops/roster-wizard-step4-availability-waiting.png" data-full="roster-wizard-step4-availability-waiting.png" alt="Roster Wizard Step 4 — Availability after the poll was sent, showing Responded and Not yet counts and the Nudge button" class="screenshot crop" width="585" height="278" loading="lazy" decoding="async">
+        <figcaption>Waiting for replies. The counts update as volunteers answer.</figcaption>
+      </figure>
+    </li>
+    <li>To chase the rest, click <strong>Nudge the [N] who have not answered</strong>. The nudge goes by the app or email straight away. Anyone still silent two hours later gets one text (never during quiet hours).</li>
+    <li>When you're ready, click <strong>Continue to Build Roster</strong>.</li>
+  </ol>
 
-  <figure>
-    <img src="crops/roster-wizard-step4-availability-waiting.png" data-full="roster-wizard-step4-availability-waiting.png" alt="Roster Wizard Step 4 — Availability after the poll was sent, showing Responded and Not yet counts and the Nudge button" class="screenshot crop" width="585" height="278" loading="lazy" decoding="async">
-    <figcaption>Waiting for replies. The counts update as volunteers answer.</figcaption>
-  </figure>
 
   <div class="callout callout-tip">
     <span class="callout-icon">⏰</span>
@@ -2188,12 +2228,18 @@
     </div>
   </div>
 
-  <p>When you click <strong>Send notifications</strong>, a box shows exactly what will happen before anything goes: how many volunteers will be told by the Rostas app, by email and by text (with the cost of the texts), anyone who can only be texted and must wait until quiet hours end, anyone who can't be reached at all, and a warning listing any roles still <strong>below their minimum</strong>. Click <strong>Send notifications</strong> in the box to go ahead, or Cancel to keep working.</p>
+  <p>When the roster looks right:</p>
+  <ol class="steps">
+    <li>Click <strong>Send notifications →</strong> on the Board. Nothing is sent yet.</li>
+    <li>Read the box. It shows how many volunteers will be told by the Rostas app, by email and by text (with the cost of the texts), anyone who must wait until quiet hours end, anyone who can't be reached, and any role still <strong>below its minimum</strong>.
+      <figure>
+        <img src="roster-wizard-step5-send-confirm.png" alt="The Send notifications? box showing how many volunteers will be told by app, email and text, and roles below minimum" class="screenshot-mid" width="566" height="453" loading="lazy" decoding="async">
+        <figcaption>The check before anything is sent.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Send notifications</strong> in the box to go ahead. (Click <strong>Cancel</strong> to keep working on the Board.)</li>
+  </ol>
 
-  <figure>
-    <img src="roster-wizard-step5-send-confirm.png" alt="The Send notifications? box showing how many volunteers will be told by app, email and text, and roles below minimum" class="screenshot-mid" width="566" height="453" loading="lazy" decoding="async">
-    <figcaption>The Send notifications check, listing who will be told and how, and any role still below its minimum.</figcaption>
-  </figure>
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
@@ -2289,7 +2335,12 @@
   <p>A small blue arrow sits on the date at the boundary between This Build and Next Build. Click it to move that date across the line — pulling the next upcoming date into This Build to extend how far this build reaches, or sending the last date of This Build back into Next Build to shorten it.</p>
 
   <h3 class="sub-title" id="c-season-add">Adding an extra date</h3>
-  <p>Use the date field and label box beneath This Build to add a one-off service outside the normal pattern — Christmas Eve, Good Friday, a special event. Pick the date, type a short label (e.g. "Good Friday"), and click <strong>+ Add Date</strong>. The new card appears in This Build with your label shown as a tag, and is included the next time you build.</p>
+  <p>To add a one-off service outside the normal pattern, such as Christmas Eve, Good Friday or a special event:</p>
+  <ol class="steps">
+    <li>In the date box under <strong>This Build</strong>, pick the date.</li>
+    <li>In the box beside it, type a short label (for example "Good Friday").</li>
+    <li>Click <strong>+ Add Date</strong>. The new card appears in This Build with your label as a tag, and is included the next time you build.</li>
+  </ol>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
@@ -2313,12 +2364,20 @@
 
   <!-- ══ MANAGING ROLES ══ -->
   <h2 class="section-title" id="c-manage-roles">Managing Roles</h2>
-  <p>Once a roster exists, you can add, rename, re-size, reorder or retire its roles at any time. Open the <strong>Builds</strong> dashboard, click the <strong>⋯</strong> menu on the roster's row, and choose <strong>Manage roles</strong>. The page lists every role for that roster with its headcount and an active switch.</p>
+  <p>Once a roster exists, you can add, rename, re-size, reorder or retire its roles at any time:</p>
+  <ol class="steps">
+    <li>Open <strong>Builds</strong>.</li>
+    <li>Click the <strong>⋯</strong> button on the roster's row.</li>
+    <li>Click <strong>Manage roles</strong>. The page lists every role with its headcount and an active switch.
+      <figure>
+        <img src="crops/build-dashboard-manage-roles.png" data-full="build-dashboard-manage-roles.png" alt="The Manage roles page listing each role with its headcount and an Active / Inactive switch" class="screenshot crop" width="1216" height="399" loading="lazy" decoding="async">
+        <figcaption>Each role shows its <strong>Headcount</strong> (the minimum and maximum people to roster) and an <strong>Active / Inactive</strong> switch.</figcaption>
+      </figure>
+    </li>
+    <li>Make your changes (see the table below).</li>
+    <li>Click <strong>Save</strong> at the top right.</li>
+  </ol>
 
-  <figure>
-    <img src="crops/build-dashboard-manage-roles.png" data-full="build-dashboard-manage-roles.png" alt="The Manage roles page listing each role with its headcount and an Active / Inactive switch" class="screenshot crop" width="1216" height="399" loading="lazy" decoding="async">
-    <figcaption>The Manage roles page — each role shows its <strong>Headcount</strong> (the minimum and maximum people to roster) and an <strong>Active / Inactive</strong> switch. The engine always tries to fill the minimum and never exceeds the maximum.</figcaption>
-  </figure>
 
   <div class="tbl-wrap">
     <table>
@@ -2428,7 +2487,19 @@
   <!-- ══ REBUILD WIZARD ══ -->
   <!-- ══ RESETTING ROSTER DATA ══ -->
   <h2 class="section-title" id="c-reset">Resetting Roster Data</h2>
-  <p><strong>Reset roster data</strong> clears a roster type's operational history — built assignments, availability responses, replacement chains — without touching the roster's setup: its roles, volunteers, and season stay exactly as they are. It's a pick → preview → confirm flow: choose the roster type, review what will be cleared, then confirm. Afterwards the roster's state button on the Builds dashboard reads <strong>First Setup</strong> again, ready for a fresh first build. (A paused roster stays Paused.)</p>
+  <p><strong>Reset roster data</strong> clears a roster type's operational history — built assignments, availability responses, replacement chains — without touching the roster's setup: its roles, volunteers, and season stay exactly as they are. </p>
+  <ol class="steps">
+    <li>Open <strong>Builds</strong>.</li>
+    <li>Click the <strong>⋯</strong> button on the roster's row.</li>
+    <li>Click <strong>Reset roster data</strong>.</li>
+    <li>Read the list of what will be cleared.
+      <figure>
+        <img src="build-reset-modal.png" alt="Reset roster data confirmation showing the preview of what will be cleared before confirming" class="screenshot-mid" width="485" height="426" loading="lazy" decoding="async">
+        <figcaption>The confirmation lists exactly what will be cleared.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Reset "[roster]" data</strong>. (Click <strong>Cancel</strong> to keep everything.) The roster's state button now reads <strong>First Setup</strong>, ready for a fresh first build. A paused roster stays Paused.</li>
+  </ol>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
@@ -2440,19 +2511,23 @@
     <strong>Reset vs Delete.</strong> Reset clears history but keeps the roster type itself — its roles and volunteer assignments to it survive. Delete removes the roster type entirely — see <a href="#c-delete">Deleting a Roster</a> below. If you're clearing out test data before going live, Reset is almost always what you want.
   </div>
 
-  <figure>
-    <img src="build-reset-modal.png" alt="Reset roster data confirmation showing the preview of what will be cleared before confirming" class="screenshot-mid" width="485" height="426" loading="lazy" decoding="async">
-    <figcaption>The Reset roster data confirmation — preview what will be cleared before you commit.</figcaption>
-  </figure>
 
   <!-- ══ DELETING A ROSTER ══ -->
   <h2 class="section-title" id="c-delete">Deleting a Roster</h2>
   <p><strong>Delete roster</strong> permanently removes the roster type — its shell, roles, seasons, build history, and every assignment tied to it. Unlike Reset, there's no going back.</p>
+  <ol class="steps">
+    <li>Open <strong>Builds</strong>.</li>
+    <li>Click the <strong>⋯</strong> button on the roster's row.</li>
+    <li>Click <strong>Delete roster</strong>.</li>
+    <li>Read the list of what will be deleted. If you only need a break, click <strong>Cancel</strong> and choose <strong>Pause roster</strong> instead.
+      <figure>
+        <img src="build-delete-modal.png" alt="Delete roster confirmation listing exactly what will be removed, with a nudge toward pausing instead" class="screenshot-mid" width="469" height="418" loading="lazy" decoding="async">
+        <figcaption>The confirmation lists exactly what will be deleted, with real counts, and suggests pausing instead.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Delete "[roster]" roster</strong>.</li>
+  </ol>
 
-  <figure>
-    <img src="build-delete-modal.png" alt="Delete roster confirmation listing exactly what will be removed, with a nudge toward pausing instead" class="screenshot-mid" width="469" height="418" loading="lazy" decoding="async">
-    <figcaption>Deleting a roster asks you to confirm, and lists exactly what will be removed — seasons, roles, assignments, and preferences, with real counts. It also nudges you toward pausing instead if you only need a temporary break.</figcaption>
-  </figure>
 
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
@@ -2499,12 +2574,17 @@
   <p>The legend row at the top of the board shows the four colours (white excluded dates have no chip of their own). To the right, the <strong>volunteer search</strong> (with ◀ ▶ navigation arrows) lets you find a specific person and step through volunteers one by one. The <strong>Frequency</strong> panel shows how often the currently searched volunteer is rostered and when they were last assigned.</p>
 
   <h3 class="sub-title" id="d-print">Printing the roster</h3>
-  <p>Under the search box is a <strong>Print / save as PDF</strong> button. It opens the roster you're looking at in a new tab: every date on the board as a row and every role as a column, with everyone's names — ready to print for a noticeboard or hand out. Weeks with no service say so, and people who declined are left out.</p>
-  <figure>
-    <img src="crops/board-legend-print.png" data-full="board-legend-print.png" alt="Top of the Roster Board: roster buttons, the four-colour legend, role-link and pairing keys, the volunteer search and the Print / save as PDF button" class="screenshot crop" width="1209" height="164" loading="lazy" decoding="async">
-    <figcaption>The top of the Roster Board: the legend on the left (Filled, SMS Chain, Pending, Unfilled), and <strong>Print / save as PDF</strong> under the volunteer search.</figcaption>
-  </figure>
-  <p>Click <strong>Print / save as PDF</strong> at the top of that page. It prints on A4 landscape, and the column headings repeat on every page. To make a PDF instead, choose <strong>Save as PDF</strong> as the printer.</p>
+  <p>To print the roster for a noticeboard or to hand out:</p>
+  <ol class="steps">
+    <li>Click <strong>Print / save as PDF</strong> under the search box on the Board. The roster you're looking at opens in a new tab: every date as a row and every role as a column, with everyone's names. Weeks with no service say so, and people who declined are left out.
+      <figure>
+        <img src="crops/board-legend-print.png" data-full="board-legend-print.png" alt="Top of the Roster Board: roster buttons, the four-colour legend, role-link and pairing keys, the volunteer search and the Print / save as PDF button" class="screenshot crop" width="1209" height="164" loading="lazy" decoding="async">
+        <figcaption>The top of the Roster Board: the legend on the left, and <strong>Print / save as PDF</strong> under the volunteer search.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Print / save as PDF</strong> at the top of the new tab.</li>
+    <li>Choose your printer and print. It prints on A4 landscape, with the column headings repeated on every page. To make a PDF instead, choose <strong>Save as PDF</strong> as the printer.</li>
+  </ol>
 
 
   <h2 class="section-title" id="d-actions">Taking Action on a Cell</h2>
@@ -2626,12 +2706,19 @@
   </figure>
 
   <h2 class="section-title" id="d-replace">Manual Replacement</h2>
-  <p>When you click <strong>Replace</strong> (or <strong>Assign volunteer</strong> on an Unfilled card), the replacement panel opens below the action bar. It shows everyone who could cover that role on that date, grouped into coloured bands down the left, best fit first. Each card shows the person's name and how recently they've been rostered. Click a person to choose them.</p>
+  <p>To choose who covers a slot yourself:</p>
+  <ol class="steps">
+    <li>Click the card on the Board.</li>
+    <li>Click <strong>Replace</strong> (or <strong>Assign volunteer</strong> on an Unfilled card). The replacement panel opens below the action bar. It shows everyone who could cover that role on that date, in coloured bands down the left, best fit first. Each card shows the person's name and how recently they've been rostered.
+      <figure>
+        <img src="crops/board-replace-panel.png" data-full="board-replace-panel.png" alt="Replacement panel for Baking and Morning Tea on 1 November with a Search names box and bands for Best fit, Other options, Another roster and Already on today" class="screenshot crop" width="882" height="349" loading="lazy" decoding="async">
+        <figcaption>The replacement panel. The bands down the left say why each person is offered. Up to seven cards fit across a band, then they wrap onto a new row.</figcaption>
+      </figure>
+    </li>
+    <li>Find the person you want. To find someone by name, type in <strong>Search names</strong> (see below).</li>
+    <li>Click the person. What happens next depends on their band (see the table).</li>
+  </ol>
 
-  <figure>
-    <img src="crops/board-replace-panel.png" data-full="board-replace-panel.png" alt="Replacement panel for Baking and Morning Tea on 1 November with a Search names box and bands for Best fit, Other options, Another roster and Already on today" class="screenshot crop" width="882" height="349" loading="lazy" decoding="async">
-    <figcaption>The replacement panel. The bands down the left say why each person is offered; click a person to choose them. Up to seven cards fit across a band, then they wrap onto a new row.</figcaption>
-  </figure>
 
   <div class="tbl-wrap">
     <table>
@@ -2724,12 +2811,18 @@
   </div>
 
   <h2 class="section-title" id="d-search">Searching for a Volunteer</h2>
-  <p>Use the search field at the top right of the board to find a specific volunteer. As you type, their assignments are highlighted across the entire board — making it easy to see all their upcoming dates at once. Use the ◀ ▶ arrows to step through volunteers alphabetically. The Frequency panel shows how often the current volunteer is rostered and when they last served.</p>
+  <p>To see all of one volunteer's upcoming dates at once:</p>
+  <ol class="steps">
+    <li>Type their name in the <strong>Search volunteer…</strong> box at the top right of the Board. Their assignments are highlighted across the whole Board.
+      <figure>
+        <img src="crops/board-search-highlight.png" data-full="board-search-highlight.png" alt="Typing a volunteer name into the board search bar highlights all their assignments" class="screenshot crop" width="1219" height="375" loading="lazy" decoding="async">
+        <figcaption>Every one of the volunteer's assignments is highlighted, so you can see their whole schedule at a glance.</figcaption>
+      </figure>
+    </li>
+    <li>Read the <strong>Frequency</strong> panel beside the box: how often they're rostered and when they last served.</li>
+    <li>Click the <strong>‹</strong> and <strong>›</strong> arrows to step to the previous or next volunteer, in alphabetical order.</li>
+  </ol>
 
-  <figure>
-    <img src="crops/board-search-highlight.png" data-full="board-search-highlight.png" alt="Typing a volunteer name into the board search bar highlights all their assignments" class="screenshot crop" width="1219" height="375" loading="lazy" decoding="async">
-    <figcaption>Searching a volunteer highlights every one of their assignments across the board, so you can see their whole schedule at a glance.</figcaption>
-  </figure>
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
@@ -2777,11 +2870,11 @@
     <figcaption>The right panel — key name at top, friendly label, full description, example value, and the input field. Validation runs as you type. The Save button stays disabled until the value is valid.</figcaption>
   </figure>
 
-  <ol>
-    <li>Click the row in the left panel. The right panel opens showing the setting name, description, and current value pre-filled in the input.</li>
-    <li>Make your change. The input type matches the setting — dropdowns for timezone and country code, toggles for on/off settings, text fields for everything else.</li>
-    <li>Validation runs as you type or on blur. If the value is invalid (wrong format, missing required content) the field turns red with an explanation. The Save button stays disabled until the value is valid.</li>
-    <li>Click <strong>Save</strong>. The left panel updates immediately to show the new value — no page reload needed.</li>
+  <ol class="steps">
+    <li>Click the setting's row in the left panel. The right panel opens with the current value filled in.</li>
+    <li>Change the value: pick from the drop-down, flip the switch, or type, depending on the setting.</li>
+    <li>If the field turns red, fix what the message under it says. <strong>Save</strong> stays greyed out until the value is valid.</li>
+    <li>Click <strong>Save</strong>. The left panel shows the new value straight away.</li>
   </ol>
 
   <h2 class="section-title" id="f-system-status">Using System Status</h2>
@@ -2894,10 +2987,11 @@
 
   <h2 class="section-title" id="f-roster-coordinator">A different coordinator for one roster</h2>
   <p>You (the main coordinator) look after every roster unless you say otherwise. If one roster is run by someone else — say your music director runs the Music roster — give that roster its own coordinator:</p>
-  <ol>
-    <li>Go to <strong>Settings → Coordinator Contacts</strong>.</li>
-    <li>Find that roster's tiles, e.g. <strong>Music coordinator name</strong>, <strong>Music coordinator email</strong> and <strong>Music coordinator mobile</strong>.</li>
-    <li>Fill in at least the name and email. Anything left blank uses your details.</li>
+  <ol class="steps">
+    <li>Open <strong>Settings</strong> and click the <strong>Contacts</strong> chip.</li>
+    <li>Find that roster's rows, for example <strong>Music coordinator name</strong>, <strong>Music coordinator email</strong> and <strong>Music coordinator mobile</strong>.</li>
+    <li>Click <strong>Music coordinator name</strong>, type their name and click <strong>Save</strong>.</li>
+    <li>Do the same for <strong>Music coordinator email</strong>, and the mobile if you want it. Anything left blank uses your details.</li>
   </ol>
   <figure>
     <img src="crops/settings-coordinator-contacts.png" data-full="settings-coordinator-contacts.png" alt="Settings, Coordinator Contacts: the main coordinator's details, then the Sunday coordinator tiles with the Sunday coordinator name panel open" class="screenshot crop" width="1209" height="444" loading="lazy" decoding="async">
@@ -3067,7 +3161,14 @@
 
   <h2 class="section-title" id="f-advanced">Advanced Settings</h2>
   <p>The Advanced section is collapsed by default and greyed out. It contains settings that the system needs to function but that coordinators rarely need to touch. Changing them incorrectly can cause roster builds to fail or SMS links to break.</p>
-  <p>To edit an advanced setting: click the row, read the amber warning in the right panel, then click <strong>Unlock to edit</strong>. The field becomes editable. Save as normal.</p>
+  <p>To edit an advanced setting:</p>
+  <ol class="steps">
+    <li>Click the <strong>Advanced</strong> chip at the top of Settings.</li>
+    <li>Click the setting's row.</li>
+    <li>Read the amber warning in the right panel.</li>
+    <li>Click <strong>Unlock to edit</strong>.</li>
+    <li>Change the value and click <strong>Save</strong>.</li>
+  </ol>
 
   <figure>
     <img src="crops/settings-advanced.png" data-full="settings-advanced.png" alt="Settings advanced section expanded showing locked settings with lock icons on each row" class="screenshot crop" width="740" height="394" loading="lazy" decoding="async">
@@ -3246,7 +3347,7 @@
   </div>
 
   <h3 class="sub-title" id="appendix-infoodle-setup">Connecting Infoodle</h3>
-  <ol>
+  <ol class="steps">
     <li>Open <strong>Settings → Controls → Volunteer database</strong> and choose <strong>Infoodle</strong>.</li>
     <li>Fill in <strong>Infoodle address</strong> (it must start with <code>https://</code>), <strong>Client ID</strong> and <strong>Client secret</strong>, using the details from <a href="#appendix-infoodle-details">Where to find your Infoodle details</a> above.</li>
     <li>Press <strong>Save and test connection</strong>. Rostas saves the details and signs in to Infoodle to check them. A green message confirms it worked; a red one says what went wrong.</li>
@@ -3269,7 +3370,7 @@
   <p>Planning Center connects by signing in to your Planning Center account — there are no codes or keys to copy.</p>
 
   <h3 class="sub-title" id="appendix-pco-setup">Connecting Planning Center</h3>
-  <ol>
+  <ol class="steps">
     <li>Open <strong>Settings → Controls → Volunteer database</strong> and choose <strong>Planning Center</strong>. The panel shows <em>Not connected yet</em>.</li>
     <li>Press <strong>Connect Planning Center</strong>. The button changes to <strong>Open Planning Center sign-in</strong> — click it. Planning Center opens in a new tab.</li>
     <li>Sign in to Planning Center and approve the connection, then return to the Rostas tab. The panel says <em>Waiting for you to sign in…</em> and changes to <strong>Connected to</strong> your organisation's name as soon as you finish.</li>

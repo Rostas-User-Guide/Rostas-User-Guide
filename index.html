@@ -283,16 +283,21 @@
   }
 
   /* How do I…? page: everyday jobs in groups, each a link to its steps */
-  .howdoi { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1.6rem; margin: 1rem 0 2rem; }
+  .howdoi {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1.6rem; margin: 1rem 0 2rem;
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 0.6rem 1.4rem 1rem; box-shadow: 0 2px 10px rgba(26,46,74,0.06);
+  }
   .howdoi-label {
     font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--gold); font-weight: 700; margin: 0.6rem 0 0.3rem;
   }
   .howdoi ul { list-style: none; margin: 0; padding: 0; }
   .howdoi li { margin: 0; border-bottom: 1px solid var(--border); }
-  .howdoi a { display: block; padding: 0.45rem 0.2rem; color: var(--navy); text-decoration: none; font-size: 14.5px; }
-  .howdoi a::after { content: " →"; color: var(--gold); }
-  .howdoi a:hover { background: var(--gold-pale); }
+  .howdoi li:last-child { border-bottom: none; }
+  .howdoi a { display: block; padding: 0.45rem 0.2rem; color: #1a5fb4; text-decoration: none; font-size: 14.5px; }
+  .howdoi a::after { content: " →"; }
+  .howdoi a:hover { background: #eef4fc; text-decoration: underline; }
   @media (max-width: 900px) { .howdoi { grid-template-columns: 1fr; } }
 
   /* Numbered how-to steps: one action per step, exact button label in bold */

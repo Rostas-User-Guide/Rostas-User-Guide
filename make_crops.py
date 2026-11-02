@@ -29,7 +29,7 @@ def hex_rgba(h, a=255):
 
 
 def draw_highlights(img, boxes, style):
-    """Rounded box in brand gold with a thin white halo so it reads on any UI."""
+    """Rounded box in the guide's red with a thin white halo so it reads on any UI."""
     w, h = img.size
     layer = Image.new('RGBA', (w * SS, h * SS), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)

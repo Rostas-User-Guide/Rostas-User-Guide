@@ -1,6 +1,6 @@
 {
   "style": {
-    "colour": "#b8932a",
+    "colour": "#c0392b",
     "stroke": 4,
     "halo": 2,
     "pad": 6,
@@ -27,6 +27,286 @@
       "src": "vol-list.png",
       "box": [390, 108, 1802, 588],
       "highlights": [[942, 125, 1408, 178], [1116, 205, 1770, 258]]
+    },
+    "builds-dashboard-rows": {
+      "src": "builds-dashboard.png",
+      "box": [0, 75, 1606, 410],
+      "highlights": [[1322, 95, 1582, 172]]
+    },
+    "board-overview": {
+      "src": "board-overview.png",
+      "box": [280, 0, 1912, 571],
+      "highlights": [[300, 8, 792, 60], [300, 135, 720, 170]]
+    },
+    "vol-import-csv-upload": {
+      "src": "vol-import-csv-upload.png",
+      "box": [353, 4, 1568, 855],
+      "highlights": []
+    },
+    "vol-import-csv-preview": {
+      "src": "vol-import-csv-preview.png",
+      "box": [270, 90, 1340, 915],
+      "highlights": [[1112, 565, 1248, 800]]
+    },
+    "vol-import-csv-success": {
+      "src": "vol-import-csv-success.png",
+      "box": [260, 90, 1360, 945],
+      "highlights": [[540, 595, 1110, 672]]
+    },
+    "vol-no-roles-list": {
+      "src": "vol-no-roles-list.png",
+      "box": [335, 118, 1862, 368],
+      "highlights": [[656, 138, 903, 198]]
+    },
+    "vol-no-roles-profile": {
+      "src": "vol-no-roles-profile.png",
+      "box": [690, 92, 1892, 475],
+      "highlights": [[1651, 104, 1880, 157]]
+    },
+    "board-dominant-shadow-cards": {
+      "src": "board-dominant-shadow-cards.png",
+      "box": [0, 160, 1634, 410],
+      "highlights": [[634, 334, 952, 404], [1134, 334, 1450, 404]]
+    },
+    "profile-next-roster-availability": {
+      "src": "profile-next-roster-availability.png",
+      "box": [0, 315, 1250, 595],
+      "highlights": [[1102, 368, 1228, 518]]
+    },
+    "profile-season-dates-unconfirmed-banner": {
+      "src": "profile-season-dates-unconfirmed-banner.png",
+      "box": [0, 0, 1244, 292],
+      "highlights": [[16, 216, 1214, 256]]
+    },
+    "comms-roster-view": {
+      "src": "comms-roster-view.png",
+      "box": [660, 205, 1225, 870],
+      "highlights": [[766, 627, 1126, 666]]
+    },
+    "vol-list-install-menu": {
+      "src": "vol-list-install-menu.png",
+      "box": [1040, 370, 1876, 812],
+      "highlights": [[1562, 574, 1808, 670]]
+    },
+    "insights-overview-table": {
+      "src": "insights-overview-table.png",
+      "box": [540, 132, 1652, 642],
+      "highlights": [[1166, 341, 1620, 387], [1166, 413, 1620, 459]]
+    },
+    "insights-role-detail-recruit": {
+      "src": "insights-role-detail-recruit.png",
+      "box": [0, 0, 1112, 476],
+      "highlights": [[785, 163, 1100, 198]]
+    },
+    "insights-volunteer-list-pills": {
+      "src": "insights-volunteer-list-pills.png",
+      "box": [40, 140, 1112, 612],
+      "highlights": [[818, 222, 938, 262]]
+    },
+    "new-roster-step0-schedule-2": {
+      "src": "new-roster-step0-schedule-2.png",
+      "box": [228, 60, 932, 798],
+      "highlights": [[266, 258, 666, 301], [266, 416, 580, 678]]
+    },
+    "new-roster-step1-roles": {
+      "src": "new-roster-step1-roles.png",
+      "box": [220, 60, 902, 562],
+      "highlights": [[257, 355, 886, 431], [257, 452, 411, 488]]
+    },
+    "new-roster-step2-season": {
+      "src": "new-roster-step2-season.png",
+      "box": [30, 124, 1292, 1187],
+      "highlights": [[466, 597, 637, 644], [54, 955, 1210, 1152]]
+    },
+    "new-roster-step3-volunteers": {
+      "src": "new-roster-step3-volunteers.png",
+      "box": [222, 100, 914, 872],
+      "highlights": [[256, 418, 477, 453], [256, 214, 886, 350]]
+    },
+    "new-roster-step4-review": {
+      "src": "new-roster-step4-review.png",
+      "box": [222, 160, 914, 796],
+      "highlights": [[361, 728, 540, 768], [852, 385, 892, 695]]
+    },
+    "roster-wizard-step1-dates": {
+      "src": "roster-wizard-step1-dates.png",
+      "box": [18, 236, 1592, 886],
+      "highlights": [[1296, 417, 1553, 465], [1512, 684, 1548, 714]]
+    },
+    "roster-wizard-step3-role-prefs-sent": {
+      "src": "roster-wizard-step3-role-prefs-sent.png",
+      "box": [596, 322, 1012, 681],
+      "highlights": [[630, 512, 975, 582]]
+    },
+    "roster-wizard-step4-availability-waiting": {
+      "src": "roster-wizard-step4-availability-waiting.png",
+      "box": [414, 326, 1194, 696],
+      "highlights": [[440, 435, 800, 496], [441, 581, 798, 621]]
+    },
+    "roster-wizard-step5-build": {
+      "src": "roster-wizard-step5-build.png",
+      "box": [336, 312, 1272, 862],
+      "highlights": [[385, 542, 848, 581], [385, 782, 848, 822]]
+    },
+    "wizard-build-failed": {
+      "src": "wizard-build-failed.png",
+      "box": [400, 254, 1248, 502],
+      "highlights": [[417, 323, 1224, 419], [417, 445, 540, 481]]
+    },
+    "roster-wizard-step5-board": {
+      "src": "roster-wizard-step5-board.png",
+      "box": [0, 384, 1606, 700],
+      "highlights": [[988, 397, 1580, 442]]
+    },
+    "roster-wizard-step6-notify-sending": {
+      "src": "roster-wizard-step6-notify-sending.png",
+      "box": [328, 318, 1276, 668],
+      "highlights": [[360, 554, 1244, 636]]
+    },
+    "roster-wizard-step6-notify-done": {
+      "src": "roster-wizard-step6-notify-done.png",
+      "box": [0, 62, 1600, 612],
+      "highlights": [[22, 76, 1580, 200], [374, 548, 565, 588]]
+    },
+    "builds-row-menu": {
+      "src": "builds-row-menu.png",
+      "box": [620, 92, 1592, 550],
+      "highlights": [[1512, 117, 1562, 167]]
+    },
+    "build-dates-bands": {
+      "src": "build-dates-bands.png",
+      "box": [18, 330, 1584, 970],
+      "highlights": [[1512, 628, 1542, 656], [225, 832, 253, 860]]
+    },
+    "wizard-excluded-dates": {
+      "src": "wizard-excluded-dates.png",
+      "box": [26, 210, 1614, 804],
+      "highlights": [[1012, 647, 1194, 712]]
+    },
+    "build-dashboard-manage-roles": {
+      "src": "build-dashboard-manage-roles.png",
+      "box": [0, 355, 1622, 887],
+      "highlights": [[1086, 418, 1395, 484]]
+    },
+    "season-length-page": {
+      "src": "season-length-page.png",
+      "box": [0, 236, 1012, 624],
+      "highlights": [[26, 290, 996, 342], [26, 465, 434, 517]]
+    },
+    "board-legend-print": {
+      "src": "board-legend-print.png",
+      "box": [0, 0, 1612, 219],
+      "highlights": [[28, 162, 490, 202], [1198, 155, 1580, 194]]
+    },
+    "board-action-bar-filled": {
+      "src": "board-action-bar-filled.png",
+      "box": [0, 0, 1176, 226],
+      "highlights": [[806, 12, 1166, 43], [114, 96, 242, 152]]
+    },
+    "board-action-bar-pending": {
+      "src": "board-action-bar-pending.png",
+      "box": [0, 0, 1136, 292],
+      "highlights": [[516, 9, 1046, 46], [158, 120, 332, 198]]
+    },
+    "board-action-bar-chain": {
+      "src": "board-action-bar-chain.png",
+      "box": [0, 0, 1136, 292],
+      "highlights": [[486, 9, 904, 46], [716, 120, 890, 198]]
+    },
+    "board-decline-confirm": {
+      "src": "board-decline-confirm.png",
+      "box": [0, 0, 1176, 260],
+      "highlights": [[8, 62, 498, 138]]
+    },
+    "board-swap-confirm": {
+      "src": "board-swap-confirm.png",
+      "box": [6, 142, 612, 518],
+      "highlights": [[42, 222, 576, 296]]
+    },
+    "board-replace-panel": {
+      "src": "board-replace-panel.png",
+      "box": [0, 0, 1176, 465],
+      "highlights": [[16, 96, 103, 456]]
+    },
+    "board-replace-bands": {
+      "src": "board-replace-bands.png",
+      "box": [0, 0, 1176, 465],
+      "highlights": [[16, 156, 103, 455]]
+    },
+    "board-replace-search": {
+      "src": "board-replace-search.png",
+      "box": [0, 0, 1176, 230],
+      "highlights": [[117, 57, 377, 83]]
+    },
+    "board-search-highlight": {
+      "src": "board-search-highlight.png",
+      "box": [0, 0, 1625, 500],
+      "highlights": [[1254, 24, 1597, 78], [124, 252, 298, 322]]
+    },
+    "settings-main-two-column": {
+      "src": "settings-main.png",
+      "box": [0, 592, 1642, 968],
+      "highlights": [[2, 726, 984, 802], [988, 650, 1638, 964]]
+    },
+    "settings-panel-standard": {
+      "src": "settings-panel-standard.png",
+      "box": [986, 592, 1642, 968],
+      "highlights": [[1010, 818, 1618, 950]]
+    },
+    "settings-opens-on-status": {
+      "src": "settings-opens-on-status.png",
+      "box": [302, 160, 1917, 863],
+      "highlights": [[334, 249, 1885, 299]]
+    },
+    "settings-system-status": {
+      "src": "settings-system-status.png",
+      "box": [0, 0, 1128, 409],
+      "highlights": [[265, 31, 361, 272]]
+    },
+    "settings-app-news-address": {
+      "src": "settings-app-news-address.png",
+      "box": [220, 296, 1396, 700],
+      "highlights": [[223, 342, 922, 466]]
+    },
+    "settings-coordinator-contacts": {
+      "src": "settings-coordinator-contacts.png",
+      "box": [0, 0, 1612, 592],
+      "highlights": [[3, 416, 962, 588]]
+    },
+    "settings-panel-sms": {
+      "src": "settings-panel-sms.png",
+      "box": [1098, 236, 1672, 800],
+      "highlights": [[1114, 568, 1664, 608], [1114, 615, 1249, 650]]
+    },
+    "buy-credits": {
+      "src": "buy-credits.png",
+      "box": [320, 108, 1250, 414],
+      "highlights": []
+    },
+    "settings-panel-standard-3": {
+      "src": "settings-panel-standard-3.png",
+      "box": [0, 0, 1464, 272],
+      "highlights": [[818, 58, 864, 82], [901, 158, 982, 186]]
+    },
+    "settings-advanced": {
+      "src": "settings-advanced.png",
+      "box": [275, 464, 1262, 990],
+      "highlights": [[296, 478, 446, 503], [285, 526, 1250, 590]]
+    },
+    "settings-checklist": {
+      "src": "settings-checklist.png",
+      "box": [30, 0, 642, 356],
+      "highlights": [[40, 169, 530, 257]]
+    },
+    "profile-role-link-dominant-shadow": {
+      "src": "screenshot-2026-08-01-10.33.49-am.png",
+      "box": [10, 256, 1273, 467],
+      "highlights": [[282, 336, 756, 384]]
+    },
+    "profile-role-link-paired": {
+      "src": "screenshot-2026-08-01-10.48.19-am.png",
+      "box": [20, 260, 1281, 471],
+      "highlights": [[774, 338, 1248, 386]]
     }
   }
 }

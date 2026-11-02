@@ -3155,7 +3155,7 @@
   </figure>
 
   <ul>
-    <li><strong>Character counter</strong> — SMS messages over 160 characters are split into two by carriers and charged as two texts. The counter below the textarea turns amber at 140 characters and red at 161+. The Save button is disabled when the count is red. The SMS templates are deliberately terse for this reason — when you edit one, the counter is protecting your church's SMS costs, not just formatting. One thing the counter can't see: curly quotes, em dashes and other characters outside standard GSM-7 text count double towards that 160-character limit, so a message that looks short can still split into two texts. Stick to plain straight quotes and hyphens when editing SMS wording.</li>
+    <li><strong>Character counter</strong> — SMS messages over 160 characters are split into two by carriers and charged as two texts. The counter below the textarea turns amber at 140 characters and red at 161+. The Save button is disabled when the count is red. The SMS templates are deliberately terse for this reason — when you edit one, the counter is protecting your church's SMS costs, not just formatting. Curly quotes (’ “ ”), long dashes (– —) and macrons (ā ē ī ō ū) are fine to type: Rostas swaps them for plain ones (' " - a e i o u) just before sending, so they cost nothing extra. <strong>Avoid emoji</strong> (smiley faces, praying hands and the like): Rostas can't swap them, and one emoji cuts the whole text's limit from 160 characters to 70, so it usually costs two or three credits instead of one. The counter can't see this, so use <strong>Preview SMS</strong> to check.</li>
     <li><strong>Required placeholders</strong> — each template has a set of placeholders that must be present for it to work correctly. For example, the replacement request SMS must include [Link] — without it, the volunteer has nothing to tap. Missing placeholders are shown in red below the textarea. Save is blocked until all required placeholders are present.</li>
     <li><strong>Preview SMS</strong> — click this button to see the template rendered with realistic sample values substituted in ([Name] → Sarah, [Role] → Welcome Team, [Date] → today's date, [Link] → a sample link). This shows you exactly what a volunteer will read, at the correct character count. It does not send a real SMS.</li>
   </ul>
@@ -3195,7 +3195,7 @@
   </div>
 
   <h2 class="section-title" id="f-credits">SMS Credits</h2>
-  <p>Sending SMS costs money — unlike email, every text has a real per-message cost from the mobile networks. Rostas covers this with a simple prepaid credit system: <strong>one credit sends one text.</strong> Every text uses them — reminders, replacement requests (automatic, manual and cross-roster), roster-change texts and availability nudges — and they never expire — you top up whenever your balance runs low.</p>
+  <p>Sending SMS costs money — unlike email, every text has a real per-message cost from the mobile networks. Rostas covers this with a simple prepaid credit system: <strong>one credit sends one text of up to 160 characters.</strong> A longer text is split into parts and uses one credit per part, which is why the built-in wording is kept short. Every text uses them — reminders, replacement requests (automatic, manual and cross-roster), roster-change texts and availability nudges — and they never expire — you top up whenever your balance runs low.</p>
 
   <div class="callout callout-tip">
     <span class="callout-icon">🎁</span>
@@ -3223,7 +3223,7 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">💡</span>
-    <strong>Keeping SMS costs down.</strong> Reminders are the biggest driver of SMS use — one text per rostered volunteer before every service. If you'd like to stretch your credits further, email reminders cost nothing, and you can rely on SMS mainly for the time-sensitive replacement chain. Your Rostas contact can help you tune this.
+    <strong>Keeping SMS costs down.</strong> Reminders are the biggest driver of SMS use — one text per rostered volunteer before every service. If you'd like to stretch your credits further, email reminders cost nothing, and you can rely on SMS mainly for the time-sensitive replacement chain. Your Rostas contact can help you tune this. If you change a text's wording, keep it under 160 characters and leave out emoji, or each text can cost two or three credits (see <a href="#f-wording">Message wording</a>).
   </div>
 
   <h2 class="section-title" id="f-quick-controls">Switching rosters and test modes on or off (Quick Controls)</h2>

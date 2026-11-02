@@ -6,6 +6,7 @@ on:
     paths:
       - 'index.html'
       - 'generate_docx.js'
+      - '.github/workflows/generate-docx.yml'
   workflow_dispatch:
 
 jobs:
@@ -46,7 +47,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add Rostas_Coordinator_Guide.pdf
+          git add Rostas_Coordinator_Guide.docx Rostas_Coordinator_Guide.pdf
           git diff --staged --quiet || git commit -m "Auto-regenerate Coordinator Guide (DOCX + PDF)"
           git push
 

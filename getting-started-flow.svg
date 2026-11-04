@@ -22,13 +22,14 @@
     </g>
     <g transform="translate(480,190)">
       <rect width="390" height="120" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-      <text x="195" y="48" font-size="26" font-weight="700" fill="#1a2e4a">Excel or Google Sheet</text>
-      <text x="195" y="88" fill="#5a6a7e">Import it, or connect a Sheet</text>
+      <text x="195" y="48" font-size="26" font-weight="700" fill="#1a2e4a">Excel file</text>
+      <text x="195" y="88" fill="#5a6a7e">Import the file</text>
     </g>
     <g transform="translate(900,190)">
       <rect width="390" height="120" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-      <text x="195" y="48" font-size="26" font-weight="700" fill="#1a2e4a">Infoodle or Planning Center</text>
-      <text x="195" y="88" fill="#5a6a7e">Connect it (updates every night)</text>
+      <text x="195" y="38" font-size="24" font-weight="700" fill="#1a2e4a">Infoodle, Planning Center</text>
+      <text x="195" y="68" font-size="24" font-weight="700" fill="#1a2e4a">or Google Sheet</text>
+      <text x="195" y="100" fill="#5a6a7e">Connect it (updates every night)</text>
     </g>
     <g transform="translate(1320,190)">
       <rect width="420" height="120" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>

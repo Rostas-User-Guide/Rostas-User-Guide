@@ -695,6 +695,16 @@
     <div class="toc-part">Part A — Introducing Rostas</div>
     <a class="toc-item toc-h1" href="#a-intro">What is Rostas?</a>
     <a class="toc-item toc-h1" href="#how-do-i">How do I…?</a>
+    <div class="toc-parent" id="parent-getting-started">
+      <a class="toc-parent-link" href="#getting-started">Getting started</a>
+      <button class="toc-toggle" data-target="children-getting-started" aria-label="Toggle"><span class="arrow">›</span></button>
+    </div>
+    <div class="toc-children" id="children-getting-started">
+      <a class="toc-item toc-h2" href="#getting-started-import">1. Get your volunteers in</a>
+      <a class="toc-item toc-h2" href="#getting-started-decide">2. Make two decisions</a>
+      <a class="toc-item toc-h2" href="#getting-started-profiles">3. Work through each profile</a>
+      <a class="toc-item toc-h2" href="#getting-started-build">4. Check, then build</a>
+    </div>
     <a class="toc-item toc-h1" href="#a-how-it-works">How Rostas Works</a>
     <div class="toc-parent" id="parent-a-concepts">
       <a class="toc-parent-link" href="#a-key-concepts">Key Concepts</a>
@@ -954,6 +964,15 @@
   <p>The everyday jobs, each linked to its steps. Use the search box for anything else.</p>
   <div class="howdoi">
     <div class="howdoi-group">
+      <div class="howdoi-label">Getting started</div>
+      <ul>
+        <li><a href="#getting-started-import" data-job>Get my volunteer list into Rostas</a></li>
+        <li><a href="#getting-started-decide" data-job>Decide who sets roles and whether to ask for availability</a></li>
+        <li><a href="#getting-started-profiles" data-job>Set up every profile before the first build</a></li>
+        <li><a href="#getting-started-build" data-job>Build my first roster</a></li>
+      </ul>
+    </div>
+    <div class="howdoi-group">
       <div class="howdoi-label">On the Board, week to week</div>
       <ul>
         <li><a href="#d-swap" data-job>Swap two volunteers</a></li>
@@ -1008,6 +1027,74 @@
       </ul>
     </div>
   </div>
+
+  <!-- 4 Nov 2026: Getting started. A first roster built on half-finished profiles
+       looks wrong and puts coordinators off, so this walks them through the setup
+       work (import, two decisions, every profile) before the first build. -->
+  <h2 class="section-title" id="getting-started">Getting started: your first roster</h2>
+  <p>Your first roster is the one everyone judges Rostas by. When a first roster looks wrong (people in roles they don't do, or on dates they can't make), the cause is nearly always the setup work before the build, not the build itself. Do these four jobs carefully, in this order, and your first build should be fast and close to right first time.</p>
+
+  <!-- Drawn from "getting-started-flow.svg" (edit that, then re-export the PNG at 1800 px wide) -->
+  <figure>
+    <img src="getting-started-flow.png" alt="Getting started: get your volunteers in from a handwritten list, an Excel file or Google Sheet, Infoodle or Planning Center, or a CSV from another database, until everyone shows in the Profiles list. Then make two decisions (who chooses roles, and whether to ask for availability), set up every profile, and check Insights before building your first roster." class="screenshot" width="1800" height="860" loading="lazy" decoding="async">
+    <figcaption>The four jobs before your first build, in order.</figcaption>
+  </figure>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Roles belong to a roster.</strong> A volunteer's roles are set separately for each roster they serve on, so the roster and its roles need to exist first. If you haven't made your roster yet, do <a href="#c-new-roster">Set up a new roster</a> before step 3 below.
+  </div>
+
+  <h3 class="sub-title" id="getting-started-import">1. Get your volunteers into Rostas</h3>
+  <p>Only a name is required, but add mobile numbers and emails wherever you have them: they're how volunteers get their roster, availability requests and replacement asks. Pick the row that matches where your list lives now.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Your list is…</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Handwritten</strong> (or in your head)</td><td>Type it into a new Google Sheet, one person per row, with the columns <strong>Name</strong>, <strong>Mobile</strong> and <strong>Email</strong> (and <strong>Roster</strong> if you like). Then <a href="#e-import">import it</a>. For just a handful of people, <a href="#e-add">add them one at a time</a> instead.</td></tr>
+        <tr><td><strong>An Excel file or Google Sheet</strong></td><td><a href="#e-import">Import it</a>. Rostas takes <code>.xlsx</code>, <code>.xls</code> and <code>.csv</code> files up to 5&nbsp;MB. From a Google Sheet, choose <strong>File → Download → Microsoft Excel</strong> first. Make sure it has one person per row before you start.</td></tr>
+        <tr><td><strong>Infoodle or Planning Center</strong></td><td>Connect it instead of importing: see <a href="#appendix-volunteer-database">Choosing your volunteer database</a>. Names, mobiles and emails then stay up to date every night, so you never keep two lists.</td></tr>
+        <tr><td><strong>A CSV export from another database</strong></td><td><a href="#e-import">Import it</a>. Rostas matches the columns it recognises; check each match before you import, and ignore any columns you don't need.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>When you're done, open <strong>Profiles</strong> and check the number of people matches your list. If your file said which roster each person serves on, map that column during the import and they're put on their rosters for you. Otherwise click <strong>Set roster types now</strong> at the end of the import.</p>
+
+  <h3 class="sub-title" id="getting-started-decide">2. Make two decisions</h3>
+  <p>Decide these before you open any profiles, because they decide how much of the profile work is yours.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Decision</th><th>Choose this…</th><th>…if</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="2"><strong>Who chooses each volunteer's roles?</strong></td><td>You set them</td><td>You know your people well. It's the fastest and most accurate route: you do it in step 3 below.</td></tr>
+        <tr><td>Ask the volunteers</td><td>You don't know who does what, or the team is large. Rostas sends each volunteer one message asking which roles suit them, at <a href="#c-rebuild-step3">Step 3 — Role Prefs</a> of your first roster cycle. You can mix the two: set the people you're sure of, then send only to volunteers with no roles set.</td></tr>
+        <tr><td rowspan="2"><strong>Will you ask for availability?</strong></td><td>Send an availability poll</td><td>Recommended for a first roster. Each volunteer marks the dates they can't do, at <a href="#c-rebuild-step4">Step 4 — Availability</a>, so nobody is rostered on a date they're away.</td></tr>
+        <tr><td>Build with everyone available</td><td>Your team is small and you'll fix clashes on the Board yourself. Everyone is treated as free on every date.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title" id="getting-started-profiles">3. Work through each profile, one by one</h3>
+  <p>This is the step that makes the first roster look right. If you know your people, set each profile up yourself in one sitting:</p>
+  <ol class="steps">
+    <li>Open <strong>Profiles</strong> and pick the roster with the pills at the top.</li>
+    <li>Click the first volunteer.</li>
+    <li>Check their mobile and email, and the <strong>Active</strong>, <strong>Email</strong> and <strong>SMS</strong> toggles (<a href="#e-detail-contact">what each one does</a>).</li>
+    <li>Set each of their roles to <strong>Does This</strong>, <strong>Fills In</strong> or <strong>Doesn't Do</strong> (<a href="#e-detail-roles">Roles</a>).</li>
+    <li>If they serve less often than every week, set their <a href="#e-detail-frequency">Frequency</a>. If they should always (or never) serve with someone, set <a href="#e-detail-relational">Relational rostering</a>.</li>
+    <li>Press the <strong>›</strong> arrow at the top of the profile, beside the search bar, to go straight to the next volunteer. Repeat until you reach the end.</li>
+  </ol>
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>A volunteer with no roles is left out of the build.</strong> Rostas has nothing to place them in. Before you build, use the <a href="#e-no-roles">No roles set</a> button on the Profiles page: it shows how many are left and steps through only those people.
+  </div>
+
+  <h3 class="sub-title" id="getting-started-build">4. Check, then build</h3>
+  <ol class="steps">
+    <li>Open <a href="#d-overview">Insights</a> for the roster. Any role with fewer <strong>People</strong> than it needs shows up here, before the build rather than after it.</li>
+    <li>Start your first <a href="#c-rebuild">roster cycle</a>. Follow the two decisions you made in step 2 at Role Prefs and Availability.</li>
+    <li>Check the result on the Board before you send it. Your copy is still in test mode, so nothing reaches a volunteer until you turn test mode off at <a href="#c-rebuild-step6">Step 6 — Notify</a>.</li>
+  </ol>
 
   <h2 class="section-title" id="a-how-it-works">How Rostas Works — The Big Picture</h2>
   <p>Rostas works in a rhythm that repeats every few weeks. The six-step roster cycle guides you through each stage in order:</p>
@@ -1214,7 +1301,7 @@
         <tr><th>Part</th><th>Title</th><th>Start here if…</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>A</strong></td><td>Introducing Rostas</td><td>You're here ✓</td></tr>
+        <tr><td><strong>A</strong></td><td>Introducing Rostas</td><td>You're here ✓ New to Rostas? Read <a href="#getting-started">Getting started</a> before your first build</td></tr>
         <tr><td><strong>B</strong></td><td>Setting Up Rostas</td><td>Rostas is brand new at your organisation and needs initial configuration</td></tr>
         <tr><td><strong>C</strong></td><td>Profiles</td><td>Your volunteers aren't in Rostas yet, or you need to add, import, or edit them</td></tr>
         <tr><td><strong>D</strong></td><td>Insights</td><td>You want to see whether an upcoming roster has enough people, and what would help</td></tr>

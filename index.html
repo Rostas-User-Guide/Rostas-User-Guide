@@ -904,6 +904,7 @@
     <a class="toc-item toc-h2" href="#appendix-volunteer-database">Choosing your volunteer database</a>
     <a class="toc-item toc-h2" href="#appendix-infoodle">Infoodle</a>
     <a class="toc-item toc-h2" href="#appendix-planning-center">Planning Center</a>
+    <a class="toc-item toc-h2" href="#appendix-google-sheet">Google Sheet</a>
 
     <div style="padding: 1.2rem 1.2rem 0.5rem; margin-top: 0.5rem; border-top: 1px solid #2e4a6a;">
       <a href="https://github.com/Rostas-User-Guide/Rostas-User-Guide/raw/main/Rostas_Coordinator_Guide.pdf" style="display:flex;align-items:center;gap:0.5rem;background:var(--gold);color:#fff;text-decoration:none;padding:0.55rem 0.9rem;border-radius:5px;font-size:12px;font-weight:600;letter-spacing:0.04em;">
@@ -1052,7 +1053,7 @@
       <thead><tr><th>Your list is…</th><th>What to do</th></tr></thead>
       <tbody>
         <tr><td><strong>Handwritten</strong> (or in your head)</td><td>Type it into a new Google Sheet, one person per row, with the columns <strong>Name</strong>, <strong>Mobile</strong> and <strong>Email</strong> (and <strong>Roster</strong> if you like). Then <a href="#e-import">import it</a>. For just a handful of people, <a href="#e-add">add them one at a time</a> instead.</td></tr>
-        <tr><td><strong>An Excel file or Google Sheet</strong></td><td><a href="#e-import">Import it</a>. Rostas takes <code>.xlsx</code>, <code>.xls</code> and <code>.csv</code> files up to 5&nbsp;MB. From a Google Sheet, choose <strong>File → Download → Microsoft Excel</strong> first. Make sure it has one person per row before you start.</td></tr>
+        <tr><td><strong>An Excel file or Google Sheet</strong></td><td><a href="#e-import">Import it</a>. Rostas takes <code>.xlsx</code>, <code>.xls</code> and <code>.csv</code> files up to 5&nbsp;MB. From a Google Sheet, choose <strong>File → Download → Microsoft Excel</strong> first. Make sure it has one person per row before you start.<br><br>If you'll keep that sheet up to date and want Rostas to follow it, <a href="#appendix-google-sheet">connect it</a> instead of importing. An Excel file needs saving as a Google Sheet first.</td></tr>
         <tr><td><strong>Infoodle or Planning Center</strong></td><td>Connect it instead of importing: see <a href="#appendix-volunteer-database">Choosing your volunteer database</a>. Names, mobiles and emails then stay up to date every night, so you never keep two lists.</td></tr>
         <tr><td><strong>A CSV export from another database</strong></td><td><a href="#e-import">Import it</a>. Rostas matches the columns it recognises; check each match before you import, and ignore any columns you don't need.</td></tr>
       </tbody>
@@ -1566,7 +1567,7 @@
   <p>The Profiles section is where you manage everyone who serves in your organisation. Access it by clicking <strong>Profiles</strong> in the sidebar. From here you can view all volunteers, add new ones, edit details, view role lists, and manage per-roster settings like role preferences, frequency caps, and availability.</p>
 
   <h2 class="section-title" id="e-import">Importing your volunteers from CSV</h2>
-  <p>The quickest way to get your volunteers into Rostas is to import a spreadsheet — from a previous roster system, a church database, or even a simple contact list. This is how most organisations start. If your volunteers already live in another system, you may be able to sync them automatically instead — see the <a href="#appendix-connectors">Connector Appendix</a>.</p>
+  <p>The quickest way to get your volunteers into Rostas is to import a spreadsheet — from a previous roster system, a church database, or even a simple contact list. This is how most organisations start. If your volunteers already live in another system, or in a Google Sheet you keep up to date, you can sync them automatically instead — see the <a href="#appendix-connectors">Connector Appendix</a>.</p>
   <ol class="steps">
     <li>Open <strong>Profiles</strong> and click <strong>Import Volunteer CSV</strong> on the toolbar.</li>
     <li>Click <strong>Choose a file</strong> and pick your spreadsheet, or drag the file onto the page.
@@ -3211,7 +3212,7 @@
     <li><strong>App</strong> — what volunteers see in the Rostas app. At the top are two addresses: <strong>News sheet address</strong> and <strong>Podcast address</strong> (see <a href="#f-app-content">News and podcasts in the app</a>). Below them is the wording of the app notifications that stand in for texts when a volunteer has the app.</li>
     <li><strong>Email wording</strong> — the text blocks in roster, reminder and swap emails (intro, arrival note, sign-offs).</li>
     <li><strong>Timing &amp; Behaviour</strong> — each roster's service start time, how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing and day-before reminder texts, SMS quiet hours, replacement timers, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
-    <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard and the Board. It also holds the <strong>Volunteer database</strong> row, where you connect Infoodle or Planning Center (see <a href="#appendix-volunteer-database">Choosing your volunteer database</a>). Hiding a roster doesn't stop its reminders; to stop everything for a while, use <strong>Pause roster</strong> (Builds → ⋯).</li>
+    <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard and the Board. It also holds the <strong>Volunteer database</strong> row, where you connect Infoodle, Planning Center or your own Google Sheet (see <a href="#appendix-volunteer-database">Choosing your volunteer database</a>). Hiding a roster doesn't stop its reminders; to stop everything for a while, use <strong>Pause roster</strong> (Builds → ⋯).</li>
     <li><strong>Advanced</strong> — settings that affect system internals (web app URL, licence key, roster type list, Infoodle and AWS SMS keys). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
   </ul>
 
@@ -3603,7 +3604,7 @@
   </div>
 
   <h2 class="section-title" id="appendix-connectors-intro">Connectors</h2>
-  <p>Most organisations get their volunteers into Rostas by <a href="#e-import">importing a CSV</a> — it works for everyone and needs nothing more than a spreadsheet. But if your church or organisation already keeps its people in another system, a <strong>connector</strong> can sync them into Rostas automatically, so you don't maintain two lists by hand.</p>
+  <p>Most organisations get their volunteers into Rostas by <a href="#e-import">importing a CSV</a> — it works for everyone and needs nothing more than a spreadsheet. But if your church or organisation already keeps its people in another system, or in a Google Sheet it keeps up to date, a <strong>connector</strong> can sync them into Rostas automatically, so you don't maintain two lists by hand.</p>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
@@ -3613,11 +3614,12 @@
   <h2 class="section-title" id="appendix-volunteer-database">Choosing your volunteer database</h2>
   <p>Everything to do with connectors is in one place: <strong>Settings → Controls → Volunteer database</strong>. It is the last row in the Quick controls list. Click it and the panel opens on the right.</p>
 
-  <p>At the top of the panel, <strong>Get volunteers from</strong> has three choices:</p>
+  <p>At the top of the panel, <strong>Get volunteers from</strong> has four choices:</p>
   <ul>
     <li><strong>No database</strong> — you add volunteers by hand or from a CSV file. Nothing syncs at night. This is where every new Rostas starts.</li>
     <li><strong>Infoodle</strong> — see <a href="#appendix-infoodle">Infoodle</a> below.</li>
     <li><strong>Planning Center</strong> — see <a href="#appendix-planning-center">Planning Center</a> below.</li>
+    <li><strong>Google Sheet</strong> — your own list of volunteers in a Google Sheet. See <a href="#appendix-google-sheet">Google Sheet</a> below.</li>
   </ul>
   <p>Only one database is used at a time. The line under the choice shows what is in use now and when it last synced, for example <em>In use now: Infoodle · last synced …</em>.</p>
 
@@ -3627,7 +3629,7 @@
   </figure>
 
   <h3 class="sub-title" id="appendix-switching">Switching database</h3>
-  <p>Pick a different database, set it up (the steps are under each one below), then press the button that appears under the panel — <strong>Use Infoodle for volunteers</strong>, <strong>Use Planning Center for volunteers</strong>, or <strong>Stop syncing volunteers</strong>. Rostas asks you to confirm in a yellow box inside the panel before it changes anything, and tells you if the database you are switching to isn't connected yet.</p>
+  <p>Pick a different database, set it up (the steps are under each one below), then press the button that appears under the panel — <strong>Use Infoodle for volunteers</strong>, <strong>Use Planning Center for volunteers</strong>, <strong>Use Google Sheet for volunteers</strong>, or <strong>Stop syncing volunteers</strong>. Rostas asks you to confirm in a yellow box inside the panel before it changes anything, and tells you if the database you are switching to isn't connected yet.</p>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
@@ -3635,7 +3637,7 @@
   </div>
 
   <h3 class="sub-title" id="appendix-sync-status">The sync status at the top of Settings</h3>
-  <p>Across the top of Settings, a small <strong>Volunteers</strong> strip shows whether the connection is healthy and when it last synced, with a <strong>Sync now</strong> button to run a sync straight away. If no database is chosen it reads <strong>Not connected</strong> with a <strong>Set up</strong> button; if Planning Center needs attention it shows <strong>Connect</strong> or <strong>Reconnect</strong>. Each of those simply opens the Volunteer database panel.</p>
+  <p>Across the top of Settings, a small <strong>Volunteers</strong> strip shows whether the connection is healthy and when it last synced, with a <strong>Sync now</strong> button to run a sync straight away. If no database is chosen it reads <strong>Not connected</strong> with a <strong>Set up</strong> button; if Planning Center needs attention it shows <strong>Connect</strong> or <strong>Reconnect</strong>; if Google Sheet is chosen but no sheet is saved yet it reads <strong>No Google Sheet saved</strong> with a <strong>Set up</strong> button. Each of those simply opens the Volunteer database panel.</p>
 
   <h2 class="section-title" id="appendix-infoodle">Infoodle</h2>
   <p>Once Infoodle is connected, new and updated contacts flow in on their own — a volunteer added in Infoodle appears in your Profiles list without a re-import, and a changed phone number or email updates itself.</p>
@@ -3709,8 +3711,51 @@
   <p>If Planning Center stops accepting the connection — for example the sign-in has expired or was revoked — the strip at the top of Settings turns red and reads <strong>Planning Center needs reconnecting</strong>. Press <strong>Reconnect</strong> and sign in again; volunteers aren't affected in the meantime, they just stop updating.</p>
   <p>To stop using Planning Center, open the panel and press <strong>Disconnect</strong>. Rostas asks you to confirm, and reminds you that volunteers already in Rostas stay exactly as they are.</p>
 
+  <h2 class="section-title" id="appendix-google-sheet">Google Sheet</h2>
+  <p>If your church keeps its volunteer list in an ordinary spreadsheet, Rostas can follow it. Keep editing the sheet as you do now; every night, and whenever you press <strong>Sync now</strong>, Rostas brings across new people and changed names, mobiles and emails.</p>
+
+  <h3 class="sub-title" id="appendix-sheet-layout">How your sheet should look</h3>
+  <ul>
+    <li><strong>One person per row</strong>, with a heading row at the top. A title row above the headings is fine.</li>
+    <li>A column headed <strong>Name</strong>, or two columns headed <strong>First name</strong> and <strong>Surname</strong>. This is the only column you must have.</li>
+    <li>A column headed <strong>Email</strong>, and one headed <strong>Mobile</strong> or <strong>Phone</strong>. If you have both, Rostas uses Mobile. Common variations such as <em>Cell</em>, <em>E-mail</em> or <em>Last name</em> are recognised too.</li>
+    <li>Any other columns are ignored, so you can keep notes, addresses or anything else in the same sheet.</li>
+    <li>Type mobile numbers however you like (<code>021 555 0001</code>, <code>+64 21 555 0001</code>, <code>(021) 555-0001</code>); Rostas tidies them into one format.</li>
+  </ul>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Using Excel?</strong> Upload the file to Google Drive, open it, and choose <strong>File → Save as Google Sheets</strong>. Then keep your list in that Google Sheet. A file on your computer or in OneDrive can't be synced; <a href="#e-import">import it</a> instead.
+  </div>
+
+  <h3 class="sub-title" id="appendix-sheet-setup">Connecting your sheet</h3>
+  <ol class="steps">
+    <li>Open <strong>Settings → Controls → Volunteer database</strong> and choose <strong>Google Sheet</strong>. The panel shows which Google account the sheet must be shared with.</li>
+    <li>In your sheet, press <strong>Share</strong>, add that account and choose <strong>Viewer</strong>. If you made the sheet with that same account, it's already shared and you can skip this step.</li>
+    <li>Copy the sheet's address from your browser's address bar and paste it into <strong>Link to the sheet</strong>. Rostas reads the tab that was open when you copied the link. To use a different tab, type its name in <strong>Tab name</strong>.</li>
+    <li>Press <strong>Save and test</strong>. Rostas reads the sheet and tells you which columns it found, how many people are listed, and what the next sync would change, for example <em>5 added, 0 updated, 1 listed twice (skipped)</em>. Nothing changes in Rostas yet. If something is wrong, the message in red says what to fix.</li>
+    <li>Press <strong>Use Google Sheet for volunteers</strong> and confirm, then press <strong>Sync now</strong> at the top of Settings. Your volunteers appear in <strong>Profiles</strong>.</li>
+  </ol>
+
+  <h3 class="sub-title" id="appendix-sheet-sync">What a sync does</h3>
+  <ul>
+    <li><strong>New rows</strong> become new volunteers. Only names, mobiles and emails come across; roles, rosters and frequency are set in Rostas as usual.</li>
+    <li><strong>Changed rows</strong> update the same volunteer. Rostas recognises people by their email, then their mobile, then their name, so you can fix a misspelt name or change a number without creating a second person.</li>
+    <li><strong>A blank cell never wipes anything.</strong> If you clear someone's email in the sheet, Rostas keeps the one it has.</li>
+    <li><strong>Someone listed twice</strong> (the same email or mobile on two rows) is added once. Rows with no name are skipped.</li>
+    <li><strong>People already in Rostas</strong> from before (added by hand, imported, or from another database) who are also on the sheet with the same email or mobile are left exactly as they are, so nobody is doubled up.</li>
+    <li><strong>Someone removed from the sheet</strong> is made inactive in Rostas, never deleted, so their history is kept. Add their row back and they become active again on the next sync.</li>
+  </ul>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>A safety catch for big changes.</strong> If the sheet is suddenly empty, or a sync would make more than half of the sheet's volunteers inactive (five or more people), Rostas changes nothing and the nightly sync stops there. This protects you from a sheet that was cleared or sorted by mistake. If the change is real, open the panel, press <strong>Save and test</strong>, and press <strong>Yes, make them inactive and sync</strong>.
+  </div>
+
+  <p>To stop using the sheet, choose another database (or <strong>No database</strong>) in the panel. Volunteers already in Rostas stay exactly as they are.</p>
+
   <h2 class="section-title" id="appendix-more-connectors">Other connectors</h2>
-  <p>Infoodle and Planning Center are the connectors available today. Support for other church and volunteer platforms — such as Elvanto — is planned, so more organisations can sync rather than import over time.</p>
+  <p>Infoodle, Planning Center and Google Sheet are the connectors available today. Support for other church and volunteer platforms — such as Elvanto — is planned, so more organisations can sync rather than import over time.</p>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>

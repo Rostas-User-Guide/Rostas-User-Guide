@@ -1795,7 +1795,7 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
-    <strong>The cap counts distinct service dates, not roles.</strong> A volunteer rostered to two roles on the same day counts as one service — so serving twice in one Sunday doesn't use up two of their allocation.
+    <strong>The cap counts distinct dates, not roles.</strong> A volunteer rostered to two roles on the same day counts as one date — so serving twice in one Sunday doesn't use up two of their allocation.
   </div>
 
   <h3 class="sub-title" id="e-detail-relational">Relational rostering — serving together</h3>
@@ -1902,7 +1902,7 @@
     </table>
   </div>
 
-  <p><strong>Release their upcoming assignments</strong> takes them off every upcoming date on that roster (today's service is left alone; change that on the Board). Each of those cards becomes an empty gap (a red dashed <em>Unfilled</em> card) and the date's count drops, for example from 10/10 to 9/10.</p>
+  <p><strong>Release their upcoming assignments</strong> takes them off every upcoming date on that roster (today's date is left alone; change that on the Board). Each of those cards becomes an empty gap (a red dashed <em>Unfilled</em> card) and the date's count drops, for example from 10/10 to 9/10.</p>
   <p>Removing someone straight away is often urgent or sad, so Rostas fills their dates gently rather than sending a burst of requests:</p>
   <ul>
     <li><strong>You have an hour</strong> to fill any of the gaps yourself on the Board, for example with someone you've already spoken to.</li>
@@ -1929,7 +1929,7 @@
         <tr><td><strong>Availability form</strong></td><td>When you run Step 4 (Availability) of the roster cycle</td><td>Mark which dates they're available, not sure, or can't make it. In the app, volunteers on more than one roster type see a pill for each and set availability independently.</td></tr>
         <tr><td><strong>Roster notification</strong></td><td>When you send notifications in Step 6</td><td>View their assignments, confirm a pending slot, tap "Can't make it", print their roster. In the app this opens the native Your Roster screen instead of a browser tab.</td></tr>
         <tr><td><strong>Replacement request</strong></td><td>Automatically during the SMS replacement chain, Manual Replace, or a Cross-Roster Ask</td><td>Accept or decline a slot — with the app installed, a push notification opens an in-app Yes/No screen; otherwise a direct link by SMS</td></tr>
-        <tr><td><strong>Reminder</strong></td><td>Automatically before each service they're rostered for</td><td>An email a few days before (3 by default), then on the day before an app notification or, depending on your settings, a text. Tap “Yes, I'll be there” or “Sorry, I can't make it”.</td></tr>
+        <tr><td><strong>Reminder</strong></td><td>Automatically before each date they're rostered for</td><td>An email a few days before (3 by default), then on the day before an app notification or, depending on your settings, a text. Tap “Yes, I'll be there” or “Sorry, I can't make it”.</td></tr>
         <tr><td><strong>Role preferences</strong></td><td>When you send them in Step 3 (Role Prefs) of the roster cycle (optional)</td><td>Choose, for each role, “Yes, I do this”, “Happy to fill in” or “Not for me”.</td></tr>
       </tbody>
     </table>
@@ -2524,7 +2524,7 @@
   <p>If anyone can still be reached, a <strong>Send to the N not yet reached</strong> button tries them again. When you're ready to start the next roster, click <strong>Start Next Cycle</strong>.</p>
 
   <figure>
-    <img src="crops/roster-wizard-step6-notify-done.png" data-full="roster-wizard-step6-notify-done.png" alt="Roster cycle Step 6 — Notify done screen with sent counts by app, email and text, next service date, and Start Next Cycle" class="screenshot crop" width="1180" height="418" loading="lazy" decoding="async">
+    <img src="crops/roster-wizard-step6-notify-done.png" data-full="roster-wizard-step6-notify-done.png" alt="Roster cycle Step 6 — Notify done screen with sent counts by app, email and text, next rostered date, and Start Next Cycle" class="screenshot crop" width="1180" height="418" loading="lazy" decoding="async">
     <figcaption>Step 6 — Notify. All six circles show complete, and automatic reminders are queued.</figcaption>
   </figure>
 
@@ -2532,7 +2532,7 @@
     <span class="callout-icon">📬</span>
     <strong>What happens automatically after Step 6:</strong>
     <ul style="margin:0.5rem 0 0 0;padding-left:1.2rem;">
-      <li>Reminder email sent 3 days before each service date (change this in Settings → Timing &amp; behaviour → Reminder days before service)</li>
+      <li>Reminder email sent 3 days before each rostered date (change this in Settings → Timing &amp; behaviour → Reminder days before service)</li>
       <li>The day before, an app notification or a text, depending on Settings → Timing &amp; behaviour → Day-before reminder texts</li>
       <li>If a volunteer taps "Can't make it", the SMS replacement chain starts automatically</li>
     </ul>
@@ -2597,7 +2597,7 @@
   <p>A small blue arrow sits on the date at the boundary between This Build and Next Build. Click it to move that date across the line — pulling the next upcoming date into This Build to extend how far this build reaches, or sending the last date of This Build back into Next Build to shorten it.</p>
 
   <h3 class="sub-title" id="c-season-add">Adding an extra date</h3>
-  <p>To add a one-off service outside the normal pattern, such as Christmas Eve, Good Friday or a special event:</p>
+  <p>To add a one-off date outside the normal pattern, such as Christmas Eve, Good Friday or a special event:</p>
   <ol class="steps">
     <li>In the date box under <strong>This Build</strong>, pick the date.</li>
     <li>In the box beside it, type a short label (for example "Good Friday").</li>
@@ -2744,7 +2744,7 @@
 
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
-    <strong>The cap counts distinct service dates</strong>, not individual roles. A volunteer in two roles on the same date counts as one service — so serving twice on one Sunday doesn't use two of their allocation.
+    <strong>The cap counts distinct dates</strong>, not individual roles. A volunteer in two roles on the same date counts as one date — so serving twice on one Sunday doesn't use two of their allocation.
   </div>
 
   <!-- ══ REBUILD WIZARD ══ -->
@@ -3050,7 +3050,7 @@
       <tbody>
         <tr><td>Rostas identifies the next eligible volunteer and asks them — an app notification if they have the app, otherwise a text with a link</td><td>Immediately (within quiet hours)</td></tr>
         <tr><td>If they accept — slot is filled, original volunteer released</td><td>As soon as they reply</td></tr>
-        <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal), 30 min (urgent, within 24 hours of the service) or 10 min (within 2 hours) — counted from when the request went out, and measured against the roster's start time (Settings → Timing &amp; behaviour → <em>Roster</em> — first rostered role starts at)</td></tr>
+        <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal), 30 min (urgent, within 24 hours of the first rostered role) or 10 min (within 2 hours) — counted from when the request went out, and measured against the roster's start time (Settings → Timing &amp; behaviour → <em>Roster</em> — first rostered role starts at)</td></tr>
         <tr><td>If no one accepts — Rostas emails that roster's own coordinator if it has one (see <a href="#f-roster-coordinator">A different coordinator for one roster</a>); otherwise your Organisation email (Settings → Organisation), or your own Coordinator email if that's blank.</td><td>After list is exhausted</td></tr>
       </tbody>
     </table>
@@ -3221,7 +3221,7 @@
     <li><strong>SMS</strong> — the wording of every text Rostas sends (replacement request, manual replacement, taken off the roster, cross-roster ask, swap, availability nudge, reminder). Each has a live cost counter and a placeholder check. See <a href="#f-wording">Message wording</a> below.</li>
     <li><strong>App</strong> — what volunteers see in the Rostas app. At the top are two addresses: <strong>News sheet address</strong> and <strong>Podcast address</strong> (see <a href="#f-app-content">News and podcasts in the app</a>). Below them is the wording of the app notifications that stand in for texts when a volunteer has the app.</li>
     <li><strong>Email wording</strong> — the text blocks in roster, reminder and swap emails (intro, arrival note, sign-offs).</li>
-    <li><strong>Timing &amp; Behaviour</strong> — each roster's service start time, how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing and day-before reminder texts, SMS quiet hours, replacement timers, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
+    <li><strong>Timing &amp; Behaviour</strong> — each roster's first rostered role start time, how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing and day-before reminder texts, SMS quiet hours, replacement timers, and public holiday region. The <strong>Public holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
     <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard and the Board. It also holds the <strong>Volunteer database</strong> row, where you connect Infoodle, Planning Center or your own Google Sheet (see <a href="#appendix-volunteer-database">Choosing your volunteer database</a>). Hiding a roster doesn't stop its reminders; to stop everything for a while, use <strong>Pause roster</strong> (Builds → ⋯).</li>
     <li><strong>Advanced</strong> — settings that affect system internals (web app URL, licence key, roster type list, Infoodle and AWS SMS keys). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
   </ul>
@@ -3291,7 +3291,7 @@
   <p>If volunteers are frequently timing out before responding, consider increasing the normal timer. If you're often scrambling at short notice, reducing the urgent or panic timers gets through the candidate list faster.</p>
 
   <h3 class="sub-title" id="f-reminder-mode">Reminder SMS mode — controlling reminder texts</h3>
-  <p>The day-before reminder text is the single biggest driver of SMS cost — one text per rostered volunteer, every service. The <strong>Day-before reminder texts</strong> setting (Settings → Timing &amp; behaviour) decides who actually receives it. (The 3-day reminder <em>email</em> is unaffected and still goes to everyone with an email address.)</p>
+  <p>The day-before reminder text is the single biggest driver of SMS cost — one text per rostered volunteer, every rostered date. The <strong>Day-before reminder texts</strong> setting (Settings → Timing &amp; behaviour) decides who actually receives it. (The 3-day reminder <em>email</em> is unaffected and still goes to everyone with an email address.)</p>
 
   <figure>
     <img src="settings-reminder-sms-mode.png" alt="Day-before reminder texts setting with Text everyone, Text non-responders and Text no-one options" class="screenshot" width="640" height="667" loading="lazy" decoding="async">
@@ -3354,7 +3354,7 @@
       <tbody>
         <tr><td><code>[Name]</code></td><td>The volunteer's first name</td></tr>
         <tr><td><code>[Role]</code></td><td>The role they've been assigned to</td></tr>
-        <tr><td><code>[Date]</code></td><td>The date of the service</td></tr>
+        <tr><td><code>[Date]</code></td><td>The rostered date</td></tr>
         <tr><td><code>[Link]</code></td><td>A personalised link to accept or decline. Used in both email and SMS templates</td></tr>
         <tr><td><code>[Deadline]</code></td><td>The time by which they need to respond</td></tr>
         <tr><td><code>[OrgName]</code></td><td>Your organisation name from Settings</td></tr>
@@ -3391,7 +3391,7 @@
 
   <div class="callout callout-info">
     <span class="callout-icon">💡</span>
-    <strong>Keeping SMS costs down.</strong> Reminders are the biggest driver of SMS use — one text per rostered volunteer before every service. If you'd like to stretch your credits further, email reminders cost nothing, and you can rely on SMS mainly for the time-sensitive replacement chain. Your Rostas contact can help you tune this. If you change a text's wording, keep it under 160 characters and leave out emoji, or each text can cost two or three credits (see <a href="#f-wording">Message wording</a>).
+    <strong>Keeping SMS costs down.</strong> Reminders are the biggest driver of SMS use — one text per rostered volunteer before every rostered date. If you'd like to stretch your credits further, email reminders cost nothing, and you can rely on SMS mainly for the time-sensitive replacement chain. Your Rostas contact can help you tune this. If you change a text's wording, keep it under 160 characters and leave out emoji, or each text can cost two or three credits (see <a href="#f-wording">Message wording</a>).
   </div>
 
   <h2 class="section-title" id="f-quick-controls">Switching rosters and test modes on or off (Quick Controls)</h2>

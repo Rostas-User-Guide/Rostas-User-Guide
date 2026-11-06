@@ -191,11 +191,14 @@
     justify-content: center;
   }
 
+  /* 6 Nov 2026: fill the column (small margins) when Help opens the guide in
+     its side window, so screenshots are big enough to read; the 900px cap
+     brings the wide margins back at full screen. Was width: 60%. */
   #main-inner {
-    width: 60%;
+    width: 100%;
     min-width: 480px;
     max-width: 900px;
-    padding: 0 1rem;
+    padding: 0 1.25rem;
   }
 
   #cover {

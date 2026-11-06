@@ -758,6 +758,7 @@
     <!-- Part C -->
     <div class="toc-part">Part C — Profiles</div>
     <a class="toc-item toc-h1" href="#e-import">Importing from CSV</a>
+    <a class="toc-item toc-h1" href="#e-import-phone">Importing from your phone's contacts</a>
     <a class="toc-item toc-h1" href="#e-add">Adding manually</a>
     <a class="toc-item toc-h1" href="#e-list">The volunteers list</a>
     <div class="toc-parent" id="parent-e-detail">
@@ -993,6 +994,7 @@
       <ul>
         <li><a href="#e-add" data-job>Add one new volunteer</a></li>
         <li><a href="#e-import" data-job>Import a list of volunteers</a></li>
+        <li><a href="#e-import-phone" data-job>Import volunteers from my phone's contacts</a></li>
         <li><a href="#e-detail-add-roster" data-job>Put a volunteer on another roster</a></li>
         <li><a href="#e-detail-remove-roster" data-job>Take a volunteer off a roster</a></li>
         <li><a href="#e-detail-frequency" data-job>Change how often someone serves</a></li>
@@ -1058,6 +1060,7 @@
       <tbody>
         <tr><td><strong>Handwritten</strong> (or in your head)</td><td>Type it into a new Google Sheet, one person per row, with the columns <strong>Name</strong>, <strong>Mobile</strong> and <strong>Email</strong> (and <strong>Roster</strong> if you like). Then <a href="#e-import">import it</a>. For just a handful of people, <a href="#e-add">add them one at a time</a> instead.</td></tr>
         <tr><td><strong>An Excel file</strong></td><td><a href="#e-import">Import it</a>. Rostas takes <code>.xlsx</code>, <code>.xls</code> and <code>.csv</code> files up to 5&nbsp;MB. Make sure it has one person per row before you start. Or, to keep editing your list and have Rostas follow it, upload it to Google Drive, choose <strong>File → Save as Google Sheets</strong>, and connect it (next row).</td></tr>
+        <tr><td><strong>Just the contacts on your phone</strong></td><td>No spreadsheet needed — export your phone's contacts as a vCard file and <a href="#e-import-phone">import it directly</a>. Good for a quick way to try Rostas out, or for a small organisation with no other volunteer list.</td></tr>
         <tr><td><strong>Infoodle, Planning Center or a Google Sheet</strong></td><td>All three can be connected instead of imported: see <a href="#appendix-volunteer-database">Choosing your volunteer database</a>, and <a href="#appendix-google-sheet">Google Sheet</a> for a sheet. Names, mobiles and emails then stay up to date every night, so you never keep two lists.</td></tr>
         <tr><td><strong>A CSV export from another database</strong></td><td><a href="#e-import">Import it</a>. Rostas matches the columns it recognises; check each match before you import, and ignore any columns you don't need.</td></tr>
       </tbody>
@@ -1602,6 +1605,31 @@
   <div class="callout callout-tip">
     <span class="callout-icon">💡</span>
     <strong>Only a name is required.</strong> Include mobile numbers and emails if you have them, so volunteers can get texts, availability requests and notifications. If your spreadsheet has a column for roster type, map it during the import and volunteers are assigned to the right rosters automatically. Phone numbers missing a country code are corrected for you.
+  </div>
+
+  <h2 class="section-title" id="e-import-phone">Importing a list of volunteers from your phone's contacts</h2>
+  <p>If you don't have a spreadsheet to import — or you just want a quick way to try Rostas out — you can import straight from your phone's Contacts app. Rostas reads a <strong>vCard</strong> file (<code>.vcf</code>), the standard format every phone uses to export contacts. It's the same Import Wizard as a CSV, just a different file type in step 1.</p>
+
+  <ol class="steps">
+    <li>Export your contacts as a vCard file.
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Your phone</th><th>How to export</th></tr></thead>
+          <tbody>
+            <tr><td><strong>iPhone</strong></td><td>Open <a href="https://icloud.com/contacts">icloud.com/contacts</a> in a browser and sign in. Select all your contacts, click the ⚙️ gear in the bottom-left corner, then choose <strong>Export vCard</strong>. One <code>.vcf</code> file downloads with everyone in it.</td></tr>
+            <tr><td><strong>Android</strong></td><td>Open the <strong>Contacts</strong> app, open the menu (⋮), choose <strong>Settings → Export</strong>, then <strong>.vcf file</strong>. Save it to your device's Downloads, or to Google Drive if you'd rather fetch it from there.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>Get the <code>.vcf</code> file onto the computer you'll use to sign in to Rostas, if it isn't there already — email it to yourself, AirDrop it, or download it from Google Drive.</li>
+    <li>Open <strong>Profiles</strong> and click <strong>Import Volunteer CSV</strong> on the toolbar, then <strong>Choose a file</strong> and pick your <code>.vcf</code> file (or drag it onto the page). The page shows "<em>N</em> contacts" instead of rows and columns, so you know it's read it as a vCard.</li>
+    <li>Continue through <strong>Match columns</strong>, <strong>Preview</strong>, <strong>Duplicates</strong> and <strong>Import</strong> exactly as for a CSV — see <a href="#e-import">Importing your volunteers from CSV</a> above for what each of those screens does.</li>
+  </ol>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>One phone number and one email per person.</strong> A contact with several numbers or addresses (home, work, mobile) brings in just one of each: a mobile beats a landline, and whichever is marked "preferred" on your phone wins a tie. Nothing with roster types comes from a phone's contacts, so everyone imported this way is added with no roster — click <strong>Set roster types now</strong> at the end, or leave them until you're ready.
   </div>
 
   <h2 class="section-title" id="e-add">Adding a volunteer manually</h2>

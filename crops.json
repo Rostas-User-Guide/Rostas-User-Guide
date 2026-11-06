@@ -65,8 +65,8 @@
     },
     "board-dominant-shadow-cards": {
       "src": "board-dominant-shadow-cards.png",
-      "box": [0, 160, 1634, 410],
-      "highlights": [[634, 334, 952, 404], [1134, 334, 1450, 404]]
+      "box": [0, 0, 1127, 326],
+      "highlights": [[203, 67, 373, 135], [576, 67, 744, 135]]
     },
     "profile-next-roster-availability": {
       "src": "profile-next-roster-availability.png",

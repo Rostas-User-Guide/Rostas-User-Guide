@@ -2264,7 +2264,12 @@
   </figure>
 
   <h3 class="sub-title" id="c-new-step2">Step 2 — Roles</h3>
-  <p>Define the roles that need to be filled each time this roster runs. For each role, set a minimum and maximum number of people required. You can add, rename, or retire roles later from <a href="#c-manage-roles">Adding and changing roles</a>.</p>
+  <p>Define the roles that need to be filled each time this roster runs. For each role, set a minimum and maximum number of people required, and, if you like, the time it <strong>Starts</strong>. You can add, rename, or retire roles later from <a href="#c-manage-roles">Adding and changing roles</a>.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">🕑</span>
+    <strong>Role times are optional.</strong> On a roster where roles start at different times (a marae day with the kitchen at 7am and the karanga at 10am, or Morning Tea at 11am), choose each role's <strong>Starts</strong> time. It then shows after the role name in the Roster Board's green role bars, on the volunteer's roster in the app and in emails, e.g. "Serving Morning Tea · 11am". Text messages leave it out to stay within one text. Leave it on <strong>No time</strong> and nothing extra is shown. You can set the same times later on the roster cycle's Roles step or in <a href="#c-manage-roles">Manage roles</a>.
+  </div>
 
   <figure>
     <img src="crops/new-roster-step1-roles.png" data-full="new-roster-step1-roles.png" alt="Set up a new roster: Step 2 — Roles, showing role rows with min and max fields" class="screenshot crop" width="717" height="442" loading="lazy" decoding="async">
@@ -2294,7 +2299,7 @@
         <tr><td><strong>End date</strong></td><td>The last date of a fixed-term season (a perpetual roster needs no end date — see Season type below)</td></tr>
         <tr><td><strong>Frequency</strong></td><td>Daily, Weekly, Fortnightly, 1st and 3rd, 2nd and 4th, or Monthly</td></tr>
         <tr><td><strong>Day of week</strong></td><td>Which day the roster runs — e.g. Sunday, Monday</td></tr>
-        <tr><td><strong>Service starts at</strong></td><td>The time the service or event usually starts — e.g. 10:00 AM. Rostas uses it to judge how close the day is when it's finding a replacement (see The SMS Replacement Chain). You can change it later in Settings → Timing &amp; behaviour.</td></tr>
+        <tr><td><strong>First rostered role starts at</strong></td><td>When the first rostered role usually starts on the day — e.g. 10:00 AM. If you gave your roles start times in Step 2, the earliest one is filled in for you. Rostas uses it to judge how close the day is when it's finding a replacement (see The SMS Replacement Chain). You can change it later in Settings → Timing &amp; behaviour.</td></tr>
         <tr><td><strong>Season type</strong></td><td>Fixed term (has a real end date) or Perpetual (ongoing — auto-extends). See <a href="#c-frequency-season-type">Season type</a> for the difference.</td></tr>
         <tr><td><strong>Pause school holidays</strong></td><td>Tick if this roster doesn't run during school holidays</td></tr>
         <tr><td><strong>Pause public holidays</strong></td><td>Tick if this roster doesn't run on public holidays</td></tr>
@@ -2340,11 +2345,11 @@
   </figure>
 
   <h3 class="sub-title" id="c-rebuild-step2">Step 2 — Roles</h3>
-  <p>This step shows one card, <strong>Edit Roles</strong>: every role on this roster with its name, its <strong>Min</strong> and <strong>Max</strong> headcount and an <strong>Active</strong> tick box. You can rename a role, change its headcount, untick it to leave it out, or use <strong>+ Add a role</strong>. What you set here carries forward to later builds. Roles start out as they were last time, so on a routine build you can usually just click <strong>Continue to Role Prefs →</strong>.</p>
+  <p>This step shows one card, <strong>Edit Roles</strong>: every role on this roster with its name, its <strong>Min</strong> and <strong>Max</strong> headcount, the time it <strong>Starts</strong>, and an <strong>Active</strong> tick box. You can rename a role, change its headcount, set or change its start time, untick it to leave it out, or use <strong>+ Add a role</strong>. What you set here carries forward to later builds. Roles start out as they were last time, so on a routine build you can usually just click <strong>Continue to Role Prefs →</strong>.</p>
   <p>There's no separate Save button: any change you make is saved when you leave the step, whether by Back, Continue, or clicking a circle at the top.</p>
 
   <figure>
-    <img src="crops/roster-wizard-step2-roles.png" data-full="roster-wizard-step2-roles.png" alt="Roster cycle Step 2 — the Edit Roles card listing each role with Min and Max headcount and an Active tick box, with a blank new role row at the bottom" class="screenshot crop" width="562" height="495" loading="lazy" decoding="async">
+    <img src="crops/roster-wizard-step2-roles.png" data-full="roster-wizard-step2-roles.png" alt="Roster cycle Step 2 — the Edit Roles card listing each role with Min and Max headcount, a Starts time and an Active tick box" class="screenshot crop" width="670" height="446" loading="lazy" decoding="async">
     <figcaption>Step 2 — Roles. Set the minimum and maximum people each role needs, or untick a role you don't need. <strong>+ Add a role</strong> adds a blank row at the bottom: type the new role's name and set its headcount.</figcaption>
   </figure>
 
@@ -2622,7 +2627,7 @@
   <ol class="steps">
     <li>Open <strong>Builds</strong>.</li>
     <li>Click the <strong>⋯</strong> button on the roster's row.</li>
-    <li>Click <strong>Manage roles</strong>. The page lists every role with its headcount and an active switch.
+    <li>Click <strong>Manage roles</strong>. The page lists every role with its headcount, its start time and an active switch.
       <figure>
         <img src="crops/build-dashboard-manage-roles.png" data-full="build-dashboard-manage-roles.png" alt="The Manage roles page listing each role with its headcount and an Active / Inactive switch" class="screenshot crop" width="1216" height="399" loading="lazy" decoding="async">
         <figcaption>Each role shows its <strong>Headcount</strong> (the minimum and maximum people to roster) and an <strong>Active / Inactive</strong> switch.</figcaption>
@@ -2640,6 +2645,7 @@
         <tr><td><strong>Add a role</strong></td><td>Use the add option at the bottom of the list; enter the name and its minimum and maximum headcount.</td></tr>
         <tr><td><strong>Rename a role</strong></td><td>Use <strong>Rename</strong> on the role. The new name appears in future messages to volunteers.</td></tr>
         <tr><td><strong>Change headcount</strong></td><td>Adjust the minimum and maximum for how many people the role needs each time.</td></tr>
+        <tr><td><strong>Set a start time</strong></td><td>Choose the role's time in the <strong>Time</strong> column (optional). It shows on the Roster Board, in the volunteer app and in emails straight after you save; choose <strong>No time</strong> to remove it.</td></tr>
         <tr><td><strong>Deactivate a role</strong></td><td>Switch it to <strong>Inactive</strong>. It drops out of future builds but keeps its history, and you can reactivate it any time.</td></tr>
       </tbody>
     </table>
@@ -3041,7 +3047,7 @@
       <tbody>
         <tr><td>Rostas identifies the next eligible volunteer and asks them — an app notification if they have the app, otherwise a text with a link</td><td>Immediately (within quiet hours)</td></tr>
         <tr><td>If they accept — slot is filled, original volunteer released</td><td>As soon as they reply</td></tr>
-        <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal), 30 min (urgent, within 24 hours of the service) or 10 min (within 2 hours) — counted from when the request went out, and measured against the roster's start time (Settings → Timing &amp; behaviour → <em>Roster</em> — service starts at)</td></tr>
+        <tr><td>If they decline or don't respond — next volunteer is contacted</td><td>After 2 hours (normal), 30 min (urgent, within 24 hours of the service) or 10 min (within 2 hours) — counted from when the request went out, and measured against the roster's start time (Settings → Timing &amp; behaviour → <em>Roster</em> — first rostered role starts at)</td></tr>
         <tr><td>If no one accepts — Rostas emails that roster's own coordinator if it has one (see <a href="#f-roster-coordinator">A different coordinator for one roster</a>); otherwise your Organisation email (Settings → Organisation), or your own Coordinator email if that's blank.</td><td>After list is exhausted</td></tr>
       </tbody>
     </table>

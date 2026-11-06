@@ -20,8 +20,8 @@
     },
     "roster-wizard-step2-roles": {
       "src": "roster-wizard-step2-roles.png",
-      "box": [740, 330, 1490, 990],
-      "highlights": [[1275, 396, 1427, 443], [1068, 511, 1275, 580]]
+      "box": [350, 322, 1243, 916],
+      "highlights": [[1042, 387, 1194, 434], [886, 437, 1046, 575]]
     },
     "vol-list": {
       "src": "vol-list.png",

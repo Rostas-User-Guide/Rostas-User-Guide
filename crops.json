@@ -58,6 +58,16 @@
       "box": [335, 118, 1862, 368],
       "highlights": [[656, 138, 903, 198]]
     },
+    "vol-bulk-select": {
+      "src": "vol-bulk-select.png",
+      "box": [256, 218, 1362, 566],
+      "highlights": [[928, 228, 1337, 271], [266, 428, 291, 554]]
+    },
+    "vol-bulk-add-roster": {
+      "src": "vol-bulk-add-roster.png",
+      "box": [490, 204, 906, 514],
+      "highlights": [[517, 320, 648, 428]]
+    },
     "vol-no-roles-profile": {
       "src": "vol-no-roles-profile.png",
       "box": [690, 92, 1892, 475],

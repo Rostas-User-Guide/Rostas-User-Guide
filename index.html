@@ -761,6 +761,7 @@
     <a class="toc-item toc-h1" href="#e-import-phone">Importing from your phone's contacts</a>
     <a class="toc-item toc-h1" href="#e-add">Adding manually</a>
     <a class="toc-item toc-h1" href="#e-list">The volunteers list</a>
+    <a class="toc-item toc-h2" href="#e-bulk">Several volunteers at once</a>
     <div class="toc-parent" id="parent-e-detail">
       <a class="toc-parent-link" href="#e-detail">The Profile detail page</a>
       <button class="toc-toggle" data-target="children-e-detail" aria-label="Toggle"><span class="arrow">›</span></button>
@@ -996,7 +997,9 @@
         <li><a href="#e-import" data-job>Import a list of volunteers</a></li>
         <li><a href="#e-import-phone" data-job>Import volunteers from my phone's contacts</a></li>
         <li><a href="#e-detail-add-roster" data-job>Put a volunteer on another roster</a></li>
+        <li><a href="#e-bulk-add" data-job>Put a group of volunteers on a roster at once</a></li>
         <li><a href="#e-detail-remove-roster" data-job>Take a volunteer off a roster</a></li>
+        <li><a href="#e-bulk-delete" data-job>Delete several volunteers at once</a></li>
         <li><a href="#e-detail-frequency" data-job>Change how often someone serves</a></li>
         <li><a href="#e-detail-relational" data-job>Make two people serve together (or never together)</a></li>
         <li><a href="#e-send-app-link" data-job>Send a volunteer their app link</a></li>
@@ -1670,6 +1673,59 @@
     <span class="callout-icon">💡</span>
     <strong>Click any row</strong> to open that volunteer's full profile — where you edit their details, set the roles they do, their frequency, who they serve with, and view their availability.
   </div>
+
+  <h3 class="sub-title" id="e-bulk">Working with several volunteers at once</h3>
+  <p>Every row in the Profiles list has a tick box on the far left. Tick several people and you can put them all on a roster, or delete them all, in one go, instead of opening each profile in turn. It's handy after an import, when a whole group (say, everyone from the music team's spreadsheet) needs adding to the Music roster, or when you're clearing out people who have left.</p>
+
+  <ol class="steps">
+    <li>Tick the box beside each volunteer you want. To pick everyone on screen, tick the box in the header row instead.</li>
+    <li>A bar appears above the list showing how many you've selected, with <strong>Add to roster</strong>, <strong>Delete selected</strong> and <strong>Cancel</strong>.</li>
+    <li>Choose what to do (both are explained below), or click <strong>Cancel</strong> to untick everyone.</li>
+  </ol>
+
+  <figure>
+    <img src="crops/vol-bulk-select.png" data-full="vol-bulk-select.png" alt="The Profiles list with three volunteers ticked and a bar above the list reading 3 selected, with Cancel, Add to roster and Delete selected buttons" class="screenshot crop" width="830" height="261" loading="lazy" decoding="async">
+    <figcaption>Three volunteers ticked. The bar above the list says how many are selected and holds the actions.</figcaption>
+  </figure>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Narrow the list first, then tick the header box.</strong> Search, the roster pills and the Active / Inactive chips all work with the tick boxes, and the header box only ticks the people you can see. For example, choose <em>Inactive</em> and tick the header box to select everyone who's inactive. If a search or filter hides someone you'd ticked, they're unticked straight away, so you'll never act on anyone who isn't on screen.
+  </div>
+
+  <h3 class="sub-title" id="e-bulk-add">Adding a group to a roster</h3>
+  <ol class="steps">
+    <li>Tick the volunteers, then click <strong>Add to roster</strong>.</li>
+    <li>A box lists every roster your church runs. Tick one or more: you can add the whole group to several rosters at once.</li>
+    <li>Click <strong>Add</strong>. The list reloads, and the new roster types show in each person's Roster types column.</li>
+  </ol>
+
+  <figure>
+    <img src="crops/vol-bulk-add-roster.png" data-full="vol-bulk-add-roster.png" alt="The Add 3 volunteers to a roster box, with tick boxes for Sunday, Music, Marae Volunteers and Community Meal, and Music ticked" class="screenshot crop" width="312" height="232" loading="lazy" decoding="async">
+    <figcaption>Tick each roster to add the group to. Rosters they're already on stay as they are.</figcaption>
+  </figure>
+
+  <p>Adding never takes anyone off a roster. A volunteer already on Sunday who you add to Music ends up on both. If someone was taken off a roster earlier, adding them again puts them back on it.</p>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>Add to roster doesn't set roles.</strong> The group is on the roster, but nobody has any roles on it yet, and a volunteer with no roles is left out of builds. Straight afterwards, pick that roster's pill and use <a href="#e-no-roles">No roles set</a> to step through just those people and choose their roles.
+  </div>
+
+  <h3 class="sub-title" id="e-bulk-delete">Deleting several volunteers</h3>
+  <p>Use this for people who have left for good. If someone is only taking a break, <a href="#e-detail-contact">turn off Active</a> on their profile instead. That keeps their history and settings for when they come back.</p>
+  <ol class="steps">
+    <li>Tick the volunteers, then click <strong>Delete selected</strong>. Rostas takes a moment to check them.</li>
+    <li>A box tells you how many volunteers will be deleted and what goes with them: their future roster assignments (those dates become unfilled), availability answers, frequency settings, roster types, and any buddy or household links other volunteers have to them.</li>
+    <li>Read it, then click <strong>Delete</strong>, or <strong>Cancel</strong> to change your mind. The list reloads without them.</li>
+  </ol>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>This can't be undone.</strong> Their past assignments are kept, so your record of who served on past dates stays correct. Everything else listed in the box is removed for good. Check the future assignments count: those dates will need someone new.
+  </div>
+
+  <p><strong>Volunteers synced from Infoodle or Planning Center are skipped.</strong> Your database owns these people, so Rostas won't delete them here. The box names anyone it's leaving out. Remove them in Infoodle or Planning Center, or turn off Active for them in Rostas. The exception is someone already marked <em>Deleted in Infoodle</em> (or deleted in Planning Center): they can be deleted here. If everyone you ticked is synced, Rostas says nothing can be deleted and suggests deactivating them instead.</p>
 
   <h3 class="sub-title" id="e-no-roles">Finding volunteers with no roles set</h3>
   <p>A volunteer who is ticked for a roster but hasn't been given any roles on it is left out of that roster's builds — Rostas has nothing to place them in. The <strong>No roles set</strong> button finds these people so you can set their roles in one sitting.</p>

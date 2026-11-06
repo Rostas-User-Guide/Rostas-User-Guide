@@ -110,13 +110,13 @@
     },
     "new-roster-step1-roles": {
       "src": "new-roster-step1-roles.png",
-      "box": [326, 220, 1282, 810],
-      "highlights": [[370, 493, 1236, 599], [370, 628, 582, 677]]
+      "box": [22, 212, 957, 850],
+      "highlights": [[637, 515, 797, 827]]
     },
     "new-roster-step2-season": {
       "src": "new-roster-step2-season.png",
-      "box": [326, 220, 1530, 1630],
-      "highlights": [[823, 939, 1011, 991], [370, 1336, 1482, 1590]]
+      "box": [28, 222, 1580, 1176],
+      "highlights": [[60, 446, 338, 528], [516, 908, 704, 960]]
     },
     "new-roster-step3-volunteers": {
       "src": "new-roster-step3-volunteers.png",
@@ -195,8 +195,8 @@
     },
     "build-dashboard-manage-roles": {
       "src": "build-dashboard-manage-roles.png",
-      "box": [0, 355, 1622, 887],
-      "highlights": [[1086, 418, 1395, 484]]
+      "box": [0, 325, 1587, 812],
+      "highlights": [[1062, 333, 1214, 795]]
     },
     "season-length-page": {
       "src": "season-length-page.png",

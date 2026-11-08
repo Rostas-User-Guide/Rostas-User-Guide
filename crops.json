@@ -100,18 +100,23 @@
     },
     "insights-overview-table": {
       "src": "insights-overview-table.png",
-      "box": [540, 132, 1652, 642],
-      "highlights": [[1166, 341, 1620, 387], [1166, 413, 1620, 459]]
+      "box": [395, 26, 1368, 575],
+      "highlights": [[945, 316, 1331, 344], [945, 442, 1331, 470]]
+    },
+    "insights-recompute-note": {
+      "src": "insights-recompute-note.png",
+      "box": [395, 26, 1368, 410],
+      "highlights": [[1190, 147, 1349, 196]]
     },
     "insights-role-detail-recruit": {
       "src": "insights-role-detail-recruit.png",
-      "box": [0, 0, 1112, 476],
-      "highlights": [[785, 163, 1100, 198]]
+      "box": [395, 228, 1368, 780],
+      "highlights": [[1103, 345, 1339, 371], [605, 394, 708, 422]]
     },
-    "insights-volunteer-list-pills": {
-      "src": "insights-volunteer-list-pills.png",
-      "box": [40, 140, 1112, 612],
-      "highlights": [[818, 222, 938, 262]]
+    "insights-linked-notes": {
+      "src": "insights-linked-notes.png",
+      "box": [395, 100, 1368, 714],
+      "highlights": [[524, 434, 594, 452], [853, 328, 900, 344]]
     },
     "new-roster-step0-schedule-2": {
       "src": "new-roster-step0-schedule-2.png",

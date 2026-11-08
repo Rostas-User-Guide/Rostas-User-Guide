@@ -25,8 +25,8 @@
     },
     "vol-list": {
       "src": "vol-list.png",
-      "box": [390, 108, 1802, 588],
-      "highlights": [[942, 125, 1408, 178], [1116, 205, 1770, 258]]
+      "box": [0, 0, 1518, 726],
+      "highlights": [[609, 13, 1091, 72], [1002, 101, 1487, 160]]
     },
     "builds-dashboard-rows": {
       "src": "builds-dashboard.png",
@@ -40,7 +40,7 @@
     },
     "vol-import-csv-upload": {
       "src": "vol-import-csv-upload.png",
-      "box": [353, 4, 1568, 855],
+      "box": [0, 0, 1210, 784],
       "highlights": []
     },
     "vol-import-csv-preview": {
@@ -55,8 +55,8 @@
     },
     "vol-no-roles-list": {
       "src": "vol-no-roles-list.png",
-      "box": [335, 118, 1862, 368],
-      "highlights": [[656, 138, 903, 198]]
+      "box": [0, 0, 1518, 272],
+      "highlights": [[351, 13, 598, 72]]
     },
     "vol-bulk-select": {
       "src": "vol-bulk-select.png",

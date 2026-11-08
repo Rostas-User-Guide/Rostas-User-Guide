@@ -757,7 +757,7 @@
 
     <!-- Part C -->
     <div class="toc-part">Part C — Profiles</div>
-    <a class="toc-item toc-h1" href="#e-import">Importing from CSV</a>
+    <a class="toc-item toc-h1" href="#e-import">Importing from a spreadsheet</a>
     <a class="toc-item toc-h1" href="#e-import-phone">Importing from your phone's contacts</a>
     <a class="toc-item toc-h1" href="#e-add">Adding manually</a>
     <a class="toc-item toc-h1" href="#e-list">The volunteers list</a>
@@ -1576,14 +1576,14 @@
 
   <p>The Profiles section is where you manage everyone who serves in your organisation. Access it by clicking <strong>Profiles</strong> in the sidebar. From here you can view all volunteers, add new ones, edit details, view role lists, and manage per-roster settings like role preferences, frequency caps, and availability.</p>
 
-  <h2 class="section-title" id="e-import">Importing your volunteers from CSV</h2>
+  <h2 class="section-title" id="e-import">Importing your volunteers from a spreadsheet</h2>
   <p>The quickest way to get your volunteers into Rostas is to import a spreadsheet — from a previous roster system, a church database, or even a simple contact list. This is how most organisations start. If your volunteers already live in another system, or in a Google Sheet you keep up to date, you can sync them automatically instead — see the <a href="#appendix-connectors">Connector Appendix</a>.</p>
   <ol class="steps">
-    <li>Open <strong>Profiles</strong> and click <strong>Import Volunteer CSV</strong> on the toolbar.</li>
+    <li>Open <strong>Profiles</strong> and click <strong>Import Volunteers</strong> on the toolbar.</li>
     <li>Click <strong>Choose a file</strong> and pick your spreadsheet, or drag the file onto the page.
       <figure>
-        <img src="crops/vol-import-csv-upload.png" data-full="vol-import-csv-upload.png" alt="CSV import step 1 — choose your spreadsheet file" class="screenshot crop" width="911" height="638" loading="lazy" decoding="async">
-        <figcaption>Pick your spreadsheet file.</figcaption>
+        <img src="crops/vol-import-csv-upload.png" data-full="vol-import-csv-upload.png" alt="Import step 1, Upload your volunteer list: drop your file here or click Choose a file. Accepts .csv, .xlsx, .xls and .vcf up to 5 MB" class="screenshot crop" width="908" height="588" loading="lazy" decoding="async">
+        <figcaption>Drop your file on the page or click <strong>Choose a file</strong>. Excel, CSV and phone contacts (.vcf) all work.</figcaption>
       </figure>
     </li>
     <li>Click <strong>Continue to matching</strong>.</li>
@@ -1626,8 +1626,8 @@
       </div>
     </li>
     <li>Get the <code>.vcf</code> file onto the computer you'll use to sign in to Rostas, if it isn't there already — email it to yourself, AirDrop it, or download it from Google Drive.</li>
-    <li>Open <strong>Profiles</strong> and click <strong>Import Volunteer CSV</strong> on the toolbar, then <strong>Choose a file</strong> and pick your <code>.vcf</code> file (or drag it onto the page). The page shows "<em>N</em> contacts" instead of rows and columns, so you know it's read it as a vCard.</li>
-    <li>Continue through <strong>Match columns</strong>, <strong>Preview</strong>, <strong>Duplicates</strong> and <strong>Import</strong> exactly as for a CSV — see <a href="#e-import">Importing your volunteers from CSV</a> above for what each of those screens does.</li>
+    <li>Open <strong>Profiles</strong> and click <strong>Import Volunteers</strong> on the toolbar, then <strong>Choose a file</strong> and pick your <code>.vcf</code> file (or drag it onto the page). The page shows "<em>N</em> contacts" instead of rows and columns, so you know it's read it as a vCard.</li>
+    <li>Continue through <strong>Match columns</strong>, <strong>Preview</strong>, <strong>Duplicates</strong> and <strong>Import</strong> exactly as for a CSV — see <a href="#e-import">Importing your volunteers from a spreadsheet</a> above for what each of those screens does.</li>
   </ol>
 
   <div class="callout callout-info">
@@ -1662,11 +1662,11 @@
     </table></div>
 
   <h2 class="section-title" id="e-list">The profiles list</h2>
-  <p>Once your volunteers are in, the Profiles list shows everyone — name, roster types, phone, and email — in one place. Search by name, email, or phone, or filter by Roster Type at the top of the page, or Active, Inactive, or All using the chips below the search bar. Click any row to open that volunteer's profile.</p>
+  <p>Once your volunteers are in, the Profiles list shows everyone in one place: name, roster types, phone, email, whether they have the app installed, and their notifications. Search by name, email, or phone, or filter by Roster Type at the top of the page, or Active, Inactive, or All using the chips below the search bar. Click any row to open that volunteer's profile.</p>
 
   <figure>
-    <img src="crops/vol-list.png" data-full="vol-list.png" alt="The Profiles list showing volunteers with name, roster types, phone and email" class="screenshot crop" width="1059" height="360" loading="lazy" decoding="async">
-    <figcaption>The Profiles list — everyone in one place. The toolbar holds Import Volunteer CSV and Add Volunteer; click any row to open a profile.</figcaption>
+    <img src="crops/vol-list.png" data-full="vol-list.png" alt="The Profiles list: No roles set, Import Volunteers and Add Volunteer buttons and the search box along the top, All, Active and Inactive chips, then rows with a tick box, name, roster types, phone, email, app installed and notifications" class="screenshot crop" width="1138" height="544" loading="lazy" decoding="async">
+    <figcaption>The Profiles list — everyone in one place. The toolbar holds Import Volunteers and Add Volunteer; click any row to open a profile.</figcaption>
   </figure>
 
   <div class="callout callout-tip">
@@ -1736,7 +1736,7 @@
   <p>A volunteer who is ticked for a roster but hasn't been given any roles on it is left out of that roster's builds — Rostas has nothing to place them in. The <strong>No roles set</strong> button finds these people so you can set their roles in one sitting.</p>
 
   <ol class="steps">
-    <li>Pick a roster using the pills at the top of the Profiles page. The <strong>No roles set</strong> button next to Insights shows how many volunteers on that roster still have no roles.</li>
+    <li>Pick a roster using the pills at the top of the Profiles page. The <strong>No roles set</strong> button at the top of the page shows how many volunteers on that roster still have no roles. Until you pick a roster it is greyed out and says <em>pick a roster first</em>.</li>
     <li>Click the button. The list narrows to just those volunteers, and the button turns gold. Click it again to see everyone.</li>
     <li>Click a name to open their profile. A bar at the top shows <em>No roles set</em>, the roster, and where you are in the list (for example "volunteer 2 of 3").</li>
     <li>Choose their roles and save. Then press <strong>Next</strong> — the arrows now step only through the volunteers who still have no roles, and anyone you've just set up drops off the list.</li>
@@ -1744,7 +1744,7 @@
   </ol>
 
   <figure>
-    <img src="crops/vol-no-roles-list.png" data-full="vol-no-roles-list.png" alt="The Profiles list with the gold No roles set button showing a count of 3, next to Insights" class="screenshot crop" width="1145" height="188" loading="lazy" decoding="async">
+    <img src="crops/vol-no-roles-list.png" data-full="vol-no-roles-list.png" alt="The top of the Profiles list with the gold No roles set button showing a count of 2, next to Import Volunteers" class="screenshot crop" width="1138" height="204" loading="lazy" decoding="async">
     <figcaption>The No roles set button, with the number of volunteers on the chosen roster who still have no roles.</figcaption>
   </figure>
 
@@ -3723,7 +3723,7 @@
   </div>
 
   <h2 class="section-title" id="appendix-connectors-intro">Connectors</h2>
-  <p>Most organisations get their volunteers into Rostas by <a href="#e-import">importing a CSV</a> — it works for everyone and needs nothing more than a spreadsheet. But if your church or organisation already keeps its people in another system, or in a Google Sheet it keeps up to date, a <strong>connector</strong> can sync them into Rostas automatically, so you don't maintain two lists by hand.</p>
+  <p>Most organisations get their volunteers into Rostas by <a href="#e-import">importing a spreadsheet</a> — it works for everyone and needs nothing more than a list of names. But if your church or organisation already keeps its people in another system, or in a Google Sheet it keeps up to date, a <strong>connector</strong> can sync them into Rostas automatically, so you don't maintain two lists by hand.</p>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>

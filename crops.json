@@ -8,6 +8,16 @@
     "display_scale": 0.75
   },
   "crops": {
+    "gs-1c-back-to-setup": {
+      "src": "gs-1c-back-to-setup.png",
+      "box": [220, 0, 1396, 118],
+      "highlights": [[1186, 60, 1382, 108]]
+    },
+    "gs-2e-no-roles-warning": {
+      "src": "gs-2e-no-roles-warning.png",
+      "box": [468, 72, 1148, 648],
+      "highlights": [[484, 148, 1133, 288]]
+    },
     "gs-1a-new-roster": {
       "src": "builds-dashboard.png",
       "box": [0, 312, 820, 512],

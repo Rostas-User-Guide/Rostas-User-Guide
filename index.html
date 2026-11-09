@@ -1064,7 +1064,7 @@
   <!-- 9 Nov 2026: steps lettered 1A–1D and 2A–2F to match the badges in
        getting-started-flow.svg, so the guide's own numbering never competes
        with the wizard's on-screen "Step N of 6". Screenshots are reused crops
-       (crops.json); "SHOT NEEDED" comments mark the ones still to take. -->
+       (crops.json). 1C and 2E were shot on Riverside with a throwaway roster. -->
   <h3 class="sub-title" id="getting-started-setup">1. Set up the roster</h3>
   <p>The New Roster wizard (<a href="#c-new-roster">Set up a new roster</a>) takes you through four steps. Run it once for each roster.</p>
 
@@ -1093,7 +1093,7 @@
         <tr><td><strong>An Excel file</strong></td><td>Click <strong>Import Volunteers</strong>. Rostas takes <code>.xlsx</code>, <code>.xls</code> and <code>.csv</code> files up to 5&nbsp;MB, with one person per row (<a href="#e-import">how importing works</a>). Or, to keep editing your list and have Rostas follow it, upload it to Google Drive, choose <strong>File → Save as Google Sheets</strong>, and connect it (row above).</td></tr>
         <tr><td><strong>Just the contacts on your phone</strong></td><td>Export them as a vCard (<code>.vcf</code>) file and click <strong>Import Volunteers</strong> (<a href="#e-import-phone">how to export your contacts</a>). Good for a small team with no other list.</td></tr>
         <tr><td><strong>A CSV export from another database</strong></td><td>Click <strong>Import Volunteers</strong>. Rostas matches the columns it recognises; check each match before you import, and ignore any columns you don't need.</td></tr>
-        <tr><td><strong>Handwritten</strong> (or in your head)</td><td>Type it into a new Google Sheet, one person per row, with the columns <strong>Name</strong>, <strong>Mobile</strong> and <strong>Email</strong> (and <strong>Roster</strong> if you like), then connect or import it. For just a handful of people, click <strong>+ Add one at a time</strong> instead.</td></tr>
+        <tr><td><strong>Handwritten</strong> (or in your head)</td><td>Type it into a new Google Sheet, one person per row, with the columns <strong>Name</strong>, <strong>Mobile</strong> and <strong>Email</strong> (and <strong>Roster</strong> if you like), then connect or import it. For just a handful of people, click <strong>+ Add one at a time</strong> instead (it needs a mobile number for each person).</td></tr>
       </tbody>
     </table>
   </div>
@@ -1133,8 +1133,10 @@
     <img src="crops/new-roster-setup-walk.png" data-full="new-roster-setup-walk.png" alt="A volunteer's profile during setup: a bar reading Setting up Lockup, 1 volunteer left to set up, with a green progress bar, and the gold next arrow beside the search bar" class="screenshot crop" width="1029" height="525" loading="lazy" decoding="async">
     <figcaption>1C. The bar counts down as people get their roles; the gold <strong>›</strong> takes you to the next one.</figcaption>
   </figure>
-  <!-- SHOT NEEDED (gs-1c-back-to-setup): the setup bar on the last volunteer, with
-       Back to roster setup gold. Riverside, a roster with everyone set up. -->
+  <figure>
+    <img src="crops/gs-1c-back-to-setup.png" data-full="gs-1c-back-to-setup.png" alt="The setup bar on the last volunteer: Setting up Guide Demo, 1 volunteer left to set up, with the gold Back to roster setup button highlighted" class="screenshot crop" width="882" height="88" loading="lazy" decoding="async">
+    <figcaption>1C. On the last volunteer, <strong>Back to roster setup</strong> turns gold.</figcaption>
+  </figure>
   <p>When you reach the last volunteer, or everyone has roles, <strong>Back to roster setup</strong> turns gold: click it. If you need to stop partway, click <strong>Leave for now</strong>; the step shows how far you got, and <strong>Set up the next volunteer</strong> carries on from there.</p>
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
@@ -1172,19 +1174,23 @@
   </figure>
 
   <p class="gs-step" id="gs-2e"><span class="step-tag">2E</span> <strong>Build &amp; Check</strong></p>
-  <!-- SHOT NEEDED (gs-2e-no-roles-warning): Build & Check showing the warning that
-       someone has no roles, or a role has nobody who does it. Riverside, a roster
-       with one volunteer whose roles are all Doesn't Do. -->
-  <p>Rostas warns you first if anyone on the roster still has no roles, or if a role has nobody who does it. Set those roles (or check <a href="#d-overview">Insights</a>), or build as is. Then check the result on the Board before you send it.</p>
+  <p>Rostas warns you first if anyone on the roster still has no roles, or if a role has nobody who does it. Set those roles (or check <a href="#d-overview">Insights</a>), or build as is.</p>
+  <figure>
+    <img src="crops/gs-2e-no-roles-warning.png" data-full="gs-2e-no-roles-warning.png" alt="Build and Check: a highlighted Set their roles first card (1 of 2 volunteers has no roles, so they would be left out of this build, with a Set the 1 without roles button), then Nudge the 2 who haven't replied, and Build as is" class="screenshot crop" width="510" height="432" loading="lazy" decoding="async">
+    <figcaption>2E. Anyone without roles is flagged before you build. <strong>Set the 1 without roles</strong> steps through them and brings you back.</figcaption>
+  </figure>
+  <p>Then check the result on the Board before you send it.</p>
   <figure>
     <img src="crops/roster-wizard-step5-board.png" data-full="roster-wizard-step5-board.png" alt="The Roster Board after a build, with Back to wizard, Step 5 of 6, and the Refill roster, Rebuild roster and Send notifications buttons highlighted" class="screenshot crop" width="1204" height="237" loading="lazy" decoding="async">
     <figcaption>2E. Check the roster on the Board. Nothing has been sent yet.</figcaption>
   </figure>
 
   <p class="gs-step" id="gs-2f"><span class="step-tag">2F</span> <strong>Notify</strong></p>
-  <!-- SHOT NEEDED (gs-2f-test-mode): the Notify step with the test mode switch
-       still on. Riverside (it is in test mode). -->
-  <p>Your copy is still in test mode, so nothing reaches a volunteer until you turn test mode off at <a href="#c-rebuild-step6">Notify</a>. Then send.</p>
+  <p>Your copy starts in test mode, so nothing reaches a volunteer yet. Before your first real send, switch the three test modes (SMS, Email and App push) off in <a href="#f-quick-controls">Settings → Quick Controls</a>. Then click <strong>Send notifications</strong> on the Board (<a href="#c-rebuild-step6">Notify</a>). The confirmation box warns you if a test mode is still on.</p>
+  <figure>
+    <img src="roster-wizard-step5-send-confirm.png" alt="The Send notifications? box, warning in orange that Email test mode is on, then how many volunteers will be told by app, email and text" class="screenshot-mid" width="566" height="453" loading="lazy" decoding="async">
+    <figcaption>2F. If you see this orange warning, a test mode is still on. Cancel and switch it off first.</figcaption>
+  </figure>
 
   <div class="callout callout-info">
     <span class="callout-icon">🔁</span>

@@ -2,7 +2,7 @@
   <!-- 4 Nov 2026 — the Getting started flow for the guide's "Getting started:
        your first roster" section. 9 Nov 2026 — two jobs, lettered 1A–1D and
        2A–2F to match the guide's headings. The "Next time" bar sits
-       between the two rows (10 Nov 2026). 10 Nov 2026 — text enlarged (smallest
+       between the two rows (10 Nov 2026). Title renamed "Build New Roster" (9 Nov 2026). 10 Nov 2026 — text enlarged (smallest
        28px at 1800 wide) because it was unreadable on a 14-inch screen.
        Export: wrap in HTML that loads DM Sans from Google Fonts and screenshot
        with headless Chrome at the viewBox size. -->
@@ -11,7 +11,7 @@
     <marker id="arrGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b8932a"/></marker>
   </defs>
   <rect width="1800" height="1060" fill="#f7f9fb"/>
-  <text x="900" y="74" text-anchor="middle" font-size="54" font-weight="700" fill="#1a2e4a">Getting started: your first roster</text>
+  <text x="900" y="74" text-anchor="middle" font-size="54" font-weight="700" fill="#1a2e4a">Build New Roster</text>
   <text x="900" y="128" text-anchor="middle" font-size="34" fill="#5a6a7e">Allow 20–30 minutes the first time. After that, a build takes about 10 minutes.</text>
   <text x="30" y="196" font-size="34" font-weight="700" fill="#b8932a">1. Set up the roster with the New Roster wizard (once for each roster)</text>
   <g>

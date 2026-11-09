@@ -264,6 +264,12 @@
     margin: 2.2rem 0 1rem;
   }
 
+  /* 9 Nov 2026: lettered steps (1A, 2B…) in Getting started */
+  p.gs-step { margin: 1.6rem 0 0.5rem; font-size: 1rem; color: var(--navy); }
+  .step-tag { display: inline-block; min-width: 2.4em; padding: 0.1em 0.55em; margin-right: 0.3em;
+    border-radius: 999px; background: var(--gold); color: #fff; font-weight: 700;
+    font-size: 0.85em; text-align: center; }
+
   h3.sub-title {
     font-family: 'DM Sans', sans-serif;
     font-size: 1rem;
@@ -1051,14 +1057,34 @@
 
   <!-- Drawn from "getting-started-flow.svg" (edit that, then re-export the PNG at 1800 px wide) -->
   <figure>
-    <img src="getting-started-flow.png" alt="Getting started. 1: set up the roster with the New Roster wizard, once for each roster: name, roles and season; Volunteers (connect Infoodle, Planning Center or a Google Sheet, or import Excel, CSV or phone contacts, or add a few); set up each volunteer (roles, how often, who they serve with, role links, pressing › for the next one; no roles means left out of the build); then review and create. 2: run the roster cycle: Confirm Dates, Roles, Role Prefs (optional), Availability (optional), Build and Check, Notify. Next time, start at step 2: only volunteers who are new since the last build need setting up." class="screenshot" width="1800" height="800" loading="lazy" decoding="async">
-    <figcaption>Two jobs for your first roster. Every build after that starts at job 2.</figcaption>
+    <img src="getting-started-flow.png" alt="Getting started. 1A to 1D: set up the roster with the New Roster wizard, once for each roster: name, roles and season; Volunteers (connect Infoodle, Planning Center or a Google Sheet, or import Excel, CSV or phone contacts, or add a few); set up each volunteer (roles, how often, who they serve with, role links, pressing › for the next one; no roles means left out of the build); then review and create. 2A to 2F: run the roster cycle: Confirm Dates, Roles, Role Prefs (optional), Availability (optional), Build and Check, Notify. Next time, start at 2A: only volunteers who are new since the last build need setting up." class="screenshot" width="1800" height="800" loading="lazy" decoding="async">
+    <figcaption>Two jobs for your first roster, lettered to match the steps below. Every build after that starts at 2A.</figcaption>
   </figure>
 
+  <!-- 9 Nov 2026: steps lettered 1A–1D and 2A–2F to match the badges in
+       getting-started-flow.svg, so the guide's own numbering never competes
+       with the wizard's on-screen "Step N of 6". Screenshots are reused crops
+       (crops.json); "SHOT NEEDED" comments mark the ones still to take. -->
   <h3 class="sub-title" id="getting-started-setup">1. Set up the roster</h3>
-  <p>On the <strong>Builds</strong> dashboard, click the green <strong>New Roster</strong> row. The wizard (<a href="#c-new-roster">Set up a new roster</a>) first asks what the roster is and when it runs: its name, its roles and its season. Then come the two steps that decide whether your first roster comes out right.</p>
+  <p>The New Roster wizard (<a href="#c-new-roster">Set up a new roster</a>) takes you through four steps. Run it once for each roster.</p>
 
-  <p id="getting-started-import"><strong>Get your volunteers in (the Volunteers step).</strong> Only a name is required, but add mobile numbers and emails wherever you have them: they're how volunteers get their roster, availability requests and replacement asks. The step asks where your list is now:</p>
+  <p class="gs-step" id="gs-1a"><span class="step-tag">1A</span> <strong>Name, roles and season</strong></p>
+  <p>On the <strong>Builds</strong> dashboard, click the green <strong>New Roster</strong> row at the bottom. The wizard first asks what the roster is and when it runs: its name and icon, its roles and its season.</p>
+  <figure>
+    <img src="crops/gs-1a-new-roster.png" data-full="builds-dashboard.png" alt="The bottom of the Builds dashboard: a roster row, then the green New Roster row, Set up a new roster type, highlighted" class="screenshot crop" width="615" height="150" loading="lazy" decoding="async">
+    <figcaption>1A. The green <strong>New Roster</strong> row is always last on the Builds dashboard.</figcaption>
+  </figure>
+  <figure>
+    <img src="crops/new-roster-step0-schedule-2.png" data-full="new-roster-step0-schedule-2.png" alt="Set up a new roster: the roster's name entered and an icon selected" class="screenshot crop" width="717" height="520" loading="lazy" decoding="async">
+    <figcaption>1A. Give the roster a short name (it appears in texts and emails) and pick an icon.</figcaption>
+  </figure>
+
+  <p class="gs-step" id="getting-started-import"><span class="step-tag">1B</span> <strong>Get your volunteers in</strong></p>
+  <p>Only a name is required, but add mobile numbers and emails wherever you have them: they're how volunteers get their roster, availability requests and replacement asks. The Volunteers step asks where your list is now:</p>
+  <figure>
+    <img src="crops/new-roster-step4-sources.png" data-full="new-roster-step4-sources.png" alt="Where is your volunteer list now? Three cards: Your volunteers come from Google Sheet, with Sync now and Change connection buttons; A spreadsheet, CSV or your phone's contacts, with Import Volunteers; Just a few people, with Add one at a time" class="screenshot crop" width="701" height="572" loading="lazy" decoding="async">
+    <figcaption>1B. Three ways in: sync a connected list, import a file, or add people one at a time. (Not connected yet? The first card says <strong>Connect it</strong> instead.)</figcaption>
+  </figure>
   <div class="tbl-wrap">
     <table>
       <thead><tr><th>Your list is…</th><th>What to do in the wizard</th></tr></thead>
@@ -1071,34 +1097,57 @@
       </tbody>
     </table>
   </div>
-  <p>An import you start from the wizard comes back to it: at the end, click <strong>Back to setting up</strong> and your roster's name. A green note then says what happened to each person: who your file already put on this roster, who had no roster and is ticked for you, and who went to other rosters. Tick anyone else who serves on this roster, then click <strong>Next: Set up volunteers</strong>.</p>
+  <p>An import you start from the wizard comes back to it: at the end, click <strong>Back to setting up</strong> and your roster's name.</p>
+  <figure>
+    <img src="crops/new-roster-import-back.png" data-full="new-roster-import-back.png" alt="Import complete: 15 new volunteers added, 5 skipped as duplicates, with a Back to setting up Lockup button highlighted" class="screenshot crop" width="608" height="488" loading="lazy" decoding="async">
+    <figcaption>1B. After an import, the gold button takes you back to the wizard.</figcaption>
+  </figure>
+  <p>A green note then says what happened to each person: who your file already put on this roster, who had no roster and is ticked for you, and who went to other rosters. Tick anyone else who serves on this roster, then click <strong>Next: Set up volunteers</strong>.</p>
 
-  <p id="getting-started-decide"><strong>Decide who chooses each volunteer's roles.</strong> Decide this before you start the profiles, because it decides how much of the profile work is yours. While you're at it, decide whether you'll ask for availability: you'll be asked at the roster cycle's Availability step.</p>
+  <p class="gs-step" id="getting-started-profiles"><span class="step-tag">1C</span> <strong>Set up each volunteer</strong></p>
+  <p id="getting-started-decide"><strong>First, decide who chooses each volunteer's roles</strong>, because it decides how much of this step is yours. While you're at it, decide whether you'll ask for availability (you'll be asked at 2D).</p>
   <div class="tbl-wrap">
     <table>
       <thead><tr><th>Decision</th><th>Choose this…</th><th>…if</th></tr></thead>
       <tbody>
-        <tr><td rowspan="2"><strong>Who chooses each volunteer's roles?</strong></td><td>You set them</td><td>You know your people well. It's the fastest and most accurate route: you do it in the wizard's Set up step, next.</td></tr>
-        <tr><td>Ask the volunteers</td><td>You don't know who does what, or the team is large. Skip the roles in Set up; Rostas sends each volunteer one message asking which roles suit them, at <a href="#c-rebuild-step3">Step 3 — Role Prefs</a> of your first roster cycle. You can mix the two: set the people you're sure of, then send only to volunteers with no roles set.</td></tr>
-        <tr><td rowspan="2"><strong>Will you ask for availability?</strong></td><td>Send an availability poll</td><td>Recommended for a first roster. Each volunteer marks the dates they can't do, at <a href="#c-rebuild-step4">Step 4 — Availability</a>, so nobody is rostered on a date they're away.</td></tr>
+        <tr><td rowspan="2"><strong>Who chooses each volunteer's roles?</strong></td><td>You set them</td><td>You know your people well. It's the fastest and most accurate route: you do it here in 1C.</td></tr>
+        <tr><td>Ask the volunteers</td><td>You don't know who does what, or the team is large. Skip the roles here; at <a href="#c-rebuild-step3">2C Role Prefs</a> Rostas sends each volunteer one message asking which roles suit them. You can mix the two: set the people you're sure of, then send only to volunteers with no roles set.</td></tr>
+        <tr><td rowspan="2"><strong>Will you ask for availability?</strong></td><td>Send an availability poll</td><td>Recommended for a first roster. At <a href="#c-rebuild-step4">2D Availability</a> each volunteer marks the dates they can't do, so nobody is rostered on a date they're away.</td></tr>
         <tr><td>Build with everyone available</td><td>Your team is small and you'll fix clashes on the Board yourself. Everyone is treated as free on every date.</td></tr>
       </tbody>
     </table>
   </div>
-
-  <p id="getting-started-profiles"><strong>Set up each volunteer (the Set up step).</strong> This is the step that makes the first roster look right, and it's where most of your 20–30 minutes goes. The step shows how many volunteers on the roster are set up so far. Click <strong>Start with the first volunteer</strong>, and on each profile:</p>
+  <p>This is the step that makes the first roster look right, and it's where most of your 20–30 minutes goes. It shows how many volunteers on the roster are set up so far. Click <strong>Start with the first volunteer</strong>.</p>
+  <figure>
+    <img src="crops/new-roster-step5-setup.png" data-full="new-roster-step5-setup.png" alt="Set up each volunteer on Lockup: 0 of 21 Lockup volunteers are set up, 21 still have no roles, a list of what to set on each profile and a Start with the first volunteer button" class="screenshot crop" width="702" height="589" loading="lazy" decoding="async">
+    <figcaption>1C. The count shows how many are set up, and how many still have no roles.</figcaption>
+  </figure>
+  <p>On each profile:</p>
   <ol class="steps">
     <li>Check their mobile and email, and the <strong>Active</strong>, <strong>Email</strong> and <strong>SMS</strong> toggles (<a href="#e-detail-contact">what each one does</a>).</li>
     <li>Set each of their roles to <strong>Does This</strong>, <strong>Fills In</strong> or <strong>Doesn't Do</strong> (<a href="#e-detail-roles">Roles</a>).</li>
     <li>If they serve less often than every week, set their <a href="#e-detail-frequency">Frequency</a>. If they should always (or never) serve with someone, set <a href="#e-detail-relational">Relational rostering</a>. If they do two roles at once (leading worship from the guitar, say), set a <a href="#e-detail-role-linking">role link</a>.</li>
     <li>Press the gold <strong>›</strong> arrow beside the search bar to go straight to the next volunteer. The bar at the top counts down how many are left to set up.</li>
   </ol>
-  <p>When you reach the last volunteer, or everyone has roles, <strong>Back to roster setup</strong> turns gold: click it. If you need to stop partway, click <strong>Leave for now</strong>; the Set up step shows how far you got, and <strong>Set up the next volunteer</strong> carries on from there.</p>
+  <figure>
+    <img src="crops/new-roster-setup-walk.png" data-full="new-roster-setup-walk.png" alt="A volunteer's profile during setup: a bar reading Setting up Lockup, 1 volunteer left to set up, with a green progress bar, and the gold next arrow beside the search bar" class="screenshot crop" width="1029" height="525" loading="lazy" decoding="async">
+    <figcaption>1C. The bar counts down as people get their roles; the gold <strong>›</strong> takes you to the next one.</figcaption>
+  </figure>
+  <!-- SHOT NEEDED (gs-1c-back-to-setup): the setup bar on the last volunteer, with
+       Back to roster setup gold. Riverside, a roster with everyone set up. -->
+  <p>When you reach the last volunteer, or everyone has roles, <strong>Back to roster setup</strong> turns gold: click it. If you need to stop partway, click <strong>Leave for now</strong>; the step shows how far you got, and <strong>Set up the next volunteer</strong> carries on from there.</p>
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <strong>A volunteer with no roles is left out of the build.</strong> Rostas has nothing to place them in. The Set up step tells you how many still have none, and so does Build &amp; Check before you build.
+    <strong>A volunteer with no roles is left out of the build.</strong> Rostas has nothing to place them in. This step tells you how many still have none, and so does Build &amp; Check (2E) before you build.
   </div>
-  <p>Then click <strong>Next: Review</strong> and <strong>Create Roster</strong>. Have more than one roster (Sunday and Music, say)? Run New Roster for each one. People already in Rostas just need ticking the second time, and their contact details are already checked.</p>
+
+  <p class="gs-step" id="gs-1d"><span class="step-tag">1D</span> <strong>Review and create</strong></p>
+  <p>Click <strong>Next: Review</strong>, check the summary (each <strong>Edit</strong> link goes back to that part), then click <strong>Create Roster</strong>.</p>
+  <figure>
+    <img src="crops/new-roster-step4-review.png" data-full="new-roster-step4-review.png" alt="Review: a summary of the new roster (name, day, start time, frequency, season, holiday pauses, roles and volunteers), each with an Edit link, and a Create Roster button" class="screenshot crop" width="717" height="702" loading="lazy" decoding="async">
+    <figcaption>1D. One last look before <strong>Create Roster</strong>.</figcaption>
+  </figure>
+  <p>Have more than one roster (Sunday and Music, say)? Run New Roster for each one. People already in Rostas just need ticking the second time, and their contact details are already checked.</p>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
@@ -1106,12 +1155,41 @@
   </div>
 
   <h3 class="sub-title" id="getting-started-build">2. Build, check and send</h3>
-  <ol class="steps">
-    <li><strong>Create Roster</strong> takes you straight into your first <a href="#c-rebuild">roster cycle</a>. At Role Prefs and Availability, follow the decisions you made above.</li>
-    <li>At <a href="#c-rebuild-step5">Build &amp; Check</a>, Rostas warns you first if anyone on the roster still has no roles, or if a role has nobody who does it. Set those roles (or check <a href="#d-overview">Insights</a>), or build as is.</li>
-    <li>Check the result on the Board before you send it. Your copy is still in test mode, so nothing reaches a volunteer until you turn test mode off at <a href="#c-rebuild-step6">Step 6 — Notify</a>.</li>
-  </ol>
-  <p>Next time, start at job 2: open the roster on the Builds dashboard and run the cycle again. Only volunteers who are new since the last build need their profiles set up, so it usually takes about 10 minutes.</p>
+  <p><strong>Create Roster</strong> takes you straight into your first <a href="#c-rebuild">roster cycle</a>. It has six steps; on screen they're numbered Step 1 to Step 6 of 6, so 2A is Step 1, and 2F is Step 6.</p>
+
+  <p class="gs-step" id="gs-2a"><span class="step-tag">2A</span> <strong>Confirm Dates</strong> and <span class="step-tag">2B</span> <strong>Roles</strong></p>
+  <p>Check which dates to build and how many people each role needs on each date (<a href="#c-rebuild">details</a>).</p>
+
+  <p class="gs-step" id="gs-2c"><span class="step-tag">2C</span> <strong>Role Prefs</strong> and <span class="step-tag">2D</span> <strong>Availability</strong> (both optional)</p>
+  <p>Follow the decisions you made in 1C.</p>
+  <figure>
+    <img src="crops/roster-wizard-step3-role-prefs-options.png" data-full="roster-wizard-step3-role-prefs-options.png" alt="Role Preferences: the options Send to everyone on this roster, Send only to volunteers with no roles set, I will set them myself now, and Skip this step" class="screenshot crop" width="513" height="448" loading="lazy" decoding="async">
+    <figcaption>2C. Ask the volunteers which roles suit them, or skip if you set them all in 1C.</figcaption>
+  </figure>
+  <figure>
+    <img src="crops/roster-wizard-step4-availability-options.png" data-full="roster-wizard-step4-availability-options.png" alt="Availability: Do you want to ask volunteers for their availability first? with the options Send an availability poll and Build with everyone available" class="screenshot crop" width="513" height="289" loading="lazy" decoding="async">
+    <figcaption>2D. Send the poll (recommended for a first roster), or build with everyone available.</figcaption>
+  </figure>
+
+  <p class="gs-step" id="gs-2e"><span class="step-tag">2E</span> <strong>Build &amp; Check</strong></p>
+  <!-- SHOT NEEDED (gs-2e-no-roles-warning): Build & Check showing the warning that
+       someone has no roles, or a role has nobody who does it. Riverside, a roster
+       with one volunteer whose roles are all Doesn't Do. -->
+  <p>Rostas warns you first if anyone on the roster still has no roles, or if a role has nobody who does it. Set those roles (or check <a href="#d-overview">Insights</a>), or build as is. Then check the result on the Board before you send it.</p>
+  <figure>
+    <img src="crops/roster-wizard-step5-board.png" data-full="roster-wizard-step5-board.png" alt="The Roster Board after a build, with Back to wizard, Step 5 of 6, and the Refill roster, Rebuild roster and Send notifications buttons highlighted" class="screenshot crop" width="1204" height="237" loading="lazy" decoding="async">
+    <figcaption>2E. Check the roster on the Board. Nothing has been sent yet.</figcaption>
+  </figure>
+
+  <p class="gs-step" id="gs-2f"><span class="step-tag">2F</span> <strong>Notify</strong></p>
+  <!-- SHOT NEEDED (gs-2f-test-mode): the Notify step with the test mode switch
+       still on. Riverside (it is in test mode). -->
+  <p>Your copy is still in test mode, so nothing reaches a volunteer until you turn test mode off at <a href="#c-rebuild-step6">Notify</a>. Then send.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">🔁</span>
+    <strong>Next time, start at 2A.</strong> Open the roster on the Builds dashboard and run the cycle again. Only volunteers who are new since the last build need their profiles set up, so it usually takes about 10 minutes.
+  </div>
 
   <h2 class="section-title" id="a-how-it-works">How Rostas Works — The Big Picture</h2>
   <p>Rostas works in a rhythm that repeats every few weeks. The six-step roster cycle guides you through each stage in order:</p>

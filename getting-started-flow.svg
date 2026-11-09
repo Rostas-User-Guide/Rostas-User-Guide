@@ -2,7 +2,9 @@
   <!-- 4 Nov 2026 — the Getting started flow for the guide's "Getting started:
        your first roster" section. Edit this, then re-export the PNG at 1800 px wide.
        9 Nov 2026 — redrawn: the New Roster wizard now gets the volunteers in and
-       walks every profile, so getting started is two jobs, not four. -->
+       walks every profile, so getting started is two jobs, not four.
+       Export: wrap in HTML that loads DM Sans from Google Fonts and screenshot
+       with headless Chrome at 1800x800. -->
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#2b4570"/>
@@ -15,7 +17,7 @@
   <text x="900" y="112" text-anchor="middle" font-size="24" fill="#5a6a7e">Allow 20–30 minutes the first time. After that, a build takes about 10 minutes.</text>
 
   <!-- Job 1: the New Roster wizard -->
-  <text x="60" y="172" font-size="24" font-weight="700" fill="#b8932a">1. Set up the roster with the New Roster wizard (once for each roster)</text>
+  <text x="60" y="154" font-size="24" font-weight="700" fill="#b8932a">1. Set up the roster with the New Roster wizard (once for each roster)</text>
   <g font-size="20" text-anchor="middle" fill="#5a6a7e">
     <g transform="translate(60,190)">
       <rect width="390" height="230" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
@@ -95,6 +97,19 @@
     <line x1="1445" y1="591" x2="1461" y2="591"/>
   </g>
 
+  <!-- 9 Nov 2026: letter badges match the guide's 1A–1D and 2A–2F headings -->
+  <g font-size="22" font-weight="700" text-anchor="middle" fill="#ffffff">
+    <rect x="80" y="172" width="62" height="36" rx="18" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/><text x="111" y="198">1A</text>
+    <rect x="500" y="172" width="62" height="36" rx="18" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/><text x="531" y="198">1B</text>
+    <rect x="920" y="172" width="62" height="36" rx="18" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/><text x="951" y="198">1C</text>
+    <rect x="1340" y="172" width="62" height="36" rx="18" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/><text x="1371" y="198">1D</text>
+    <rect x="100" y="518" width="62" height="36" rx="18" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/><text x="131" y="544">2A</text>
+    <rect x="377" y="518" width="62" height="36" rx="18" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/><text x="408" y="544">2B</text>
+    <rect x="654" y="518" width="62" height="36" rx="18" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/><text x="685" y="544">2C</text>
+    <rect x="931" y="518" width="62" height="36" rx="18" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/><text x="962" y="544">2D</text>
+    <rect x="1208" y="518" width="62" height="36" rx="18" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/><text x="1239" y="544">2E</text>
+    <rect x="1485" y="518" width="62" height="36" rx="18" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/><text x="1516" y="544">2F</text>
+  </g>
   <rect x="60" y="690" width="1680" height="70" rx="16" fill="#1a2e4a"/>
-  <text x="900" y="734" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">Next time, start at step 2. Only volunteers who are new since the last build need setting up.</text>
+  <text x="900" y="734" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">Next time, start at 2A. Only volunteers who are new since the last build need setting up.</text>
 </svg>

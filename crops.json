@@ -8,6 +8,11 @@
     "display_scale": 0.75
   },
   "crops": {
+    "gs-1a-new-roster": {
+      "src": "builds-dashboard.png",
+      "box": [0, 312, 820, 512],
+      "highlights": [[12, 412, 808, 500]]
+    },
     "settings-main-chips": {
       "src": "settings-main.png",
       "box": [0, 0, 1642, 196],

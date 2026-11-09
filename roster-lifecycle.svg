@@ -1,110 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 640" width="1800" height="640" font-family="'DM Sans', Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 760" width="1800" height="760" font-family="'DM Sans', Arial, Helvetica, sans-serif">
   <!-- 2 Nov 2026 — redrawn by hand to replace the NotebookLM slide
        (Rostas_Intelligent_Roster_Assistant-6.jpg), which still said
        "Run Sheet Wizard" and used the old step names. Step names match
-       wzHorizStepper_() in Phase11_CoordinatorDashboard.js. -->
+       wzHorizStepper_() in Phase11_CoordinatorDashboard.js.
+       10 Nov 2026 — text enlarged (smallest 24px at 1800 wide) for 14-inch
+       screens; same export as getting-started-flow.svg. -->
   <defs>
-    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#2b4570"/>
-    </marker>
-    <marker id="arrGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#b8932a"/>
-    </marker>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b4570"/></marker>
+    <marker id="arrGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b8932a"/></marker>
   </defs>
-
-  <rect width="1800" height="640" fill="#f7f9fb"/>
-
-  <text x="900" y="78" text-anchor="middle" font-size="46" font-weight="700" fill="#1a2e4a">The roster cycle</text>
-  <text x="900" y="122" text-anchor="middle" font-size="24" fill="#5a6a7e">Open a roster from the Builds page and work through six steps, one button at a time</text>
-
-  <!-- arrows between steps -->
+  <rect width="1800" height="760" fill="#f7f9fb"/>
+  <text x="900" y="76" text-anchor="middle" font-size="50" font-weight="700" fill="#1a2e4a">The roster cycle</text>
+  <text x="900" y="126" text-anchor="middle" font-size="30" fill="#5a6a7e">Open a roster from the Builds page and work through six steps, one button at a time</text>
+  <g>
+    <rect x="35" y="200" width="265" height="320" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+    <circle cx="167.5" cy="200" r="30" fill="#1a2e4a"/>
+    <text x="167.5" y="211" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">1</text>
+    <text x="167.5" y="280" text-anchor="middle" font-size="30" font-weight="700" fill="#1a2e4a">Confirm Dates</text>
+    <text x="167.5" y="332" text-anchor="middle" font-size="25" fill="#5a6a7e">Which dates this</text>
+    <text x="167.5" y="367" text-anchor="middle" font-size="25" fill="#5a6a7e">build covers.</text>
+    <text x="167.5" y="402" text-anchor="middle" font-size="25" fill="#5a6a7e">Holidays are</text>
+    <text x="167.5" y="437" text-anchor="middle" font-size="25" fill="#5a6a7e">already marked</text>
+  </g>
+  <g>
+    <rect x="328" y="200" width="265" height="320" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+    <circle cx="460.5" cy="200" r="30" fill="#1a2e4a"/>
+    <text x="460.5" y="211" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">2</text>
+    <text x="460.5" y="280" text-anchor="middle" font-size="30" font-weight="700" fill="#1a2e4a">Roles</text>
+    <text x="460.5" y="332" text-anchor="middle" font-size="25" fill="#5a6a7e">Which roles are</text>
+    <text x="460.5" y="367" text-anchor="middle" font-size="25" fill="#5a6a7e">needed, and how</text>
+    <text x="460.5" y="402" text-anchor="middle" font-size="25" fill="#5a6a7e">many people each</text>
+  </g>
+  <g>
+    <rect x="621" y="200" width="265" height="320" rx="18" fill="#fdf8ee" stroke="#b8932a" stroke-width="3" stroke-dasharray="12 8"/>
+    <circle cx="753.5" cy="200" r="30" fill="#b8932a"/>
+    <text x="753.5" y="211" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">3</text>
+    <text x="753.5" y="280" text-anchor="middle" font-size="30" font-weight="700" fill="#1a2e4a">Role Prefs</text>
+    <text x="753.5" y="332" text-anchor="middle" font-size="25" fill="#5a6a7e">Who is willing</text>
+    <text x="753.5" y="367" text-anchor="middle" font-size="25" fill="#5a6a7e">to do each role.</text>
+    <text x="753.5" y="402" text-anchor="middle" font-size="25" fill="#5a6a7e">Remembered</text>
+    <text x="753.5" y="437" text-anchor="middle" font-size="25" fill="#5a6a7e">next time</text>
+    <rect x="683.5" y="462" width="140" height="42" rx="21" fill="#b8932a"/>
+    <text x="753.5" y="492" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">Can skip</text>
+  </g>
+  <g>
+    <rect x="914" y="200" width="265" height="320" rx="18" fill="#fdf8ee" stroke="#b8932a" stroke-width="3" stroke-dasharray="12 8"/>
+    <circle cx="1046.5" cy="200" r="30" fill="#b8932a"/>
+    <text x="1046.5" y="211" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">4</text>
+    <text x="1046.5" y="280" text-anchor="middle" font-size="30" font-weight="700" fill="#1a2e4a">Availability</text>
+    <text x="1046.5" y="332" text-anchor="middle" font-size="25" fill="#5a6a7e">Volunteers say</text>
+    <text x="1046.5" y="367" text-anchor="middle" font-size="25" fill="#5a6a7e">which dates they</text>
+    <text x="1046.5" y="402" text-anchor="middle" font-size="25" fill="#5a6a7e">can do (app,</text>
+    <text x="1046.5" y="437" text-anchor="middle" font-size="25" fill="#5a6a7e">email or text)</text>
+    <rect x="976.5" y="462" width="140" height="42" rx="21" fill="#b8932a"/>
+    <text x="1046.5" y="492" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">Can skip</text>
+  </g>
+  <g>
+    <rect x="1207" y="200" width="265" height="320" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+    <circle cx="1339.5" cy="200" r="30" fill="#1a2e4a"/>
+    <text x="1339.5" y="211" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">5</text>
+    <text x="1339.5" y="280" text-anchor="middle" font-size="30" font-weight="700" fill="#1a2e4a">Build &amp; Check</text>
+    <text x="1339.5" y="332" text-anchor="middle" font-size="25" fill="#5a6a7e">Rostas fills the</text>
+    <text x="1339.5" y="367" text-anchor="middle" font-size="25" fill="#5a6a7e">slots. You check</text>
+    <text x="1339.5" y="402" text-anchor="middle" font-size="25" fill="#5a6a7e">and swap on</text>
+    <text x="1339.5" y="437" text-anchor="middle" font-size="25" fill="#5a6a7e">the Board</text>
+  </g>
+  <g>
+    <rect x="1500" y="200" width="265" height="320" rx="18" fill="#1a2e4a" stroke="#1a2e4a" stroke-width="3"/>
+    <circle cx="1632.5" cy="200" r="30" fill="#b8932a"/>
+    <text x="1632.5" y="211" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">6</text>
+    <text x="1632.5" y="280" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">Notify</text>
+    <text x="1632.5" y="332" text-anchor="middle" font-size="25" fill="#dde4ed">Everyone hears</text>
+    <text x="1632.5" y="367" text-anchor="middle" font-size="25" fill="#dde4ed">their dates.</text>
+    <text x="1632.5" y="402" text-anchor="middle" font-size="25" fill="#dde4ed">Reminders follow</text>
+    <text x="1632.5" y="437" text-anchor="middle" font-size="25" fill="#dde4ed">automatically</text>
+  </g>
   <g stroke="#2b4570" stroke-width="3" fill="none" marker-end="url(#arr)">
-    <line x1="303" y1="300" x2="333" y2="300"/>
-    <line x1="593" y1="300" x2="623" y2="300"/>
-    <line x1="883" y1="300" x2="913" y2="300"/>
-    <line x1="1173" y1="300" x2="1203" y2="300"/>
-    <line x1="1463" y1="300" x2="1493" y2="300"/>
+    <line x1="301" y1="360.0" x2="326" y2="360.0"/>
+    <line x1="594" y1="360.0" x2="619" y2="360.0"/>
+    <line x1="887" y1="360.0" x2="912" y2="360.0"/>
+    <line x1="1180" y1="360.0" x2="1205" y2="360.0"/>
+    <line x1="1473" y1="360.0" x2="1498" y2="360.0"/>
   </g>
-
-  <!-- 1 Confirm Dates -->
-  <g transform="translate(50,180)">
-    <rect width="250" height="240" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-    <circle cx="125" cy="0" r="26" fill="#1a2e4a"/>
-    <text x="125" y="9" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">1</text>
-    <text x="125" y="72" text-anchor="middle" font-size="28" font-weight="700" fill="#1a2e4a">Confirm Dates</text>
-    <text x="125" y="120" text-anchor="middle" font-size="20" fill="#5a6a7e">Which dates this</text>
-    <text x="125" y="146" text-anchor="middle" font-size="20" fill="#5a6a7e">build covers.</text>
-    <text x="125" y="172" text-anchor="middle" font-size="20" fill="#5a6a7e">Holidays already</text>
-    <text x="125" y="198" text-anchor="middle" font-size="20" fill="#5a6a7e">marked</text>
-  </g>
-
-  <!-- 2 Roles -->
-  <g transform="translate(340,180)">
-    <rect width="250" height="240" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-    <circle cx="125" cy="0" r="26" fill="#1a2e4a"/>
-    <text x="125" y="9" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">2</text>
-    <text x="125" y="72" text-anchor="middle" font-size="28" font-weight="700" fill="#1a2e4a">Roles</text>
-    <text x="125" y="120" text-anchor="middle" font-size="20" fill="#5a6a7e">Which roles are</text>
-    <text x="125" y="146" text-anchor="middle" font-size="20" fill="#5a6a7e">needed, and how</text>
-    <text x="125" y="172" text-anchor="middle" font-size="20" fill="#5a6a7e">many people each</text>
-  </g>
-
-  <!-- 3 Role Prefs (can skip) -->
-  <g transform="translate(630,180)">
-    <rect width="250" height="240" rx="18" fill="#fdf8ee" stroke="#b8932a" stroke-width="3" stroke-dasharray="12 8"/>
-    <circle cx="125" cy="0" r="26" fill="#b8932a"/>
-    <text x="125" y="9" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">3</text>
-    <text x="125" y="72" text-anchor="middle" font-size="28" font-weight="700" fill="#1a2e4a">Role Prefs</text>
-    <text x="125" y="120" text-anchor="middle" font-size="20" fill="#5a6a7e">Who is willing to</text>
-    <text x="125" y="146" text-anchor="middle" font-size="20" fill="#5a6a7e">do which role.</text>
-    <text x="125" y="172" text-anchor="middle" font-size="20" fill="#5a6a7e">Remembered</text>
-    <text x="125" y="198" text-anchor="middle" font-size="20" fill="#5a6a7e">next time</text>
-    <rect x="70" y="214" width="110" height="34" rx="17" fill="#b8932a"/>
-    <text x="125" y="238" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">Can skip</text>
-  </g>
-
-  <!-- 4 Availability (can skip) -->
-  <g transform="translate(920,180)">
-    <rect width="250" height="240" rx="18" fill="#fdf8ee" stroke="#b8932a" stroke-width="3" stroke-dasharray="12 8"/>
-    <circle cx="125" cy="0" r="26" fill="#b8932a"/>
-    <text x="125" y="9" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">4</text>
-    <text x="125" y="72" text-anchor="middle" font-size="28" font-weight="700" fill="#1a2e4a">Availability</text>
-    <text x="125" y="120" text-anchor="middle" font-size="20" fill="#5a6a7e">Volunteers say</text>
-    <text x="125" y="146" text-anchor="middle" font-size="20" fill="#5a6a7e">which dates they</text>
-    <text x="125" y="172" text-anchor="middle" font-size="20" fill="#5a6a7e">can do (app, email</text>
-    <text x="125" y="198" text-anchor="middle" font-size="20" fill="#5a6a7e">or text)</text>
-    <rect x="70" y="214" width="110" height="34" rx="17" fill="#b8932a"/>
-    <text x="125" y="238" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">Can skip</text>
-  </g>
-
-  <!-- 5 Build & Check -->
-  <g transform="translate(1210,180)">
-    <rect width="250" height="240" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-    <circle cx="125" cy="0" r="26" fill="#1a2e4a"/>
-    <text x="125" y="9" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">5</text>
-    <text x="125" y="72" text-anchor="middle" font-size="28" font-weight="700" fill="#1a2e4a">Build &amp; Check</text>
-    <text x="125" y="120" text-anchor="middle" font-size="20" fill="#5a6a7e">Rostas fills the</text>
-    <text x="125" y="146" text-anchor="middle" font-size="20" fill="#5a6a7e">slots. You check</text>
-    <text x="125" y="172" text-anchor="middle" font-size="20" fill="#5a6a7e">and swap on</text>
-    <text x="125" y="198" text-anchor="middle" font-size="20" fill="#5a6a7e">the Board</text>
-  </g>
-
-  <!-- 6 Notify -->
-  <g transform="translate(1500,180)">
-    <rect width="250" height="240" rx="18" fill="#1a2e4a" stroke="#1a2e4a" stroke-width="3"/>
-    <circle cx="125" cy="0" r="26" fill="#b8932a"/>
-    <text x="125" y="9" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">6</text>
-    <text x="125" y="72" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">Notify</text>
-    <text x="125" y="120" text-anchor="middle" font-size="20" fill="#dde4ed">Everyone hears</text>
-    <text x="125" y="146" text-anchor="middle" font-size="20" fill="#dde4ed">their dates.</text>
-    <text x="125" y="172" text-anchor="middle" font-size="20" fill="#dde4ed">Reminders follow</text>
-    <text x="125" y="198" text-anchor="middle" font-size="20" fill="#dde4ed">automatically</text>
-  </g>
-
-  <!-- next cycle loop -->
-  <path d="M1625,422 V520 H175 V430" fill="none" stroke="#b8932a" stroke-width="3" marker-end="url(#arrGold)"/>
-  <rect x="640" y="500" width="520" height="40" rx="20" fill="#f7f9fb"/>
-  <text x="900" y="528" text-anchor="middle" font-size="22" font-weight="700" fill="#b8932a">Next cycle: start again at Confirm Dates</text>
-
-  <text x="900" y="602" text-anchor="middle" font-size="21" fill="#5a6a7e">Dashed steps can be skipped: Rostas then builds with everyone's saved roles, or with everyone available.</text>
+  <path d="M1632.5,522 V610 H167.5 V530" fill="none" stroke="#b8932a" stroke-width="3" marker-end="url(#arrGold)"/>
+  <rect x="580" y="586" width="640" height="48" rx="24" fill="#f7f9fb"/>
+  <text x="900" y="620" text-anchor="middle" font-size="29" font-weight="700" fill="#b8932a">Next cycle: start again at Confirm Dates</text>
+  <text x="900" y="720" text-anchor="middle" font-size="27" fill="#5a6a7e">Dashed steps can be skipped: Rostas then builds with everyone's saved roles, or with everyone available.</text>
 </svg>

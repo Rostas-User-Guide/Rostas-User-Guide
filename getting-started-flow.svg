@@ -1,115 +1,117 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 980" width="1800" height="980" font-family="'DM Sans', Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1100" width="1800" height="1100" font-family="'DM Sans', Arial, Helvetica, sans-serif">
   <!-- 4 Nov 2026 — the Getting started flow for the guide's "Getting started:
        your first roster" section. 9 Nov 2026 — two jobs, lettered 1A–1D and
        2A–2F to match the guide's headings. 10 Nov 2026 — text enlarged (smallest
-       24px at 1800 wide) because it was unreadable on a 14-inch screen.
+       28px at 1800 wide) because it was unreadable on a 14-inch screen.
        Export: wrap in HTML that loads DM Sans from Google Fonts and screenshot
        with headless Chrome at the viewBox size. -->
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2b4570"/></marker>
     <marker id="arrGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b8932a"/></marker>
   </defs>
-  <rect width="1800" height="980" fill="#f7f9fb"/>
-  <text x="900" y="72" text-anchor="middle" font-size="50" font-weight="700" fill="#1a2e4a">Getting started: your first roster</text>
-  <text x="900" y="122" text-anchor="middle" font-size="30" fill="#5a6a7e">Allow 20–30 minutes the first time. After that, a build takes about 10 minutes.</text>
-  <text x="50" y="186" font-size="30" font-weight="700" fill="#b8932a">1. Set up the roster with the New Roster wizard (once for each roster)</text>
+  <rect width="1800" height="1100" fill="#f7f9fb"/>
+  <text x="900" y="74" text-anchor="middle" font-size="54" font-weight="700" fill="#1a2e4a">Getting started: your first roster</text>
+  <text x="900" y="128" text-anchor="middle" font-size="34" fill="#5a6a7e">Allow 20–30 minutes the first time. After that, a build takes about 10 minutes.</text>
+  <text x="30" y="196" font-size="34" font-weight="700" fill="#b8932a">1. Set up the roster with the New Roster wizard (once for each roster)</text>
   <g>
-    <rect x="50" y="222" width="405" height="300" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-    <text x="252.5" y="288" text-anchor="middle" font-size="33" font-weight="700" fill="#1a2e4a">Name, roles &amp; season</text>
-    <text x="252.5" y="344" text-anchor="middle" font-size="26" fill="#5a6a7e">What the roster is</text>
-    <text x="252.5" y="380" text-anchor="middle" font-size="26" fill="#5a6a7e">and when it runs</text>
-    <rect x="72" y="201" width="78" height="42" rx="21" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
-    <text x="111.0" y="231" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">1A</text>
+    <rect x="30" y="238" width="420" height="360" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+    <text x="240.0" y="310" text-anchor="middle" font-size="35" font-weight="700" fill="#1a2e4a">Name, roles &amp; season</text>
+    <text x="240.0" y="368" text-anchor="middle" font-size="30" fill="#5a6a7e">What the roster is</text>
+    <text x="240.0" y="408" text-anchor="middle" font-size="30" fill="#5a6a7e">and when it runs</text>
+    <rect x="52" y="215" width="86" height="46" rx="23" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
+    <text x="95.0" y="247" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">1A</text>
   </g>
   <g>
-    <rect x="480" y="222" width="405" height="300" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-    <text x="682.5" y="288" text-anchor="middle" font-size="33" font-weight="700" fill="#1a2e4a">Volunteers</text>
-    <text x="682.5" y="344" text-anchor="middle" font-size="26" fill="#5a6a7e">Connect Infoodle, Planning</text>
-    <text x="682.5" y="380" text-anchor="middle" font-size="26" fill="#5a6a7e">Center or a Google Sheet,</text>
-    <text x="682.5" y="416" text-anchor="middle" font-size="26" fill="#5a6a7e">or import Excel, CSV or</text>
-    <text x="682.5" y="452" text-anchor="middle" font-size="26" fill="#5a6a7e">phone contacts, or add a few</text>
-    <rect x="502" y="201" width="78" height="42" rx="21" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
-    <text x="541.0" y="231" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">1B</text>
+    <rect x="470" y="238" width="420" height="360" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+    <text x="680.0" y="310" text-anchor="middle" font-size="35" font-weight="700" fill="#1a2e4a">Volunteers</text>
+    <text x="680.0" y="368" text-anchor="middle" font-size="30" fill="#5a6a7e">Connect Infoodle,</text>
+    <text x="680.0" y="408" text-anchor="middle" font-size="30" fill="#5a6a7e">Planning Center or a</text>
+    <text x="680.0" y="448" text-anchor="middle" font-size="30" fill="#5a6a7e">Google Sheet, or import</text>
+    <text x="680.0" y="488" text-anchor="middle" font-size="30" fill="#5a6a7e">Excel, CSV or phone</text>
+    <text x="680.0" y="528" text-anchor="middle" font-size="30" fill="#5a6a7e">contacts, or add a few</text>
+    <rect x="492" y="215" width="86" height="46" rx="23" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
+    <text x="535.0" y="247" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">1B</text>
   </g>
   <g>
-    <rect x="910" y="222" width="405" height="300" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-    <text x="1112.5" y="288" text-anchor="middle" font-size="33" font-weight="700" fill="#1a2e4a">Set up each volunteer</text>
-    <text x="1112.5" y="344" text-anchor="middle" font-size="26" fill="#5a6a7e">Roles, how often, who they</text>
-    <text x="1112.5" y="380" text-anchor="middle" font-size="26" fill="#5a6a7e">serve with, role links.</text>
-    <text x="1112.5" y="416" text-anchor="middle" font-size="26" fill="#5a6a7e">Press › for the next one</text>
-    <text x="1112.5" y="466" text-anchor="middle" font-size="26" font-weight="700" fill="#b8932a">No roles = left out</text>
-    <text x="1112.5" y="500" text-anchor="middle" font-size="26" font-weight="700" fill="#b8932a">of the build</text>
-    <rect x="932" y="201" width="78" height="42" rx="21" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
-    <text x="971.0" y="231" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">1C</text>
+    <rect x="910" y="238" width="420" height="360" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+    <text x="1120.0" y="310" text-anchor="middle" font-size="35" font-weight="700" fill="#1a2e4a">Set up each volunteer</text>
+    <text x="1120.0" y="368" text-anchor="middle" font-size="30" fill="#5a6a7e">Roles, how often,</text>
+    <text x="1120.0" y="408" text-anchor="middle" font-size="30" fill="#5a6a7e">who they serve with,</text>
+    <text x="1120.0" y="448" text-anchor="middle" font-size="30" fill="#5a6a7e">role links. Press ›</text>
+    <text x="1120.0" y="488" text-anchor="middle" font-size="30" fill="#5a6a7e">for the next one</text>
+    <text x="1120.0" y="536" text-anchor="middle" font-size="30" font-weight="700" fill="#b8932a">No roles = left out</text>
+    <text x="1120.0" y="574" text-anchor="middle" font-size="30" font-weight="700" fill="#b8932a">of the build</text>
+    <rect x="932" y="215" width="86" height="46" rx="23" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
+    <text x="975.0" y="247" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">1C</text>
   </g>
   <g>
-    <rect x="1340" y="222" width="405" height="300" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-    <text x="1542.5" y="288" text-anchor="middle" font-size="33" font-weight="700" fill="#1a2e4a">Review &amp; create</text>
-    <text x="1542.5" y="344" text-anchor="middle" font-size="26" fill="#5a6a7e">Check the summary,</text>
-    <text x="1542.5" y="380" text-anchor="middle" font-size="26" fill="#5a6a7e">then Create Roster</text>
-    <rect x="1362" y="201" width="78" height="42" rx="21" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
-    <text x="1401.0" y="231" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">1D</text>
+    <rect x="1350" y="238" width="420" height="360" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+    <text x="1560.0" y="310" text-anchor="middle" font-size="35" font-weight="700" fill="#1a2e4a">Review &amp; create</text>
+    <text x="1560.0" y="368" text-anchor="middle" font-size="30" fill="#5a6a7e">Check the summary,</text>
+    <text x="1560.0" y="408" text-anchor="middle" font-size="30" fill="#5a6a7e">then Create Roster</text>
+    <rect x="1372" y="215" width="86" height="46" rx="23" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
+    <text x="1415.0" y="247" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">1D</text>
   </g>
   <g stroke="#2b4570" stroke-width="3" fill="none" marker-end="url(#arr)">
-    <line x1="456" y1="372.0" x2="478" y2="372.0"/>
-    <line x1="886" y1="372.0" x2="908" y2="372.0"/>
-    <line x1="1316" y1="372.0" x2="1338" y2="372.0"/>
-    <path d="M1542.5,524 L1542.5,562 L167.5,562 L167.5,626"/>
+    <line x1="451" y1="418.0" x2="468" y2="418.0"/>
+    <line x1="891" y1="418.0" x2="908" y2="418.0"/>
+    <line x1="1331" y1="418.0" x2="1348" y2="418.0"/>
+    <path d="M1560.0,600 L1560.0,638 L165.0,638 L165.0,702"/>
   </g>
-  <text x="237.5" y="596" font-size="30" font-weight="700" fill="#b8932a">2. Run the roster cycle: build, check, then send</text>
+  <text x="235.0" y="672" font-size="34" font-weight="700" fill="#b8932a">2. Run the roster cycle: build, check, then send</text>
   <g>
-    <rect x="35" y="652" width="265" height="176" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-    <text x="167.5" y="718" text-anchor="middle" font-size="29" font-weight="700" fill="#1a2e4a">Confirm Dates</text>
-    <text x="167.5" y="762" text-anchor="middle" font-size="24" fill="#5a6a7e">which dates</text>
-    <text x="167.5" y="794" text-anchor="middle" font-size="24" fill="#5a6a7e">to build</text>
-    <rect x="55" y="631" width="78" height="42" rx="21" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
-    <text x="94.0" y="661" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">2A</text>
-  </g>
-  <g>
-    <rect x="328" y="652" width="265" height="176" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-    <text x="460.5" y="718" text-anchor="middle" font-size="29" font-weight="700" fill="#1a2e4a">Roles</text>
-    <text x="460.5" y="762" text-anchor="middle" font-size="24" fill="#5a6a7e">headcount</text>
-    <text x="460.5" y="794" text-anchor="middle" font-size="24" fill="#5a6a7e">per role</text>
-    <rect x="348" y="631" width="78" height="42" rx="21" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
-    <text x="387.0" y="661" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">2B</text>
+    <rect x="30" y="728" width="270" height="196" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+    <text x="165.0" y="802" text-anchor="middle" font-size="32" font-weight="700" fill="#1a2e4a">Confirm Dates</text>
+    <text x="165.0" y="850" text-anchor="middle" font-size="28" fill="#5a6a7e">which dates</text>
+    <text x="165.0" y="886" text-anchor="middle" font-size="28" fill="#5a6a7e">to build</text>
+    <rect x="50" y="705" width="86" height="46" rx="23" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
+    <text x="93.0" y="737" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">2A</text>
   </g>
   <g>
-    <rect x="621" y="652" width="265" height="176" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3" stroke-dasharray="12 8"/>
-    <text x="753.5" y="718" text-anchor="middle" font-size="29" font-weight="700" fill="#1a2e4a">Role Prefs</text>
-    <text x="753.5" y="762" text-anchor="middle" font-size="24" fill="#5a6a7e">optional</text>
-    <rect x="641" y="631" width="78" height="42" rx="21" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
-    <text x="680.0" y="661" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">2C</text>
+    <rect x="324" y="728" width="270" height="196" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+    <text x="459.0" y="802" text-anchor="middle" font-size="32" font-weight="700" fill="#1a2e4a">Roles</text>
+    <text x="459.0" y="850" text-anchor="middle" font-size="28" fill="#5a6a7e">headcount</text>
+    <text x="459.0" y="886" text-anchor="middle" font-size="28" fill="#5a6a7e">per role</text>
+    <rect x="344" y="705" width="86" height="46" rx="23" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
+    <text x="387.0" y="737" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">2B</text>
   </g>
   <g>
-    <rect x="914" y="652" width="265" height="176" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3" stroke-dasharray="12 8"/>
-    <text x="1046.5" y="718" text-anchor="middle" font-size="29" font-weight="700" fill="#1a2e4a">Availability</text>
-    <text x="1046.5" y="762" text-anchor="middle" font-size="24" fill="#5a6a7e">optional</text>
-    <rect x="934" y="631" width="78" height="42" rx="21" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
-    <text x="973.0" y="661" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">2D</text>
+    <rect x="618" y="728" width="270" height="196" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3" stroke-dasharray="12 8"/>
+    <text x="753.0" y="802" text-anchor="middle" font-size="32" font-weight="700" fill="#1a2e4a">Role Prefs</text>
+    <text x="753.0" y="850" text-anchor="middle" font-size="28" fill="#5a6a7e">optional</text>
+    <rect x="638" y="705" width="86" height="46" rx="23" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
+    <text x="681.0" y="737" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">2C</text>
   </g>
   <g>
-    <rect x="1207" y="652" width="265" height="176" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-    <text x="1339.5" y="718" text-anchor="middle" font-size="29" font-weight="700" fill="#1a2e4a">Build &amp; Check</text>
-    <text x="1339.5" y="762" text-anchor="middle" font-size="24" fill="#5a6a7e">check it on</text>
-    <text x="1339.5" y="794" text-anchor="middle" font-size="24" fill="#5a6a7e">the Board</text>
-    <rect x="1227" y="631" width="78" height="42" rx="21" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
-    <text x="1266.0" y="661" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">2E</text>
+    <rect x="912" y="728" width="270" height="196" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3" stroke-dasharray="12 8"/>
+    <text x="1047.0" y="802" text-anchor="middle" font-size="32" font-weight="700" fill="#1a2e4a">Availability</text>
+    <text x="1047.0" y="850" text-anchor="middle" font-size="28" fill="#5a6a7e">optional</text>
+    <rect x="932" y="705" width="86" height="46" rx="23" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
+    <text x="975.0" y="737" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">2D</text>
   </g>
   <g>
-    <rect x="1500" y="652" width="265" height="176" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-    <text x="1632.5" y="718" text-anchor="middle" font-size="29" font-weight="700" fill="#1a2e4a">Notify</text>
-    <text x="1632.5" y="762" text-anchor="middle" font-size="24" fill="#5a6a7e">test modes off,</text>
-    <text x="1632.5" y="794" text-anchor="middle" font-size="24" fill="#5a6a7e">then send</text>
-    <rect x="1520" y="631" width="78" height="42" rx="21" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
-    <text x="1559.0" y="661" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">2F</text>
+    <rect x="1206" y="728" width="270" height="196" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+    <text x="1341.0" y="802" text-anchor="middle" font-size="32" font-weight="700" fill="#1a2e4a">Build &amp; Check</text>
+    <text x="1341.0" y="850" text-anchor="middle" font-size="28" fill="#5a6a7e">check it on</text>
+    <text x="1341.0" y="886" text-anchor="middle" font-size="28" fill="#5a6a7e">the Board</text>
+    <rect x="1226" y="705" width="86" height="46" rx="23" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
+    <text x="1269.0" y="737" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">2E</text>
+  </g>
+  <g>
+    <rect x="1500" y="728" width="270" height="196" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+    <text x="1635.0" y="802" text-anchor="middle" font-size="32" font-weight="700" fill="#1a2e4a">Notify</text>
+    <text x="1635.0" y="850" text-anchor="middle" font-size="28" fill="#5a6a7e">test modes off,</text>
+    <text x="1635.0" y="886" text-anchor="middle" font-size="28" fill="#5a6a7e">then send</text>
+    <rect x="1520" y="705" width="86" height="46" rx="23" fill="#b8932a" stroke="#f7f9fb" stroke-width="4"/>
+    <text x="1563.0" y="737" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">2F</text>
   </g>
   <g stroke="#2b4570" stroke-width="3" fill="none" marker-end="url(#arr)">
-    <line x1="301" y1="740.0" x2="326" y2="740.0"/>
-    <line x1="594" y1="740.0" x2="619" y2="740.0"/>
-    <line x1="887" y1="740.0" x2="912" y2="740.0"/>
-    <line x1="1180" y1="740.0" x2="1205" y2="740.0"/>
-    <line x1="1473" y1="740.0" x2="1498" y2="740.0"/>
+    <line x1="301" y1="826.0" x2="322" y2="826.0"/>
+    <line x1="595" y1="826.0" x2="616" y2="826.0"/>
+    <line x1="889" y1="826.0" x2="910" y2="826.0"/>
+    <line x1="1183" y1="826.0" x2="1204" y2="826.0"/>
+    <line x1="1477" y1="826.0" x2="1498" y2="826.0"/>
   </g>
-  <rect x="50" y="872" width="1700" height="80" rx="18" fill="#1a2e4a"/>
-  <text x="900" y="923" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">Next time, start at 2A. Only volunteers who are new since the last build need setting up.</text>
+  <rect x="30" y="984" width="1740" height="90" rx="18" fill="#1a2e4a"/>
+  <text x="900" y="1041" text-anchor="middle" font-size="34" font-weight="700" fill="#ffffff">Next time, start at 2A. Only volunteers who are new since the last build need setting up.</text>
 </svg>

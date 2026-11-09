@@ -7,7 +7,9 @@ Regenerate every cropped, highlighted guide screenshot from its original.
 
 Reads crops.json. Each entry names a source screenshot (kept untouched), a crop
 box and up to two highlight boxes, all in the source image's pixel coordinates
-as [left, top, right, bottom]. Writes crops/<name>.png and prints the <img>
+as [left, top, right, bottom]. Optional "pad_top": N adds N pixels of the
+crop's top-row colour (20px in) above it, for screenshots taken cut off at the top
+(9 Nov 2026). Writes crops/<name>.png and prints the <img>
 width/height to use in index.html.
 
 When a screenshot is re-shot: replace the original file, open it, check the
@@ -70,7 +72,15 @@ def main():
                 print(f'!! {name}: highlight {hb} is outside the crop box')
                 problems += 1
             local.append([hb[0] - l, hb[1] - t, hb[2] - l, hb[3] - t])
-        out = draw_highlights(src.crop((l, t, r, b)), local, style)
+        img = src.crop((l, t, r, b))
+        pad_top = c.get('pad_top', 0)
+        if pad_top:
+            padded = Image.new(img.mode, (r - l, b - t + pad_top), img.getpixel((min(20, r - l - 1), 0)))
+            padded.paste(img, (0, pad_top))
+            img = padded
+            local = [[a, bt + pad_top, c2, bb + pad_top] for a, bt, c2, bb in local]
+            b += pad_top  # so the printed height includes the strip
+        out = draw_highlights(img, local, style)
         out.convert('RGB').save(os.path.join(HERE, 'crops', name + '.png'), optimize=True)
         # Show crops a little larger than the old squeezed full windows did,
         # but never wider than the column (CSS max-width handles that).

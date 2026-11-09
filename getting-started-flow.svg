@@ -1,91 +1,100 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 860" width="1800" height="860" font-family="'DM Sans', Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 800" width="1800" height="800" font-family="'DM Sans', Arial, Helvetica, sans-serif">
   <!-- 4 Nov 2026 — the Getting started flow for the guide's "Getting started:
-       your first roster" section. Edit this, then re-export the PNG at 1800 px wide. -->
+       your first roster" section. Edit this, then re-export the PNG at 1800 px wide.
+       9 Nov 2026 — redrawn: the New Roster wizard now gets the volunteers in and
+       walks every profile, so getting started is two jobs, not four. -->
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#2b4570"/>
     </marker>
   </defs>
 
-  <rect width="1800" height="860" fill="#f7f9fb"/>
+  <rect width="1800" height="800" fill="#f7f9fb"/>
 
   <text x="900" y="70" text-anchor="middle" font-size="44" font-weight="700" fill="#1a2e4a">Getting started: your first roster</text>
-  <text x="900" y="112" text-anchor="middle" font-size="24" fill="#5a6a7e">Do the setup carefully and your first build looks right first time</text>
+  <text x="900" y="112" text-anchor="middle" font-size="24" fill="#5a6a7e">Allow 20–30 minutes the first time. After that, a build takes about 10 minutes.</text>
 
-  <!-- Step 1: where the list lives now -->
-  <text x="60" y="172" font-size="24" font-weight="700" fill="#b8932a">1. Get your volunteers in. Where is your list now?</text>
-  <g font-size="20" text-anchor="middle">
+  <!-- Job 1: the New Roster wizard -->
+  <text x="60" y="172" font-size="24" font-weight="700" fill="#b8932a">1. Set up the roster with the New Roster wizard (once for each roster)</text>
+  <g font-size="20" text-anchor="middle" fill="#5a6a7e">
     <g transform="translate(60,190)">
-      <rect width="390" height="120" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-      <text x="195" y="48" font-size="26" font-weight="700" fill="#1a2e4a">Handwritten</text>
-      <text x="195" y="88" fill="#5a6a7e">Type it into a Sheet, then import</text>
+      <rect width="390" height="230" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+      <text x="195" y="56" font-size="26" font-weight="700" fill="#1a2e4a">Name, roles &amp; season</text>
+      <text x="195" y="104">What the roster is</text>
+      <text x="195" y="134">and when it runs</text>
     </g>
     <g transform="translate(480,190)">
-      <rect width="390" height="120" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-      <text x="195" y="48" font-size="26" font-weight="700" fill="#1a2e4a">Excel file</text>
-      <text x="195" y="88" fill="#5a6a7e">Import the file</text>
+      <rect width="390" height="230" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+      <text x="195" y="56" font-size="26" font-weight="700" fill="#1a2e4a">Volunteers</text>
+      <text x="195" y="100">Connect Infoodle, Planning</text>
+      <text x="195" y="128">Center or a Google Sheet,</text>
+      <text x="195" y="160">or import Excel, CSV or</text>
+      <text x="195" y="188">phone contacts, or add a few</text>
     </g>
     <g transform="translate(900,190)">
-      <rect width="390" height="120" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-      <text x="195" y="38" font-size="24" font-weight="700" fill="#1a2e4a">Infoodle, Planning Center</text>
-      <text x="195" y="68" font-size="24" font-weight="700" fill="#1a2e4a">or Google Sheet</text>
-      <text x="195" y="100" fill="#5a6a7e">Connect it (updates every night)</text>
+      <rect width="390" height="230" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+      <text x="195" y="56" font-size="26" font-weight="700" fill="#1a2e4a">Set up each volunteer</text>
+      <text x="195" y="100">Roles, how often, who they</text>
+      <text x="195" y="128">serve with, role links.</text>
+      <text x="195" y="156">Press › for the next one</text>
+      <text x="195" y="198" font-weight="700" fill="#b8932a">No roles = left out of the build</text>
     </g>
     <g transform="translate(1320,190)">
-      <rect width="420" height="120" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-      <text x="210" y="48" font-size="26" font-weight="700" fill="#1a2e4a">CSV from another database</text>
-      <text x="210" y="88" fill="#5a6a7e">Import it and check the column matches</text>
+      <rect width="420" height="230" rx="16" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+      <text x="210" y="56" font-size="26" font-weight="700" fill="#1a2e4a">Review &amp; create</text>
+      <text x="210" y="104">Check the summary,</text>
+      <text x="210" y="134">then Create Roster</text>
     </g>
   </g>
-
-  <!-- the four sources join, then lead to the Profiles list -->
-  <g stroke="#2b4570" stroke-width="3" fill="none">
-    <line x1="255" y1="310" x2="255" y2="345"/>
-    <line x1="675" y1="310" x2="675" y2="345"/>
-    <line x1="1095" y1="310" x2="1095" y2="345"/>
-    <line x1="1530" y1="310" x2="1530" y2="345"/>
-    <line x1="255" y1="345" x2="1530" y2="345"/>
-    <line x1="900" y1="345" x2="900" y2="385" marker-end="url(#arr)"/>
-  </g>
-
-  <rect x="60" y="392" width="1680" height="70" rx="16" fill="#1a2e4a"/>
-  <text x="900" y="436" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">Everyone shows in the Profiles list, on their rosters (check the count matches your list)</text>
-
-  <!-- Steps 2 to 4 -->
   <g stroke="#2b4570" stroke-width="3" fill="none" marker-end="url(#arr)">
-    <line x1="315" y1="462" x2="315" y2="510"/>
-    <line x1="580" y1="670" x2="630" y2="670"/>
-    <line x1="1170" y1="670" x2="1220" y2="670"/>
+    <line x1="452" y1="305" x2="476" y2="305"/>
+    <line x1="872" y1="305" x2="896" y2="305"/>
+    <line x1="1292" y1="305" x2="1316" y2="305"/>
+    <path d="M1530,422 L1530,448 L207,448 L207,532"/>
   </g>
 
-  <g font-size="21" fill="#5a6a7e">
-    <g transform="translate(60,518)">
-      <rect width="520" height="304" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-      <text x="30" y="52" font-size="28" font-weight="700" fill="#1a2e4a">2. Make two decisions</text>
-      <text x="30" y="106" font-weight="700" fill="#1a2e4a">Who chooses each person's roles?</text>
-      <text x="30" y="140">You (you know your people)</text>
-      <text x="30" y="170">or ask the volunteers to choose</text>
-      <text x="30" y="222" font-weight="700" fill="#1a2e4a">Ask for availability?</text>
-      <text x="30" y="256">Send a poll (recommended first time)</text>
-      <text x="30" y="286">or build with everyone available</text>
+  <!-- Job 2: the roster cycle -->
+  <text x="240" y="500" font-size="24" font-weight="700" fill="#b8932a">2. Run the roster cycle: build, check, then send</text>
+  <g font-size="19" text-anchor="middle" fill="#5a6a7e">
+    <g transform="translate(80,536)">
+      <rect width="255" height="110" rx="14" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+      <text x="127" y="50" font-size="22" font-weight="700" fill="#1a2e4a">Confirm Dates</text>
+      <text x="127" y="82">which dates to build</text>
     </g>
-    <g transform="translate(640,518)">
-      <rect width="520" height="304" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-      <text x="30" y="52" font-size="28" font-weight="700" fill="#1a2e4a">3. Set up every profile</text>
-      <text x="30" y="106">Roles: Does This, Fills In or Doesn't Do</text>
-      <text x="30" y="146">Frequency, and who they serve with</text>
-      <text x="30" y="186">Press › beside the search bar</text>
-      <text x="30" y="216">to go to the next volunteer</text>
-      <text x="30" y="266" font-weight="700" fill="#b8932a">No roles set = left out of the build</text>
+    <g transform="translate(357,536)">
+      <rect width="255" height="110" rx="14" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+      <text x="127" y="50" font-size="22" font-weight="700" fill="#1a2e4a">Roles</text>
+      <text x="127" y="82">headcount per role</text>
     </g>
-    <g transform="translate(1220,518)">
-      <rect width="520" height="304" rx="18" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
-      <text x="30" y="52" font-size="28" font-weight="700" fill="#1a2e4a">4. Check, then build</text>
-      <text x="30" y="106">Insights: enough people for each role?</text>
-      <text x="30" y="146">Run your first roster cycle</text>
-      <text x="30" y="186">Check it on the Board (still in test mode)</text>
-      <text x="30" y="226">Turn test mode off at Notify,</text>
-      <text x="30" y="256">then send it to volunteers</text>
+    <g transform="translate(634,536)">
+      <rect width="255" height="110" rx="14" fill="#ffffff" stroke="#1a2e4a" stroke-width="3" stroke-dasharray="10 7"/>
+      <text x="127" y="50" font-size="22" font-weight="700" fill="#1a2e4a">Role Prefs</text>
+      <text x="127" y="82">optional</text>
+    </g>
+    <g transform="translate(911,536)">
+      <rect width="255" height="110" rx="14" fill="#ffffff" stroke="#1a2e4a" stroke-width="3" stroke-dasharray="10 7"/>
+      <text x="127" y="50" font-size="22" font-weight="700" fill="#1a2e4a">Availability</text>
+      <text x="127" y="82">optional</text>
+    </g>
+    <g transform="translate(1188,536)">
+      <rect width="255" height="110" rx="14" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+      <text x="127" y="50" font-size="22" font-weight="700" fill="#1a2e4a">Build &amp; Check</text>
+      <text x="127" y="82">check it on the Board</text>
+    </g>
+    <g transform="translate(1465,536)">
+      <rect width="255" height="110" rx="14" fill="#ffffff" stroke="#1a2e4a" stroke-width="3"/>
+      <text x="127" y="50" font-size="22" font-weight="700" fill="#1a2e4a">Notify</text>
+      <text x="127" y="82">test mode off, then send</text>
     </g>
   </g>
+  <g stroke="#2b4570" stroke-width="3" fill="none" marker-end="url(#arr)">
+    <line x1="337" y1="591" x2="353" y2="591"/>
+    <line x1="614" y1="591" x2="630" y2="591"/>
+    <line x1="891" y1="591" x2="907" y2="591"/>
+    <line x1="1168" y1="591" x2="1184" y2="591"/>
+    <line x1="1445" y1="591" x2="1461" y2="591"/>
+  </g>
+
+  <rect x="60" y="690" width="1680" height="70" rx="16" fill="#1a2e4a"/>
+  <text x="900" y="734" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">Next time, start at step 2. Only volunteers who are new since the last build need setting up.</text>
 </svg>

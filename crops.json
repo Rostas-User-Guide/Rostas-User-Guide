@@ -332,6 +332,31 @@
       "src": "screenshot-2026-08-01-10.48.19-am.png",
       "box": [20, 260, 1281, 471],
       "highlights": [[774, 338, 1248, 386]]
+    },
+    "new-roster-step4-volunteers-add": {
+      "src": "new-roster-step4-volunteers-add.png",
+      "box": [30, 205, 980, 550],
+      "highlights": [[68, 343, 678, 401]]
+    },
+    "new-roster-step4-sources": {
+      "src": "new-roster-step4-sources.png",
+      "box": [30, 188, 965, 950],
+      "highlights": [[87, 348, 253, 397], [87, 581, 328, 631]]
+    },
+    "new-roster-import-back": {
+      "src": "new-roster-import-back.png",
+      "box": [400, 240, 1210, 890],
+      "highlights": [[502, 765, 831, 820]]
+    },
+    "new-roster-step5-setup": {
+      "src": "new-roster-step5-setup.png",
+      "box": [24, 140, 960, 925],
+      "highlights": [[57, 295, 925, 375], [58, 677, 392, 726]]
+    },
+    "new-roster-setup-walk": {
+      "src": "new-roster-setup-walk.png",
+      "box": [0, 0, 1372, 700],
+      "highlights": [[18, 66, 1050, 122], [1032, 0, 1093, 52]]
     }
   }
 }

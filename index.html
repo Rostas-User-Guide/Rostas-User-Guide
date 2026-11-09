@@ -703,10 +703,8 @@
       <button class="toc-toggle" data-target="children-getting-started" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-getting-started">
-      <a class="toc-item toc-h2" href="#getting-started-import">1. Get your volunteers in</a>
-      <a class="toc-item toc-h2" href="#getting-started-decide">2. Make two decisions</a>
-      <a class="toc-item toc-h2" href="#getting-started-profiles">3. Work through each profile</a>
-      <a class="toc-item toc-h2" href="#getting-started-build">4. Check, then build</a>
+      <a class="toc-item toc-h2" href="#getting-started-setup">1. Set up the roster</a>
+      <a class="toc-item toc-h2" href="#getting-started-build">2. Build, check and send</a>
     </div>
     <a class="toc-item toc-h1" href="#a-how-it-works">How Rostas Works</a>
     <div class="toc-parent" id="parent-a-concepts">
@@ -811,7 +809,8 @@
       <a class="toc-item toc-h2" href="#c-new-step2">Step 2 — Roles</a>
       <a class="toc-item toc-h2" href="#c-new-step3">Step 3 — Season</a>
       <a class="toc-item toc-h2" href="#c-new-step4">Step 4 — Volunteers</a>
-      <a class="toc-item toc-h2" href="#c-new-step5">Step 5 — Review</a>
+      <a class="toc-item toc-h2" href="#c-new-step5">Step 5 — Set up</a>
+      <a class="toc-item toc-h2" href="#c-new-step6">Step 6 — Review</a>
     </div>
     <div class="toc-parent" id="parent-c-rebuild">
       <a class="toc-parent-link" href="#c-rebuild">Run a roster cycle</a>
@@ -1039,85 +1038,80 @@
   </div>
 
   <!-- 4 Nov 2026: Getting started. A first roster built on half-finished profiles
-       looks wrong and puts coordinators off, so this walks them through the setup
-       work (import, two decisions, every profile) before the first build. -->
+       looks wrong and puts coordinators off.
+       9 Nov 2026: rewritten around the New Roster wizard, which now gets the
+       volunteers in and walks every profile before the roster is created. -->
   <h2 class="section-title" id="getting-started">Getting started: your first roster</h2>
-  <p>Your first roster is the one everyone judges Rostas by. When a first roster looks wrong (people in roles they don't do, or on dates they can't make), the cause is nearly always the setup work before the build, not the build itself. Do these four jobs carefully, in this order, and your first build should be fast and close to right first time.</p>
+  <p>Your first roster is the one everyone judges Rostas by. When a first roster looks wrong (people in roles they don't do, or on dates they can't make), the cause is nearly always the setup before the build, not the build itself. Rostas splits it into two jobs: <strong>set up the roster</strong> with the New Roster wizard, then <strong>run its first roster cycle</strong> to build, check and send it.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">🕑</span>
+    <strong>Allow 20–30 minutes for your first roster.</strong> Most of that is setting up each volunteer's profile, and Rostas keeps everything you set for every future build. After that, a roster cycle takes about 10 minutes, a little longer if many volunteers have joined or left since the last build.
+  </div>
 
   <!-- Drawn from "getting-started-flow.svg" (edit that, then re-export the PNG at 1800 px wide) -->
   <figure>
-    <img src="getting-started-flow.png" alt="Getting started: get your volunteers in from a handwritten list, an Excel file (imported), Infoodle, Planning Center or a Google Sheet (connected), or a CSV from another database, until everyone shows in the Profiles list. Then make two decisions (who chooses roles, and whether to ask for availability), set up every profile, and check Insights before building your first roster." class="screenshot" width="1800" height="860" loading="lazy" decoding="async">
-    <figcaption>The four jobs before your first build, in order.</figcaption>
+    <img src="getting-started-flow.png" alt="Getting started. 1: set up the roster with the New Roster wizard, once for each roster: name, roles and season; Volunteers (connect Infoodle, Planning Center or a Google Sheet, or import Excel, CSV or phone contacts, or add a few); set up each volunteer (roles, how often, who they serve with, role links, pressing › for the next one; no roles means left out of the build); then review and create. 2: run the roster cycle: Confirm Dates, Roles, Role Prefs (optional), Availability (optional), Build and Check, Notify. Next time, start at step 2: only volunteers who are new since the last build need setting up." class="screenshot" width="1800" height="800" loading="lazy" decoding="async">
+    <figcaption>Two jobs for your first roster. Every build after that starts at job 2.</figcaption>
   </figure>
 
-  <div class="callout callout-info">
-    <span class="callout-icon">ℹ️</span>
-    <strong>Roles belong to a roster.</strong> A volunteer's roles are set separately for each roster they serve on, so the roster and its roles need to exist first. If you haven't made your roster yet, do <a href="#c-new-roster">Set up a new roster</a> before step 3 below.
-  </div>
+  <h3 class="sub-title" id="getting-started-setup">1. Set up the roster</h3>
+  <p>On the <strong>Builds</strong> dashboard, click the green <strong>New Roster</strong> row. The wizard (<a href="#c-new-roster">Set up a new roster</a>) first asks what the roster is and when it runs: its name, its roles and its season. Then come the two steps that decide whether your first roster comes out right.</p>
 
-  <h3 class="sub-title" id="getting-started-import">1. Get your volunteers into Rostas</h3>
-  <p>Only a name is required, but add mobile numbers and emails wherever you have them: they're how volunteers get their roster, availability requests and replacement asks. Pick the row that matches where your list lives now.</p>
+  <p id="getting-started-import"><strong>Get your volunteers in (the Volunteers step).</strong> Only a name is required, but add mobile numbers and emails wherever you have them: they're how volunteers get their roster, availability requests and replacement asks. The step asks where your list is now:</p>
   <div class="tbl-wrap">
     <table>
-      <thead><tr><th>Your list is…</th><th>What to do</th></tr></thead>
+      <thead><tr><th>Your list is…</th><th>What to do in the wizard</th></tr></thead>
       <tbody>
-        <tr><td><strong>Handwritten</strong> (or in your head)</td><td>Type it into a new Google Sheet, one person per row, with the columns <strong>Name</strong>, <strong>Mobile</strong> and <strong>Email</strong> (and <strong>Roster</strong> if you like). Then <a href="#e-import">import it</a>. For just a handful of people, <a href="#e-add">add them one at a time</a> instead.</td></tr>
-        <tr><td><strong>An Excel file</strong></td><td><a href="#e-import">Import it</a>. Rostas takes <code>.xlsx</code>, <code>.xls</code> and <code>.csv</code> files up to 5&nbsp;MB. Make sure it has one person per row before you start. Or, to keep editing your list and have Rostas follow it, upload it to Google Drive, choose <strong>File → Save as Google Sheets</strong>, and connect it (next row).</td></tr>
-        <tr><td><strong>Just the contacts on your phone</strong></td><td>No spreadsheet needed — export your phone's contacts as a vCard file and <a href="#e-import-phone">import it directly</a>. Good for a quick way to try Rostas out, or for a small organisation with no other volunteer list.</td></tr>
-        <tr><td><strong>Infoodle, Planning Center or a Google Sheet</strong></td><td>All three can be connected instead of imported: see <a href="#appendix-volunteer-database">Choosing your volunteer database</a>, and <a href="#appendix-google-sheet">Google Sheet</a> for a sheet. Names, mobiles and emails then stay up to date every night, so you never keep two lists.</td></tr>
-        <tr><td><strong>A CSV export from another database</strong></td><td><a href="#e-import">Import it</a>. Rostas matches the columns it recognises; check each match before you import, and ignore any columns you don't need.</td></tr>
+        <tr><td><strong>Infoodle, Planning Center or a Google Sheet</strong></td><td>Click <strong>Connect it</strong>. The connection panel opens right in the wizard; then click <strong>Sync now and bring them in</strong>, and your people are there to tick straight away. From then on, names, mobiles and emails stay up to date every night, so you never keep two lists. See <a href="#appendix-volunteer-database">Choosing your volunteer database</a>, and <a href="#appendix-google-sheet">Google Sheet</a> for a sheet.</td></tr>
+        <tr><td><strong>An Excel file</strong></td><td>Click <strong>Import Volunteers</strong>. Rostas takes <code>.xlsx</code>, <code>.xls</code> and <code>.csv</code> files up to 5&nbsp;MB, with one person per row (<a href="#e-import">how importing works</a>). Or, to keep editing your list and have Rostas follow it, upload it to Google Drive, choose <strong>File → Save as Google Sheets</strong>, and connect it (row above).</td></tr>
+        <tr><td><strong>Just the contacts on your phone</strong></td><td>Export them as a vCard (<code>.vcf</code>) file and click <strong>Import Volunteers</strong> (<a href="#e-import-phone">how to export your contacts</a>). Good for a small team with no other list.</td></tr>
+        <tr><td><strong>A CSV export from another database</strong></td><td>Click <strong>Import Volunteers</strong>. Rostas matches the columns it recognises; check each match before you import, and ignore any columns you don't need.</td></tr>
+        <tr><td><strong>Handwritten</strong> (or in your head)</td><td>Type it into a new Google Sheet, one person per row, with the columns <strong>Name</strong>, <strong>Mobile</strong> and <strong>Email</strong> (and <strong>Roster</strong> if you like), then connect or import it. For just a handful of people, click <strong>+ Add one at a time</strong> instead.</td></tr>
       </tbody>
     </table>
   </div>
-  <p>When you're done, open <strong>Profiles</strong> and check the number of people matches your list. If your file said which roster each person serves on, map that column during the import and they're put on their rosters for you. Otherwise click <strong>Set roster types now</strong> at the end of the import.</p>
+  <p>An import you start from the wizard comes back to it: at the end, click <strong>Back to setting up</strong> and your roster's name. A green note then says what happened to each person: who your file already put on this roster, who had no roster and is ticked for you, and who went to other rosters. Tick anyone else who serves on this roster, then click <strong>Next: Set up volunteers</strong>.</p>
 
-  <!-- 9 Nov 2026: importing doesn't put anyone on a roster unless the file had a
-       roster column, so a build straight after an import comes out empty. -->
-  <div class="callout callout-warn">
-    <span class="callout-icon">⚠️</span>
-    <strong>Don't build a roster yet.</strong> A roster is built only from the volunteers who are on it. Anyone without a roster type is invisible to the build, so a roster built straight after an import, before roster types are set, comes out empty (or with only the few people who were already on it). A volunteer who is on the roster but has no roles set is left out too.
-  </div>
-  <p>So the next job, before any build, is to make sure every volunteer you've imported is on the right rosters and that their roster details are accurate:</p>
-  <ol class="steps">
-    <li><strong>Put everyone on their rosters.</strong> Use <strong>Set roster types now</strong> at the end of the import, or later tick a group in Profiles and click <a href="#e-bulk-add">Add to roster</a>. For one person, see <a href="#e-detail-add-roster">Putting a volunteer on another roster</a>.</li>
-    <li><strong>Then set up each person's profile, one after another.</strong> Pick the roster with the pills at the top of Profiles and open the first volunteer. Set their roles, frequency and anything else that applies, then press the <strong>›</strong> chevron beside the search bar at the top of the profile to go straight to the next volunteer's profile. You never have to go back to the list. <a href="#getting-started-profiles">Step 3 below</a> lists what to check on each profile.</li>
-  </ol>
-
-  <h3 class="sub-title" id="getting-started-decide">2. Make two decisions</h3>
-  <p>Decide these before you open any profiles, because they decide how much of the profile work is yours.</p>
+  <p id="getting-started-decide"><strong>Decide who chooses each volunteer's roles.</strong> Decide this before you start the profiles, because it decides how much of the profile work is yours. While you're at it, decide whether you'll ask for availability: you'll be asked at the roster cycle's Availability step.</p>
   <div class="tbl-wrap">
     <table>
       <thead><tr><th>Decision</th><th>Choose this…</th><th>…if</th></tr></thead>
       <tbody>
-        <tr><td rowspan="2"><strong>Who chooses each volunteer's roles?</strong></td><td>You set them</td><td>You know your people well. It's the fastest and most accurate route: you do it in step 3 below.</td></tr>
-        <tr><td>Ask the volunteers</td><td>You don't know who does what, or the team is large. Rostas sends each volunteer one message asking which roles suit them, at <a href="#c-rebuild-step3">Step 3 — Role Prefs</a> of your first roster cycle. You can mix the two: set the people you're sure of, then send only to volunteers with no roles set.</td></tr>
+        <tr><td rowspan="2"><strong>Who chooses each volunteer's roles?</strong></td><td>You set them</td><td>You know your people well. It's the fastest and most accurate route: you do it in the wizard's Set up step, next.</td></tr>
+        <tr><td>Ask the volunteers</td><td>You don't know who does what, or the team is large. Skip the roles in Set up; Rostas sends each volunteer one message asking which roles suit them, at <a href="#c-rebuild-step3">Step 3 — Role Prefs</a> of your first roster cycle. You can mix the two: set the people you're sure of, then send only to volunteers with no roles set.</td></tr>
         <tr><td rowspan="2"><strong>Will you ask for availability?</strong></td><td>Send an availability poll</td><td>Recommended for a first roster. Each volunteer marks the dates they can't do, at <a href="#c-rebuild-step4">Step 4 — Availability</a>, so nobody is rostered on a date they're away.</td></tr>
         <tr><td>Build with everyone available</td><td>Your team is small and you'll fix clashes on the Board yourself. Everyone is treated as free on every date.</td></tr>
       </tbody>
     </table>
   </div>
 
-  <h3 class="sub-title" id="getting-started-profiles">3. Work through each profile, one by one</h3>
-  <p>This is the step that makes the first roster look right. If you know your people, set each profile up yourself in one sitting:</p>
+  <p id="getting-started-profiles"><strong>Set up each volunteer (the Set up step).</strong> This is the step that makes the first roster look right, and it's where most of your 20–30 minutes goes. The step shows how many volunteers on the roster are set up so far. Click <strong>Start with the first volunteer</strong>, and on each profile:</p>
   <ol class="steps">
-    <li>Open <strong>Profiles</strong> and pick the roster with the pills at the top.</li>
-    <li>Click the first volunteer.</li>
     <li>Check their mobile and email, and the <strong>Active</strong>, <strong>Email</strong> and <strong>SMS</strong> toggles (<a href="#e-detail-contact">what each one does</a>).</li>
     <li>Set each of their roles to <strong>Does This</strong>, <strong>Fills In</strong> or <strong>Doesn't Do</strong> (<a href="#e-detail-roles">Roles</a>).</li>
-    <li>If they serve less often than every week, set their <a href="#e-detail-frequency">Frequency</a>. If they should always (or never) serve with someone, set <a href="#e-detail-relational">Relational rostering</a>.</li>
-    <li>Press the <strong>›</strong> arrow at the top of the profile, beside the search bar, to go straight to the next volunteer. Repeat until you reach the end.</li>
+    <li>If they serve less often than every week, set their <a href="#e-detail-frequency">Frequency</a>. If they should always (or never) serve with someone, set <a href="#e-detail-relational">Relational rostering</a>. If they do two roles at once (leading worship from the guitar, say), set a <a href="#e-detail-role-linking">role link</a>.</li>
+    <li>Press the gold <strong>›</strong> arrow beside the search bar to go straight to the next volunteer. The bar at the top counts down how many are left to set up.</li>
   </ol>
+  <p>When you reach the last volunteer, or everyone has roles, <strong>Back to roster setup</strong> turns gold: click it. If you need to stop partway, click <strong>Leave for now</strong>; the Set up step shows how far you got, and <strong>Set up the next volunteer</strong> carries on from there.</p>
   <div class="callout callout-warn">
     <span class="callout-icon">⚠️</span>
-    <strong>A volunteer with no roles is left out of the build.</strong> Rostas has nothing to place them in. Before you build, use the <a href="#e-no-roles">No roles set</a> button on the Profiles page: it shows how many are left and steps through only those people.
+    <strong>A volunteer with no roles is left out of the build.</strong> Rostas has nothing to place them in. The Set up step tells you how many still have none, and so does Build &amp; Check before you build.
+  </div>
+  <p>Then click <strong>Next: Review</strong> and <strong>Create Roster</strong>. Have more than one roster (Sunday and Music, say)? Run New Roster for each one. People already in Rostas just need ticking the second time, and their contact details are already checked.</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>The sample roster.</strong> A new copy of Rostas comes with a sample Music roster and made-up volunteers, so you can try the Board before your own roster is ready. They're never offered in the New Roster wizard. Remove the sample roster in Settings when you're done with it.
   </div>
 
-  <h3 class="sub-title" id="getting-started-build">4. Check, then build</h3>
+  <h3 class="sub-title" id="getting-started-build">2. Build, check and send</h3>
   <ol class="steps">
-    <li>Open <a href="#d-overview">Insights</a> for the roster. Any role with fewer <strong>People</strong> than it needs shows up here, before the build rather than after it.</li>
-    <li>Start your first <a href="#c-rebuild">roster cycle</a>. Follow the two decisions you made in step 2 at Role Prefs and Availability.</li>
+    <li><strong>Create Roster</strong> takes you straight into your first <a href="#c-rebuild">roster cycle</a>. At Role Prefs and Availability, follow the decisions you made above.</li>
+    <li>At <a href="#c-rebuild-step5">Build &amp; Check</a>, Rostas warns you first if anyone on the roster still has no roles, or if a role has nobody who does it. Set those roles (or check <a href="#d-overview">Insights</a>), or build as is.</li>
     <li>Check the result on the Board before you send it. Your copy is still in test mode, so nothing reaches a volunteer until you turn test mode off at <a href="#c-rebuild-step6">Step 6 — Notify</a>.</li>
   </ol>
+  <p>Next time, start at job 2: open the roster on the Builds dashboard and run the cycle again. Only volunteers who are new since the last build need their profiles set up, so it usually takes about 10 minutes.</p>
 
   <h2 class="section-title" id="a-how-it-works">How Rostas Works — The Big Picture</h2>
   <p>Rostas works in a rhythm that repeats every few weeks. The six-step roster cycle guides you through each stage in order:</p>
@@ -1560,7 +1554,7 @@
 
 
   <h2 class="section-title" id="b-whats-next">What's Next</h2>
-  <p>Rostas is set up. Next, get your volunteers in: head to <strong>Part C — Profiles</strong> to import or add them and set up how each one serves. Once your profiles are in, <strong>Part E — The Roster Cycle</strong> walks you through building your first roster.</p>
+  <p>Rostas is set up. Next, set up your first roster: <a href="#getting-started">Getting started</a> walks you through it. The New Roster wizard gets your volunteers in and takes you through each one's profile, then the roster cycle builds it. Allow 20–30 minutes.</p>
 
   <div class="callout callout-info">
     <span class="callout-icon">📋</span>
@@ -1569,7 +1563,7 @@
       <li>✓ Organisation name set</li>
       <li>✓ Coordinator contact details set</li>
       <li>✓ SMS test confirmed working</li>
-      <li>Volunteers imported or added</li><li>Full profile set up for each volunteer in your first roster build</li>
+      <li>First roster set up with New Roster: volunteers in, and each one's profile set up</li>
       <li>SMS and Email test modes turned off, just before you send your first real roster</li>
     </ul>
   </div>
@@ -1614,7 +1608,7 @@
         <figcaption>The summary: how many were imported, skipped as duplicates, or couldn't be imported.</figcaption>
       </figure>
     </li>
-    <li>Click <strong>Set roster types now</strong> to put the new volunteers on their rosters, or <strong>View all volunteers</strong> to do it later.</li>
+    <li>Click <strong>Set roster types now</strong> to put the new volunteers on their rosters, or <strong>View all volunteers</strong> to do it later. Started the import from the <a href="#c-new-step4">New Roster wizard</a>? The button says <strong>Back to setting up</strong> and your roster's name instead, and takes you back to the wizard.</li>
   </ol>
 
   <div class="callout callout-tip">
@@ -2363,11 +2357,11 @@
 
   <!-- ══ SET UP A NEW ROSTER ══ -->
   <h2 class="section-title" id="c-new-roster">Set up a new roster</h2>
-  <p>Run this wizard when you're setting up a roster type for the first time — for example, adding a Music roster or a Hospitality team. It takes about 10 minutes and walks you through five steps: Name &amp; Icon, Roles, Season, Volunteers, and Review.</p>
+  <p>Run this wizard when you're setting up a roster type for the first time — for example, adding a Music roster or a Hospitality team. It walks you through six steps: Name &amp; Icon, Roles, Season, Volunteers, Set up, and Review. Allow <strong>20–30 minutes</strong>: most of it is the Set up step, where you go through each volunteer's profile.</p>
 
   <div class="callout callout-info">
     <span class="callout-icon">ℹ️</span>
-    <strong>You only set up a roster once per roster type.</strong> After setup is complete, every future build is a <a href="#c-rebuild">roster cycle</a> instead.
+    <strong>You only set up a roster once per roster type.</strong> After setup is complete, every future build is a <a href="#c-rebuild">roster cycle</a> instead, which takes about 10 minutes: only volunteers who are new since the last build need setting up. If you leave the wizard partway, the Builds dashboard offers to pick up where you left off.
   </div>
 
   <h3 class="sub-title" id="c-new-step1">Step 1 — Name &amp; Icon</h3>
@@ -2423,19 +2417,60 @@
   </div>
 
   <h3 class="sub-title" id="c-new-step4">Step 4 — Volunteers</h3>
-  <p>Select which volunteers from your list will serve on this roster. Tick each volunteer you want to include. Only volunteers already in Rostas appear here — if someone is missing, add them in <a href="#part-e">Profiles</a> first then return to this step.</p>
+  <p>Put everyone who serves on this roster on it. If nobody is in Rostas yet, the step opens by asking <strong>Where is your volunteer list now?</strong> with three ways to bring people in. Once people are in, it opens on the list instead: tick each volunteer who serves on this roster (use the search box on a long list, or <strong>Select all</strong>). The line above the list says how many are on this roster already, and they don't appear in it again.</p>
 
   <figure>
-    <img src="crops/new-roster-step3-volunteers.png" data-full="new-roster-step3-volunteers.png" alt="Set up a new roster: Step 4 — volunteer selection with checkboxes" class="screenshot crop" width="717" height="802" loading="lazy" decoding="async">
-    <figcaption>Step 4 — tick each volunteer who serves in this roster. Use the search field to find someone quickly if you have a large list. You can also import additional volunteers via CSV from this step.</figcaption>
+    <img src="crops/new-roster-step4-volunteers-add.png" data-full="new-roster-step4-volunteers-add.png" alt="Set up a new roster: Step 4 — Add volunteers to Lockup, with the Add more people: connect, import or add one at a time button above the list of volunteers to tick" class="screenshot crop" width="712" height="259" loading="lazy" decoding="async">
+    <figcaption>Step 4 — tick the people who serve on this roster. Someone missing? Click <strong>Add more people</strong>.</figcaption>
   </figure>
 
-  <h3 class="sub-title" id="c-new-step5">Step 5 — Review</h3>
+  <p><strong>Add more people</strong> opens the same three ways in:</p>
+  <ul>
+    <li><strong>Infoodle, Planning Center or a Google Sheet → Connect it.</strong> The <a href="#appendix-volunteer-database">volunteer database</a> panel from Settings opens right here. Once it's connected, click <strong>Sync now and bring them in</strong> so your people are there to tick without waiting for the nightly sync. If you're already connected, the card shows when it last synced, with <strong>Sync now</strong> and <strong>Change connection</strong>.</li>
+    <li><strong>A spreadsheet, CSV or your phone's contacts → Import Volunteers.</strong> Opens <a href="#e-import">Import Volunteers</a>. At the end, click <strong>Back to setting up</strong> and your roster's name to come back to this step.</li>
+    <li><strong>Just a few people → + Add one at a time.</strong></li>
+  </ul>
+
+  <figure>
+    <img src="crops/new-roster-step4-sources.png" data-full="new-roster-step4-sources.png" alt="Where is your volunteer list now? Three cards: Your volunteers come from Google Sheet, last synced, with Sync now and Change connection buttons; A spreadsheet, CSV or your phone's contacts, with Import Volunteers; Just a few people, with Add one at a time" class="screenshot crop" width="701" height="572" loading="lazy" decoding="async">
+    <figcaption>The three ways to bring people in. This church is already connected to a Google Sheet, so its card offers <strong>Sync now</strong>.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="crops/new-roster-import-back.png" data-full="new-roster-import-back.png" alt="Import complete: 15 new volunteers added, 5 skipped as duplicates, with a Back to setting up Lockup button" class="screenshot crop" width="608" height="488" loading="lazy" decoding="async">
+    <figcaption>An import started from the wizard ends with <strong>Back to setting up</strong> your roster.</figcaption>
+  </figure>
+
+  <p>Back from an import, a green note says what happened to each person you imported: how many your file already put on this roster, how many had no roster in the file (they're ticked for you; untick anyone who doesn't serve here), and how many your file put on other rosters (tick them if they serve here too). When the list is right, click <strong>Next: Set up volunteers →</strong>.</p>
+
+  <h3 class="sub-title" id="c-new-step5">Step 5 — Set up</h3>
+  <p>This step is what makes your first roster right. It shows how many of the roster's volunteers are set up, with a progress bar, and how many still have no roles. A volunteer with no roles is left out of every build.</p>
+
+  <figure>
+    <img src="crops/new-roster-step5-setup.png" data-full="new-roster-step5-setup.png" alt="Set up each volunteer on Lockup: 0 of 21 Lockup volunteers are set up, 21 still have no roles, a list of what to set on each profile and a Start with the first volunteer button" class="screenshot crop" width="702" height="589" loading="lazy" decoding="async">
+    <figcaption>Step 5 — the count, what to set on each profile, and the button that starts the walk.</figcaption>
+  </figure>
+
+  <p>Click <strong>Start with the first volunteer</strong>. Their profile opens with a bar across the top: <strong>Setting up</strong> your roster, how many volunteers are left to set up, and a green progress bar. On each profile, set their <a href="#e-detail-roles">roles</a>, <a href="#e-detail-frequency">how often</a> they serve, <a href="#e-detail-relational">who they serve with</a> and any <a href="#e-detail-role-linking">role links</a>, then press the gold <strong>›</strong> arrow beside the search bar. The next volunteer appears almost at once, and your changes are saved as you go.</p>
+
+  <figure>
+    <img src="crops/new-roster-setup-walk.png" data-full="new-roster-setup-walk.png" alt="A volunteer's profile during setup: a bar reading Setting up Lockup, 1 volunteer left to set up, with a green progress bar, and the gold next arrow beside the search bar" class="screenshot crop" width="1029" height="525" loading="lazy" decoding="async">
+    <figcaption>Setting up each volunteer. The bar counts down as people get their roles; the gold <strong>›</strong> takes you to the next one.</figcaption>
+  </figure>
+
+  <p>When you reach the last volunteer, or everyone has roles, <strong>Back to roster setup</strong> turns gold: click it to return to this step. To stop partway, click <strong>Leave for now</strong>. Back on this step, <strong>Set up the next volunteer</strong> carries on from the first person still without roles.</p>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Don't know who does what?</strong> Click <strong>Next: Review</strong> without setting roles. Once the roster is created, its <a href="#c-rebuild-step3">Role Prefs</a> step can ask every volunteer which roles suit them.
+  </div>
+
+  <h3 class="sub-title" id="c-new-step6">Step 6 — Review</h3>
   <p>The final step shows a summary of everything you've set up — roster name, icon, roles, season dates, and volunteer count. Review it carefully before confirming.</p>
 
   <figure>
-    <img src="crops/new-roster-step4-review.png" data-full="new-roster-step4-review.png" alt="Set up a new roster: Step 5 — Review showing summary of roster setup with Create Roster button" class="screenshot crop" width="717" height="702" loading="lazy" decoding="async">
-    <figcaption>Step 5 — review your roster setup before confirming. You can go back to any previous step to make changes. Once confirmed, the roster appears on the Builds dashboard.</figcaption>
+    <img src="crops/new-roster-step4-review.png" data-full="new-roster-step4-review.png" alt="Set up a new roster: Step 6 — Review showing summary of roster setup with Create Roster button" class="screenshot crop" width="717" height="702" loading="lazy" decoding="async">
+    <figcaption>Step 6 — review your roster setup before confirming. You can go back to any previous step to make changes. Once confirmed, the roster appears on the Builds dashboard.</figcaption>
   </figure>
 
   <p>Click <strong>Create Roster →</strong> to finish. Rostas takes you straight into the <a href="#c-rebuild">roster cycle</a> for your new roster, ready for its first build, and the roster appears on the Builds dashboard.</p>
@@ -2551,6 +2586,14 @@
     <img src="crops/roster-wizard-step5-build.png" data-full="roster-wizard-step5-build.png" alt="Roster cycle Step 5 — Ready to build roster? with the nudge option and the Build as is option" class="screenshot crop" width="730" height="454" loading="lazy" decoding="async">
     <figcaption>Step 5 — Build &amp; Check. Nudge the stragglers, or build now.</figcaption>
   </figure>
+
+  <p><strong>Before you build, Rostas checks the roster is ready.</strong> If something would make the build come out empty or thin, it says so first:</p>
+  <ul>
+    <li><strong>Nobody on the roster yet:</strong> there's no build button, just <strong>Open Profiles</strong> to put people on it.</li>
+    <li><strong>Some volunteers have no roles:</strong> a <strong>Set their roles first</strong> card comes before <strong>Build as is</strong>, saying how many would be left out. Its button steps through just those people, and the <strong>Back to wizard</strong> bar brings you back here.</li>
+    <li><strong>A role nobody does:</strong> a note names it, since it will be left empty, with a link to <a href="#d-overview">Insights</a>.</li>
+  </ul>
+  <p>These are warnings, not locks: <strong>Build as is</strong> is always there when people are on the roster.</p>
 
   <p>The roster engine looks at every volunteer's availability, role preferences, how recently they've served and how often they want to serve, and fills every slot it can (see <a href="#a-engine">The Intelligent Matching Engine</a>). A build can take up to 5–10 minutes for a big roster. When it's finished, the <strong>Roster Board opens by itself</strong>.</p>
 

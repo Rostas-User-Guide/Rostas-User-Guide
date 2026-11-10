@@ -545,7 +545,7 @@ async function buildContent($, imgs) {
     // "How do I…?" group label
     if ($el.hasClass('howdoi-label')) {
       out.push(new Paragraph({
-        children: [new TextRun({ text: $el.text().trim(), bold: true, color: C.heading })],
+        children: [new TextRun({ text: $el.clone().find('.howdoi-count').remove().end().text().trim(), bold: true, color: C.heading })],
         spacing: { before: 160, after: 40 },
       }));
       return;

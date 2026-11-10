@@ -556,8 +556,8 @@
     top: calc(100% - 0.1rem);
     left: 0;
     right: 0;
-    background: #ffffff;
-    border: 1px solid #d6dde8;
+    background: #e8f0fa;
+    border: 1px solid #c3d3e8;
     border-radius: 8px;
     margin-top: 6px;
     max-height: 340px;
@@ -574,7 +574,7 @@
   .sr-item {
     padding: 0.6rem 1rem;
     cursor: pointer;
-    border-bottom: 1px solid #e8ecf2;
+    border-bottom: 1px solid #d3dfee;
     border-left: 3px solid transparent;
     transition: background 0.12s, border-color 0.12s;
   }
@@ -4138,27 +4138,28 @@
     var activeIdx = -1;
     var currentResults = [];
 
-    function highlightSnippet(text, matches) {
-      var bodyMatch = (matches || []).find(function(m) { return m.key === 'body'; });
-      if (!bodyMatch || !bodyMatch.indices.length) return text.slice(0, 100) + (text.length > 100 ? '…' : '');
-      var firstIdx = bodyMatch.indices[0][0];
-      var start = Math.max(0, firstIdx - 40);
-      var end = Math.min(text.length, firstIdx + 100);
-      var snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
-      var offset = start > 0 ? start - 1 : 0;
-      var chars = snippet.split('');
-      var markStart = [], markEnd = [];
-      bodyMatch.indices.forEach(function(range) {
-        var s = range[0] - offset; var e = range[1] - offset + 1;
-        if (s >= 0 && e <= chars.length) { markStart.push(s); markEnd.push(e); }
-      });
-      var out = '';
-      for (var i = 0; i < chars.length; i++) {
-        if (markStart.indexOf(i) > -1) out += '<mark>';
-        out += chars[i].replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-        if (markEnd.indexOf(i) > -1) out += '</mark>';
+    function escHtml(t) { return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function escRe(t) { return t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+    // Highlight only the words actually typed (whole query, else each word of 2+ letters).
+    function highlightSnippet(text, query) {
+      var q = (query || '').trim();
+      var terms = q.split(/\s+/).filter(function(w) { return w.length >= 2; });
+      var lower = text.toLowerCase();
+      var firstIdx = lower.indexOf(q.toLowerCase());
+      if (firstIdx < 0) {
+        terms.forEach(function(w) {
+          var i = lower.indexOf(w.toLowerCase());
+          if (i > -1 && (firstIdx < 0 || i < firstIdx)) firstIdx = i;
+        });
       }
-      return out;
+      if (firstIdx < 0) return escHtml(text.slice(0, 100)) + (text.length > 100 ? '…' : '');
+      var start = Math.max(0, firstIdx - 18);
+      var end = Math.min(text.length, firstIdx + 100);
+      var body = escHtml(text.slice(start, end));
+      var pattern = [q].concat(terms).filter(Boolean).sort(function(x, y) { return y.length - x.length; }).map(function(t) { return escRe(escHtml(t)); }).join('|');
+      body = body.replace(new RegExp('(' + pattern + ')', 'gi'), '<mark>$1</mark>');
+      return (start > 0 ? '…' : '') + body + (end < text.length ? '…' : '');
     }
 
     function renderResults(query) {
@@ -4181,7 +4182,7 @@
       }
       currentResults.forEach(function(result, i) {
         var sec = result.item;
-        var snippet = highlightSnippet(sec.fullBody, result.matches);
+        var snippet = highlightSnippet(sec.fullBody, query);
         var div = document.createElement('div');
         div.className = 'sr-item';
         div.setAttribute('role', 'option');

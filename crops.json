@@ -40,8 +40,8 @@
     },
     "vol-list": {
       "src": "vol-list.png",
-      "box": [0, 0, 1518, 726],
-      "highlights": [[609, 13, 1091, 72], [1002, 101, 1487, 160]]
+      "box": [0, 0, 1620, 732],
+      "highlights": [[676, 51, 1152, 111], [830, 138, 1541, 197]]
     },
     "builds-dashboard-rows": {
       "src": "builds-dashboard.png",
@@ -70,13 +70,13 @@
     },
     "vol-no-roles-list": {
       "src": "vol-no-roles-list.png",
-      "box": [0, 0, 1518, 272],
-      "highlights": [[351, 13, 598, 72]]
+      "box": [0, 0, 1620, 206],
+      "highlights": [[422, 51, 666, 111]]
     },
     "vol-bulk-select": {
       "src": "vol-bulk-select.png",
-      "box": [256, 218, 1362, 566],
-      "highlights": [[928, 228, 1337, 271], [266, 428, 291, 554]]
+      "box": [0, 0, 1620, 812],
+      "highlights": [[985, 223, 1541, 282], [160, 524, 182, 760]]
     },
     "vol-bulk-add-roster": {
       "src": "vol-bulk-add-roster.png",
@@ -110,8 +110,8 @@
     },
     "vol-list-install-menu": {
       "src": "vol-list-install-menu.png",
-      "box": [1040, 370, 1876, 812],
-      "highlights": [[1562, 574, 1808, 670]]
+      "box": [0, 520, 1620, 988],
+      "highlights": [[1262, 695, 1516, 807]]
     },
     "insights-overview-table": {
       "src": "insights-overview-table.png",

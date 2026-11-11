@@ -85,8 +85,8 @@
     },
     "vol-no-roles-profile": {
       "src": "vol-no-roles-profile.png",
-      "box": [690, 92, 1892, 475],
-      "highlights": [[1651, 104, 1880, 157]]
+      "box": [400, 92, 1579, 404],
+      "highlights": [[1328, 189, 1553, 241]]
     },
     "board-dominant-shadow-cards": {
       "src": "board-dominant-shadow-cards.png",

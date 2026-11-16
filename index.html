@@ -898,6 +898,7 @@
     <a class="toc-item toc-h1" href="#f-system-status">Using System Status</a>
     <a class="toc-item toc-h1" href="#f-categories">Settings Categories</a>
     <a class="toc-item toc-h1" href="#f-app-content">News and podcasts in the app</a>
+    <a class="toc-item toc-h1" href="#f-holidays">Holidays by region</a>
     <a class="toc-item toc-h1" href="#f-roster-coordinator">A different coordinator for one roster</a>
     <a class="toc-item toc-h1" href="#f-sms-templates">Texts and their wording</a>
     <a class="toc-item toc-h1" href="#f-credits">SMS Credits</a>
@@ -1375,7 +1376,7 @@
 
   <figure>
     <img src="setup-step1-org.png" alt="Setup wizard Step 2 — Your Organisation, showing organisation name, timezone and country code fields" class="screenshot-mid" width="800" height="888" loading="lazy" decoding="async">
-    <figcaption>Step 2 — enter your organisation name, timezone, and country code. The name appears in every volunteer-facing message Rostas sends.</figcaption>
+    <figcaption>Step 2 — enter your organisation name, then your country and region; Rostas suggests the timezone. The name appears in every volunteer-facing message Rostas sends.</figcaption>
   </figure>
 
   <div class="tbl-wrap">
@@ -1385,8 +1386,9 @@
       </thead>
       <tbody>
         <tr><td><strong>Organisation name</strong></td><td>Your organisation's full name as you want it to appear to volunteers — e.g. "Riverside Community Church". Maximum 40 characters.</td><td>Yes</td></tr>
-        <tr><td><strong>Timezone</strong></td><td>Select your timezone from the dropdown. This controls all scheduling and quiet hours.</td><td>Yes</td></tr>
-        <tr><td><strong>Country / calling code</strong></td><td>Select your country. This is used to format volunteer phone numbers correctly for SMS delivery.</td><td>Yes</td></tr>
+        <tr><td><strong>Country</strong></td><td>New Zealand or Australia. This sets the calling code used to format volunteer phone numbers for texts (+64 or +61) and the country for public holidays.</td><td>Yes</td></tr>
+        <tr><td><strong>Region</strong> (NZ) or <strong>State or territory</strong> (Australia)</td><td>Where your church is. This adds your region's own public holidays, like your anniversary day or your state's Labour Day. See <a href="#f-holidays">Holidays by region</a>.</td><td>Yes</td></tr>
+        <tr><td><strong>Timezone</strong></td><td>Filled in for you from your country and region (for example, Queensland gives Brisbane). Change it if it's wrong. This controls all scheduling and quiet hours.</td><td>Yes</td></tr>
         <tr><td><strong>Website</strong></td><td>Optional. Your organisation's website URL — must start with https://</td><td>No</td></tr>
       </tbody>
     </table>
@@ -3446,12 +3448,12 @@
 
   <h2 class="section-title" id="f-categories">Settings Categories</h2>
   <ul>
-    <li><strong>Organisation</strong> — your organisation's name, tagline, timezone, country calling code, contact email, website, volunteer-facing logo, and the logo shown at the top of reminder emails (Email logo URL). The organisation name is the most important field: it appears in every SMS and email sent to volunteers as [OrgName]. Every email Rostas sends also comes from this name. Get this right first.</li>
+    <li><strong>Organisation</strong> — your organisation's name, tagline, country calling code, contact email, website, volunteer-facing logo, and the logo shown at the top of reminder emails (Email logo URL). The organisation name is the most important field: it appears in every SMS and email sent to volunteers as [OrgName]. Every email Rostas sends also comes from this name. Get this right first.</li>
     <li><strong>Coordinator Contacts</strong> — your name, email and mobile, plus an optional coordinator for each roster (see <a href="#f-roster-coordinator">A different coordinator for one roster</a>). The “no replacement found” email goes to the <strong>Organisation email</strong> under Organisation, unless the roster has its own coordinator.</li>
     <li><strong>SMS</strong> — the wording of every text Rostas sends (replacement request, manual replacement, taken off the roster, cross-roster ask, swap, availability nudge, reminder). Each has a live cost counter and a placeholder check. See <a href="#f-wording">Message wording</a> below.</li>
     <li><strong>App</strong> — what volunteers see in the Rostas app. At the top are two addresses: <strong>News sheet address</strong> and <strong>Podcast address</strong> (see <a href="#f-app-content">News and podcasts in the app</a>). Below them is the wording of the app notifications that stand in for texts when a volunteer has the app.</li>
     <li><strong>Email wording</strong> — the text blocks in roster, reminder and swap emails (intro, arrival note, sign-offs).</li>
-    <li><strong>Timing &amp; Behaviour</strong> — each roster's first rostered role start time, how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing and day-before reminder texts, SMS quiet hours, replacement timers, and public holiday region. The <strong>Holidays region</strong> field includes a dropdown of supported countries and a "Fetch holidays now" button — use this to pull the latest public holidays for your country whenever you update this setting.</li>
+    <li><strong>Timing &amp; Behaviour</strong> — your timezone, your holidays country and region, each roster's first rostered role start time, how many weeks ahead to build rosters, freeze weeks, availability form deadline, reminder timing and day-before reminder texts, SMS quiet hours and replacement timers. <strong>Timezone</strong> sits just above <strong>Holidays region</strong>, because they go together. See <a href="#f-holidays">Holidays by region</a>.</li>
     <li><strong>Quick Controls</strong> — the on/off switches: SMS enabled, the three test modes (SMS, Email, App push), and a switch to show or hide each roster type on the Builds dashboard and the Board. It also holds the <strong>Volunteer database</strong> row, where you connect Infoodle, Planning Center or your own Google Sheet (see <a href="#appendix-volunteer-database">Choosing your volunteer database</a>). Hiding a roster doesn't stop its reminders; to stop everything for a while, use <strong>Pause roster</strong> (Builds → ⋯).</li>
     <li><strong>Advanced</strong> — settings that affect system internals (web app URL, licence key, roster type list, Infoodle and AWS SMS keys). These are locked by default. Click Unlock to edit in the right panel and read the warning carefully before changing anything here. Incorrect values can stop roster builds or break SMS links. Contact tech support if unsure.</li>
   </ul>
@@ -3477,6 +3479,44 @@
   </div>
 
   <p>Leave an address blank and that page simply doesn't appear in the app. A changed address takes effect straight away for anyone who opens the page; volunteers' phones pick up a newly added Menu row within about three hours.</p>
+
+  <h2 class="section-title" id="f-holidays">Holidays by region</h2>
+  <p>Rostas marks public holidays on your roster calendar, so a roster that pauses on public holidays skips them. As well as the nationwide holidays, it adds your own region's: your anniversary day in New Zealand, or your state's holidays in Australia (for example Queensland's Labour Day in May, or Victoria's Labour Day in March).</p>
+  <p>You choose your country and region in the Setup Wizard. To change them later:</p>
+  <ol class="steps">
+    <li>Open <strong>Settings → Timing &amp; Behaviour → Holidays region</strong>.</li>
+    <li>Choose your country (New Zealand or Australia), then your <strong>Region</strong> or <strong>State or territory</strong>. Leave the region as <strong>Whole country</strong> if you only want nationwide holidays.</li>
+    <li>Click <strong>Fetch holidays now</strong>. This saves both choices, fetches this year's and next year's holidays, and updates your calendar straight away. The message says how many holidays it found for each year.</li>
+  </ol>
+  <p>Rostas also fetches this year's and next year's holidays by itself about once a month, so new years arrive without you doing anything. You can see every holiday it has on the <strong>PublicHolidays</strong> tab of your spreadsheet.</p>
+
+  <h3 class="sub-title" id="f-holidays-nz">New Zealand regions and their anniversary days</h3>
+  <p>New Zealand's regions follow the old provincial anniversary days, so pick the one your church keeps. Canterbury has two choices because north and central Canterbury keep Show Day in November, while South Canterbury keeps its day in September.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Region</th><th>Holiday</th><th>2026</th><th>2027</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Auckland, Northland, Waikato, Bay of Plenty or Gisborne</td><td>Auckland Anniversary Day</td><td>Mon 26 Jan 2026</td><td>Mon 1 Feb 2027</td></tr>
+        <tr><td>Wellington or Manawatū-Whanganui</td><td>Wellington Anniversary Day</td><td>Mon 19 Jan 2026</td><td>Mon 25 Jan 2027</td></tr>
+        <tr><td>Taranaki</td><td>Taranaki Anniversary Day</td><td>Mon 9 Mar 2026</td><td>Mon 8 Mar 2027</td></tr>
+        <tr><td>Hawke&#39;s Bay</td><td>Hawke&#39;s Bay Anniversary Day</td><td>Fri 23 Oct 2026</td><td>Fri 22 Oct 2027</td></tr>
+        <tr><td>Nelson or Tasman</td><td>Nelson Anniversary Day</td><td>Mon 2 Feb 2026</td><td>Mon 1 Feb 2027</td></tr>
+        <tr><td>Marlborough</td><td>Marlborough Anniversary Day</td><td>Mon 2 Nov 2026</td><td>Mon 1 Nov 2027</td></tr>
+        <tr><td>West Coast</td><td>Westland Anniversary Day</td><td>Mon 30 Nov 2026</td><td>Mon 29 Nov 2027</td></tr>
+        <tr><td>Canterbury (north and central)</td><td>Canterbury Anniversary Day (Show Day)</td><td>Fri 13 Nov 2026</td><td>Fri 12 Nov 2027</td></tr>
+        <tr><td>South Canterbury</td><td>South Canterbury Anniversary Day</td><td>Mon 28 Sep 2026</td><td>Mon 27 Sep 2027</td></tr>
+        <tr><td>Otago</td><td>Otago Anniversary Day</td><td>Mon 23 Mar 2026</td><td>Mon 22 Mar 2027</td></tr>
+        <tr><td>Southland</td><td>Southland Anniversary Day</td><td>Tue 7 Apr 2026</td><td>Tue 30 Mar 2027</td></tr>
+        <tr><td>Chatham Islands</td><td>Chatham Islands Anniversary Day</td><td>Mon 30 Nov 2026</td><td>Mon 29 Nov 2027</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>New Zealand school holidays are the same across the country, so they are filled in for every NZ church whatever its region. Check them against your local schools.</p>
+
+  <h3 class="sub-title" id="f-holidays-au">Australian states and territories</h3>
+  <p>Choose your state or territory: Australian Capital Territory, New South Wales, Northern Territory, Queensland, South Australia, Tasmania, Victoria or Western Australia. Your state's public holidays are added to the national ones. School holidays differ by state and aren't filled in for Australia yet, so type yours into the <strong>SchoolHolidays</strong> tab.</p>
 
   <h2 class="section-title" id="f-roster-coordinator">A different coordinator for one roster</h2>
   <p>You (the main coordinator) look after every roster unless you say otherwise. If one roster is run by someone else — say your music director runs the Music roster — give that roster its own coordinator:</p>

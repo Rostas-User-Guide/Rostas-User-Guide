@@ -373,6 +373,41 @@
       "box": [0, 0, 1372, 700],
       "pad_top": 24,
       "highlights": [[18, 66, 1050, 122], [1032, 0, 1093, 52]]
+    },
+    "role-pause-dates": {
+      "src": "role-pause-dates.png",
+      "box": [0, 520, 1280, 940],
+      "highlights": [[32, 837, 557, 935]]
+    },
+    "board-fewer-dates": {
+      "src": "board-fewer-dates.png",
+      "box": [220, 293, 1280, 480],
+      "highlights": [[707, 319, 824, 349]]
+    },
+    "board-fewer-dates-modal": {
+      "src": "board-fewer-dates-modal.png",
+      "box": [424, 335, 860, 665],
+      "highlights": []
+    },
+    "board-paused-dates": {
+      "src": "board-paused-dates.png",
+      "box": [53, 0, 1104, 627],
+      "highlights": [[865, 81, 1088, 548]]
+    },
+    "board-replace-oncall": {
+      "src": "board-replace-oncall.png",
+      "box": [220, 367, 1280, 720],
+      "highlights": [[233, 517, 560, 573]]
+    },
+    "profile-on-call": {
+      "src": "profile-on-call.png",
+      "box": [513, 253, 863, 493],
+      "highlights": [[541, 421, 834, 471]]
+    },
+    "wizard-build-reach": {
+      "src": "wizard-build-reach.png",
+      "box": [293, 233, 987, 743],
+      "highlights": [[337, 583, 943, 649]]
     }
   }
 }

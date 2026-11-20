@@ -791,6 +791,7 @@
       <a class="toc-item toc-h2" href="#e-detail-roles">Roles</a>
       <a class="toc-item toc-h2" href="#e-detail-role-linking">Linking roles</a>
       <a class="toc-item toc-h2" href="#e-detail-frequency">Frequency</a>
+      <a class="toc-item toc-h2" href="#e-detail-on-call">On call only</a>
       <a class="toc-item toc-h2" href="#e-detail-relational">Relational rostering</a>
       <a class="toc-item toc-h2" href="#e-detail-availability">Next roster availability</a>
       <a class="toc-item toc-h2" href="#e-detail-add-roster">Putting a volunteer on another roster</a>
@@ -843,6 +844,7 @@
       <a class="toc-item toc-h2" href="#c-rebuild-step3">Step 3 — Role Prefs</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step4">Step 4 — Availability</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step5">Step 5 — Build &amp; Check</a>
+      <a class="toc-item toc-h2" href="#c-rebuild-fewer">Fewer dates</a>
       <a class="toc-item toc-h2" href="#c-rebuild-step6">Step 6 — Notify</a>
     </div>
     <a class="toc-item toc-h1" href="#c-menu">Pausing, re-dating or removing a roster (the ⋯ menu)</a>
@@ -1001,7 +1003,7 @@
       </ul>
     </div>
     <div class="howdoi-group">
-      <div class="howdoi-label">Volunteers <span class="howdoi-count">11</span></div>
+      <div class="howdoi-label">Volunteers <span class="howdoi-count">12</span></div>
       <ul>
         <li><a href="#e-add" data-job>Add one new volunteer</a></li>
         <li><a href="#e-import" data-job>Import a list of volunteers</a></li>
@@ -1012,12 +1014,13 @@
         <li><a href="#e-bulk-delete" data-job>Delete several volunteers at once</a></li>
         <li><a href="#e-detail-frequency" data-job>Change how often someone serves</a></li>
         <li><a href="#e-detail-relational" data-job>Make two people serve together (or never together)</a></li>
+        <li><a href="#e-detail-on-call" data-job>Keep someone off builds but on call</a></li>
         <li><a href="#e-send-app-link" data-job>Send a volunteer their app link</a></li>
         <li><a href="#e-detail-new-link" data-job>Give a volunteer a new link</a></li>
       </ul>
     </div>
     <div class="howdoi-group">
-      <div class="howdoi-label">Each roster cycle <span class="howdoi-count">7</span></div>
+      <div class="howdoi-label">Each roster cycle <span class="howdoi-count">9</span></div>
       <ul>
         <li><a href="#c-rebuild" data-job>Start the next roster</a></li>
         <li><a href="#c-rebuild-step4" data-job>Ask volunteers when they're free</a></li>
@@ -1026,6 +1029,8 @@
         <li><a href="#c-season-add" data-job>Add an extra date (Christmas Eve, Good Friday)</a></li>
         <li><a href="#c-season-remove" data-job>Skip a date</a></li>
         <li><a href="#c-menu-pause" data-job>Pause a roster for a while</a></li>
+        <li><a href="#c-manage-roles-pause" data-job>Leave a role out for some dates</a></li>
+        <li><a href="#c-rebuild-fewer" data-job>Cut back a roster built too far ahead</a></li>
       </ul>
     </div>
     <div class="howdoi-group">
@@ -1810,6 +1815,11 @@
     <figcaption>A volunteer's profile. Their photo appears once they add one in the Rostas app; until then you'll see their initials.</figcaption>
   </figure>
 
+  <div class="callout callout-info">
+    <span class="callout-icon">💾</span>
+    <strong>Your changes save as you leave.</strong> There's no Save button to remember. Moving to another roster tab, the next volunteer, the sidebar, <strong>Edit contact details</strong> or anywhere else saves the profile first. If a save fails, you stay on the page and a message offers <strong>Try again</strong>. If you press the browser's Back button, reload or close the tab with unsaved changes, the browser asks whether to leave: click <strong>Stay</strong>, wait for the green "Changes saved" note, then leave. (Clicking <strong>Leave</strong> straight away loses those changes.)
+  </div>
+
   <h3 class="sub-title" id="e-detail-contact">Contact details &amp; toggles</h3>
   <p>The left panel shows the volunteer's name, phone, email, and status, with four toggles that control how Rostas treats them, plus an automatic App Installed indicator described below:</p>
 
@@ -1933,6 +1943,21 @@
     <span class="callout-icon">ℹ️</span>
     <strong>The cap counts distinct dates, not roles.</strong> A volunteer rostered to two roles on the same day counts as one date — so serving twice in one Sunday doesn't use up two of their allocation.
   </div>
+
+  <h3 class="sub-title" id="e-detail-on-call">On call only — people you put on yourself</h3>
+  <p>Some people should never be rostered by a build but are happy to step in when you ask them, such as a coordinator who covers last-minute gaps. Tick <strong>On call only</strong> under the Frequency pills on their roster tab. It's set per roster, so someone can be on call for Sunday and rostered as normal on another roster.</p>
+
+  <figure>
+    <img src="crops/profile-on-call.png" data-full="profile-on-call.png" alt="The Frequency card on Margaret Ellis's Sunday tab, with the On call only box ticked under the frequency pills: never rostered automatically or sent replacement requests. Coordinators can put them into any role from the Roster Board" class="screenshot crop" width="262" height="180" loading="lazy" decoding="async">
+    <figcaption>On call only, ticked on the Sunday tab.</figcaption>
+  </figure>
+
+  <p>While it's ticked:</p>
+  <ul>
+    <li><strong>Builds never place them</strong>, and automatic replacement requests never ask them.</li>
+    <li><strong>On the Roster Board they're offered for every role</strong>, whether or not they've ticked that role, in their own <strong>On call</strong> band in the replacement panel. Choosing them puts them straight on the card. See <a href="#d-replace">Choosing a replacement yourself</a>.</li>
+    <li><strong>Unavailable still counts.</strong> If they've said they can't make a date, they aren't offered for it.</li>
+  </ul>
 
   <h3 class="sub-title" id="e-detail-relational">Relational rostering — serving together</h3>
   <p>Relational rostering asks Rostas to place people <em>together</em> on the same dates — a <strong>Buddy</strong> they like to serve alongside, or a <strong>Household</strong> so family members share the same rota. Turn on "Serves With" and pick who, then choose how closely they should be linked: the same date, or the same role too.</p>
@@ -2672,6 +2697,12 @@
   </figure>
   <p>These are warnings, not locks: <strong>Build as is</strong> is always there when people are on the roster.</p>
 
+  <p><strong>Each build says how far ahead it goes.</strong> Under the build button, a line such as "This build adds 8 dates, up to Sun 14 Mar 2027" tells you where the roster will reach. Each build adds the next set of unbuilt dates, so pressing it several times can take the roster months ahead, past where people make plans. If a build would reach more than 16 weeks ahead, an orange warning says so.</p>
+  <figure>
+    <img src="crops/wizard-build-reach.png" data-full="wizard-build-reach.png" alt="Build &amp; Check: the Build as is card says This build adds 30 dates, up to Sun 25 Apr 2027, then an orange warning: That takes the roster about 29 weeks ahead, further than most people make plans. If it turns out too far, use Fewer dates on the Roster Board" class="screenshot crop" width="520" height="382" loading="lazy" decoding="async">
+    <figcaption>A build that would reach too far ahead. You can still build; afterwards, <a href="#c-rebuild-fewer">Fewer dates</a> on the Board cuts it back.</figcaption>
+  </figure>
+
   <p>The roster engine looks at every volunteer's availability, role preferences, how recently they've served and how often they want to serve, and fills every slot it can (see <a href="#a-engine">The Intelligent Matching Engine</a>). A build can take up to 5–10 minutes for a big roster. When it's finished, the <strong>Roster Board opens by itself</strong>.</p>
 
   <div class="callout callout-warn">
@@ -2693,9 +2724,15 @@
       <tbody>
         <tr><td><strong>Refill roster</strong></td><td>Fills only the empty slots, using the latest availability, role settings and profiles. Everyone already placed stays put, including your swaps and replacements.</td><td>You're happy with the roster but some slots are still empty (for example after late availability replies).</td></tr>
         <tr><td><strong>Rebuild roster</strong></td><td>Clears every assignment that hasn't been sent yet and decides the whole roster again. Your manual swaps and replacements are lost. Dates already sent to volunteers are never touched.</td><td>You've changed something big (roles, dates, lots of availability) and want a fresh roster.</td></tr>
+        <tr><td><strong>Fewer dates</strong></td><td>Removes dates from the end of the roster. Only shows when there's a date it could remove. See <a href="#c-rebuild-fewer">below</a>.</td><td>The roster was built further ahead than you want.</td></tr>
         <tr><td><strong>Send notifications →</strong></td><td>Tells the volunteers their roster. See below.</td><td>The roster looks right.</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">👀</span>
+    <strong>Volunteers don't see these dates until you send.</strong> Until you click Send notifications, the new dates are a draft: they don't appear in the Rostas app or on volunteers' Your Roster page, and nobody can confirm, decline or swap on them. Dates you've already sent stay visible as normal. You always see everything on the Board.
   </div>
 
   <figure>
@@ -2739,6 +2776,25 @@
     <span class="callout-icon">⚠️</span>
     <strong>Don't skip the check.</strong> It's your last chance to catch problems before volunteers are told. Look for red (unfilled) slots and make any swaps you need first.
   </div>
+
+  <h3 class="sub-title" id="c-rebuild-fewer">Built too far ahead? Use Fewer dates</h3>
+  <p>If the roster now runs further ahead than you want, cut it back before you send:</p>
+  <ol class="steps">
+    <li>Click <strong>Fewer dates</strong> on the Board's bar.
+      <figure>
+        <img src="crops/board-fewer-dates.png" data-full="board-fewer-dates.png" alt="The Board bar before sending: Back to wizard, Step 5 of 6, then Fewer dates (highlighted), Refill roster, Rebuild roster and Send notifications" class="screenshot crop" width="795" height="140" loading="lazy" decoding="async">
+        <figcaption><strong>Fewer dates</strong> sits next to Refill and Rebuild.</figcaption>
+      </figure>
+    </li>
+    <li>Under <strong>Keep the roster up to and including</strong>, choose the last date to keep. It starts on the date nearest your usual build length. The box says how many dates and cards will go.
+      <figure>
+        <img src="crops/board-fewer-dates-modal.png" data-full="board-fewer-dates-modal.png" alt="Remove dates from the end? Keep the roster up to and including Sun 7 Feb 2027. This removes 11 dates (Sun 14 Feb 2027 to Sun 25 Apr 2027) and the 44 cards on them. Nobody has been sent these dates yet, so nobody gets a message. Cancel and Remove 11 dates buttons" class="screenshot crop" width="327" height="248" loading="lazy" decoding="async">
+        <figcaption>Keeping the roster up to 7 February removes the 11 dates after it.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Remove N dates</strong>. (Click <strong>Cancel</strong> to change nothing.)</li>
+  </ol>
+  <p>Dates are only removed from the end, and never a date that has already been sent to volunteers, so nobody gets a message. At least one date always stays. Fewer dates isn't available while a build is running or once the roster is being sent.</p>
 
   <h3 class="sub-title" id="c-rebuild-step6">Step 6 — Notify</h3>
   <p>After you send from the Board, the wizard opens on the Notify step. While messages are going out it shows "Sent N of M so far". You can leave the page and sending carries on by itself. You can look at the Board meanwhile (<strong>Look at the Roster Board</strong>), but changes there are paused until sending finishes. The Notify circle reads "Sending…" until it's done.</p>
@@ -2882,9 +2938,33 @@
         <tr><td><strong>Change headcount</strong></td><td>Adjust the minimum and maximum for how many people the role needs each time.</td></tr>
         <tr><td><strong>Set a start time</strong></td><td>Choose the role's time in the <strong>Time</strong> column (optional). It shows on the Roster Board, in the volunteer app and in emails straight after you save; choose <strong>No time</strong> to remove it.</td></tr>
         <tr><td><strong>Deactivate a role</strong></td><td>Switch it to <strong>Inactive</strong>. It drops out of future builds but keeps its history, and you can reactivate it any time.</td></tr>
+        <tr><td><strong>Pause a role for some dates</strong></td><td>Click <strong>Pause dates…</strong> under the role and choose the first and last date to leave it out. See <a href="#c-manage-roles-pause">below</a>.</td></tr>
       </tbody>
     </table>
   </div>
+
+  <h3 class="sub-title" id="c-manage-roles-pause">Pausing a role between two dates</h3>
+  <p>Use pause dates when a role only stops for a while, for example no Morning Tea over the summer holidays. The <strong>Active</strong> switch turns a role off for every date; pause dates turn it off for just the dates you choose, and it comes back by itself afterwards. This matters most for a perpetual roster, which never starts a new season where you could change it.</p>
+  <ol class="steps">
+    <li>On <strong>Manage roles</strong>, click <strong>Pause dates…</strong> under the role.</li>
+    <li>Choose <strong>Paused from</strong> and <strong>Until (included)</strong>. Both dates are included.</li>
+    <li>Click <strong>Save</strong>. The role now shows "Paused 20 Dec 2026 – 31 Jan 2027" (with your dates) and a <strong>Change</strong> link. To end a pause early, click <strong>Change</strong>, then <strong>Clear</strong>, then Save.</li>
+    <li>If the roster is already built over those dates, click <strong>Refill roster</strong> on the Board (see <a href="#c-rebuild-check">Checking the roster on the Board</a>). Refill only changes dates that haven't been sent.</li>
+  </ol>
+
+  <figure>
+    <img src="crops/role-pause-dates.png" data-full="role-pause-dates.png" alt="Manage roles: Welcomer and Music each with a Pause dates link; Morning Tea After Church showing Paused 20 Dec 2026 – 31 Jan 2027 with a Change link, and the open panel with Paused from 20/12/2026, Until (included) 31/01/2027 and Clear" class="screenshot crop" width="960" height="315" loading="lazy" decoding="async">
+    <figcaption>Morning Tea paused over the summer holidays, with its date boxes open.</figcaption>
+  </figure>
+
+  <p>On paused dates, builds and Refill leave the role out, the Board shows <strong>Paused</strong> instead of red Unfilled cards, and the role isn't counted as short of people. Anyone already rostered on a paused date stays on: a pause never removes anyone, so take them off on the Board if you need to.</p>
+
+  <figure>
+    <img src="crops/board-paused-dates.png" data-full="board-paused-dates.png" alt="Roster Board from Sun 13 Dec to Sun 7 Feb: Welcomer and Music filled every week, and the Morning Tea After Church column showing Paused from 20 Dec to 31 Jan, then filled again on 7 Feb" class="screenshot crop" width="788" height="470" loading="lazy" decoding="async">
+    <figcaption>The Board with Morning Tea paused from 20 December to 31 January. It's filled again from 7 February.</figcaption>
+  </figure>
+
+  <p>The same <strong>Pause dates…</strong> line appears on the Edit Roles card in <a href="#c-rebuild-step1">Confirm Dates</a> and on the wizard's <a href="#c-rebuild-step2">Roles</a> step, so you can set a pause while you run a roster cycle.</p>
 
   <h3 class="sub-title" id="c-manage-roles-fillorder">Fill order — which role gets first pick</h3>
   <p>Rostas fills roles <strong>top-to-bottom</strong> in the order they're listed here — locking each one in fully before moving to the next. If a volunteer is capable of more than one role on a roster, whichever role sits higher in this list gets first claim on them for that date.</p>
@@ -3224,6 +3304,7 @@
         <tr><td><strong>Best fit</strong> · Primary role</td><td>Available, and this is a role they do</td><td>Puts them on the card</td></tr>
         <tr><td><strong>Best fit</strong> · Fillable role</td><td>Available, and they're happy to fill in for this role</td><td>Puts them on the card</td></tr>
         <tr><td><strong>Unsure</strong> · Primary / Fillable role</td><td>Said they're not sure about that date</td><td>Puts them on the card as Pending</td></tr>
+        <tr><td><strong>On call</strong> · Put on by a coordinator (blue)</td><td>Marked <a href="#e-detail-on-call">On call only</a> on their profile. Offered for every role, ticked or not</td><td>Puts them on the card (never sends a request)</td></tr>
         <tr><td><strong>Other options</strong> · Bends a usual rule</td><td>Could do it, but it bends one of their rules, for example serving more often than their usual frequency</td><td>Puts them on the card</td></tr>
         <tr><td><strong>No role set</strong> · On this roster (tan)</td><td>On this roster, but with no role marked for this one</td><td>Puts them on the card</td></tr>
         <tr><td><strong>Another roster</strong> · Contact first</td><td>Serve on a different roster, not this one</td><td>Sends a one-off request for this date (see below)</td></tr>
@@ -3236,6 +3317,11 @@
   <figure>
     <img src="crops/board-replace-bands.png" data-full="board-replace-bands.png" alt="Lower part of the replacement panel for an Unfilled card showing the No role set, Another roster, Already on today and No roster bands" class="screenshot crop" width="882" height="349" loading="lazy" decoding="async">
     <figcaption>Further down the panel: No role set (tan), Another roster, Already on today and No roster (purple).</figcaption>
+  </figure>
+
+  <figure>
+    <img src="crops/board-replace-oncall.png" data-full="board-replace-oncall.png" alt="Replacement panel for Welcomer on 4 October: Best fit (Grace Liu), then a blue On call band, Put on by a coordinator, with Margaret Ellis, then No role set and Already on today" class="screenshot crop" width="795" height="265" loading="lazy" decoding="async">
+    <figcaption>Margaret is <a href="#e-detail-on-call">On call only</a>, so she appears in the blue <strong>On call</strong> band for every role, even ones she hasn't ticked. Clicking her puts her straight on.</figcaption>
   </figure>
 
   <h3 class="sub-title" id="d-replace-search">Finding someone by name</h3>
@@ -3874,10 +3960,12 @@
         <tr><td><strong>Cycle</strong> (roster cycle)</td><td>One round of: confirm dates, ask about roles and availability, build, check, send. You run one each time a roster needs its next stretch of dates. See <a href="#c-rebuild">Run a roster cycle</a>.</td></tr>
         <tr><td><strong>Declined</strong></td><td>A volunteer has said they can't make a date they were rostered for, either themselves or because you clicked Save as declined. This usually starts a chain. See <a href="#d-decline">Saving someone as declined</a>.</td></tr>
         <tr><td><strong>Excluded</strong></td><td>A date you've taken out of a build on purpose (pink on the Build Dates screen, a white row on the Board). Not a gap to fill. See <a href="#c-season-remove">Removing a date</a>.</td></tr>
+        <tr><td><strong>Fewer dates</strong></td><td>A button on the Board before you send: removes dates from the end of a roster built too far ahead. Dates already sent are never removed. See <a href="#c-rebuild-fewer">Fewer dates</a>.</td></tr>
         <tr><td><strong>Filled</strong></td><td>A green card: someone is rostered and marked themselves available.</td></tr>
         <tr><td><strong>Fillable role</strong></td><td>A role a volunteer is “happy to fill in” on, as opposed to their primary role. Rostas uses primary roles first. See <a href="#a-engine">The Intelligent Matching Engine</a>.</td></tr>
         <tr><td><strong>Frequency cap</strong></td><td>The most often one volunteer can be rostered, such as once every three weeks. Rostas never goes past it. See <a href="#c-frequency-cap">How often a roster runs</a>.</td></tr>
         <tr><td><strong>Not sure</strong></td><td>An availability answer meaning “maybe”. Rostas only uses Not sure volunteers when no one who is Available fits, and their card shows as Pending.</td></tr>
+        <tr><td><strong>On call only</strong></td><td>A tick on a volunteer's roster tab: builds and replacement requests never use them, but the Board offers them for any role. See <a href="#e-detail-on-call">On call only</a>.</td></tr>
         <tr><td><strong>Paused</strong></td><td>A roster you've stopped for a while from Builds → ⋯. Nothing is built and no replacements are asked for while it's paused. See <a href="#c-menu-pause">Pausing a roster</a>.</td></tr>
         <tr><td><strong>Pending</strong></td><td>An amber card: the volunteer said they were Not sure about that date, so they're rostered provisionally until they confirm. In the app they see an amber <strong>Confirm</strong> pill. (The wizard's step circles also use “Pending” for a step you haven't reached yet.)</td></tr>
         <tr><td><strong>Quiet hours</strong></td><td>The overnight window (9pm–8am unless you change it) when Rostas sends no texts. A chain waits and carries on when quiet hours end. Set in Settings → Timing &amp; behaviour.</td></tr>

@@ -880,6 +880,7 @@
     <div class="toc-children" id="children-d-actions">
       <a class="toc-item toc-h2" href="#d-connected">Seeing connected cards</a>
       <a class="toc-item toc-h2" href="#d-decline">Saving someone as declined</a>
+      <a class="toc-item toc-h2" href="#d-empty">Emptying a slot</a>
       <a class="toc-item toc-h2" href="#d-live">When the roster changes</a>
     </div>
     <div class="toc-parent" id="parent-d-replace">
@@ -1034,10 +1035,11 @@
       </ul>
     </div>
     <div class="howdoi-group">
-      <div class="howdoi-label">On the Board, week to week <span class="howdoi-count">6</span></div>
+      <div class="howdoi-label">On the Board, week to week <span class="howdoi-count">7</span></div>
       <ul>
         <li><a href="#d-swap" data-job>Swap two volunteers</a></li>
         <li><a href="#d-decline" data-job>Someone can't make it</a></li>
+        <li><a href="#d-empty" data-job>Take someone off without finding cover</a></li>
         <li><a href="#d-replace" data-job>Choose who covers a gap yourself</a></li>
         <li><a href="#d-cross-roster" data-job>Ask someone from another roster to cover</a></li>
         <li><a href="#d-search" data-job>See all of one volunteer's dates</a></li>
@@ -3180,6 +3182,11 @@
     <figcaption>A card in an SMS chain (blue) selected. <strong>Keep Grace, stop requests</strong> keeps her on; <strong>Pick replacement</strong> lets you choose who covers instead of waiting for replies.</figcaption>
   </figure>
 
+  <figure>
+    <img src="crops/board-action-bar-empty.png" data-full="board-action-bar-empty.png" alt="Roster Board with Daniel Park's Filled card selected and the Empty button highlighted in the navy action bar, between Save as declined and Replace" class="screenshot crop" width="1192" height="176" loading="lazy" decoding="async">
+    <figcaption>The <strong>Empty</strong> button sits next to <strong>Save as declined</strong>. Use it to take someone off a card and leave the slot Unfilled, without asking anyone to cover.</figcaption>
+  </figure>
+
   <div class="tbl-wrap">
     <table>
       <thead>
@@ -3190,6 +3197,7 @@
         <tr><td><strong>Undo decline</strong></td><td>Declined cards</td><td>Puts the person back on the card as Filled. Use it when they declined by mistake or have changed their mind. Sends nothing.</td></tr>
         <tr><td><strong>Keep … stop requests</strong><br><em>(shows the volunteer's name, e.g. Keep Sarah, stop requests)</em></td><td>Cards in an SMS chain (blue)</td><td>Keeps the original person on and stops the replacement requests. Use it when they've told you they can come after all. Sends nothing.</td></tr>
         <tr><td><strong>Save as declined</strong></td><td>Filled, Pending and Declined cards</td><td>Asks you to confirm, then marks the person declined and starts the automated SMS replacement chain. See <a href="#d-decline">Saving someone as declined</a>.</td></tr>
+        <tr><td><strong>Empty</strong></td><td>Filled, Pending and Declined cards, and cards in an SMS chain (blue)</td><td>Asks you to confirm, then takes the person off and leaves the slot <strong>Unfilled</strong>. Nobody is asked to cover, and any requests already going out stop. See <a href="#d-empty">Emptying a slot</a>.</td></tr>
         <tr><td><strong>Replace</strong></td><td>Any card with someone on it (reads <strong>Pick replacement</strong> on a card in an SMS chain)</td><td>Opens the replacement panel so you choose who covers. See <a href="#d-replace">Choosing a replacement yourself</a>.</td></tr>
         <tr><td><strong>Assign volunteer</strong></td><td>Unfilled cards (red dashed)</td><td>Opens the same panel so you can fill the gap.</td></tr>
         <tr><td><strong>Swap with…</strong></td><td>Any card with someone on it</td><td>Swaps this assignment with another volunteer's slot — both move at once. Rostas flags any clashes as amber warnings, but they're advisory: you can always proceed.</td></tr>
@@ -3240,6 +3248,33 @@
     <li>If the roster for that date hasn't gone out yet, nothing is sent and the Board tells you so. They simply won't be on the roster when it's sent.</li>
     <li>Rostas then starts the <a href="#d-sms-chain">SMS replacement chain</a> to find someone to cover. If the roster is paused, the card waits for you instead.</li>
   </ul>
+
+  <h3 class="sub-title" id="d-empty">Emptying a slot</h3>
+  <p>Sometimes you want someone off a card but don't want Rostas to start texting people to cover it, and you don't know yet who should do it instead. For example, the service format is changing that week, or you'll sort it out in person on Sunday. <strong>Empty</strong> takes the person off and leaves the slot Unfilled, ready for you to fill later.</p>
+  <ol class="steps">
+    <li>Click the card on the Board.</li>
+    <li>Click <strong>Empty</strong>. A confirm step opens under the action bar.</li>
+    <li>If someone is on the card, leave the <strong>Let … know they're no longer rostered</strong> box ticked (it shows their name), or untick it if you've already told them.
+      <figure>
+        <img src="crops/board-empty-confirm.png" data-full="board-empty-confirm.png" alt="Board confirm step: Empty this slot? Daniel comes off and it shows Unfilled. Nobody is asked to cover. A ticked box Let Daniel know they're no longer rostered, and Empty slot and Cancel buttons" class="screenshot crop" width="1192" height="285" loading="lazy" decoding="async">
+        <figcaption>The Empty confirm step. The "Let … know they're no longer rostered" box is ticked to start with.</figcaption>
+      </figure>
+    </li>
+    <li>Click <strong>Empty slot</strong>. (Click <strong>Cancel</strong> to change nothing.)</li>
+  </ol>
+  <p>What happens next:</p>
+  <ul>
+    <li>The card turns into a red dashed <strong>Unfilled</strong> card straight away. Click it and use <strong>Assign volunteer</strong> when you know who should do it.</li>
+    <li>If that date's roster has already gone out and the box was ticked, Rostas tells the person they're no longer rostered: an app notification, or a text with a link to their roster if they don't have the app. If the roster hasn't gone out yet, nothing is sent and the Board tells you so.</li>
+    <li>On a card in an SMS chain, the replacement requests still going out are closed, and nobody else is asked.</li>
+    <li>A Declined card has nobody on it to tell, so there's no box to tick; the slot simply becomes Unfilled.</li>
+    <li>Once a service has started, its slots can't be emptied. The Board says so and nothing changes.</li>
+  </ul>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">ℹ️</span>
+    <strong>Empty, Save as declined or Replace?</strong> All three take the person off. <strong>Save as declined</strong> asks Rostas to find cover by text. <strong>Replace</strong> lets you choose who covers now. <strong>Empty</strong> asks nobody and leaves the gap for you to fill later.
+  </div>
 
   <h3 class="sub-title" id="d-live">When the roster changes while the Board is open</h3>
   <p>Volunteers answer texts and emails at any time, and other coordinators may be working on the same roster, so the Board keeps itself up to date:</p>
@@ -3959,6 +3994,7 @@
         <tr><td><strong>Credits</strong></td><td>Prepaid texts. One credit sends one text; emails and app notifications are free. See <a href="#f-credits">SMS Credits</a>.</td></tr>
         <tr><td><strong>Cycle</strong> (roster cycle)</td><td>One round of: confirm dates, ask about roles and availability, build, check, send. You run one each time a roster needs its next stretch of dates. See <a href="#c-rebuild">Run a roster cycle</a>.</td></tr>
         <tr><td><strong>Declined</strong></td><td>A volunteer has said they can't make a date they were rostered for, either themselves or because you clicked Save as declined. This usually starts a chain. See <a href="#d-decline">Saving someone as declined</a>.</td></tr>
+        <tr><td><strong>Empty</strong></td><td>A button on the Board that takes someone off a card and leaves the slot Unfilled, without asking anyone to cover. See <a href="#d-empty">Emptying a slot</a>.</td></tr>
         <tr><td><strong>Excluded</strong></td><td>A date you've taken out of a build on purpose (pink on the Build Dates screen, a white row on the Board). Not a gap to fill. See <a href="#c-season-remove">Removing a date</a>.</td></tr>
         <tr><td><strong>Fewer dates</strong></td><td>A button on the Board before you send: removes dates from the end of a roster built too far ahead. Dates already sent are never removed. See <a href="#c-rebuild-fewer">Fewer dates</a>.</td></tr>
         <tr><td><strong>Filled</strong></td><td>A green card: someone is rostered and marked themselves available.</td></tr>

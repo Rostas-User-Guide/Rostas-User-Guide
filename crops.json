@@ -253,6 +253,16 @@
       "box": [0, 0, 1136, 292],
       "highlights": [[486, 9, 904, 46], [716, 120, 890, 198]]
     },
+    "board-action-bar-empty": {
+      "src": "board-action-bar-empty.png",
+      "box": [330, 555, 1920, 790],
+      "highlights": [[1448, 567, 1549, 605], [857, 691, 1191, 775]]
+    },
+    "board-empty-confirm": {
+      "src": "board-empty-confirm.png",
+      "box": [330, 555, 1920, 935],
+      "highlights": [[340, 634, 1910, 750]]
+    },
     "board-decline-confirm": {
       "src": "board-decline-confirm.png",
       "box": [0, 0, 1176, 260],

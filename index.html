@@ -761,6 +761,7 @@
       <a class="toc-item toc-h2" href="#b-step2">Step 3 — Your Details</a>
       <a class="toc-item toc-h2" href="#b-step3">Step 4 — SMS Test</a>
       <a class="toc-item toc-h2" href="#b-step4">Step 5 — Done</a>
+      <a class="toc-item toc-h2" href="#b-start-jobs">Start the automatic jobs</a>
       <a class="toc-item toc-h2" href="#b-coord-link">Your coordinator link</a>
       <a class="toc-item toc-h2" href="#b-desktop-app">Put Rostas on your desktop</a>
     </div>
@@ -995,8 +996,9 @@
   <p>The everyday jobs, each linked to its steps. Use the search box for anything else.</p>
   <div class="howdoi">
     <div class="howdoi-group">
-      <div class="howdoi-label">Getting started <span class="howdoi-count">4</span></div>
+      <div class="howdoi-label">Getting started <span class="howdoi-count">5</span></div>
       <ul>
+        <li><a href="#b-start-jobs" data-job>Start the automatic jobs (reminders and nightly jobs)</a></li>
         <li><a href="#getting-started-import" data-job>Get my volunteer list into Rostas</a></li>
         <li><a href="#getting-started-decide" data-job>Decide who sets roles and whether to ask for availability</a></li>
         <li><a href="#getting-started-profiles" data-job>Set up every profile before the first build</a></li>
@@ -1460,7 +1462,7 @@
 
   <figure>
     <img src="setup-step4-done.png" alt="Setup wizard complete — Rostas is ready screen with Go to Build button" class="screenshot-mid" width="800" height="888" loading="lazy" decoding="async">
-    <figcaption>"Rostas is ready" — setup is complete. Click "Go to Build" to open the Builds dashboard and start your first roster cycle.</figcaption>
+    <figcaption>"Rostas is ready". Do the one last step in the box (start the automatic jobs, below), then click "Go to Build" to start your first roster cycle.</figcaption>
   </figure>
 
   <p>From here you have two options:</p>
@@ -1468,6 +1470,38 @@
     <li><strong>Go to Build →</strong> — takes you straight to the Builds dashboard, ready to start your first roster cycle. This is the right choice if your volunteers are already imported.</li>
     <li><strong>Explore Settings</strong> — opens the Settings view if you want to review or customise anything before you import volunteers or do your first build.</li>
   </ul>
+
+  <h3 class="sub-title" id="b-start-jobs">One last step: start the automatic jobs</h3>
+  <p>Rostas runs some jobs by itself: the reminders before each rostered date, replacement asks that move on to the next person, and the nightly tidy-ups. The wizard can't switch these on for you, so you do it once from your Rostas spreadsheet. It takes two clicks.</p>
+
+  <div class="step-box">
+    <div class="step-label">How to start the automatic jobs</div>
+    <ol class="steps">
+      <li>In the <strong>One last step</strong> box on the wizard's Done screen, click <strong>Open your Rostas spreadsheet</strong>. Your spreadsheet opens in a new tab.
+        <figure>
+          <img src="crops/setup-start-jobs-done.png" data-full="setup-step4-done.png" alt="The Done screen's One last step box: start the automatic jobs, with the gold Open your Rostas spreadsheet button highlighted" class="screenshot crop" width="348" height="165" loading="lazy" decoding="async">
+        </figure>
+      </li>
+      <li>In the spreadsheet's menu bar, click <strong>Start automatic jobs</strong>. It is the last menu, just right of <strong>Rostas</strong>.
+        <figure>
+          <img src="crops/setup-start-jobs-menu.png" data-full="setup-start-jobs-menu.png" alt="The spreadsheet's menu bar, File to Help, then Rostas, with the Start automatic jobs menu highlighted at the end" class="screenshot crop" width="687" height="57" loading="lazy" decoding="async">
+        </figure>
+      </li>
+      <li>Click <strong>Start now</strong>. A box says <strong>Automatic jobs started</strong>. Click <strong>OK</strong>, then go back to the Rostas tab.</li>
+    </ol>
+  </div>
+
+  <p>You only do this once. The amber notice on the Builds dashboard goes away, and the <strong>Start automatic jobs</strong> menu is gone the next time you open the spreadsheet. Until you do it, the dashboard keeps showing the notice, and the <strong>Send notifications</strong> box warns that reminders won't go. Rosters still send either way. The notice has the same <strong>Open your Rostas spreadsheet</strong> button.</p>
+
+  <figure>
+    <img src="crops/setup-start-jobs-notice.png" data-full="setup-start-jobs-notice.png" alt="Builds dashboard notice: Automatic jobs aren't running yet, with the gold Open your Rostas spreadsheet button highlighted" class="screenshot crop" width="1208" height="122" loading="lazy" decoding="async">
+    <figcaption>Until the jobs are started, the Builds dashboard shows this notice. Click the picture to see it full size.</figcaption>
+  </figure>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Don't see the Start automatic jobs menu?</strong> Reload the spreadsheet and wait a few seconds for the menus to appear. If you clicked it before finishing the wizard, Rostas asks you to finish the wizard first, then come back. The same item is also in the <strong>Rostas</strong> menu: use it if you ever change your timezone in Settings, so the daily jobs move to the new clock.
+  </div>
 
   <h3 class="sub-title" id="b-coord-link">Your coordinator link</h3>
   <p>When set-up finishes, Rostas emails you a <strong>coordinator link</strong> (to the Organisation email, or your own email if that's blank). This link is how you open Rostas from now on — <strong>bookmark it</strong> on every computer you use. It works like a password for the coordinator screens, so don't forward it to volunteers or post it anywhere.</p>

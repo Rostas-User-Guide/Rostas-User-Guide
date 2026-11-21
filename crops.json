@@ -418,6 +418,21 @@
       "src": "wizard-build-reach.png",
       "box": [293, 233, 987, 743],
       "highlights": [[337, 583, 943, 649]]
+    },
+    "setup-start-jobs-menu": {
+      "src": "setup-start-jobs-menu.png",
+      "box": [0, 0, 916, 76],
+      "highlights": [[714, 40, 882, 62]]
+    },
+    "setup-start-jobs-done": {
+      "src": "setup-step4-done.png",
+      "box": [168, 478, 632, 698],
+      "highlights": [[214, 558, 457, 588]]
+    },
+    "setup-start-jobs-notice": {
+      "src": "setup-start-jobs-notice.png",
+      "box": [0, 88, 1611, 250],
+      "highlights": [[107, 178, 447, 222]]
     }
   }
 }

@@ -305,8 +305,13 @@
     },
     "settings-opens-on-status": {
       "src": "settings-opens-on-status.png",
-      "box": [302, 160, 1917, 863],
-      "highlights": [[334, 249, 1885, 299]]
+      "box": [220, 0, 1396, 668],
+      "highlights": [[484, 67, 803, 106]]
+    },
+    "settings-message-logs": {
+      "src": "settings-message-logs.png",
+      "box": [244, 236, 1372, 668],
+      "highlights": [[407, 248, 707, 288]]
     },
     "settings-system-status": {
       "src": "settings-system-status.png",

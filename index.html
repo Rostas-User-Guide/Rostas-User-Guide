@@ -1037,11 +1037,12 @@
       </ul>
     </div>
     <div class="howdoi-group">
-      <div class="howdoi-label">On the Board, week to week <span class="howdoi-count">7</span></div>
+      <div class="howdoi-label">On the Board, week to week <span class="howdoi-count">8</span></div>
       <ul>
         <li><a href="#d-swap" data-job>Swap two volunteers</a></li>
         <li><a href="#d-decline" data-job>Someone can't make it</a></li>
         <li><a href="#d-empty" data-job>Take someone off without finding cover</a></li>
+        <li><a href="#c-manage-roles-pause-fill" data-job>Put someone on a paused date</a></li>
         <li><a href="#d-replace" data-job>Choose who covers a gap yourself</a></li>
         <li><a href="#d-cross-roster" data-job>Ask someone from another roster to cover</a></li>
         <li><a href="#d-search" data-job>See all of one volunteer's dates</a></li>
@@ -2160,6 +2161,7 @@
         <tr><td>They declined, then tapped Confirm or "Yes, I'll be there" in an older message</td><td>A note that they told us they can't make it and that Rostas is already asking others to cover. If they can come after all, they're asked to contact their coordinator, so two people don't turn up.</td></tr>
         <tr><td>They tap "Can't make it" again</td><td>A note that Rostas is already finding someone.</td></tr>
         <tr><td>They decline while the roster is paused</td><td>A request to let their coordinator know, because Rostas can't ask anyone else while the roster is paused.</td></tr>
+        <tr><td>They decline on a date when their role is paused</td><td>A request to let their coordinator know, because Rostas doesn't ask anyone else to cover a paused date. They stay on the roster until the coordinator changes it.</td></tr>
         <tr><td>They say Yes to a replacement request after the slot was filled or removed</td><td>A thank-you and a note that someone else has already stepped in. Nothing on the roster changes.</td></tr>
       </tbody>
     </table>
@@ -2993,14 +2995,56 @@
     <figcaption>Morning Tea paused over the summer holidays, with its date boxes open.</figcaption>
   </figure>
 
-  <p>On paused dates, builds and Refill leave the role out, the Board shows <strong>Paused</strong> instead of red Unfilled cards, and the role isn't counted as short of people. Anyone already rostered on a paused date stays on: a pause never removes anyone, so take them off on the Board if you need to.</p>
+  <p>On paused dates, builds and Refill leave the role out, the Board shows <strong>Paused</strong> instead of red Unfilled cards, and the role isn't counted as short of people. Anyone already rostered on a paused date stays on: a pause never removes anyone, so take them off on the Board if you need to. If you need the role on a paused date after all, you can put someone on by hand; see <a href="#c-manage-roles-pause-fill">Putting someone on a paused date</a>.</p>
 
   <figure>
-    <img src="crops/board-paused-dates.png" data-full="board-paused-dates.png" alt="Roster Board from Sun 13 Dec to Sun 7 Feb: Welcomer and Music filled every week, and the Morning Tea After Church column showing Paused from 20 Dec to 31 Jan, then filled again on 7 Feb" class="screenshot crop" width="788" height="470" loading="lazy" decoding="async">
-    <figcaption>The Board with Morning Tea paused from 20 December to 31 January. It's filled again from 7 February.</figcaption>
+    <img src="crops/board-paused-cards.png" data-full="board-paused-cards.png" alt="Roster Board from Sun 6 Dec to Sun 31 Jan: Welcomer and Music filled every week, and the Morning Tea After Church column showing grey dashed Paused cards from 20 Dec to 31 Jan, with the dates reading 3/3" class="screenshot crop" width="1192" height="720" loading="lazy" decoding="async">
+    <figcaption>The Board with Morning Tea paused from 20 December to 31 January. Each paused slot is a grey <strong>Paused</strong> card, and the dates count 3 roles, not 4.</figcaption>
   </figure>
 
   <p>The same <strong>Pause dates…</strong> line appears on the Edit Roles card in <a href="#c-rebuild-step1">Confirm Dates</a> and on the wizard's <a href="#c-rebuild-step2">Roles</a> step, so you can set a pause while you run a roster cycle.</p>
+
+  <h3 class="sub-title" id="c-manage-roles-pause-fill">Putting someone on a paused date</h3>
+  <p>Plans change. If you paused a role by mistake, or you need it on one date after all, you don't have to change the pause. Each paused slot on the Board is a grey <strong>Paused</strong> card that you can click and fill by hand. Builds, <strong>Refill roster</strong> and <strong>Rebuild roster</strong> still leave paused dates alone, so only the people you choose go on.</p>
+  <ol class="steps">
+    <li>On the Board, click the grey <strong>Paused</strong> card on the date you want.</li>
+    <li>The bar at the top says the role is paused on that date and shows the pause dates. Click <strong>Assign volunteer</strong>.</li>
+  </ol>
+
+  <figure>
+    <img src="crops/board-paused-action-bar.png" data-full="board-paused-action-bar.png" alt="Board with the paused Morning Tea card on Sun 3 Jan selected. The navy bar reads: Morning Tea After Church, Paused on this date. Paused 20 Dec 2026 to 31 Jan 2027. Rostas won't fill it or ask anyone, but you can put someone on by hand. Buttons: Change pause dates, Assign volunteer, Close" class="screenshot crop" width="1192" height="476" loading="lazy" decoding="async">
+    <figcaption>A paused card clicked. The bar explains why the slot is empty and offers <strong>Assign volunteer</strong> and <strong>Change pause dates</strong>.</figcaption>
+  </figure>
+
+  <ol class="steps" start="3" style="counter-reset: step 2">
+    <li>Click the person you want. It's the same list you see for any empty slot (see <a href="#d-replace">Choose who covers a gap yourself</a>): people who ticked the role come first, and anyone marked unavailable for that date isn't listed.</li>
+  </ol>
+
+  <figure>
+    <img src="crops/board-paused-assign.png" data-full="board-paused-assign.png" alt="The Available replacements list for Morning Tea After Church on 03/01/2027: Best fit Primary role Margaret Ellis and Hannah Moore, Best fit Fillable role Tom Walker, then people who haven't ticked the role and people already on that day" class="screenshot crop" width="1192" height="405" loading="lazy" decoding="async">
+    <figcaption>After <strong>Assign volunteer</strong>: choose who to put on, the same way as for any empty slot.</figcaption>
+  </figure>
+
+  <ol class="steps" start="4" style="counter-reset: step 3">
+    <li>They go straight on the card, and the date's count goes up (here 3/3 becomes 4/4). From then on they're treated like anyone else on the roster, with reminders as usual. The other paused dates stay paused.</li>
+  </ol>
+
+  <figure>
+    <img src="crops/board-paused-filled-by-hand.png" data-full="board-paused-filled-by-hand.png" alt="Board from Sun 6 Dec to Sun 10 Jan: Hannah Moore on Morning Tea on Sun 3 Jan, which now reads 4/4, while 20 Dec, 27 Dec and 10 Jan still show Paused cards" class="screenshot crop" width="1192" height="488" loading="lazy" decoding="async">
+    <figcaption>Hannah put on by hand for 3 January. That date now counts 4/4; the rest of the pause is unchanged.</figcaption>
+  </figure>
+
+  <p>To take them off again, click their card and use <strong>Empty</strong> (see <a href="#d-empty">Emptying a slot</a>). The slot goes back to a <strong>Paused</strong> card. <strong>Rebuild roster</strong> keeps anyone you've put on a paused date, because the build would never put anyone back there.</p>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>Paused the wrong dates?</strong> Click any <strong>Paused</strong> card, then <strong>Change pause dates</strong>. It opens <a href="#c-manage-roles">Manage roles</a>, where you can move either end of the pause, or click <strong>Clear</strong> to end it. Save, then click <strong>Refill roster</strong> on the Board to fill the dates that are no longer paused. Refill only changes dates that haven't been sent.
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <strong>If someone on a paused date can't make it</strong>, Rostas doesn't ask anyone else to cover, because the role is paused that day. The volunteer is asked to let you know, and stays on the card until you change it: use <strong>Empty</strong> to leave the slot paused, or <strong>Replace</strong> to choose someone else. This also applies to anyone who was already rostered on a date before you paused it.
+  </div>
 
   <h3 class="sub-title" id="c-manage-roles-fillorder">Fill order — which role gets first pick</h3>
   <p>Rostas fills roles <strong>top-to-bottom</strong> in the order they're listed here — locking each one in fully before moving to the next. If a volunteer is capable of more than one role on a roster, whichever role sits higher in this list gets first claim on them for that date.</p>

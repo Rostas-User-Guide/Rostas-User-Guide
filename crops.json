@@ -409,6 +409,26 @@
       "box": [53, 0, 1104, 627],
       "highlights": [[865, 81, 1088, 548]]
     },
+    "board-paused-cards": {
+      "src": "board-paused-cards.png",
+      "box": [330, 500, 1920, 1460],
+      "highlights": [[1562, 758, 1896, 1458]]
+    },
+    "board-paused-action-bar": {
+      "src": "board-paused-action-bar.png",
+      "box": [330, 505, 1920, 1140],
+      "highlights": [[1420, 535, 1822, 570], [1560, 1046, 1898, 1134]]
+    },
+    "board-paused-assign": {
+      "src": "board-paused-assign.png",
+      "box": [330, 505, 1920, 1045],
+      "highlights": [[1639, 535, 1822, 570], [354, 665, 1190, 742]]
+    },
+    "board-paused-filled-by-hand": {
+      "src": "board-paused-filled-by-hand.png",
+      "box": [330, 500, 1920, 1150],
+      "highlights": [[1562, 963, 1896, 1046], [354, 964, 486, 1047]]
+    },
     "board-replace-oncall": {
       "src": "board-replace-oncall.png",
       "box": [220, 367, 1280, 720],

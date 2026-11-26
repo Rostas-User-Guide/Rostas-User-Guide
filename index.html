@@ -810,6 +810,7 @@
       <button class="toc-toggle" data-target="children-e-volunteer-app" aria-label="Toggle"><span class="arrow">›</span></button>
     </div>
     <div class="toc-children" id="children-e-volunteer-app">
+      <a class="toc-item toc-h2" href="#e-volunteer-app-settings">App Settings</a>
       <a class="toc-item toc-h2" href="#e-volunteer-app-install">How volunteers install it</a>
       <a class="toc-item toc-h2" href="#e-send-app-link">Sending a volunteer their app link</a>
     </div>
@@ -1858,7 +1859,7 @@
   </div>
 
   <h3 class="sub-title" id="e-detail-contact">Contact details &amp; toggles</h3>
-  <p>The left panel shows the volunteer's name, phone, email, and status, with four toggles that control how Rostas treats them, plus an automatic App Installed indicator described below:</p>
+  <p>The left panel shows the volunteer's name, phone, email, and status, with five toggles that control how Rostas treats them, plus an automatic App Installed indicator described below:</p>
 
   <figure>
     <img src="vol-detail-always-sms.png" alt="Profile left panel showing the four toggles: Active, Email, SMS and Always text" class="screenshot-sm" width="333" height="485" loading="lazy" decoding="async">
@@ -1873,13 +1874,14 @@
         <tr><td><strong>Email</strong></td><td>Whether they receive email notifications. Turn off if they've opted out or prefer SMS only.</td></tr>
         <tr><td><strong>SMS</strong></td><td>Whether they receive SMS messages at all. Turn off if they've opted out of texts.</td></tr>
         <tr><td><strong>Always text&nbsp;</strong></td><td>Opts this volunteer in to the day-before reminder text even when the reminder mode would otherwise skip them (see Settings — reminder mode). Useful for volunteers who reliably miss email.&nbsp; In settings&nbsp;<span style="color: rgb(55, 65, 81); font-family: &quot;DM Sans&quot;, system-ui, sans-serif; font-size: 16px; background-color: rgb(247, 249, 251);">Text non-responders (recommended) texts only volunteers with no email, those who haven't confirmed the reminder email, and anyone set to "Always text" in this profile details page.&nbsp;</span></td></tr>
+        <tr><td><strong>Cover requests</strong></td><td>On (the usual): the automatic replacement requests may ask them to cover when someone can't make it. Off: they're never asked by those requests, on any roster, though they're still rostered and you can still ask them from the Roster Board. Volunteers can change this themselves in the app (<a href="#e-volunteer-app-settings">App Settings</a>). If a replacement request runs out of people to ask, the Audit Log names anyone skipped because this is off.</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="callout callout-tip">
     <span class="callout-icon">📱</span>
-    <strong>App installed</strong> — beneath the toggles, a red or green dot shows whether this volunteer has the Rostas mobile app on their phone. Unlike the four toggles above, this isn't something you set — Rostas detects it automatically and turns it green once the volunteer has opened the app within the last 90 days. There's nothing to configure and no action required; it's simply information.
+    <strong>App installed</strong> — beneath the toggles, a red or green dot shows whether this volunteer has the Rostas mobile app on their phone. Unlike the five toggles above, this isn't something you set — Rostas detects it automatically and turns it green once the volunteer has opened the app within the last 90 days. There's nothing to configure and no action required; it's simply information.
     <p style="margin:0.5rem 0 0;">It's a handy way to spot who's worth encouraging toward the app: a red dot is your cue to mention it next time you see that volunteer, or to <a href="#e-send-app-link">send them their app link</a> straight away. Getting more volunteers onto the app pays off twice over — it makes it easier for them to check and adjust their own roster, and every reminder the app can deliver in place of a text is one less SMS your organisation pays for.</p>
   </div>
 
@@ -2187,7 +2189,7 @@
         <tr><td><strong>Your availability</strong></td><td>The same date-picker as the emailed availability form. Volunteers serving on more than one roster type see a pill per roster and set each independently.</td></tr>
         <tr><td><strong>News</strong> (Menu)</td><td>This week's church news sheet, with the date it's for. The <em>In this Update</em> links at the top jump down the sheet; outside links open in the phone's browser.</td></tr>
         <tr><td><strong>Podcasts</strong> (Menu)</td><td><em>Sunday messages</em>: your latest recorded sermons, newest first, each with its title, speaker, date, approximate file size and a <strong>Play</strong> button. One plays at a time, with play and pause on the lock screen; leaving the Podcasts screen stops it. Nothing downloads until Play is tapped, and each file is large, so Wi-Fi is best.</td></tr>
-        <tr><td><strong>Settings</strong> (Menu)</td><td>A push notification toggle, and Install / Remove-app rows.</td></tr>
+        <tr><td><strong>Settings</strong> (Menu)</td><td>Push notifications on or off, <strong>Requests to cover for others</strong>, their photo, the app version with <strong>Check for updates</strong>, and how to remove the app. See <a href="#e-volunteer-app-settings">App Settings</a>.</td></tr>
       </tbody>
     </table>
   </div>
@@ -2221,6 +2223,34 @@
     <img src="app-availability-pills.png" alt="Rostas app availability screen showing roster-type pills for a volunteer on two rosters" class="screenshot-mid screenshot-app" width="864" height="1939" loading="lazy" decoding="async">
     <figcaption>A volunteer serving on both Sunday and Nourish sees a pill for each — availability is set independently per roster.</figcaption>
   </figure>
+
+  <h3 class="sub-title" id="e-volunteer-app-settings">App Settings</h3>
+  <p>Volunteers open <strong>Settings</strong> from the <strong>Menu</strong> button (top right). It holds everything they can change about the app on their own phone:</p>
+
+  <figure>
+    <img src="app-settings.png" alt="Rostas app Settings sheet showing Push notifications switched on, Requests to cover for others switched on, a Your photo row with an Add photo button, an App row with Check for updates and App version v134, and Remove app instructions" class="screenshot-mid screenshot-app" width="336" height="631" loading="lazy" decoding="async">
+    <figcaption>The app's Settings. Both switches are on: this volunteer gets notifications, and may be asked to cover for others.</figcaption>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Row</th><th>What it does</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Push notifications</strong></td><td>Alerts on this phone when they're rostered on, when a reminder is due, or when someone needs cover. If they switch it off, Rostas sends the same messages by text instead, so nothing is missed, but each text costs your church. For the next two times they open the app, a bar reminds them: <em>"Notifications are off, so you'll get texts instead."</em> with <strong>Turn on</strong> and <strong>Keep off</strong>.</td></tr>
+        <tr><td><strong>Requests to cover for others</strong></td><td>On: they may be asked to cover when someone else can't make it. Off: the automatic replacement requests never ask them, on any roster. They are still rostered as normal and still get their own reminders, and you can still ask them directly from the <a href="#a-board">Roster Board</a>. You can see and change this on their profile too (the <strong>Cover requests</strong> switch).</td></tr>
+        <tr><td><strong>Your photo</strong></td><td>Optional. A small round picture of themselves, so coordinators can put a face to a name.</td></tr>
+        <tr><td><strong>App</strong></td><td>Whether the app is installed on this phone, the app version, and <strong>Check for updates</strong> to get the newest version straight away.</td></tr>
+        <tr><td><strong>Remove app</strong></td><td>How to uninstall Rostas from this phone.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <strong>"Too many messages?"</strong> When a volunteer switches Push notifications off while Requests to cover for others is still on, the app first offers <strong>Stop cover requests</strong>. Most of the messages people find too many are requests to cover, and stopping just those keeps their own roster and reminders in the app, so your church doesn't pay for texts instead. They can still choose <strong>Turn off all notifications</strong>.
+  </div>
 
   <h3 class="sub-title" id="e-volunteer-app-install">How volunteers install it</h3>
   <p>Every volunteer email carries a permanent "Get the app" card in the footer — automatic, not something you configure per email. To send someone their link straight away, see <a href="#e-send-app-link">Sending a volunteer their app link</a>. Installing looks different depending on the volunteer's phone:</p>
